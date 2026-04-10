@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Tema 11 — Constitució Espanyola · IB-Salut</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div><div class="nav-title">IB-Salut · Oposicions</div><div class="nav-sub">Grup Tècnic Funció Administrativa</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Inici</a>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Temes ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../temes/tema11.html" class="nav-dropdown-item">Tema 11 — Constitució Espanyola</a>
+        <a href="../temes/tema12.html" class="nav-dropdown-item">Tema 12 — Autonomies (I)</a>
+        <a href="../temes/tema13.html" class="nav-dropdown-item">Tema 13 — Autonomies (II)</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Tema 14 i següents — Pròximament</span>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Tests ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../tests/test_11.html" class="nav-dropdown-item" style="font-weight:700;color:var(--green-d)">Test Tema 11 ✓</a>
+        <a href="../tests/test_12_13.html" class="nav-dropdown-item">Test Temes 12-13 ✓</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Més tests — Pròximament</span>
+      </div>
+    </div>
+  </div>
+  <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html" class="nav-link">Inici</a>
+  <div class="mob-section">Temes</div>
+  <a href="../temes/tema11.html" class="nav-link">Tema 11</a>
+  <a href="../temes/tema12.html" class="nav-link">Tema 12</a>
+  <a href="../temes/tema13.html" class="nav-link">Tema 13</a>
+  <div class="mob-section">Tests</div>
+  <a href="../tests/test_11.html" class="nav-link active">Test Tema 11</a>
+  <a href="../tests/test_12_13.html" class="nav-link">Test Temes 12-13</a>
+</div>
+
+<div class="page">
+  <div style="margin-bottom:8px">
+    <h1 style="font-size:24px;font-weight:700;margin-bottom:6px">Test — Tema 11</h1>
+    <p style="font-size:15px;color:var(--g500)">La Constitució Espanyola de 1978 · 30 preguntes · Puntuació real d'examen</p>
+  </div>
+  <div id="area"></div>
+</div>
+
+<footer>Servei de Salut de les Illes Balears · Material de preparació no oficial · 2025</footer>
+
+<script>
+const BLOCS = [
+  { label: "Bloc I — Preguntes sobre el Tema 11", range: [0, 19] },
+  { label: "Bloc II — Connexió amb altres temes", range: [20, 29] }
+];
+
+const QS = [
+  // ── BLOC I (20 preguntes) ──
+  // P1 → B
+  { q:"¿En qué fecha se publicó la Constitución Española de 1978 en el Boletín Oficial del Estado?",
+    opts:["6 de diciembre de 1978","29 de diciembre de 1978","1 de enero de 1979","15 de noviembre de 1978"],
+    c:1, sec:"1. Introducció i procés constituent",
+    exp:"La CE fue aprobada en referéndum el 6 de diciembre de 1978, pero su publicación en el BOE tuvo lugar el 29 de diciembre de 1978, fecha de su entrada en vigor." },
+  // P2 → C
+  { q:"Según el art. 1.3 CE, ¿cuál es la forma política del Estado español?",
+    opts:["República parlamentaria","Monarquía constitucional","Monarquía parlamentaria","Estado federal"],
+    c:2, sec:"1. Introducció i procés constituent",
+    exp:"El art. 1.3 CE establece expresamente que la forma política del Estado español es la Monarquía parlamentaria." },
+  // P3 → C
+  { q:"¿Cuántos artículos contiene la Constitución Española de 1978?",
+    opts:["139 artículos","153 artículos","169 artículos","175 artículos"],
+    c:2, sec:"2. Estructura de la Constitució",
+    exp:"La CE de 1978 consta de 169 artículos, distribuidos en un Título Preliminar y diez Títulos (I al X), más 4 disposiciones adicionales, 9 transitorias, 1 derogatoria y 1 final." },
+  // P4 → B
+  { q:"Según el art. 1.1 CE, los valores superiores del ordenamiento jurídico español son:",
+    opts:["Libertad, igualdad, justicia y solidaridad","Libertad, justicia, igualdad y pluralismo político","Democracia, justicia, igualdad y soberanía popular","Libertad, seguridad, justicia e igualdad"],
+    c:1, sec:"2. Estructura de la Constitució",
+    exp:"El art. 1.1 CE establece que España propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político." },
+  // P5 → B
+  { q:"¿Cuál de las siguientes afirmaciones sobre el Preámbulo de la CE es correcta?",
+    opts:["Tiene pleno valor normativo y es directamente aplicable","Carece de valor normativo directo pero tiene valor interpretativo fundamental","No tiene ningún valor jurídico ni interpretativo","Solo puede ser invocado ante el Tribunal Constitucional"],
+    c:1, sec:"2. Estructura de la Constitució",
+    exp:"El Preámbulo de la CE carece de valor normativo directo, pero tiene un valor interpretativo fundamental: permite conocer la voluntad del constituyente y sirve de criterio hermenéutico para interpretar el resto del texto constitucional." },
+  // P6 → C
+  { q:"Los derechos y libertades que gozan de la máxima protección constitucional (amparo ante el TC y reserva de ley orgánica) se encuentran en:",
+    opts:["El Capítulo I del Título I (arts. 11-13)","La Sección 2.ª del Capítulo II del Título I (arts. 30-38)","La Sección 1.ª del Capítulo II del Título I (arts. 15-29)","El Capítulo III del Título I (arts. 39-52)"],
+    c:2, sec:"2. Estructura de la Constitució",
+    exp:"Los derechos fundamentales y libertades públicas de la Sección 1.ª del Cap. II del Título I (arts. 15-29) gozan de la máxima protección: reserva de ley orgánica, recurso de amparo ante el TC y tutela preferente y sumaria ante los tribunales ordinarios (art. 53.2 CE)." },
+  // P7 → C
+  { q:"Los principios rectores de la política social y económica recogidos en el Capítulo III del Título I de la CE:",
+    opts:["Son derechos subjetivos directamente exigibles ante los tribunales ordinarios","Están protegidos mediante recurso de amparo ante el Tribunal Constitucional","No son derechos subjetivos directamente exigibles, sino mandatos al legislador y a los poderes públicos","Tienen el mismo nivel de protección que los derechos fundamentales de la Sección 1.ª"],
+    c:2, sec:"2. Estructura de la Constitució",
+    exp:"Los principios rectores del Cap. III del Título I (arts. 39-52) no son derechos subjetivos exigibles directamente ante los tribunales. Constituyen mandatos al legislador y a los poderes públicos que solo podrán alegarse ante la Jurisdicción ordinaria de acuerdo con las leyes que los desarrollen (art. 53.3 CE)." },
+  // P8 → B
+  { q:"La reforma constitucional agravada del art. 168 CE se aplica cuando se pretende revisar el Título Preliminar, el Título II o:",
+    opts:["Cualquier artículo del Título I","La Sección 1.ª del Capítulo II del Título I (derechos fundamentales)","Todos los Capítulos del Título I en su conjunto","El Capítulo III del Título I (principios rectores)"],
+    c:1, sec:"2. Estructura de la Constitució",
+    exp:"El art. 168 CE establece el procedimiento agravado para la revisión total o la que afecte al Título Preliminar, a la Sección 1.ª del Cap. II del Título I (derechos fundamentales, arts. 15-29) o al Título II (La Corona). Requiere 2/3 de cada cámara, disolución automática, ratificación por las nuevas Cortes y referéndum obligatorio." },
+  // P9 → C
+  { q:"Según el art. 137 CE, el Estado se organiza territorialmente en:",
+    opts:["Regiones, provincias y municipios","Municipios, comarcas y Comunidades Autónomas","Municipios, provincias y Comunidades Autónomas","Provincias, islas y Comunidades Autónomas"],
+    c:2, sec:"3. Organització territorial",
+    exp:"El art. 137 CE establece que el Estado se organiza territorialmente en municipios, en provincias y en las Comunidades Autónomas que se constituyan. Todas estas entidades gozan de autonomía para la gestión de sus respectivos intereses." },
+  // P10 → C
+  { q:"Las competencias exclusivas del Estado se recogen en:",
+    opts:["El art. 147 CE","El art. 148 CE","El art. 149 CE","El art. 150 CE"],
+    c:2, sec:"3. Organització territorial",
+    exp:"El art. 149.1 CE enumera las materias de competencia exclusiva del Estado. El art. 148 CE lista las competencias asumibles por las CCAA. El art. 147 CE regula el contenido mínimo de los Estatutos de Autonomía. El art. 150 CE prevé las leyes marco, de delegación y de armonización." },
+  // P11 → B
+  { q:"El Tribunal Constitucional está integrado por un total de:",
+    opts:["9 magistrados","12 magistrados","15 magistrados","20 magistrados"],
+    c:1, sec:"4. El Tribunal Constitucional",
+    exp:"El TC se compone de 12 magistrados nombrados por el Rey: 4 propuestos por el Congreso, 4 por el Senado (ambos por mayoría de 3/5), 2 por el Gobierno y 2 por el CGPJ. Su mandato es de 9 años, no renovable, con renovación por tercios cada 3 años (art. 159 CE)." },
+  // P12 → B
+  { q:"¿Cuántos magistrados del Tribunal Constitucional son propuestos por el Gobierno?",
+    opts:["Cuatro magistrados","Dos magistrados","Tres magistrados","Uno"],
+    c:1, sec:"4. El Tribunal Constitucional",
+    exp:"De los 12 magistrados del TC, 2 son propuestos por el Gobierno, 4 por el Congreso, 4 por el Senado (todos por mayoría de 3/5) y 2 por el CGPJ (art. 159.1 CE)." },
+  // P13 → C
+  { q:"¿Cuál es el mandato de los magistrados del Tribunal Constitucional?",
+    opts:["6 años, sin posibilidad de reelección","6 años, renovables por una sola vez","9 años, sin posibilidad de reelección","9 años, renovables por una sola vez"],
+    c:2, sec:"4. El Tribunal Constitucional",
+    exp:"Los magistrados del TC son nombrados por un período de 9 años, no pudiendo ser reelegidos. El Tribunal se renueva por tercios cada tres años (art. 159.3 CE)." },
+  // P14 → C
+  { q:"El número de diputados que compone actualmente el Congreso de los Diputados es:",
+    opts:["300 diputados","400 diputados","350 diputados","375 diputados"],
+    c:2, sec:"5. Les Corts Generals",
+    exp:"El Congreso está compuesto por un mínimo de 300 y un máximo de 400 Diputados. Actualmente tiene 350 diputados, elegidos por sufragio universal, libre, igual, directo y secreto, con un mandato de 4 años." },
+  // P15 → C
+  { q:"¿Qué mayoría se requiere para aprobar las leyes orgánicas en el Congreso de los Diputados?",
+    opts:["Mayoría simple de los diputados presentes en la votación","Mayoría simple de la Cámara en una doble lectura","Mayoría absoluta del Congreso en votación final sobre el conjunto","Mayoría de 3/5 del Congreso en votación final sobre el conjunto"],
+    c:2, sec:"5. Les Corts Generals",
+    exp:"Según el art. 81.2 CE, la aprobación, modificación o derogación de las leyes orgánicas exige la mayoría absoluta del Congreso (mitad más uno de todos sus miembros) en una votación final sobre el conjunto del proyecto." },
+  // P16 → C (construcctiva + mayoría absoluta)
+  { q:"La moción de censura regulada en el art. 113 CE es constructiva. ¿Qué mayoría se requiere para su aprobación?",
+    opts:["Mayoría simple del Congreso de los Diputados","Mayoría de 3/5 del Congreso de los Diputados","Mayoría absoluta del Congreso de los Diputados","Mayoría absoluta del Congreso y mayoría simple del Senado"],
+    c:2, sec:"6. El Govern i l'Administració",
+    exp:"La moción de censura (art. 113 CE) es constructiva: debe incluir un candidato alternativo a la Presidencia del Gobierno. Se aprueba por mayoría absoluta del Congreso de los Diputados (mitad más uno de sus miembros)." },
+  // P17 → C
+  { q:"Para obtener la confianza del Congreso en la investidura, el candidato propuesto a Presidente del Gobierno necesita en primera votación:",
+    opts:["Mayoría simple del Congreso","Mayoría de 3/5 del Congreso","Mayoría absoluta del Congreso","Mayoría absoluta del Congreso y abstención del Senado"],
+    c:2, sec:"6. El Govern i l'Administració",
+    exp:"En la primera votación de investidura se requiere mayoría absoluta del Congreso (art. 99.3 CE). Si no se obtiene, se procede a una segunda votación 48 horas después, en la que basta la mayoría simple (más votos a favor que en contra)." },
+  // P18 → B
+  { q:"Según el art. 98.1 CE, ¿cuáles son los miembros del Gobierno?",
+    opts:["El Presidente, los Vicepresidentes, los Ministros y los Secretarios de Estado","El Presidente, los Vicepresidentes, en su caso, y los Ministros","El Presidente, los Vicepresidentes, los Ministros y los altos cargos con rango de Secretario de Estado","El Presidente y los Ministros, actuando los Vicepresidentes como coordinadores sin integrar formalmente el Gobierno"],
+    c:1, sec:"6. El Govern i l'Administració",
+    exp:"El art. 98.1 CE establece que el Gobierno se compone del Presidente, de los Vicepresidentes en su caso, de los Ministros y de los demás miembros que establezca la ley. Los Secretarios de Estado no forman parte del Gobierno sensu stricto." },
+  // P19 → C
+  { q:"El Consejo General del Poder Judicial está compuesto por:",
+    opts:["El Presidente del Tribunal Supremo y 20 vocales, siendo todos ellos juristas de reconocida competencia propuestos por las Cortes","El Presidente del Tribunal Supremo y 20 vocales: 10 jueces y magistrados y 10 juristas de reconocida competencia","El Presidente del Tribunal Supremo y 20 vocales: 12 jueces y magistrados y 8 juristas de reconocida competencia","El Presidente del Tribunal Supremo y 21 vocales: 12 jueces y magistrados y 9 juristas de reconocida competencia"],
+    c:2, sec:"7. El Poder Judicial",
+    exp:"El CGPJ (art. 122.3 CE) está integrado por el Presidente del TS, que lo preside, y por 20 vocales: 12 entre jueces y magistrados de todas las categorías judiciales, y 8 juristas de reconocida competencia propuestos (4 por el Congreso y 4 por el Senado) por mayoría de 3/5. Mandato de 5 años." },
+  // P20 → B
+  { q:"¿Cuántas veces ha sido reformada la Constitución Española desde su entrada en vigor, y cuál fue la última reforma?",
+    opts:["Dos veces; la última en 2011 para incluir la estabilidad presupuestaria (art. 135)","Tres veces; la última en 2024 para sustituir el término «disminuidos» por «personas con discapacidad» (art. 49)","Tres veces; la última en 2011 para incluir la estabilidad presupuestaria (art. 135)","Cuatro veces; la última en 2024 para reconocer derechos digitales"],
+    c:1, sec:"8. La reforma constitucional",
+    exp:"La CE ha sido reformada tres veces, todas por el procedimiento ordinario del art. 167: en 1992 (art. 13.2, sufragio pasivo de extranjeros por el Tratado de Maastricht), en 2011 (art. 135, estabilidad presupuestaria) y en 2024 (art. 49, sustitución de «disminuidos» por «personas con discapacidad», sancionada el 15 de febrero de 2024)." },
+
+  // ── BLOC II (10 preguntes) ──
+  // P21 → C
+  { q:"El art. 103.3 CE establece que la ley regulará el estatuto de los funcionarios públicos. ¿Qué principios rigen constitucionalmente el acceso a la función pública?",
+    opts:["Mérito, capacidad y publicidad de las convocatorias","Igualdad, mérito, capacidad e idoneidad para el puesto","Igualdad, mérito y capacidad","Mérito, capacidad y antigüedad en el cuerpo o escala"],
+    c:2, sec:"Bloc II — Tema 27/6", ref:"Art. 103.3 CE; TREBEP (RDLeg. 5/2015)",
+    exp:"El art. 103.3 CE consagra los principios de igualdad, mérito y capacidad como criterios constitucionales de acceso a la función pública. Estos principios se desarrollan en el TREBEP (RDLeg. 5/2015)." },
+  // P22 → B
+  { q:"En el sistema de fuentes del ordenamiento jurídico español, ¿qué posición ocupa la Constitución?",
+    opts:["Un rango superior a las leyes orgánicas, aunque subordinado a los tratados internacionales en materia de derechos humanos por mandato del art. 10.2 CE","El escalón más alto de la jerarquía normativa, siendo norma suprema del ordenamiento jurídico","Un rango equiparable al de los tratados internacionales válidamente celebrados, que prevalecen sobre las leyes internas conforme al art. 96 CE","El escalón más alto del ordenamiento interno, aunque sujeto al principio de primacía del derecho de la Unión Europea con efecto directo"],
+    c:1, sec:"Bloc II — Temes 31/32", ref:"Arts. 9.1 i 9.3 CE",
+    exp:"La CE ocupa el escalón más alto de la jerarquía normativa española (arts. 9.1 y 9.3 CE). El art. 10.2 CE establece un criterio interpretativo (no de jerarquía) respecto a los tratados de derechos humanos. La primacía del derecho UE es un principio de aplicación, no de jerarquía formal." },
+  // P23 → C
+  { q:"El art. 103.1 CE establece que la Administración Pública actúa conforme a determinados principios. ¿Cuál de los siguientes NO figura expresamente en dicho artículo?",
+    opts:["Descentralización","Desconcentración","Proporcionalidad","Coordinación"],
+    c:2, sec:"Bloc II — Tema 33", ref:"Art. 103.1 CE",
+    exp:"El art. 103.1 CE enumera los principios de eficacia, jerarquía, descentralización, desconcentración y coordinación. La proporcionalidad es un principio de la LPAC (Ley 39/2015) y del derecho administrativo general, pero no figura expresamente en el art. 103.1 CE." },
+  // P24 → C
+  { q:"La cuestión de inconstitucionalidad regulada en el art. 163 CE puede ser planteada por:",
+    opts:["Cualquier parte del proceso que lo solicite razonadamente al juez que esté conociendo del asunto","El Ministerio Fiscal, cuando aprecie en el proceso la posible inconstitucionalidad de una norma aplicable","El juez o tribunal que conozca del proceso, de oficio o a instancia de parte, cuando tenga dudas sobre la constitucionalidad de una norma","El Defensor del Pueblo o el Fiscal General del Estado cuando tengan constancia de la aplicación de una norma de dudosa constitucionalidad"],
+    c:2, sec:"Bloc II — Tema 14", ref:"Art. 163 CE",
+    exp:"La cuestión de inconstitucionalidad la plantea el juez o tribunal ante el TC (no las partes, aunque pueden solicitarlo). Se eleva cuando el órgano judicial tiene dudas sobre la constitucionalidad de una norma con rango de ley aplicable al proceso y de cuya validez depende el fallo." },
+  // P25 → B
+  { q:"¿Cuál de las siguientes afirmaciones refleja correctamente el contenido del art. 2 CE, fundamento del Estado de las Autonomías?",
+    opts:["Reconoce el derecho a la autonomía de las nacionalidades y regiones, sin perjuicio del principio de unidad e igualdad entre todos los españoles","Proclama la indisoluble unidad de la Nación española y reconoce el derecho a la autonomía de las nacionalidades y regiones","Garantiza la autonomía de las Comunidades Autónomas dentro del marco de la Constitución y de sus respectivos Estatutos de Autonomía","Proclama la unidad de España y reconoce a las nacionalidades históricas el derecho a acceder a la plena autonomía mediante sus Estatutos"],
+    c:1, sec:"Bloc II — Temes 12/13", ref:"Art. 2 CE",
+    exp:"El art. 2 CE proclama la indisoluble unidad de la Nación española, patria común e indivisible de todos los españoles, y reconoce y garantiza el derecho a la autonomía de las nacionalidades y regiones que la integran y la solidaridad entre todas ellas." },
+  // P26 → B
+  { q:"El Defensor del Pueblo, regulado en el art. 54 CE, es:",
+    opts:["Un comisionado del Gobierno para supervisar la actuación de la Administración Pública y defender los derechos de los ciudadanos","Un comisionado de las Cortes Generales para la defensa de los derechos del Título I frente a la actuación de la Administración","Un comisionado de las Cortes Generales con competencia para controlar la constitucionalidad de las disposiciones reglamentarias","Un comisionado parlamentario cuyas resoluciones son vinculantes para todas las Administraciones Públicas"],
+    c:1, sec:"Bloc II — Tema 16", ref:"Art. 54 CE",
+    exp:"El art. 54 CE define al Defensor del Pueblo como comisionado de las Cortes Generales para la defensa de los derechos comprendidos en el Título I. Supervisa la actividad de las Administraciones Públicas, pero sus resoluciones no son vinculantes: se articulan mediante recomendaciones, sugerencias y advertencias." },
+  // P27 → B
+  { q:"Los Estatutos de Autonomía son, según el art. 147.1 CE:",
+    opts:["Leyes orgánicas aprobadas por las Cortes Generales que regulan la organización institucional y el régimen competencial de cada Comunidad Autónoma","La norma institucional básica de cada Comunidad Autónoma, reconocida y amparada por el Estado como parte integrante de su ordenamiento jurídico","Normas con rango de ley orgánica aprobadas por los parlamentos autonómicos, cuya modificación requiere el mismo procedimiento que la reforma constitucional","Las normas básicas de organización territorial y competencial, aprobadas por las asambleas autonómicas y ratificadas por las Cortes Generales mediante ley ordinaria"],
+    c:1, sec:"Bloc II — Tema 18", ref:"Art. 147.1 CE",
+    exp:"El art. 147.1 CE define los Estatutos de Autonomía como la norma institucional básica de cada Comunidad Autónoma. El Estado los reconoce y ampara como parte integrante de su ordenamiento jurídico. Formalmente se aprueban como leyes orgánicas de las Cortes Generales." },
+  // P28 → C
+  { q:"Según la Ley 50/1997, del Gobierno, ¿qué órgano colegiado delibera y aprueba los proyectos de ley y los asuntos de política general de mayor relevancia?",
+    opts:["La Comisión General de Secretarios de Estado y Subsecretarios, que prepara los asuntos que se elevan al Consejo de Ministros","Las Comisiones Delegadas del Gobierno, que coordinan la acción del Ejecutivo en cada área sectorial","El Consejo de Ministros","La Comisión Delegada del Gobierno para Asuntos Económicos, cuando los proyectos tengan incidencia presupuestaria"],
+    c:2, sec:"Bloc II — Tema 17", ref:"Art. 97 CE i Llei 50/1997",
+    exp:"El Consejo de Ministros es el órgano colegiado supremo del Gobierno (art. 97 CE y Ley 50/1997). Le corresponde aprobar los proyectos de ley, los Presupuestos Generales del Estado, los Reales Decretos y demás actos de mayor relevancia. La CGSS prepara los asuntos y las Comisiones Delegadas coordinan áreas sectoriales." },
+  // P29 → B
+  { q:"El art. 93 CE, que permite ceder el ejercicio de competencias constitucionales a organizaciones internacionales mediante ley orgánica, fue utilizado por primera vez como base constitucional para:",
+    opts:["La adhesión de España a la OTAN en 1982 y su ratificación en el referéndum consultivo de 1986","La adhesión de España a las Comunidades Europeas, que entró en vigor el 1 de enero de 1986","La ratificación del Tratado de Maastricht sobre la Unión Europea, que motivó además la primera reforma de la CE en 1992","La aprobación del Tratado de Lisboa de 2007, que reformó el Tratado de la Unión Europea y el TFUE"],
+    c:1, sec:"Bloc II — Temes 47/48", ref:"Art. 93 CE",
+    exp:"El art. 93 CE se utilizó por primera vez para la adhesión de España a las Comunidades Europeas (CCEE), mediante la Ley Orgánica 10/1985, que entró en vigor el 1 de enero de 1986. La OTAN se instrumentó por vía diferente. El Tratado de Maastricht motivó la primera reforma constitucional (art. 13.2 CE), pero no fue el primer uso del art. 93." },
+  // P30 → B
+  { q:"El Real Decreto Legislativo 5/2015, texto refundido del Estatuto Básico del Empleado Público, desarrolla el mandato del art. 23.2 CE. ¿Qué derecho recoge dicho apartado?",
+    opts:["El derecho de los ciudadanos a participar en los asuntos públicos, directamente o por medio de representantes libremente elegidos","El derecho a acceder en condiciones de igualdad a las funciones y cargos públicos, con los requisitos que señalen las leyes","El derecho al sufragio activo y pasivo en todas las elecciones convocadas conforme a la legislación electoral vigente","El derecho de los aspirantes a ser informados de las convocatorias de empleo público y a participar en igualdad de condiciones"],
+    c:1, sec:"Bloc II — Tema 27", ref:"Art. 23.2 CE",
+    exp:"El art. 23.1 CE recoge el derecho a participar en los asuntos públicos. El art. 23.2 CE reconoce el derecho a acceder en condiciones de igualdad a las funciones y cargos públicos con los requisitos que señalen las leyes, que es el fundamento constitucional del TREBEP y de los principios de igualdad, mérito y capacidad." },
+];
+
+const LT=['a','b','c','d'];
+const PASS=15, TOTAL=30;
+let ans={}, cur=0, done=false, wrongs=[];
+
+function scorePerQ(){ return TOTAL/QS.length; }
+function calcScore(){
+  const pq=scorePerQ();
+  return QS.reduce((s,q,i)=>{
+    if(ans[i]===undefined)return s;
+    return ans[i]===q.c ? s+pq : s-pq/4;
+  },0);
+}
+function fmt(n){ return n.toFixed(3).replace('.',','); }
+function fmtS(n){ return (Math.round(n*100)/100).toFixed(2).replace('.',','); }
+function scoreColor(s){ if(s<0)return'#DC2626'; if(s/TOTAL>=0.5)return'#1D9E75'; if(s/TOTAL>=0.35)return'#D97706'; return'#DC2626'; }
+function getBlocLabel(i){
+  for(const b of BLOCS){ if(i>=b.range[0]&&i<=b.range[1])return b.label; }
+  return '';
+}
+
+function pick(qi,oi){ if(ans[qi]!==undefined)return; ans[qi]=oi; render(); }
+function go(d){ cur=Math.max(0,Math.min(QS.length-1,cur+d)); render(); }
+function finish(){ done=true; wrongs=QS.reduce((a,q,i)=>{ if(ans[i]!==q.c)a.push(i); return a; },[]); render(); }
+function reset(){ ans={}; cur=0; done=false; render(); }
+
+function renderScoreLive(){
+  const pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const pend=QS.length-Object.keys(ans).length;
+  const score=calcScore(), col=scoreColor(score);
+  const thPct=(PASS/TOTAL)*100, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100));
+  return `<div class="score-live">
+    <div class="score-live-item"><div class="sl-val" style="color:${col}">${fmtS(score)}</div><div class="sl-lbl">Pts / ${TOTAL}</div></div>
+    <div class="score-live-item"><div class="sl-val ok">${ok}</div><div class="sl-lbl">Correctes</div></div>
+    <div class="score-live-item"><div class="sl-val ng">${ng}</div><div class="sl-lbl">Errònies</div></div>
+    <div class="score-live-item"><div class="sl-val pend">${pend}</div><div class="sl-lbl">Pendents</div></div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${sPct}%;background:${col}"></div>
+        <div class="score-threshold" style="left:${thPct}%"></div>
+      </div>
+      <div class="score-bar-labels"><span>0</span><span style="color:var(--amber);font-weight:600">mín ${PASS}</span><span>${TOTAL}</span></div>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const area=document.getElementById('area');
+  if(done){ renderResults(area); return; }
+  const q=QS[cur], answered=ans[cur]!==undefined, ndone=Object.keys(ans).length, pq=scorePerQ();
+
+  // Detect bloc transition
+  let blocHeader='';
+  if(cur===0||getBlocLabel(cur)!==getBlocLabel(cur-1)){
+    blocHeader=`<div style="background:var(--g100);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--g600);text-transform:uppercase;letter-spacing:.04em">${getBlocLabel(cur)}</div>`;
+  }
+
+  let h=renderScoreLive();
+  h+=`<div class="prog-wrap"><div class="prog-top"><span>Progrés</span><b>${ndone} / ${QS.length} respostes</b></div><div class="prog-track"><div class="prog-fill" style="width:${Math.round(ndone/QS.length*100)}%"></div></div></div>`;
+  h+=blocHeader;
+  h+=`<div class="qcard">`;
+  if(q.sec) h+=`<div style="font-size:11px;color:var(--g400);margin-bottom:6px;font-weight:500">${q.sec}</div>`;
+  h+=`<div class="qnum">Pregunta ${cur+1} de ${QS.length}</div>`;
+  h+=`<div class="qtext">${q.q}</div><div class="opts">`;
+  q.opts.forEach((o,i)=>{
+    let cls='opt'+(answered?' dis':'');
+    let delta='';
+    if(answered){
+      if(i===q.c){ cls+=' ok'; if(i===ans[cur]) delta=`<span class="score-delta pos">+${fmt(pq)} pts</span>`; }
+      else if(i===ans[cur]){ cls+=' ng'; delta=`<span class="score-delta neg">-${fmt(pq/4)} pts</span>`; }
+    }
+    h+=`<button class="${cls}" onclick="pick(${cur},${i})"><span class="ol">${LT[i]}</span><span style="flex:1">${o}</span>${delta}</button>`;
+  });
+  h+=`</div>`;
+  if(answered){
+    let exp=`<div class="expl on"><strong>Explicació:</strong> ${q.exp}`;
+    if(q.ref) exp+=` <em style="color:var(--g400);font-size:13px">(Ref: ${q.ref})</em>`;
+    exp+=`</div>`;
+    h+=exp;
+  }
+  h+=`</div>`;
+  const allDone=ndone===QS.length;
+  h+=`<div class="nav-q">
+    <button class="nbtn" onclick="go(-1)" ${cur===0?'disabled':''}>← Anterior</button>
+    <span class="nctr">${cur+1}/${QS.length}</span>
+    ${allDone?'<button class="nbtn pri" onclick="finish()">Veure resultats →</button>':`<button class="nbtn" onclick="go(1)" ${cur===QS.length-1?'disabled':''}>Següent →</button>`}
+  </div>`;
+  area.innerHTML=h;
+}
+
+function renderResults(area){
+  const n=QS.length, pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const score=calcScore(), passed=score>=PASS, col=scoreColor(score);
+  const circ=2*Math.PI*54, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100)), dash=circ*(1-sPct/100);
+  const msg=passed?(score>=27?'Resultat excel·lent!':score>=22?'Molt bon resultat.':'Aprovat. Segueix repassant.'):(score>=12?'Molt a prop! Repassa els errors.':'Cal reforçar aquest tema.');
+
+  // Per-bloc breakdown
+  const b1ok=QS.slice(0,20).filter((q,i)=>ans[i]===q.c).length;
+  const b2ok=QS.slice(20).filter((q,i)=>ans[i+20]===q.c).length;
+  const b1ng=20-b1ok, b2ng=10-b2ok;
+  const pq1=TOTAL/20, pq2=TOTAL/10; // for display only (different weight per bloc)
+  const p1=Math.max(0,Math.min(100,(b1ok/20)*100));
+  const p2=Math.max(0,Math.min(100,(b2ok/10)*100));
+  const c1=p1>=50?'#1D9E75':p1>=35?'#D97706':'#DC2626';
+  const c2=p2>=50?'#1D9E75':p2>=35?'#D97706':'#DC2626';
+
+  let h=`<div class="rhero">
+    <div class="ring">
+      <svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="#E5E7EB" stroke-width="9"/>
+        ${score>=0?`<circle cx="60" cy="60" r="54" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${dash.toFixed(2)}" stroke-linecap="round"/>`:''}
+      </svg>
+      <div class="rtext"><span class="rpts" style="color:${col}">${fmtS(score)}</span><span class="rover">/ ${TOTAL} pts</span></div>
+    </div>
+    <div class="raprueba ${passed?'si':'no'}">${passed?'✓ APROVAT':'✗ NO APROVAT'} · mínim ${PASS} pts</div>
+    <div class="rtitle">${msg}</div>
+    <div class="rsub">${n} preguntes · Tema 11</div>
+    <div class="rstats">
+      <div class="sc"><div class="sn g">${ok}</div><div class="sl2">Correctes</div></div>
+      <div class="sc"><div class="sn r">${ng}</div><div class="sl2">Errònies</div></div>
+      <div class="sc"><div class="sn a">+${fmt(pq)}</div><div class="sl2">Pts/encert</div></div>
+      <div class="sc"><div class="sn gr">-${fmt(pq/4)}</div><div class="sl2">Pts/error</div></div>
+    </div>
+  </div>`;
+
+  h+=`<div class="formula">
+    <span>📐 <b>Fórmula:</b></span>
+    <span>Correcta: <b>+${fmt(pq)}</b></span>
+    <span>Errònia: <b>-${fmt(pq/4)}</b></span>
+    <span>En blanc: <b>no permès</b></span>
+    <span>Mínim: <b>${PASS} / ${TOTAL}</b></span>
+  </div>`;
+
+  h+=`<div class="bdown"><h3>Desglose per bloc</h3>
+    <div class="trow">
+      <span class="tlbl" style="min-width:90px">Bloc I (20 q.)</span>
+      <div class="tbar"><div class="tbfill" style="width:${p1}%;background:${c1}"></div><div class="tth" style="left:50%"></div></div>
+      <span class="tpct" style="color:${c1}">${b1ok}/20</span>
+    </div>
+    <div class="trow">
+      <span class="tlbl" style="min-width:90px">Bloc II (10 q.)</span>
+      <div class="tbar"><div class="tbfill" style="width:${p2}%;background:${c2}"></div><div class="tth" style="left:50%"></div></div>
+      <span class="tpct" style="color:${c2}">${b2ok}/10</span>
+    </div>
+  </div>`;
+
+  h+=`<div class="ract">
+    <button class="abtn pri" onclick="reset()">Repetir test</button>
+    <a href="../temes/tema11.html" class="abtn" style="background:var(--blue-l);color:var(--blue);border:1.5px solid #BFDBFE;text-decoration:none">Repassar el tema</a>
+  </div>`;
+  area.innerHTML=h;
+}
+
+render();
+</script>
+</body>
+</html>

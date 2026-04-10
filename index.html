@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oposicions IB-Salut · Grup Tècnic Funció Administrativa</title>
+<meta name="description" content="Material de preparació per al procés selectiu del Grup Tècnic de la Funció Administrativa del Servei de Salut de les Illes Balears.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div><div class="nav-title">IB-Salut · Oposicions</div><div class="nav-sub">Grup Tècnic Funció Administrativa</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Inici</a>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Temes ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="temes/tema11.html" class="nav-dropdown-item">Tema 11 — Constitució Espanyola</a>
+        <a href="temes/tema12.html" class="nav-dropdown-item">Tema 12 — Autonomies (I)</a>
+        <a href="temes/tema13.html" class="nav-dropdown-item">Tema 13 — Autonomies (II)</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Tema 14 i següents — Pròximament</span>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Tests ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="tests/test_11.html" class="nav-dropdown-item">Test Tema 11 ✓</a>
+        <a href="tests/test_12_13.html" class="nav-dropdown-item">Test Temes 12-13 ✓</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Més tests — Pròximament</span>
+      </div>
+    </div>
+  </div>
+  <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" class="nav-link active">Inici</a>
+  <div class="mob-section">Temes disponibles</div>
+  <a href="temes/tema12.html" class="nav-link">Tema 12 — Autonomies (I)</a>
+  <a href="temes/tema13.html" class="nav-link">Tema 13 — Autonomies (II)</a>
+  <div class="mob-section">Tests</div>
+  <a href="tests/test_12_13.html" class="nav-link">Test Temes 12-13</a>
+</div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-badge">BOIB Núm. 115 · 30 d'agost de 2025</div>
+    <h1>Prepara les teves oposicions<br>al Servei de Salut</h1>
+    <p>Material de preparació per al procés selectiu del Grup Tècnic de la Funció Administrativa (subgrup A1) del Servei de Salut de les Illes Balears.</p>
+    <div class="info-strip">
+      <div class="info-item"><div class="info-n">20</div><div class="info-l">Sessions</div></div>
+      <div class="info-item"><div class="info-n">18</div><div class="info-l">Temes</div></div>
+      <div class="info-item"><div class="info-n">2</div><div class="info-l">Simulacres</div></div>
+      <div class="info-item"><div class="info-n">30 pts</div><div class="info-l">Puntuació màxima</div></div>
+      <div class="info-item"><div class="info-n">15 pts</div><div class="info-l">Mínim aprovació</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ BLOC 1 ═══ -->
+  <div class="bloc">
+    <div class="bloc-header">
+      <div class="bloc-num">1</div>
+      <div>
+        <div class="bloc-title">Constitució i organització de l'Estat</div>
+        <div class="bloc-sub">Temes 11–18 · Abril – Maig 2026</div>
+      </div>
+    </div>
+    <div class="tema-grid">
+
+      <a href="temes/tema11.html" class="tema-card available">
+        <div class="tema-card-top">
+          <span class="tema-num">Tema 11</span>
+          <span class="tema-status ok">✓ Disponible</span>
+        </div>
+        <div class="tema-card-title">Constitució Espanyola: estructura, organització territorial, TC, Corts, Govern i Poder Judicial</div>
+        <div class="tema-card-date">📅 07/04/2026</div>
+      </a>
+
+      <a href="temes/tema12.html" class="tema-card available">
+        <div class="tema-card-top">
+          <span class="tema-num">Tema 12</span>
+          <span class="tema-status ok">✓ Disponible</span>
+        </div>
+        <div class="tema-card-title">Estat de les Autonomies (I): principis, procediments d'accés i Estatuts d'Autonomia</div>
+        <div class="tema-card-date">📅 14/04/2026</div>
+      </a>
+
+      <a href="temes/tema13.html" class="tema-card available">
+        <div class="tema-card-top">
+          <span class="tema-num">Tema 13</span>
+          <span class="tema-status ok">✓ Disponible</span>
+        </div>
+        <div class="tema-card-title">Estat de les Autonomies (II): organització institucional, competències i coordinació</div>
+        <div class="tema-card-date">📅 21/04/2026</div>
+      </a>
+
+      <a href="temes/tema14.html" class="tema-card locked">
+        <div class="tema-card-top">
+          <span class="tema-num">Tema 14</span>
+          <span class="tema-status soon">🔒 Pròximament</span>
+        </div>
+        <div class="tema-card-title">Corts Generals: funcions legislatives, financeres, pressupostàries i de control del Govern</div>
+        <div class="tema-card-date">📅 28/04/2026</div>
+      </a>
+
+      <a href="temes/tema15.html" class="tema-card locked">
+        <div class="tema-card-top">
+          <span class="tema-num">Tema 15</span>
+          <span class="tema-status soon">🔒 Pròximament</span>
+        </div>
+        <div class="tema-card-title">Govern: composició, funcions, president, ministres i comissions delegades</div>
+        <div class="tema-card-date">📅 05/05/2026</div>
+      </a>
+
+      <a href="temes/tema16.html" class="tema-card locked">
+        <div class="tema-card-top">
+          <span class="tema-num">Tema 16</span>
+          <span class="tema-status soon">🔒 Pròximament</span>
+        </div>
+        <div class="tema-card-title">Estatut d'Autonomia de les Illes Balears: drets, deures, competències i reforma</div>
+        <div class="tema-card-date">📅 12/05/2026</div>
+      </a>
+
+      <a href="temes/tema17.html" class="tema-card locked">
+        <div class="tema-card-top">
+          <span class="tema-num">Tema 17</span>
+          <span class="tema-status soon">🔒 Pròximament</span>
+        </div>
+        <div class="tema-card-title">Organització institucional de la CA de les Illes Balears: Parlament, president, Govern i consells insulars</div>
+        <div class="tema-card-date">📅 19/05/2026</div>
+      </a>
+
+      <a href="temes/tema18.html" class="tema-card locked">
+        <div class="tema-card-top">
+          <span class="tema-num">Tema 18</span>
+          <span class="tema-status soon">🔒 Pròximament</span>
+        </div>
+        <div class="tema-card-title">Règim de cooficialitat de les llengües: Llei de Normalització Lingüística i requisits de català</div>
+        <div class="tema-card-date">📅 26/05/2026</div>
+      </a>
+
+    </div>
+
+    <!-- Tests bloc 1 -->
+    <div style="margin-top:20px">
+      <div style="font-size:13px;font-weight:600;color:var(--g500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Tests d'aquest bloc</div>
+      <div class="test-grid">
+        <a href="tests/test_11.html" class="test-card available">
+          <div class="test-icon ok"><svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Tema 11</div><div class="test-meta">30 preguntes · Bloc I (tema) + Bloc II (connexió)</div></div>
+        </a>
+        <a href="tests/test_12_13.html" class="test-card available">
+          <div class="test-icon ok"><svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Temes 12–13</div><div class="test-meta">40 preguntes · Puntuació real d'examen</div></div>
+        </a>
+        <a href="tests/test_14_15.html" class="test-card locked">
+          <div class="test-icon locked"><svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Temes 14–15</div><div class="test-meta">40 preguntes · Pròximament</div></div>
+        </a>
+        <a href="tests/test_16_17_18.html" class="test-card locked">
+          <div class="test-icon locked"><svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Temes 16–18</div><div class="test-meta">Pròximament</div></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Simulacre 1 -->
+    <a href="tests/simulacre_1.html" class="sim-card locked">
+      <div class="sim-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+      <div>
+        <div class="sim-title">Simulacre d'Examen — 8 temes</div>
+        <div class="sim-meta">📅 02/06/2026 · Temes 11–18</div>
+      </div>
+      <div class="sim-badge">🔒 Pròximament</div>
+    </a>
+  </div>
+
+  <!-- ═══ BLOC 2 ═══ -->
+  <div class="bloc">
+    <div class="bloc-header">
+      <div class="bloc-num amber">2</div>
+      <div>
+        <div class="bloc-title">Empleats públics i règim disciplinari</div>
+        <div class="bloc-sub">Temes 27, 29 · Juny 2026</div>
+      </div>
+    </div>
+    <div class="tema-grid">
+      <a href="temes/tema27.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 27</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Estatut Bàsic de l'Empleat Públic (RDL 5/2015): representació, negociació col·lectiva i règim d'incompatibilitats</div>
+        <div class="tema-card-date">📅 09/06/2026</div>
+      </a>
+      <a href="temes/tema29.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 29</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Règim disciplinari del personal estatutari: faltes, sancions i procediment disciplinari</div>
+        <div class="tema-card-date">📅 16/06/2026</div>
+      </a>
+    </div>
+    <div style="margin-top:20px">
+      <div style="font-size:13px;font-weight:600;color:var(--g500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Tests d'aquest bloc</div>
+      <div class="test-grid">
+        <a href="tests/test_27_29.html" class="test-card locked">
+          <div class="test-icon locked"><svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Temes 27–29</div><div class="test-meta">Pròximament</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ BLOC 3 ═══ -->
+  <div class="bloc">
+    <div class="bloc-header">
+      <div class="bloc-num blue">3</div>
+      <div>
+        <div class="bloc-title">Dret administratiu</div>
+        <div class="bloc-sub">Temes 31, 33, 34, 35, 41, 42, 46 · Juny – Agost 2026</div>
+      </div>
+    </div>
+    <div class="tema-grid">
+      <a href="temes/tema31.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 31</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Fonts del dret administratiu: llei, reglament, costum, principis generals i jurisprudència</div>
+        <div class="tema-card-date">📅 23/06/2026</div>
+      </a>
+      <a href="temes/tema33.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 33</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Administració pública: concepte, característiques, tipus i principis constitucionals</div>
+        <div class="tema-card-date">📅 30/06/2026</div>
+      </a>
+      <a href="temes/tema34.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 34</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Drets dels ciutadans davant l'Administració: capacitat jurídica, representació i signatura electrònica</div>
+        <div class="tema-card-date">📅 07/07/2026</div>
+      </a>
+      <a href="temes/tema35.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 35</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Llei de Procediment Administratiu Comú (Llei 39/2015): disposicions generals, actes i recursos administratius</div>
+        <div class="tema-card-date">📅 14/07/2026</div>
+      </a>
+      <a href="temes/tema41.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 41</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Llei de Règim Jurídic de l'Administració de la CA de les Illes Balears (Llei 3/2003)</div>
+        <div class="tema-card-date">📅 21/07/2026</div>
+      </a>
+      <a href="temes/tema42.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 42</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Llei de Règim Jurídic del Sector Públic (Llei 40/2015): òrgans administratius, competència i convenis</div>
+        <div class="tema-card-date">📅 28/07/2026</div>
+      </a>
+      <a href="temes/tema46.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 46</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Llei del Sector Públic Instrumental de la CA de les Illes Balears (Llei 7/2010)</div>
+        <div class="tema-card-date">📅 11/08/2026</div>
+      </a>
+    </div>
+    <div style="margin-top:20px">
+      <div style="font-size:13px;font-weight:600;color:var(--g500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Tests d'aquest bloc</div>
+      <div class="test-grid">
+        <a href="tests/test_31_33.html" class="test-card locked">
+          <div class="test-icon locked"><svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Temes 31–33</div><div class="test-meta">Pròximament</div></div>
+        </a>
+        <a href="tests/test_34_35.html" class="test-card locked">
+          <div class="test-icon locked"><svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Temes 34–35</div><div class="test-meta">Pròximament</div></div>
+        </a>
+        <a href="tests/test_41_42_46.html" class="test-card locked">
+          <div class="test-icon locked"><svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Temes 41–42–46</div><div class="test-meta">Pròximament</div></div>
+        </a>
+      </div>
+    </div>
+    <!-- Simulacre 2 -->
+    <a href="tests/simulacre_2.html" class="sim-card locked">
+      <div class="sim-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+      <div>
+        <div class="sim-title">Simulacre d'Examen — 16 temes</div>
+        <div class="sim-meta">📅 04/08/2026 · Temes 11–18 + 27–46</div>
+      </div>
+      <div class="sim-badge">🔒 Pròximament</div>
+    </a>
+  </div>
+
+  <!-- ═══ BLOC 4 ═══ -->
+  <div class="bloc">
+    <div class="bloc-header">
+      <div class="bloc-num purple">4</div>
+      <div>
+        <div class="bloc-title">Unió Europea i igualtat</div>
+        <div class="bloc-sub">Temes 47, 52 · Agost 2026</div>
+      </div>
+    </div>
+    <div class="tema-grid">
+      <a href="temes/tema47.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 47</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Ordenament comunitari europeu: dret originari i derivat, institucions de la Unió Europea</div>
+        <div class="tema-card-date">📅 18/08/2026</div>
+      </a>
+      <a href="temes/tema52.html" class="tema-card locked">
+        <div class="tema-card-top"><span class="tema-num">Tema 52</span><span class="tema-status soon">🔒 Pròximament</span></div>
+        <div class="tema-card-title">Llei d'Igualtat de Dones i Homes (Llei 11/2016): polítiques públiques i conciliació</div>
+        <div class="tema-card-date">📅 25/08/2026</div>
+      </a>
+    </div>
+    <div style="margin-top:20px">
+      <div class="test-grid">
+        <a href="tests/test_47_52.html" class="test-card locked">
+          <div class="test-icon locked"><svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="test-info"><div class="test-title">Test Temes 47–52</div><div class="test-meta">Pròximament</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<footer>Servei de Salut de les Illes Balears · Material de preparació no oficial · 2025–2026</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open')}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('nav')&&!e.target.closest('.mobile-menu'))
+    document.getElementById('mobile-menu').classList.remove('open');
+});
+</script>
+</body>
+</html>
