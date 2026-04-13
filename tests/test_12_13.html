@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Temes 12-13 — Autonomies · IB-Salut</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div><div class="nav-title">IB-Salut · Oposicions</div><div class="nav-sub">Grup Tècnic Funció Administrativa</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Inici</a>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Temes ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../temes/tema11.html" class="nav-dropdown-item">Tema 11 — Constitució Espanyola</a>
+        <a href="../temes/tema12.html" class="nav-dropdown-item">Tema 12 — Autonomies (I)</a>
+        <a href="../temes/tema13.html" class="nav-dropdown-item">Tema 13 — Autonomies (II)</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Tema 14 i següents — Pròximament</span>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Tests ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../tests/test_11.html" class="nav-dropdown-item">Test Tema 11 ✓</a>
+        <a href="../tests/test_12_13.html" class="nav-dropdown-item" style="font-weight:700;color:var(--green-d)">Test Temes 12-13 ✓</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Més tests — Pròximament</span>
+      </div>
+    </div>
+  </div>
+  <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html" class="nav-link">Inici</a>
+  <div class="mob-section">Temes</div>
+  <a href="../temes/tema11.html" class="nav-link">Tema 11</a>
+  <a href="../temes/tema12.html" class="nav-link">Tema 12</a>
+  <a href="../temes/tema13.html" class="nav-link">Tema 13</a>
+  <div class="mob-section">Tests</div>
+  <a href="../tests/test_11.html" class="nav-link">Test Tema 11</a>
+  <a href="../tests/test_12_13.html" class="nav-link active">Test Temes 12-13</a>
+</div>
+
+<div class="page">
+  <div style="margin-bottom:8px">
+    <h1 style="font-size:24px;font-weight:700;margin-bottom:6px">Test — Temes 12 i 13</h1>
+    <p style="font-size:15px;color:var(--g500)">L'Estat de les Autonomies · 40 preguntes · Puntuació real d'examen</p>
+  </div>
+  <div id="area"></div>
+</div>
+
+<footer>Servei de Salut de les Illes Balears · Material de preparació no oficial · 2025</footer>
+
+<script>
+const BLOCS = [
+  { label: "Bloc I — Tema 12: Principis, accés i Estatuts d'Autonomia", range: [0, 19] },
+  { label: "Bloc II — Tema 13: Organització institucional, competències i coordinació", range: [20, 39] }
+];
+
+const QS = [
+  // ══════════════════════════════════════
+  // BLOC I — TEMA 12 (20 preguntes)
+  // ══════════════════════════════════════
+
+  // T12-P1 → D (índex 3)
+  { q:"¿Cuál es el contenido mínimo que debe incluir todo Estatuto de Autonomía según el art. 147.2 CE?",
+    opts:["Símbolos, territorio, gobierno autonómico y reforma","Denominación, capital, lengua propia y financiación","Denominación, derechos de los ciudadanos, instituciones y relaciones con el Estado","Denominación de la CA, delimitación del territorio, instituciones propias y competencias asumidas"],
+    c:3, sec:"1. Estatuts d'Autonomia",
+    exp:"El art. 147.2 CE establece como contenido mínimo obligatorio de todo Estatuto: la denominación de la Comunidad, la delimitación de su territorio, la denominación, organización y sede de las instituciones autónomas propias, y las competencias asumidas dentro del marco constitucional." },
+
+  // T12-P2 → B (índex 1)
+  { q:"¿Cuáles son los cinco principios estructurantes del Estado de las Autonomías?",
+    opts:["Unidad, igualdad, descentralización, cooperación y eficacia","Unidad, autonomía, dispositivo, solidaridad y coordinación","Soberanía, autonomía, igualdad, subsidiariedad y solidaridad","Territorialidad, dispositivo, federalismo, solidaridad y eficacia"],
+    c:1, sec:"2. Principis estructurants",
+    exp:"Los cinco principios vertebradores del Estado autonómico son: unidad (art. 2 CE), autonomía (arts. 2 y 137 CE), principio dispositivo o de voluntariedad (arts. 143 y 151 CE), solidaridad (art. 138 CE) y coordinación (art. 103.1 CE). No se trata de un Estado federal sino de un modelo propio." },
+
+  // T12-P3 → C (índex 2)
+  { q:"¿Cuántas Comunidades Autónomas y Ciudades Autónomas existen actualmente en España?",
+    opts:["17 Comunidades Autónomas y 3 Ciudades Autónomas","19 Comunidades Autónomas y ninguna Ciudad Autónoma","17 Comunidades Autónomas y 2 Ciudades Autónomas","15 Comunidades Autónomas y 2 Ciudades Autónomas"],
+    c:2, sec:"2. Principis estructurants",
+    exp:"El mapa autonómico español comprende 17 Comunidades Autónomas y 2 Ciudades Autónomas (Ceuta y Melilla), estas últimas con un régimen peculiar regulado por sus respectivos Estatutos aprobados como leyes orgánicas en 1995." },
+
+  // T12-P4 → A (índex 0)
+  { q:"¿Qué artículo de la CE organiza el territorio del Estado en municipios, provincias y Comunidades Autónomas?",
+    opts:["Art. 137 CE","Art. 2 CE","Art. 103 CE","Art. 148 CE"],
+    c:0, sec:"2. Principis estructurants",
+    exp:"El art. 137 CE establece que el Estado se organiza territorialmente en municipios, provincias y en las Comunidades Autónomas que se constituyan. Todas estas entidades gozan de autonomía para la gestión de sus respectivos intereses." },
+
+  // T12-P5 → B (índex 1)
+  { q:"¿Qué afirma el Tribunal Constitucional sobre la relación entre autonomía y soberanía?",
+    opts:["Las CCAA pueden ejercer soberanía en materias exclusivas","La autonomía no es soberanía: las CCAA ejercen poderes limitados derivados de la CE","La autonomía política implica reconocimiento de soberanía compartida","La autonomía autonómica equivale a soberanía limitada"],
+    c:1, sec:"2. Principis estructurants",
+    exp:"El TC ha reiterado (STC 4/1981 y otras) que la autonomía es un poder limitado: no es soberanía. Las CCAA ejercen poderes propios derivados de la Constitución y de sus Estatutos, pero dentro de los límites del ordenamiento constitucional y sin potestad constituyente." },
+
+  // T12-P6 → B (índex 1)
+  { q:"[BALEARES] ¿Por qué vía accedió Illes Balears a la autonomía y cuál es su Estatuto actualmente vigente?",
+    opts:["Vía art. 151 CE; Estatuto LO 2/1983","Vía art. 143 CE; Estatuto LO 1/2007","Vía art. 144 CE; Estatuto LO 3/1999","Vía art. 151 CE; Estatuto LO 1/2007"],
+    c:1, sec:"3. Vies d'accés a l'autonomia",
+    exp:"Illes Balears accedió a la autonomía por la vía ordinaria del art. 143 CE. El Estatuto original fue la LO 2/1983, de 25 de febrero. Tras sucesivas reformas, el Estatuto actualmente vigente es la LO 1/2007, de 28 de febrero, de reforma del Estatuto de Autonomía de las Illes Balears." },
+
+  // T12-P7 → D (índex 3)
+  { q:"El principio de solidaridad interterritorial en su dimensión negativa prohíbe fundamentalmente:",
+    opts:["La creación de impuestos propios por las CCAA","Que una CA tenga más competencias que otra","La suscripción de convenios entre CCAA sin autorización estatal","Adoptar medidas que obstaculicen la libre circulación de personas, bienes o servicios"],
+    c:3, sec:"4. Solidaritat i coordinació",
+    exp:"La dimensión negativa de la solidaridad (arts. 138.2 y 139.2 CE) prohíbe que las diferencias entre Estatutos impliquen privilegios económicos o sociales y, sobre todo, prohíbe adoptar medidas que obstaculicen la libre circulación y establecimiento de personas y la libre circulación de bienes en todo el territorio español." },
+
+  // T12-P8 → C (índex 2)
+  { q:"La vía especial o rápida del art. 151 CE exigía la ratificación mediante referéndum por:",
+    opts:["Mayoría de 3/5 de la población de la región","Mayoría simple en votación conjunta de todas las provincias","Mayoría de votos válidos emitidos en cada provincia","Mayoría absoluta del censo electoral de la región"],
+    c:2, sec:"3. Vies d'accés a l'autonomia",
+    exp:"El art. 151.1 CE exigía para la iniciativa autonómica agravada, además de los requisitos del art. 143.2, la ratificación por la mayoría absoluta de los electores de cada provincia (referéndum de iniciativa). Una vez elaborado el proyecto de Estatuto, debía ser ratificado por el cuerpo electoral por mayoría de los votos válidos emitidos en cada provincia." },
+
+  // T12-P9 → C (índex 2)
+  { q:"Los Estatutos de Autonomía son aprobados formalmente como:",
+    opts:["Reglamentos de las Asambleas autonómicas","Leyes ordinarias de las Cortes Generales","Leyes orgánicas de las Cortes Generales","Decretos legislativos del Gobierno"],
+    c:2, sec:"1. Estatuts d'Autonomia",
+    exp:"Los Estatutos de Autonomía se aprueban formalmente como leyes orgánicas de las Cortes Generales (art. 81 CE), ya que regulan los derechos fundamentales y las libertades públicas y el régimen de las CCAA. No obstante, tienen una naturaleza bifronte: son simultáneamente norma estatal y norma institucional básica de la CA (art. 147.1 CE)." },
+
+  // T12-P10 → A (índex 0)
+  { q:"[BALEARES] La reforma del Estatuto de Autonomía de Illes Balears vigente (LO 1/2007) requiere:",
+    opts:["Aprobación del Parlament, de las Cortes Generales y referéndum para materias esenciales","Referéndum obligatorio en todos los casos sin intervención de las Cortes","Únicamente aprobación de las Cortes Generales","Solo aprobación del Parlament de les Illes Balears"],
+    c:0, sec:"1. Estatuts d'Autonomia",
+    exp:"La reforma del EAIB (LO 1/2007) requiere la aprobación del Parlament de les Illes Balears y de las Cortes Generales como ley orgánica. Para las materias que afecten al Título I (Disposiciones generales), al Título II (Derechos, deberes y libertades) y al propio Título de la reforma, se exige además ratificación por referéndum." },
+
+  // T12-P11 → B (índex 1)
+  { q:"¿En qué artículo de la Constitución se recoge el principio dispositivo o de voluntariedad?",
+    opts:["Art. 151 CE","Art. 2 CE","Art. 143 CE","Art. 137 CE"],
+    c:1, sec:"2. Principis estructurants",
+    exp:"El principio dispositivo se plasma en el art. 2 CE, que «reconoce y garantiza el derecho a la autonomía de las nacionalidades y regiones». No impone la autonomía, sino que reconoce un derecho a acceder a ella. Los arts. 143 y 151 CE regulan las vías concretas de acceso, pero el principio como tal se consagra en el art. 2." },
+
+  // T12-P12 → C (índex 2)
+  { q:"¿Qué normas integran el llamado 'bloque de constitucionalidad'?",
+    opts:["Solo la Constitución Española","La CE, los Estatutos, las leyes básicas y los tratados internacionales","La CE, los Estatutos de Autonomía y las leyes orgánicas del art. 150 CE","La CE, las leyes orgánicas y los reglamentos parlamentarios"],
+    c:2, sec:"1. Estatuts d'Autonomia",
+    exp:"El bloque de constitucionalidad (concepto acuñado por el TC, STC 10/1982) está integrado por la Constitución, los Estatutos de Autonomía y las leyes orgánicas del art. 150 CE (leyes marco, de transferencia/delegación y de armonización). Estas normas sirven de parámetro para enjuiciar la constitucionalidad de otras disposiciones." },
+
+  // T12-P13 → B (índex 1)
+  { q:"¿Qué instrumento del art. 158.2 CE tiene como finalidad corregir los desequilibrios económicos interterritoriales?",
+    opts:["Los convenios de colaboración entre CCAA","El Fondo de Compensación Interterritorial","El Presupuesto General del Estado","El sistema de financiación autonómica LOFCA"],
+    c:1, sec:"4. Solidaritat i coordinació",
+    exp:"El art. 158.2 CE establece el Fondo de Compensación Interterritorial (FCI), con destino a gastos de inversión, cuyos recursos serán distribuidos por las Cortes Generales entre las Comunidades Autónomas y provincias. Su finalidad es corregir los desequilibrios económicos interterritoriales y hacer efectivo el principio de solidaridad." },
+
+  // T12-P14 → D (índex 3)
+  { q:"El TC ha señalado (STC 135/1992) que el principio de solidaridad:",
+    opts:["Prohíbe que una CA tenga mejores servicios que otra","Implica la igualación absoluta de rentas entre territorios","Obliga a las CCAA a transferir parte de sus ingresos al Estado","No implica uniformidad ni igualación absoluta, sino que prohíbe diferencias injustificadas"],
+    c:3, sec:"4. Solidaritat i coordinació",
+    exp:"El TC (STC 135/1992) ha declarado que la solidaridad no exige la igualación absoluta ni la uniformidad de todos los territorios. Lo que prohíbe son las diferencias injustificadas y los privilegios. Cada CA puede tener niveles diferentes de servicios según su capacidad y sus opciones políticas, siempre que se garantice un mínimo común." },
+
+  // T12-P15 → C (índex 2)
+  { q:"La naturaleza 'bifronte' de los Estatutos de Autonomía significa que:",
+    opts:["Pueden ser aplicados tanto por tribunales ordinarios como por el TC","Son normas que pueden reformarse por el Estado o la CA unilateralmente","Son simultáneamente norma estatal (ley orgánica) y norma autonómica (parámetro de constitucionalidad)","Tienen doble eficacia: directa en la CA e indirecta en el resto del Estado"],
+    c:2, sec:"1. Estatuts d'Autonomia",
+    exp:"El TC ha reconocido la naturaleza bifronte de los Estatutos: son leyes orgánicas del Estado (aprobadas por las Cortes Generales) y, al mismo tiempo, la norma institucional básica de cada CA que integra el bloque de constitucionalidad y sirve de parámetro de validez de las demás normas autonómicas." },
+
+  // T12-P16 → A (índex 0)
+  { q:"¿Qué Comunidades Autónomas accedieron por la disposición transitoria 2.ª de la Constitución?",
+    opts:["Cataluña, País Vasco y Galicia","Cataluña, País Vasco y Andalucía","Galicia, Andalucía y Navarra","Cataluña, Galicia y Navarra"],
+    c:0, sec:"3. Vies d'accés a l'autonomia",
+    exp:"La disposición transitoria 2.ª CE estableció que los territorios que en el pasado hubiesen plebiscitado afirmativamente proyectos de Estatuto de Autonomía podían acceder inmediatamente a la autonomía plena. Se aplicó a Cataluña, País Vasco y Galicia, que habían plebiscitado Estatutos durante la II República." },
+
+  // T12-P17 → D (índex 3)
+  { q:"La vía ordinaria de acceso a la autonomía (art. 143 CE) exigía la iniciativa de las Diputaciones y de qué porcentaje de municipios:",
+    opts:["La mayoría absoluta de los municipios","Las tres cuartas partes de los municipios","La mitad más uno de los municipios de cada provincia","Las dos terceras partes de los municipios que representaran la mayoría del censo"],
+    c:3, sec:"3. Vies d'accés a l'autonomia",
+    exp:"El art. 143.2 CE exigía que la iniciativa autonómica ordinaria fuera acordada por las Diputaciones interesadas o por el órgano interinsular correspondiente y por las dos terceras partes de los municipios cuya población representase, al menos, la mayoría del censo electoral de cada provincia o isla." },
+
+  // T12-P18 → A (índex 0)
+  { q:"El principio de coordinación se distingue del de cooperación porque:",
+    opts:["La coordinación puede imponerse por ley, mientras que la cooperación es voluntaria","La coordinación solo opera en materia financiera, la cooperación en el resto","La cooperación opera entre CCAA, y la coordinación entre el Estado y las CCAA","La cooperación la ejerce el TC y la coordinación el Gobierno"],
+    c:0, sec:"4. Solidaritat i coordinació",
+    exp:"La doctrina y la jurisprudencia constitucional distinguen coordinación y cooperación: la coordinación implica una relación de supremacía y puede ser impuesta por ley (el Estado fija criterios vinculantes); la cooperación, en cambio, es voluntaria y se basa en el acuerdo entre partes iguales (convenios, conferencias sectoriales)." },
+
+  // T12-P19 → A (índex 0)
+  { q:"¿Qué tipo de autonomía tienen las CCAA según la doctrina constitucional?",
+    opts:["Autonomía política, que incluye potestad legislativa propia","Autonomía cuasi-soberana en las materias exclusivas","Autonomía meramente administrativa, similar a la local","Autonomía federalista con derecho a secesión regulado"],
+    c:0, sec:"2. Principis estructurants",
+    exp:"El TC ha distinguido entre la autonomía administrativa de municipios y provincias (art. 140-141 CE) y la autonomía política de las CCAA, que incluye potestad legislativa propia (Asamblea Legislativa), funciones de gobierno (Consejo de Gobierno) y organización judicial territorial (TSJ). No es soberanía ni es meramente administrativa." },
+
+  // T12-P20 → D (índex 3)
+  { q:"¿Qué precepto constitucional permite al Estado adoptar medidas coercitivas si una CA incumple gravemente la Constitución o las leyes?",
+    opts:["Art. 150.3 CE","Art. 138 CE","Art. 149 CE","Art. 155 CE"],
+    c:3, sec:"4. Solidaritat i coordinació",
+    exp:"El art. 155 CE establece la coerción estatal: si una CA no cumpliere las obligaciones que la Constitución u otras leyes le impongan, o actuare de forma que atente gravemente al interés general de España, el Gobierno, con la aprobación por mayoría absoluta del Senado, podrá adoptar las medidas necesarias para obligar a su cumplimiento. Se aplicó por primera vez en 2017 respecto a Cataluña." },
+
+  // ══════════════════════════════════════
+  // BLOC II — TEMA 13 (20 preguntes)
+  // ══════════════════════════════════════
+
+  // T13-P1 → D (índex 3)
+  { q:"¿Cuál es la función del Presidente de la Comunidad Autónoma según el art. 152.1 CE?",
+    opts:["Ejerce funciones ejecutivas y legislativas conjuntamente","Solo ostenta la representación simbólica de la CA ante el Estado","Actúa como árbitro entre el Parlamento autonómico y el Gobierno central","Dirige el Gobierno, ostenta su más alta representación y ejerce la representación ordinaria del Estado en la CA"],
+    c:3, sec:"5. Organització institucional autonòmica",
+    exp:"El art. 152.1 CE establece que el Presidente de la CA dirige el Consejo de Gobierno, ostenta la suprema representación de la Comunidad y la representación ordinaria del Estado en aquella. Es elegido por la Asamblea Legislativa de entre sus miembros y nombrado por el Rey." },
+
+  // T13-P2 → B (índex 1)
+  { q:"El art. 149.1.16.ª CE atribuye al Estado competencia exclusiva en:",
+    opts:["La gestión de los servicios sanitarios de todas las CCAA","Sanidad exterior; bases y coordinación general de la sanidad","La ordenación de las profesiones sanitarias en todo el territorio","La financiación de los hospitales públicos de toda España"],
+    c:1, sec:"6. Repartiment competencial",
+    exp:"El art. 149.1.16.ª CE reserva al Estado la competencia exclusiva sobre sanidad exterior, bases y coordinación general de la sanidad, y legislación sobre productos farmacéuticos. Las CCAA asumen el desarrollo legislativo y la gestión de los servicios sanitarios en su territorio." },
+
+  // T13-P3 → C (índex 2)
+  { q:"¿En qué materia reconoce expresamente el art. 149.2 CE la existencia de competencias concurrentes entre Estado y CCAA?",
+    opts:["Turismo","Medio ambiente","Cultura","Educación"],
+    c:2, sec:"6. Repartiment competencial",
+    exp:"El art. 149.2 CE establece expresamente que, sin perjuicio de las competencias que puedan asumir las CCAA, el Estado considerará el servicio de la cultura como deber y atribución esencial, y facilitará la comunicación cultural entre las CCAA. Es el único caso en que la CE reconoce explícitamente la concurrencia competencial." },
+
+  // T13-P4 → A (índex 0)
+  { q:"Según el TC (STC 32/1981), ¿cuál es el criterio material para determinar qué normas son 'básicas'?",
+    opts:["Que establezcan el común denominador normativo para asegurar los intereses generales e igualdad básica de todos los ciudadanos","Que sean aprobadas por ley orgánica en el BOE","Que se apliquen en todo el territorio sin excepción","Que sean dictadas por el Gobierno central mediante decreto"],
+    c:0, sec:"6. Repartiment competencial",
+    exp:"El TC (STC 32/1981) definió el criterio material de lo básico: las bases son el común denominador normativo necesario para asegurar, en aras de intereses generales superiores a los de cada CA, un común denominador normativo a partir del cual cada CA pueda establecer las peculiaridades que le convengan. Deben dejar espacio real al desarrollo autonómico." },
+
+  // T13-P5 → B (índex 1)
+  { q:"[BALEARES] ¿Qué ley desarrolla en Illes Balears las bases estatales en materia sanitaria (Ley 14/1986 y Ley 16/2003)?",
+    opts:["El Decreto 39/2006, de estatutos del IB-Salut","La Ley 5/2003, de salut de les Illes Balears","La Ley 7/2010, del sector público instrumental de la CA","La Ley 5/1999, de ordenación sanitaria de Baleares"],
+    c:1, sec:"6. Repartiment competencial",
+    exp:"La Ley 5/2003, de 4 d'abril, de salut de les Illes Balears, es la norma autonómica que desarrolla las bases estatales en materia sanitaria (Ley 14/1986, General de Sanidad, y Ley 16/2003, de cohesión y calidad del SNS). Regula la organización del sistema de salud balear, incluyendo el Servei de Salut de les Illes Balears (IB-Salut)." },
+
+  // T13-P6 → B (índex 1)
+  { q:"[BALEARES] Los Consells Insulars de Illes Balears son:",
+    opts:["Órganos consultivos de la Administración autonómica sin competencias propias","Órganos de gobierno, administración y representación de cada isla, con naturaleza de entidades locales y competencias propias","Delegaciones del Govern de les Illes Balears en cada isla","Comisiones parlamentarias con funciones de control insular"],
+    c:1, sec:"5. Organització institucional autonòmica",
+    exp:"Los Consells Insulars (Mallorca, Menorca, Eivissa y Formentera) son instituciones propias de la CA según el EAIB (LO 1/2007). Tienen doble naturaleza: son entidades locales (art. 141.4 CE) y, a la vez, instituciones autonómicas con competencias propias de gobierno, administración y representación de cada isla." },
+
+  // T13-P7 → D (índex 3)
+  { q:"En el esquema de competencias compartidas, ¿cuál es el papel de las CCAA?",
+    opts:["Solo ejecutar lo que el Estado legisla, sin capacidad normativa propia","Proponer al Estado las normas básicas que luego este aprueba","Sustituir la legislación estatal básica por su propia normativa","Aprobar legislación de desarrollo y ejecutar las políticas en su territorio, respetando las bases estatales"],
+    c:3, sec:"6. Repartiment competencial",
+    exp:"En el esquema de competencias compartidas (bases/desarrollo), el Estado dicta la legislación básica y las CCAA aprueban la legislación de desarrollo y ejecutan las políticas en su territorio, siempre respetando el marco básico estatal. Este es el modelo más frecuente y complejo del sistema autonómico español." },
+
+  // T13-P8 → C (índex 2)
+  { q:"[BALEARES] El Síndic de Greuges de Illes Balears es:",
+    opts:["El magistrado que preside el TSJIB","El órgano consultivo superior de la CA en materia jurídica","El comisionado del Parlament para la defensa de los derechos fundamentales frente a la Administración autonómica","El órgano de fiscalización económica de la Hacienda autonómica"],
+    c:2, sec:"5. Organització institucional autonòmica",
+    exp:"El Síndic de Greuges es el comisionado del Parlament de les Illes Balears para la defensa de los derechos y libertades de los ciudadanos frente a la actuación de la Administración autonómica e insular. Es el equivalente balear del Defensor del Pueblo estatal (art. 54 CE)." },
+
+  // T13-P9 → C (índex 2)
+  { q:"En materia de legislación laboral, ¿qué esquema competencial establece el art. 149.1.7.ª CE?",
+    opts:["Las CCAA legislan dentro del marco fijado por leyes marco estatales","Competencia exclusiva de las CCAA en sus territorios","El Estado legisla y las CCAA ejecutan esa legislación","Competencias compartidas: Estado bases, CCAA desarrollo y ejecución"],
+    c:2, sec:"6. Repartiment competencial",
+    exp:"El art. 149.1.7.ª CE reserva al Estado la legislación laboral, «sin perjuicio de su ejecución por los órganos de las CCAA». Es un ejemplo de competencia legislación estatal/ejecución autonómica, distinto del esquema bases/desarrollo. Las CCAA no pueden dictar normas laborales, pero sí ejecutar la legislación estatal (inspección, gestión de prestaciones, etc.)." },
+
+  // T13-P10 → A (índex 0)
+  { q:"Las Conferencias Sectoriales son instrumentos de:",
+    opts:["Coordinación entre el Gobierno estatal y los Gobiernos autonómicos en áreas sectoriales","Negociación de los Estatutos de Autonomía","Control del Estado sobre la actividad legislativa de las CCAA","Cooperación voluntaria exclusivamente entre CCAA"],
+    c:0, sec:"7. Coordinació i cooperació",
+    exp:"Las Conferencias Sectoriales (reguladas en la Ley 40/2015, LRJSP) son órganos de cooperación multilateral entre el Gobierno del Estado y los Gobiernos de las CCAA en áreas sectoriales (sanidad, educación, etc.). Se reúnen el Ministro del ramo y los Consejeros autonómicos competentes. Sus acuerdos pueden ser vinculantes si así se pacta." },
+
+  // T13-P11 → B (índex 1)
+  { q:"[BALEARES] ¿Qué órgano ejerce la función legislativa autonómica en Illes Balears?",
+    opts:["El Consell Consultiu","El Parlament de les Illes Balears","El Govern de les Illes Balears","El Consell de Govern"],
+    c:1, sec:"5. Organització institucional autonòmica",
+    exp:"El Parlament de les Illes Balears es la institución que ejerce la potestad legislativa autonómica, aprueba los presupuestos de la CA, impulsa y controla la acción política y de gobierno, y ejerce las demás competencias que le atribuyen el Estatuto y las leyes (art. 40 y ss. EAIB, LO 1/2007)." },
+
+  // T13-P12 → C (índex 2)
+  { q:"¿Qué instrumento del art. 150 CE permite al Estado transferir o delegar en las CCAA competencias propias del art. 149.1?",
+    opts:["Las leyes marco (art. 150.1)","Los convenios de colaboración (art. 145.2)","Las leyes de transferencia o delegación (art. 150.2)","Las leyes de armonización (art. 150.3)"],
+    c:2, sec:"6. Repartiment competencial",
+    exp:"El art. 150.2 CE establece que el Estado podrá transferir o delegar en las CCAA, mediante ley orgánica, facultades correspondientes a materias de titularidad estatal que por su propia naturaleza sean susceptibles de transferencia o delegación. El art. 150.1 regula las leyes marco y el art. 150.3 las leyes de armonización." },
+
+  // T13-P13 → B (índex 1)
+  { q:"¿Cuál de las siguientes materias es competencia exclusiva del Estado según el art. 149.1 CE?",
+    opts:["Montes y aprovechamientos forestales","Relaciones internacionales","Urbanismo","Turismo"],
+    c:1, sec:"6. Repartiment competencial",
+    exp:"Las relaciones internacionales (art. 149.1.3.ª CE) son competencia exclusiva del Estado. Montes y aprovechamientos forestales pueden ser asumidos por las CCAA (art. 148.1.8.ª CE). El urbanismo es competencia autonómica (STC 61/1997). El turismo puede ser asumido por las CCAA (art. 148.1.18.ª CE)." },
+
+  // T13-P14 → D (índex 3)
+  { q:"¿Qué tipo de competencia es la más frecuente y compleja del sistema autonómico español?",
+    opts:["Las competencias concurrentes","Las competencias exclusivas de las CCAA","Las competencias delegadas por el art. 150.2 CE","Las competencias compartidas bases/desarrollo"],
+    c:3, sec:"6. Repartiment competencial",
+    exp:"Las competencias compartidas bases/desarrollo constituyen la categoría más frecuente y compleja del sistema autonómico. El Estado dicta la legislación básica y las CCAA aprueban el desarrollo legislativo y la ejecución. Las materias sanitaria, educativa y medioambiental son ejemplos paradigmáticos." },
+
+  // T13-P15 → C (índex 2)
+  { q:"¿Qué artículo de la CE autoriza los convenios de colaboración entre el Estado y las CCAA?",
+    opts:["Art. 155 CE","Art. 149 CE","Art. 145.2 CE","Art. 150.2 CE"],
+    c:2, sec:"7. Coordinació i cooperació",
+    exp:"El art. 145.2 CE prevé que los Estatutos de Autonomía podrán prever los supuestos, requisitos y términos en que las CCAA podrán celebrar convenios entre sí. Los convenios de colaboración Estado-CCAA se amparan también en el principio general de cooperación derivado de la estructura territorial del Estado." },
+
+  // T13-P16 → A (índex 0)
+  { q:"[BALEARES] El Tribunal Superior de Justícia de les Illes Balears (TSJIB):",
+    opts:["Corona la organización judicial en el territorio autonómico, sin perjuicio de la jurisdicción del Tribunal Supremo","Es el máximo órgano jurisdiccional de Baleares en materia constitucional","Sustituye al Tribunal Supremo en todas las materias de derecho balear","Es un órgano de la Administración de justicia dependiente del Govern"],
+    c:0, sec:"5. Organització institucional autonòmica",
+    exp:"El TSJIB culmina la organización judicial en el ámbito territorial de la CA (art. 152.1 CE y EAIB), sin perjuicio de la jurisdicción que corresponde al Tribunal Supremo. No depende del Govern: el Poder Judicial es único para todo el Estado y su gobierno corresponde al CGPJ (art. 122 CE)." },
+
+  // T13-P17 → D (índex 3)
+  { q:"[BALEARES] El Consell Consultiu de Illes Balears es:",
+    opts:["El órgano de gobierno de los jueces en la CA","El consejo económico y social de la comunidad autónoma","El órgano de control del Parlament sobre el Govern","El órgano consultivo superior de la CA que emite dictámenes preceptivos sobre proyectos de ley y reglamentos"],
+    c:3, sec:"5. Organització institucional autonòmica",
+    exp:"El Consell Consultiu de les Illes Balears es el órgano consultivo superior de la CA (equivalente al Consejo de Estado a nivel estatal). Emite dictámenes preceptivos (y en algunos casos vinculantes) sobre anteproyectos de ley, proyectos de decretos legislativos, reglamentos y otras materias que le atribuye la ley." },
+
+  // T13-P18 → A (índex 0)
+  { q:"[BALEARES] ¿Qué institución de Illes Balears es el equivalente autonómico del Tribunal de Cuentas?",
+    opts:["La Sindicatura de Comptes","El Consell Consultiu","La Sindicatura de Greuges","El Tribunal Superior de Justícia de les Illes Balears"],
+    c:0, sec:"5. Organització institucional autonòmica",
+    exp:"La Sindicatura de Comptes de les Illes Balears es el órgano de fiscalización externa de la actividad económica, financiera y contable del sector público de la CA. Es el equivalente autonómico del Tribunal de Cuentas (art. 136 CE), sin perjuicio de las competencias fiscalizadoras de este último." },
+
+  // T13-P19 → A (índex 0)
+  { q:"Según la jurisprudencia constitucional, las bases estatales deben:",
+    opts:["Establecer el común denominador normativo necesario y dejar espacio real para el desarrollo autonómico","Ser aprobadas siempre por ley orgánica","Agotar la regulación de la materia, dejando solo la ejecución a las CCAA","Sustituir a la legislación autonómica previa en la materia"],
+    c:0, sec:"6. Repartiment competencial",
+    exp:"El TC ha reiterado que las bases deben establecer el mínimo común normativo necesario para garantizar los intereses generales, pero dejando un margen real y efectivo para que las CCAA puedan ejercer sus competencias de desarrollo. Unas bases que agotan la regulación vulneran el orden competencial." },
+
+  // T13-P20 → D (índex 3)
+  { q:"¿Por qué el TC ha interpretado restrictivamente las leyes de armonización del art. 150.3 CE?",
+    opts:["Porque requieren mayoría de 3/5 de cada cámara para su aprobación","Porque solo pueden usarse en materias presupuestarias o financieras","Porque solo pueden regular materias de competencia exclusiva del Estado","Porque requieren necesidad real de armonización y efectiva divergencia autonómica problemática (STC 76/1983)"],
+    c:3, sec:"7. Coordinació i cooperació",
+    exp:"El TC (STC 76/1983, caso LOAPA) interpretó restrictivamente el art. 150.3 CE: las leyes de armonización son un instrumento excepcional que requiere acreditar una necesidad real de armonización derivada de una divergencia autonómica que resulte problemática para el interés general. No pueden utilizarse para vaciar las competencias autonómicas ni como instrumento ordinario de política legislativa." },
+];
+
+const LT=['a','b','c','d'];
+const PASS=20, TOTAL=40;
+let ans={}, cur=0, done=false, wrongs=[];
+
+function scorePerQ(){ return TOTAL/QS.length; }
+function calcScore(){
+  const pq=scorePerQ();
+  return QS.reduce((s,q,i)=>{
+    if(ans[i]===undefined)return s;
+    return ans[i]===q.c ? s+pq : s-pq/4;
+  },0);
+}
+function fmt(n){ return n.toFixed(3).replace('.',','); }
+function fmtS(n){ return (Math.round(n*100)/100).toFixed(2).replace('.',','); }
+function scoreColor(s){ if(s<0)return'#DC2626'; if(s/TOTAL>=0.5)return'#1D9E75'; if(s/TOTAL>=0.35)return'#D97706'; return'#DC2626'; }
+function getBlocLabel(i){
+  for(const b of BLOCS){ if(i>=b.range[0]&&i<=b.range[1])return b.label; }
+  return '';
+}
+
+function pick(qi,oi){ if(ans[qi]!==undefined)return; ans[qi]=oi; render(); }
+function go(d){ cur=Math.max(0,Math.min(QS.length-1,cur+d)); render(); }
+function finish(){ done=true; wrongs=QS.reduce((a,q,i)=>{ if(ans[i]!==q.c)a.push(i); return a; },[]); render(); }
+function reset(){ ans={}; cur=0; done=false; render(); }
+
+function renderScoreLive(){
+  const pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const pend=QS.length-Object.keys(ans).length;
+  const score=calcScore(), col=scoreColor(score);
+  const thPct=(PASS/TOTAL)*100, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100));
+  return `<div class="score-live">
+    <div class="score-live-item"><div class="sl-val" style="color:${col}">${fmtS(score)}</div><div class="sl-lbl">Pts / ${TOTAL}</div></div>
+    <div class="score-live-item"><div class="sl-val ok">${ok}</div><div class="sl-lbl">Correctes</div></div>
+    <div class="score-live-item"><div class="sl-val ng">${ng}</div><div class="sl-lbl">Errònies</div></div>
+    <div class="score-live-item"><div class="sl-val pend">${pend}</div><div class="sl-lbl">Pendents</div></div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${sPct}%;background:${col}"></div>
+        <div class="score-threshold" style="left:${thPct}%"></div>
+      </div>
+      <div class="score-bar-labels"><span>0</span><span style="color:var(--amber);font-weight:600">mín ${PASS}</span><span>${TOTAL}</span></div>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const area=document.getElementById('area');
+  if(done){ renderResults(area); return; }
+  const q=QS[cur], answered=ans[cur]!==undefined, ndone=Object.keys(ans).length, pq=scorePerQ();
+
+  // Detect bloc transition
+  let blocHeader='';
+  if(cur===0||getBlocLabel(cur)!==getBlocLabel(cur-1)){
+    blocHeader=`<div style="background:var(--g100);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--g600);text-transform:uppercase;letter-spacing:.04em">${getBlocLabel(cur)}</div>`;
+  }
+
+  let h=renderScoreLive();
+  h+=`<div class="prog-wrap"><div class="prog-top"><span>Progrés</span><b>${ndone} / ${QS.length} respostes</b></div><div class="prog-track"><div class="prog-fill" style="width:${Math.round(ndone/QS.length*100)}%"></div></div></div>`;
+  h+=blocHeader;
+  h+=`<div class="qcard">`;
+  if(q.sec) h+=`<div style="font-size:11px;color:var(--g400);margin-bottom:6px;font-weight:500">${q.sec}</div>`;
+  h+=`<div class="qnum">Pregunta ${cur+1} de ${QS.length}</div>`;
+  h+=`<div class="qtext">${q.q}</div><div class="opts">`;
+  q.opts.forEach((o,i)=>{
+    let cls='opt'+(answered?' dis':'');
+    let delta='';
+    if(answered){
+      if(i===q.c){ cls+=' ok'; if(i===ans[cur]) delta=`<span class="score-delta pos">+${fmt(pq)} pts</span>`; }
+      else if(i===ans[cur]){ cls+=' ng'; delta=`<span class="score-delta neg">-${fmt(pq/4)} pts</span>`; }
+    }
+    h+=`<button class="${cls}" onclick="pick(${cur},${i})"><span class="ol">${LT[i]}</span><span style="flex:1">${o}</span>${delta}</button>`;
+  });
+  h+=`</div>`;
+  if(answered){
+    let exp=`<div class="expl on"><strong>Explicació:</strong> ${q.exp}`;
+    if(q.ref) exp+=` <em style="color:var(--g400);font-size:13px">(Ref: ${q.ref})</em>`;
+    exp+=`</div>`;
+    h+=exp;
+  }
+  h+=`</div>`;
+  const allDone=ndone===QS.length;
+  h+=`<div class="nav-q">
+    <button class="nbtn" onclick="go(-1)" ${cur===0?'disabled':''}>← Anterior</button>
+    <span class="nctr">${cur+1}/${QS.length}</span>
+    ${allDone?'<button class="nbtn pri" onclick="finish()">Veure resultats →</button>':`<button class="nbtn" onclick="go(1)" ${cur===QS.length-1?'disabled':''}>Següent →</button>`}
+  </div>`;
+  area.innerHTML=h;
+}
+
+function renderResults(area){
+  const n=QS.length, pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const score=calcScore(), passed=score>=PASS, col=scoreColor(score);
+  const circ=2*Math.PI*54, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100)), dash=circ*(1-sPct/100);
+  const msg=passed?(score>=36?'Resultat excel·lent!':score>=28?'Molt bon resultat.':'Aprovat. Segueix repassant.'):(score>=16?'Molt a prop! Repassa els errors.':'Cal reforçar aquests temes.');
+
+  // Per-bloc breakdown
+  const b1ok=QS.slice(0,20).filter((q,i)=>ans[i]===q.c).length;
+  const b2ok=QS.slice(20).filter((q,i)=>ans[i+20]===q.c).length;
+  const p1=Math.max(0,Math.min(100,(b1ok/20)*100));
+  const p2=Math.max(0,Math.min(100,(b2ok/20)*100));
+  const c1=p1>=50?'#1D9E75':p1>=35?'#D97706':'#DC2626';
+  const c2=p2>=50?'#1D9E75':p2>=35?'#D97706':'#DC2626';
+
+  let h=`<div class="rhero">
+    <div class="ring">
+      <svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="#E5E7EB" stroke-width="9"/>
+        ${score>=0?`<circle cx="60" cy="60" r="54" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${dash.toFixed(2)}" stroke-linecap="round"/>`:''}
+      </svg>
+      <div class="rtext"><span class="rpts" style="color:${col}">${fmtS(score)}</span><span class="rover">/ ${TOTAL} pts</span></div>
+    </div>
+    <div class="raprueba ${passed?'si':'no'}">${passed?'✓ APROVAT':'✗ NO APROVAT'} · mínim ${PASS} pts</div>
+    <div class="rtitle">${msg}</div>
+    <div class="rsub">${n} preguntes · Temes 12-13</div>
+    <div class="rstats">
+      <div class="sc"><div class="sn g">${ok}</div><div class="sl2">Correctes</div></div>
+      <div class="sc"><div class="sn r">${ng}</div><div class="sl2">Errònies</div></div>
+      <div class="sc"><div class="sn a">+${fmt(pq)}</div><div class="sl2">Pts/encert</div></div>
+      <div class="sc"><div class="sn gr">-${fmt(pq/4)}</div><div class="sl2">Pts/error</div></div>
+    </div>
+  </div>`;
+
+  h+=`<div class="formula">
+    <span>📐 <b>Fórmula:</b></span>
+    <span>Correcta: <b>+${fmt(pq)}</b></span>
+    <span>Errònia: <b>-${fmt(pq/4)}</b></span>
+    <span>En blanc: <b>no permès</b></span>
+    <span>Mínim: <b>${PASS} / ${TOTAL}</b></span>
+  </div>`;
+
+  h+=`<div class="bdown"><h3>Desglose per bloc</h3>
+    <div class="trow">
+      <span class="tlbl" style="min-width:120px">Tema 12 (20 q.)</span>
+      <div class="tbar"><div class="tbfill" style="width:${p1}%;background:${c1}"></div><div class="tth" style="left:50%"></div></div>
+      <span class="tpct" style="color:${c1}">${b1ok}/20</span>
+    </div>
+    <div class="trow">
+      <span class="tlbl" style="min-width:120px">Tema 13 (20 q.)</span>
+      <div class="tbar"><div class="tbfill" style="width:${p2}%;background:${c2}"></div><div class="tth" style="left:50%"></div></div>
+      <span class="tpct" style="color:${c2}">${b2ok}/20</span>
+    </div>
+  </div>`;
+
+  h+=`<div class="ract">
+    <button class="abtn pri" onclick="reset()">Repetir test</button>
+    <a href="../temes/tema12.html" class="abtn" style="background:var(--blue-l);color:var(--blue);border:1.5px solid #BFDBFE;text-decoration:none">Repassar Tema 12</a>
+    <a href="../temes/tema13.html" class="abtn" style="background:var(--blue-l);color:var(--blue);border:1.5px solid #BFDBFE;text-decoration:none">Repassar Tema 13</a>
+  </div>`;
+  area.innerHTML=h;
+}
+
+render();
+</script>
+</body>
+</html>
