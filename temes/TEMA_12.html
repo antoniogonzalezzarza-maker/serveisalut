@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 12 – Estado de las Autonomías</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #5a5a72;
+  --accent: #1e3a5f;
+  --accent-light: #2e75b6;
+  --accent-bg: #edf2f9;
+  --warning: #c00000;
+  --warning-bg: #fef2f2;
+  --border: #d4d0ca;
+  --table-header: #1f3864;
+  --table-stripe: #f4f1ed;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --radius: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 17px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 2rem 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.tema-header {
+  text-align: center;
+  padding: 2.5rem 2rem 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 3px solid var(--accent);
+  position: relative;
+}
+.tema-header::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-light);
+}
+.tema-number {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .02em;
+  margin-bottom: .3rem;
+}
+.tema-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* ── Headings ── */
+h1, h2, h3 {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.3;
+}
+h1 {
+  font-size: 1.65rem;
+  color: var(--accent);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--accent-bg);
+}
+h2 {
+  font-size: 1.3rem;
+  color: var(--accent-light);
+  margin: 2rem 0 .8rem;
+}
+h3 {
+  font-size: 1.1rem;
+  color: #404040;
+  margin: 1.5rem 0 .6rem;
+}
+
+p { margin-bottom: .9rem; }
+
+/* ── Lists ── */
+ul, ol { margin: .5rem 0 1rem 1.8rem; }
+li { margin-bottom: .35rem; }
+li > ul { margin-top: .3rem; }
+
+/* ── Bold / Italic ── */
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ── Important boxes ── */
+.important {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: .95rem;
+}
+.important::before {
+  content: '⚠ IMPORTANTE: ';
+  font-weight: 700;
+  color: var(--warning);
+}
+
+/* ── Tables ── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+thead th {
+  background: var(--table-header);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .7rem .8rem;
+  text-align: left;
+  white-space: nowrap;
+}
+tbody td {
+  padding: .6rem .8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--table-stripe); }
+tbody tr:hover { background: var(--accent-bg); }
+
+/* ── Test-specific ── */
+.question {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1.2rem 0;
+  box-shadow: var(--shadow);
+}
+.question-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: .7rem;
+  line-height: 1.45;
+}
+.question-text .badge {
+  display: inline-block;
+  background: var(--accent-light);
+  color: #fff;
+  font-size: .7rem;
+  padding: .1rem .45rem;
+  border-radius: 3px;
+  margin-right: .3rem;
+  vertical-align: middle;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+.options { list-style: none; margin: 0; padding: 0; }
+.options li {
+  padding: .4rem .6rem;
+  margin: .25rem 0;
+  border-radius: 4px;
+  font-size: .95rem;
+  cursor: default;
+  transition: background .15s;
+}
+.options li:hover { background: var(--accent-bg); }
+.options li .letter {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-right: .3rem;
+}
+.answer-line {
+  margin-top: .7rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  color: var(--text-muted);
+}
+
+/* Answer key */
+.answer-key {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+.answer-key table { font-size: .9rem; }
+.answer-key td:nth-child(2),
+.answer-key th:nth-child(2) { text-align: center; font-weight: 700; }
+.answer-key td:first-child,
+.answer-key th:first-child { text-align: center; }
+
+/* ── Print ── */
+@media print {
+  body { padding: 0; font-size: 15px; }
+  .question { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  h1 { break-before: page; }
+  .table-wrap { box-shadow: none; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  body { padding: 1rem .5rem; }
+  .tema-number { font-size: 2rem; }
+  .answer-key { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="tema-header">
+  <div class="tema-number">TEMA 12</div>
+  <div class="tema-title">El Estado de las Autonomías (I). Principios del Estado de las Autonomías; el procedimiento para constituirlas; los Estatutos de Autonomía: concepto, naturaleza jurídica y contenido</div>
+</div>
+<p><strong>EL ESTADO DE LAS AUTONOMÍAS (I). PRINCIPIOS DEL ESTADO DE LAS
+AUTONOMÍAS; EL PROCEDIMIENTO PARA CONSTITUIRLAS: LOS ESTATUTOS DE
+AUTONOMÍA: CONCEPTO, NATURALEZA JURÍDICA Y CONTENIDO</strong></p>
+<h1
+id="introducción-el-estado-de-las-autonomías-en-la-constitución-de-1978">1.
+Introducción: el Estado de las Autonomías en la Constitución de
+1978</h1>
+<p>La Constitución Española de 1978 (CE) instauró un modelo de
+organización territorial profundamente innovador respecto a la tradición
+centralista española. Ni federal ni puramente unitario, el denominado
+<strong>Estado de las Autonomías</strong> es una fórmula de
+descentralización política abierta y flexible que combina la indisoluble
+unidad de la Nación española (art. 2 CE) con el reconocimiento del
+derecho a la autonomía de las nacionalidades y regiones que la
+integran.</p>
+<p>El fundamento constitucional del Estado autonómico descansa sobre
+varios artículos clave: el artículo 2 CE, que proclama el principio
+dispositivo o de voluntariedad; el artículo 137 CE, que fija la
+organización territorial en municipios, provincias y Comunidades
+Autónomas; y el <strong>Título VIII (arts. 137-158 CE)</strong>, que
+regula en detalle el proceso de constitución, la organización y el
+sistema de distribución competencial.</p>
+<p>Conviene subrayar que el constituyente de 1978 <strong>no cerró el
+modelo territorial</strong>: la CE no definió previamente el mapa
+autonómico, ni el número de CCAA, ni el nivel exacto de competencias de
+cada una. El modelo se fue construyendo progresivamente entre 1979 y
+1983 a medida que los distintos territorios ejercían su derecho a la
+autonomía. Esta apertura —que se denomina <em>principio
+dispositivo</em>— es una de las características más singulares del
+sistema español, que lo diferencia tanto del federalismo clásico (donde
+los Estados federados preexisten a la federación) como del regionalismo
+italiano (donde la Constitución sí enumera las regiones).</p>
+<h1 id="principios-del-estado-de-las-autonomías">2. Principios del
+Estado de las Autonomías</h1>
+<p>El modelo autonómico se articula en torno a cinco principios
+constitucionales estructurantes, que funcionan como marco interpretativo
+de todo el Título VIII CE:</p>
+<h2 id="principio-de-unidad-art.-2-ce">2.1 Principio de unidad (art. 2
+CE)</h2>
+<p>España es una <strong>Nación indisoluble</strong>. Este principio
+garantiza la integridad territorial del Estado y la igualdad de todos
+los españoles en el ejercicio de los derechos y en el cumplimiento de
+los deberes constitucionales (art. 139 CE). Ninguna Comunidad Autónoma
+puede fragmentar la soberanía nacional.</p>
+<p>El TC ha subrayado reiteradamente que <strong>la autonomía no es
+soberanía</strong>: las CCAA ejercen poderes limitados, derivados de la
+CE y de sus Estatutos, dentro de un Estado único. La soberanía reside en
+el pueblo español en su conjunto (art. 1.2 CE), no en los pueblos de
+cada CA individualmente considerados. Por ello, cualquier pretensión de
+secesión unilateral es incompatible con la CE.</p>
+<p>El principio de unidad se manifiesta también en la <strong>unidad del
+ordenamiento jurídico</strong> (existe un solo sistema de fuentes, con
+la CE en la cúspide), la <strong>unidad económica</strong> (art. 139.2
+CE prohíbe que las CCAA adopten medidas que obstaculicen la libre
+circulación de personas y bienes) y la <strong>unidad
+jurisdiccional</strong> (el Poder Judicial es único en toda España, art.
+117.5 CE).</p>
+<h2 id="principio-de-autonomía-arts.-2-y-137-ce">2.2 Principio de
+autonomía (arts. 2 y 137 CE)</h2>
+<p>El derecho a la autonomía de las nacionalidades y regiones no es una
+concesión graciosa del Estado, sino un <strong>derecho constitucional
+reconocido</strong>. Las CCAA tienen capacidad de autogobierno: potestad
+legislativa propia, gobierno y administración autonómica y hacienda
+propia (art. 156 CE).</p>
+<p>Es esencial comprender que esta autonomía es
+<strong>política</strong> —no meramente administrativa—, lo que la
+distingue cualitativamente de la autonomía local (municipios y
+provincias). La diferencia es clave:</p>
+<ul>
+<li><p><strong>Autonomía política (CCAA):</strong> implica potestad
+legislativa propia, es decir, capacidad de dictar leyes con rango de ley
+en sentido estricto, que se integran en el ordenamiento jurídico junto a
+las leyes estatales. Las CCAA pueden orientar su acción de gobierno en
+función de una política propia (STC 37/1987).</p></li>
+<li><p><strong>Autonomía administrativa (entes locales):</strong>
+implica capacidad de gestión de los intereses propios mediante
+reglamentos y actos administrativos, pero no potestad legislativa. Los
+municipios dictan ordenanzas, no leyes.</p></li>
+</ul>
+<h2 id="principio-dispositivo-o-de-voluntariedad">2.3 Principio
+dispositivo o de voluntariedad</h2>
+<p>La CE <strong>no predeterminó el mapa autonómico</strong>: dejó en
+manos de las propias nacionalidades y regiones la iniciativa para
+acceder a la autonomía y el nivel competencial que deseaban alcanzar.
+Este principio es la raíz del modelo abierto, que se construyó
+progresivamente entre 1979 y 1983. En la actualidad existen <strong>17
+Comunidades Autónomas y 2 Ciudades Autónomas</strong> (Ceuta y
+Melilla).</p>
+<p>El principio dispositivo opera en dos planos:</p>
+<ul>
+<li><p><strong>Plano constitutivo:</strong> los territorios podían
+decidir si se constituían o no en CA y por qué vía lo hacían (arts. 143
+o 151 CE).</p></li>
+<li><p><strong>Plano competencial:</strong> cada CA podía asumir un
+nivel de competencias diferente dentro del techo del art. 149 CE, lo que
+dio lugar a una asimetría inicial entre las CCAA del art. 151 (con
+plenas competencias desde el inicio) y las del art. 143 (con un nivel
+competencial inferior que debía ampliarse progresivamente).</p></li>
+</ul>
+<p>Sin embargo, el principio dispositivo <strong>se agotó en la fase
+constitutiva</strong>. Tras la generalización del régimen autonómico en
+los años 80 y los Pactos Autonómicos de 1981 y 1992, el mapa autonómico
+quedó cerrado. El TC ha confirmado (SSTC 89/84 y posteriores) que las
+posibilidades abiertas por el Título VIII ya no son libremente
+ejercitables: el sistema está consolidado. Hoy, las vías de los arts.
+143 y 151 son categorías históricas que explican el origen del proceso,
+pero la distinción práctica entre ambos grupos de CCAA se ha diluido
+tras las sucesivas reformas estatutarias y transferencias
+competenciales.</p>
+<h2 id="principio-de-solidaridad-art.-2-y-arts.-138-158-ce">2.4
+Principio de solidaridad (art. 2 y arts. 138-158 CE)</h2>
+<p>La autonomía no puede convertirse en privilegio territorial. El
+principio de solidaridad es el <strong>contrapeso necesario</strong> al
+principio de autonomía: garantiza que el ejercicio del autogobierno no
+genere diferencias económicas y sociales injustificadas entre los
+ciudadanos según el territorio en que residan.</p>
+<p>El principio de solidaridad opera en dos dimensiones
+complementarias:</p>
+<ul>
+<li><p><strong>Dimensión negativa (art. 139 CE):</strong> ninguna CA
+puede adoptar medidas que obstaculicen la libre circulación de personas,
+bienes, servicios y capitales, ni establecer privilegios económicos o
+sociales respecto de otras partes del territorio.</p></li>
+<li><p><strong>Dimensión positiva (art. 138 CE):</strong> el Estado
+tiene el deber activo de corregir los desequilibrios económicos
+interterritoriales, fomentando las condiciones que hagan posible la
+igualdad real de todos los españoles.</p></li>
+</ul>
+<p>Los instrumentos constitucionales de solidaridad son:</p>
+<ul>
+<li><p><strong>Fondo de Compensación Interterritorial (art. 158.2
+CE):</strong> dotado con cargo a los PGE, se destina a gastos de
+inversión en los territorios menos desarrollados.</p></li>
+<li><p><strong>Sistema de financiación autonómica (arts. 156-158 CE y
+LOFCA):</strong> la CE prevé en el art. 157 los recursos de las CCAA
+(tributos propios, participación en tributos estatales, transferencias
+del FCI, etc.) y en el art. 158.1 una asignación complementaria para
+garantizar un nivel mínimo de prestación de los servicios públicos
+fundamentales.</p></li>
+<li><p><strong>Mecanismos de nivelación:</strong> el sistema de
+financiación incluye mecanismos de nivelación horizontal y vertical para
+que todas las CCAA puedan prestar servicios esenciales (sanidad,
+educación, servicios sociales) con un nivel de suficiencia
+similar.</p></li>
+</ul>
+<p>El TC ha subrayado (STC 135/1992) que la solidaridad <strong>no
+implica uniformidad ni igualación absoluta de rentas</strong>: lo que
+prohíbe son las diferencias injustificadas, no las derivadas del
+ejercicio legítimo de las competencias propias de cada CA.</p>
+<h2 id="principio-de-coordinación-arts.-103-y-149.1-ce">2.5 Principio de
+coordinación (arts. 103 y 149.1 CE)</h2>
+<p>El Estado conserva mecanismos para garantizar la coherencia del
+conjunto. La coordinación opera a través de las competencias exclusivas
+del Estado, la legislación básica, las leyes de armonización (art. 150.3
+CE) y las Conferencias Sectoriales. Se distingue de la simple
+<strong>cooperación</strong> —que es voluntaria— porque la coordinación
+<strong>puede imponerse por ley</strong>.</p>
+<blockquote>
+<p><strong>⚠ IMPORTANTE:</strong> El TC ha reiterado que los cinco
+principios no son contradictorios: unidad y autonomía son
+complementarios. La autonomía existe dentro del marco de la unidad, y la
+unidad no implica uniformidad. En exámenes tipo test es frecuente la
+pregunta trampa que los presenta como opuestos.</p>
+</blockquote>
+<h1 id="procedimientos-de-acceso-a-la-autonomía">3. Procedimientos de
+acceso a la autonomía</h1>
+<p>La CE diseñó vías distintas de acceso a la autonomía con requisitos y
+consecuencias competenciales diferentes. Se distinguen dos grandes
+itinerarios, más una vía excepcional:</p>
+<h2 id="vía-ordinaria-o-lenta-artículo-143-ce">3.1 Vía ordinaria o
+lenta: artículo 143 CE</h2>
+<p>Era la vía general para provincias con características históricas,
+culturales y económicas comunes, territorios insulares o provincias con
+identidad regional histórica. El proceso requería:</p>
+<ul>
+<li><p>Iniciativa de las Diputaciones Provinciales u órganos insulares
+interesados y de las <strong>dos terceras partes de los
+municipios</strong> que representaran la <strong>mayoría del censo
+electoral</strong>.</p></li>
+<li><p>Elaboración del proyecto de Estatuto por una asamblea compuesta
+por los miembros de las Diputaciones y los Diputados y Senadores de las
+provincias afectadas.</p></li>
+<li><p>Tramitación y aprobación por las Cortes Generales como ley
+orgánica.</p></li>
+</ul>
+<p>El nivel máximo de competencias asumibles inicialmente era
+<strong>inferior al de la vía rápida</strong>: estas CCAA solo podían
+asumir las competencias del art. 148.1 CE. Sin embargo, el art. 148.2 CE
+preveía que, transcurridos <strong>cinco años</strong>, podían ampliar
+sus competencias mediante reforma estatutaria, acercándose
+progresivamente al techo competencial de las CCAA del art. 151. Tras los
+Pactos Autonómicos de 1992 y la LO 9/1992 (de transferencia de
+competencias vía art. 150.2 CE), seguida de las reformas estatutarias de
+1994, la distinción práctica se ha diluido considerablemente.</p>
+<p>Accedieron por esta vía: Aragón, Asturias, Cantabria, La Rioja,
+Murcia, Castilla-La Mancha, Extremadura, <strong>Baleares</strong>,
+Madrid y Castilla y León, entre otras.</p>
+<h2 id="vía-especial-o-rápida-artículo-151-ce">3.2 Vía especial o
+rápida: artículo 151 CE</h2>
+<p>Reservada a territorios con especial voluntad autonómica, que
+hubieran plebiscitado afirmativamente proyectos de Estatuto en el pasado
+(disposición transitoria 2.ª) o que siguieran un procedimiento
+reforzado:</p>
+<ul>
+<li><p>Iniciativa de las Diputaciones u órganos interinsulares y de las
+<strong>tres cuartas partes de los municipios</strong> que representaran
+la <strong>mayoría del censo</strong>.</p></li>
+<li><p><strong>Ratificación en referéndum</strong> por mayoría de votos
+válidos emitidos en cada provincia.</p></li>
+<li><p>Elaboración del Estatuto por una asamblea de parlamentarios y su
+negociación con la Comisión Constitucional del Congreso.</p></li>
+<li><p>Aprobación por las Cortes Generales y referéndum de ratificación
+en el territorio.</p></li>
+</ul>
+<p>La gran ventaja de esta vía era el <strong>acceso inmediato al techo
+competencial</strong>: estas CCAA podían asumir desde el primer momento
+todas las competencias que no estuvieran reservadas al Estado por el
+art. 149.1 CE, sin esperar el plazo de cinco años del art. 148.2.</p>
+<p>Accedieron por esta vía: <strong>Cataluña, País Vasco y
+Galicia</strong> (por la disposición transitoria 2.ª, al haber
+plebiscitado Estatutos durante la Segunda República) y
+<strong>Andalucía</strong> (que siguió el procedimiento reforzado del
+art. 151.1, si bien con una modificación legislativa ad hoc de la LO de
+Referéndum tras no superar el umbral en Almería).</p>
+<h3 id="tabla-comparativa-vía-ordinaria-vs.-vía-especial">Tabla
+comparativa: vía ordinaria vs. vía especial</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Aspecto</strong></td>
+<td style="text-align: left;"><strong>Vía ordinaria (art.
+143)</strong></td>
+<td style="text-align: left;"><strong>Vía especial (art.
+151)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Iniciativa municipal</td>
+<td style="text-align: left;">2/3 de los municipios + mayoría del
+censo</td>
+<td style="text-align: left;">3/4 de los municipios + mayoría del
+censo</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Referéndum de iniciativa</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Sí (mayoría en cada provincia)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivel competencial inicial</td>
+<td style="text-align: left;">Solo art. 148.1 CE</td>
+<td style="text-align: left;">Pleno (hasta el techo del art. 149.1
+CE)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Plazo para ampliar</td>
+<td style="text-align: left;">5 años (art. 148.2)</td>
+<td style="text-align: left;">No necesario (acceso pleno desde el
+inicio)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Referéndum de ratificación del
+Estatuto</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Sí</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CCAA que accedieron</td>
+<td style="text-align: left;">Aragón, Asturias, Baleares, Madrid,
+etc.</td>
+<td style="text-align: left;">Cataluña, País Vasco, Galicia,
+Andalucía</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="vía-excepcional-artículo-144-ce">3.3 Vía excepcional: artículo
+144 CE</h2>
+<p>Las Cortes Generales podían, por motivos de <strong>interés
+nacional</strong>: autorizar la constitución de una CA en un territorio
+que no superara el ámbito de una provincia; autorizar o acordar el
+Estatuto de territorios que no estuvieran integrados en la organización
+provincial; y sustituir la iniciativa local en el proceso autonómico.
+Por esta vía se constituyeron las ciudades autónomas de <strong>Ceuta y
+Melilla</strong> (Leyes Orgánicas 1 y 2 de 1995), que no tienen potestad
+legislativa plena sino potestad reglamentaria.</p>
+<h2 id="la-situación-de-las-islas-baleares">3.4 La situación de las
+Islas Baleares</h2>
+<p>Las Islas Baleares accedieron a la autonomía por la <strong>vía del
+artículo 143 CE</strong>. La iniciativa autonómica se acordó en 1981 y
+su primer Estatuto de Autonomía fue aprobado por <strong>Ley Orgánica
+2/1983, de 25 de febrero</strong>. El Estatuto ha sido reformado en dos
+ocasiones relevantes: en 1994 (LO 9/1994, que incorporó las competencias
+transferidas por la LO 9/1992) y en 1999 (LO 3/1999). En
+<strong>2007</strong> se aprobó un nuevo Estatuto de Autonomía
+(<strong>LO 1/2007, de 28 de febrero</strong>), actualmente vigente, que
+amplió sustancialmente el autogobierno y el catálogo de derechos y
+competencias de la comunidad, equiparándola en la práctica al nivel de
+las CCAA que accedieron por la vía del art. 151.</p>
+<h1
+id="los-estatutos-de-autonomía-concepto-naturaleza-jurídica-y-contenido">4.
+Los Estatutos de Autonomía: concepto, naturaleza jurídica y
+contenido</h1>
+<h2 id="concepto">4.1 Concepto</h2>
+<p>Los Estatutos de Autonomía son la <strong>norma institucional
+básica</strong> de cada Comunidad Autónoma (art. 147.1 CE). Constituyen
+el texto fundacional del autogobierno autonómico y la fuente primaria
+del ordenamiento jurídico de cada CA, que vincula tanto a los poderes
+autonómicos como, en lo que les es propio, al Estado.</p>
+<p>Dicho de forma práctica: el Estatuto es para la CA lo que la CE es
+para el Estado en su conjunto. Define <em>quién manda</em>
+(instituciones), <em>sobre qué</em> (competencias), <em>dónde</em>
+(territorio) y <em>con qué nombre</em> (denominación). Todo el
+ordenamiento jurídico autonómico (leyes del Parlament, decretos del
+Govern, normativa de los Consells Insulars) debe respetar el Estatuto;
+si lo contradice, puede ser declarado inconstitucional.</p>
+<h2 id="naturaleza-jurídica-norma-bifronte">4.2 Naturaleza jurídica:
+norma «bifronte»</h2>
+<p>El TC ha definido al Estatuto como una norma de naturaleza
+<strong>bifronte o de doble carácter</strong>. Este concepto, que
+aparece recurrentemente en exámenes, merece una explicación
+detenida:</p>
+<h3 id="a-es-una-norma-estatal">A) Es una norma estatal</h3>
+<p>Se aprueba como <strong>Ley Orgánica</strong> por las Cortes
+Generales (arts. 81 y 147.3 CE), lo que significa que su aprobación
+requiere mayoría absoluta del Congreso en votación final sobre el
+conjunto. Se integra formalmente en el ordenamiento jurídico estatal y
+se sitúa jerárquicamente por debajo de la CE. Desde el punto de vista
+del Estado, es una ley orgánica más, sometida al control de
+constitucionalidad del TC.</p>
+<h3 id="b-es-una-norma-autonómica">B) Es una norma autonómica</h3>
+<p>Se origina en el territorio, recoge la voluntad de autogobierno de la
+CA y actúa como <strong>parámetro de constitucionalidad</strong> de las
+normas autonómicas. Todas las leyes que dicte el Parlament de les Illes
+Balears, por ejemplo, deben respetar no solo la CE sino también el
+Estatuto. Si una ley balear contradice el Estatuto, el TC puede
+declararla inconstitucional. En este sentido, el Estatuto funciona como
+una «pseudo-constitución» autonómica.</p>
+<h3 id="c-consecuencias-de-la-bifrontalidad">C) Consecuencias de la
+bifrontalidad</h3>
+<p>Esta dualidad tiene consecuencias prácticas importantes:</p>
+<ul>
+<li><p>El Estatuto <strong>no puede ser reformado
+unilateralmente</strong> ni por el Estado (porque requiere iniciativa
+autonómica) ni por la CA (porque requiere aprobación de las Cortes como
+ley orgánica). Es necesaria la concurrencia de ambas
+voluntades.</p></li>
+<li><p>El Estatuto <strong>no es una ley orgánica cualquiera</strong>:
+tiene una posición singular en el ordenamiento. El TC no puede declarar
+inconstitucional un Estatuto vigente por los mismos motivos que una ley
+ordinaria, ya que el Estatuto forma parte del bloque de
+constitucionalidad (véase infra).</p></li>
+<li><p>La reforma estatutaria sigue un <strong>procedimiento especial
+reforzado</strong> (no basta con la tramitación parlamentaria ordinaria
+de una ley orgánica): requiere iniciativa de los órganos autonómicos y,
+en ciertos casos, referéndum.</p></li>
+</ul>
+<blockquote>
+<p><strong>⚠ IMPORTANTE:</strong> La pregunta «¿qué es la naturaleza
+bifronte del Estatuto?» es un clásico de oposiciones. La respuesta
+correcta es: el Estatuto es simultáneamente norma estatal (ley orgánica
+aprobada por las Cortes) y norma autonómica (norma institucional básica
+que funciona como parámetro de constitucionalidad del ordenamiento
+autonómico).</p>
+</blockquote>
+<h2 id="el-bloque-de-constitucionalidad">4.3 El bloque de
+constitucionalidad</h2>
+<p>El concepto de <strong>bloque de constitucionalidad</strong> (acuñado
+por el TC en la STC 76/1983) es otro de los conceptos que genera
+confusión y merece una explicación clara.</p>
+<h3 id="a-qué-es">A) ¿Qué es?</h3>
+<p>Es el conjunto de normas que, junto con la CE, sirven de
+<strong>parámetro para enjuiciar la constitucionalidad de las
+leyes</strong> en materia de distribución de competencias entre Estado y
+CCAA. Cuando el TC debe resolver si una ley autonómica invade
+competencias estatales (o viceversa), no le basta con leer la CE:
+necesita también consultar el Estatuto correspondiente y, en su caso,
+las leyes del art. 150 CE, porque son estas normas las que concretan el
+reparto competencial que la CE dejó abierto.</p>
+<h3 id="b-qué-normas-lo-integran">B) ¿Qué normas lo integran?</h3>
+<ul>
+<li><p><strong>La Constitución Española</strong> (norma
+suprema).</p></li>
+<li><p><strong>Los Estatutos de Autonomía</strong> (normas
+institucionales básicas de cada CA).</p></li>
+<li><p><strong>Las leyes orgánicas del art. 150 CE</strong> (leyes
+marco, leyes de transferencia, leyes de armonización).</p></li>
+<li><p>Otras normas atributivas de competencia que el TC considere
+relevantes para delimitar el reparto competencial (p. ej., la LOFCA en
+materia de financiación).</p></li>
+</ul>
+<h3 id="c-qué-no-es">C) ¿Qué NO es?</h3>
+<p>El bloque de constitucionalidad <strong>no es un rango
+normativo</strong>: las normas que lo integran no tienen todas la misma
+jerarquía. La CE está por encima de los Estatutos, y los Estatutos están
+por encima de las leyes ordinarias. Lo que comparten es su función como
+parámetro de control: el TC las utiliza conjuntamente para resolver los
+conflictos competenciales.</p>
+<blockquote>
+<p><strong>⚠ IMPORTANTE:</strong> En un examen, si te preguntan «¿qué
+normas integran el bloque de constitucionalidad?», la respuesta segura
+es: CE + Estatutos de Autonomía + leyes del art. 150 CE. No confundir
+con «leyes orgánicas en general»: solo forman parte del bloque las que
+atribuyen o delimitan competencias.</p>
+</blockquote>
+<h2 id="contenido-mínimo-del-estatuto-art.-147.2-ce">4.4 Contenido
+mínimo del Estatuto (art. 147.2 CE)</h2>
+<p>Todo Estatuto de Autonomía debe incluir obligatoriamente:</p>
+<ul>
+<li><p><strong>La denominación</strong> de la CA que mejor corresponda a
+su identidad histórica.</p></li>
+<li><p><strong>La delimitación del territorio</strong>
+autonómico.</p></li>
+<li><p><strong>La denominación, organización y sede de las
+instituciones</strong> autónomas propias.</p></li>
+<li><p><strong>Las competencias asumidas</strong> dentro del marco
+establecido en la CE y las bases para el traspaso de los servicios
+correspondientes.</p></li>
+</ul>
+<p>Los Estatutos actuales —especialmente los reformados en la llamada
+«segunda generación» de reformas (2006-2007)— añaden contenidos
+adicionales no exigidos por el art. 147.2 CE pero perfectamente
+legítimos: reconocimiento de <strong>derechos de los ciudadanos</strong>
+en el ámbito autonómico, principios rectores de las políticas públicas,
+regulación de la <strong>lengua propia</strong> y cooficial, relaciones
+con el Estado y con otras CCAA, relaciones con la UE y procedimiento de
+reforma. El Estatuto de Illes Balears (LO 1/2007) es un ejemplo de esta
+segunda generación.</p>
+<h2 id="las-cláusulas-del-art.-149.3-ce">4.5 Las cláusulas del art.
+149.3 CE</h2>
+<p>El art. 149.3 CE contiene tres cláusulas que cierran el sistema de
+distribución de competencias y que son de frecuente pregunta en
+exámenes:</p>
+<ul>
+<li><p><strong>Cláusula residual:</strong> las materias no atribuidas
+expresamente al Estado por la CE podrán corresponder a las CCAA en
+virtud de sus Estatutos. Es decir, todo lo que la CE no reserve al
+Estado puede ser asumido por las CCAA si así lo recogen sus Estatutos.
+Lo que los Estatutos no hayan asumido corresponde al Estado.</p></li>
+<li><p><strong>Cláusula de prevalencia:</strong> las normas del Estado
+prevalecen, en caso de conflicto, sobre las de las CCAA en todo lo que
+no esté atribuido a la exclusiva competencia de éstas. Opera como regla
+de resolución de conflictos normativos en materias de competencia
+compartida o concurrente.</p></li>
+<li><p><strong>Cláusula de supletoriedad:</strong> el derecho estatal
+es, en todo caso, supletorio del derecho de las CCAA. Esto significa
+que, en ausencia de norma autonómica, se aplica la norma estatal. Sin
+embargo, el TC (STC 61/1997) ha interpretado esta cláusula
+restrictivamente: el Estado no puede dictar normas con el único
+propósito de ser supletorias en materias de competencia autonómica
+exclusiva.</p></li>
+</ul>
+<h2 id="reforma-de-los-estatutos">4.6 Reforma de los Estatutos</h2>
+<p>El procedimiento de reforma estatutaria requiere, en general, la
+<strong>iniciativa de los órganos autonómicos</strong> y la
+<strong>aprobación final por las Cortes Generales</strong> mediante ley
+orgánica. Según la vía de acceso seguida y el propio Estatuto, puede
+exigirse además referéndum en el territorio.</p>
+<p>El Estatuto de Illes Balears (LO 1/2007) prevé en su Título X que su
+reforma requiere <strong>aprobación del Parlament de les Illes
+Balears</strong> y de las <strong>Cortes Generales</strong>, así como
+<strong>referéndum</strong> de los ciudadanos de la CA cuando la reforma
+afecte a las relaciones con el Estado, al Título I (derechos) o al
+procedimiento de reforma.</p>
+<h1 id="tabla-resumen-para-el-examen">5. Tabla resumen para el
+examen</h1>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Materia</strong></td>
+<td style="text-align: left;"><strong>Dato clave</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Principios Estado
+Autonómico</strong></td>
+<td style="text-align: left;">Unidad · Autonomía (política, no
+administrativa) · Principio dispositivo (agotado) · Solidaridad ·
+Coordinación</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Autonomía ≠
+Soberanía</strong></td>
+<td style="text-align: left;">Las CCAA ejercen poderes derivados de la
+CE y los Estatutos; la soberanía reside en el pueblo español (art. 1.2
+CE)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Vía ordinaria (art. 143
+CE)</strong></td>
+<td style="text-align: left;">2/3 municipios + mayoría del censo; nivel
+competencial inicial inferior; sin referéndum</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Vía especial (art. 151
+CE)</strong></td>
+<td style="text-align: left;">3/4 municipios + referéndum por provincia;
+acceso pleno desde el inicio</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Vía excepcional (art. 144
+CE)</strong></td>
+<td style="text-align: left;">Cortes Generales por interés nacional;
+Ceuta y Melilla</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Illes Balears</strong></td>
+<td style="text-align: left;">Acceso vía art. 143 CE; EA LO 2/1983; EA
+vigente: LO 1/2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Estatuto de
+Autonomía</strong></td>
+<td style="text-align: left;">Norma institucional básica (art. 147.1
+CE); ley orgánica; naturaleza bifronte</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Naturaleza bifronte</strong></td>
+<td style="text-align: left;">Norma estatal (LO de Cortes) + norma
+autonómica (parámetro de constitucionalidad)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Bloque de
+constitucionalidad</strong></td>
+<td style="text-align: left;">CE + Estatutos + leyes del art. 150 CE;
+parámetro para resolver conflictos competenciales</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Contenido mínimo del
+Estatuto</strong></td>
+<td style="text-align: left;">Denominación, territorio, instituciones
+propias y competencias asumidas (art. 147.2 CE)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Cláusula residual (art.
+149.3)</strong></td>
+<td style="text-align: left;">Lo no atribuido al Estado = asumible por
+CCAA vía Estatuto; lo no asumido por Estatutos = Estado</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cláusula de
+prevalencia</strong></td>
+<td style="text-align: left;">Normas estatales prevalecen salvo en
+competencias exclusivas de CCAA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Cláusula de
+supletoriedad</strong></td>
+<td style="text-align: left;">Derecho estatal supletorio del autonómico
+(interpretación restrictiva: STC 61/1997)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Reforma del Estatuto</strong></td>
+<td style="text-align: left;">Iniciativa autonómica + LO de Cortes
+Generales; puede requerir referéndum</td>
+</tr>
+</tbody>
+</table></div>
+
+</body>
+</html>

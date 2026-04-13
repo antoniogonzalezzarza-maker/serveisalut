@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 13 – Estado de las Autonomías</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #5a5a72;
+  --accent: #1e3a5f;
+  --accent-light: #2e75b6;
+  --accent-bg: #edf2f9;
+  --warning: #c00000;
+  --warning-bg: #fef2f2;
+  --border: #d4d0ca;
+  --table-header: #1f3864;
+  --table-stripe: #f4f1ed;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --radius: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 17px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 2rem 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.tema-header {
+  text-align: center;
+  padding: 2.5rem 2rem 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 3px solid var(--accent);
+  position: relative;
+}
+.tema-header::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-light);
+}
+.tema-number {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .02em;
+  margin-bottom: .3rem;
+}
+.tema-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* ── Headings ── */
+h1, h2, h3 {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.3;
+}
+h1 {
+  font-size: 1.65rem;
+  color: var(--accent);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--accent-bg);
+}
+h2 {
+  font-size: 1.3rem;
+  color: var(--accent-light);
+  margin: 2rem 0 .8rem;
+}
+h3 {
+  font-size: 1.1rem;
+  color: #404040;
+  margin: 1.5rem 0 .6rem;
+}
+
+p { margin-bottom: .9rem; }
+
+/* ── Lists ── */
+ul, ol { margin: .5rem 0 1rem 1.8rem; }
+li { margin-bottom: .35rem; }
+li > ul { margin-top: .3rem; }
+
+/* ── Bold / Italic ── */
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ── Important boxes ── */
+.important {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: .95rem;
+}
+.important::before {
+  content: '⚠ IMPORTANTE: ';
+  font-weight: 700;
+  color: var(--warning);
+}
+
+/* ── Tables ── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+thead th {
+  background: var(--table-header);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .7rem .8rem;
+  text-align: left;
+  white-space: nowrap;
+}
+tbody td {
+  padding: .6rem .8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--table-stripe); }
+tbody tr:hover { background: var(--accent-bg); }
+
+/* ── Test-specific ── */
+.question {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1.2rem 0;
+  box-shadow: var(--shadow);
+}
+.question-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: .7rem;
+  line-height: 1.45;
+}
+.question-text .badge {
+  display: inline-block;
+  background: var(--accent-light);
+  color: #fff;
+  font-size: .7rem;
+  padding: .1rem .45rem;
+  border-radius: 3px;
+  margin-right: .3rem;
+  vertical-align: middle;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+.options { list-style: none; margin: 0; padding: 0; }
+.options li {
+  padding: .4rem .6rem;
+  margin: .25rem 0;
+  border-radius: 4px;
+  font-size: .95rem;
+  cursor: default;
+  transition: background .15s;
+}
+.options li:hover { background: var(--accent-bg); }
+.options li .letter {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-right: .3rem;
+}
+.answer-line {
+  margin-top: .7rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  color: var(--text-muted);
+}
+
+/* Answer key */
+.answer-key {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+.answer-key table { font-size: .9rem; }
+.answer-key td:nth-child(2),
+.answer-key th:nth-child(2) { text-align: center; font-weight: 700; }
+.answer-key td:first-child,
+.answer-key th:first-child { text-align: center; }
+
+/* ── Print ── */
+@media print {
+  body { padding: 0; font-size: 15px; }
+  .question { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  h1 { break-before: page; }
+  .table-wrap { box-shadow: none; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  body { padding: 1rem .5rem; }
+  .tema-number { font-size: 2rem; }
+  .answer-key { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="tema-header">
+  <div class="tema-number">TEMA 13</div>
+  <div class="tema-title">El Estado de las Autonomías (II). Organización institucional autonómica; competencias exclusivas, compartidas y concurrentes; legislación básica estatal y desarrollo autonómico; leyes del art. 150 CE; bases y coordinación</div>
+</div>
+<p><strong>EL ESTADO DE LAS AUTONOMÍAS (II). LA ORGANIZACIÓN
+INSTITUCIONAL AUTÓNOMA; LA DELIMITACIÓN CONSTITUCIONAL DEL REPARTO DE
+COMPETENCIAS LEGISLATIVAS Y EJECUTIVAS A LA CONSTITUCIÓN ESPAÑOLA;
+COMPETENCIAS EXCLUSIVAS, COMPETENCIAS COMPARTIDAS Y COMPETENCIAS
+CONCURRENTES; LEGISLACIÓN ESTATAL Y EJECUCIÓN A CARGO DE LAS COMUNIDADES
+AUTÓNOMAS; LEGISLACIÓN BÁSICA ESTATAL Y LEGISLACIÓN DE DESARROLLO Y
+EJECUCIÓN A CARGO DE LAS COMUNIDADES AUTÓNOMAS; BASES Y COORDINACIÓN DEL
+ESTADO</strong></p>
+<h1 id="la-organización-institucional-autonómica">1. La organización
+institucional autonómica</h1>
+<p>Cada CA se dota de su propia estructura institucional de
+autogobierno. La CE no impone un modelo único, pero sí establece para
+las CCAA que accedieron por la vía del art. 151 CE (y, por extensión,
+para todas las CCAA con plena autonomía) un esquema mínimo que
+reproduce, con adaptaciones, la estructura del Estado central.</p>
+<h2 id="la-asamblea-legislativa">1.1 La Asamblea Legislativa</h2>
+<p>Es el órgano representativo del pueblo de la CA, elegido por sufragio
+universal mediante un sistema proporcional. Ejerce la potestad
+legislativa autonómica, aprueba el presupuesto de la CA, controla la
+acción del Gobierno autonómico y designa al Presidente de la CA. En
+Illes Balears, la Asamblea se denomina <strong>Parlament de les Illes
+Balears</strong>. El artículo 21 del Estatuto (LO 1/2007) reconoce a sus
+diputados una situación de inviolabilidad por las opiniones manifestadas
+en el ejercicio de sus funciones.</p>
+<h2 id="el-consejo-de-gobierno-o-gobierno-autonómico">1.2 El Consejo de
+Gobierno o Gobierno autonómico</h2>
+<p>Ejerce la función ejecutiva y la potestad reglamentaria en el ámbito
+de las competencias de la CA. Es el equivalente autonómico del Consejo
+de Ministros. En Illes Balears se denomina <strong>Govern de les Illes
+Balears</strong> y se regula en los artículos 55 y ss. del Estatuto.
+Está integrado por el President, los Consellers y otros miembros que
+establezca la ley.</p>
+<h2 id="el-presidente-de-la-comunidad-autónoma">1.3 El Presidente de la
+Comunidad Autónoma</h2>
+<p>Es la figura central del autogobierno autonómico. Dirige el Gobierno
+de la CA, ostenta su más alta representación y ejerce la representación
+ordinaria del Estado en la CA (art. 152.1 CE). Es elegido por la
+Asamblea Legislativa de entre sus miembros y nombrado formalmente por el
+Rey. En Illes Balears, el <strong>President de les Illes
+Balears</strong> es elegido por el Parlament y nombrado por el Rey.
+Puede plantear la cuestión de confianza ante el Parlament y puede ser
+cesado mediante moción de censura constructiva.</p>
+<h2 id="el-tribunal-superior-de-justicia">1.4 El Tribunal Superior de
+Justicia</h2>
+<p>El artículo 152.1 CE prevé que en cada CA, como órgano superior
+jurisdiccional, exista un Tribunal Superior de Justicia (TSJ). El TSJ
+corona la organización judicial en el territorio autonómico sin
+perjuicio de la jurisdicción del Tribunal Supremo. Su Sala de lo Civil y
+Penal puede conocer de los recursos de casación en materias de derecho
+foral o especial propio de la CA. En Illes Balears existe el
+<strong>Tribunal Superior de Justícia de les Illes Balears
+(TSJIB)</strong>.</p>
+<h2 id="instituciones-singulares-de-illes-balears">1.5 Instituciones
+singulares de Illes Balears</h2>
+<p>El Estatuto de Illes Balears reconoce instituciones propias de la
+comunidad:</p>
+<ul>
+<li><p><strong>Consells Insulars:</strong> son los órganos de gobierno,
+administración y representación de cada isla (Mallorca, Menorca, Eivissa
+y Formentera). Gozan de naturaleza institucional especial como entidades
+locales con competencias propias. El Estatuto (art. 61 LO 1/2007) les
+reconoce autonomía institucional, funcional y financiera.</p></li>
+<li><p><strong>Sindicatura de Comptes:</strong> órgano de fiscalización
+externa de las cuentas públicas de la CA y sus entes dependientes,
+equivalente al Tribunal de Cuentas en el ámbito autonómico.</p></li>
+<li><p><strong>Síndic de Greuges:</strong> comisionado del Parlament
+para la defensa de los derechos fundamentales y las libertades públicas
+de los ciudadanos frente a la actuación de la Administración
+autonómica.</p></li>
+<li><p><strong>Consell Consultiu:</strong> órgano consultivo superior de
+la CA, que emite dictámenes preceptivos sobre proyectos de ley y
+reglamentos.</p></li>
+</ul>
+<h1 id="la-delimitación-constitucional-del-reparto-de-competencias">2.
+La delimitación constitucional del reparto de competencias</h1>
+<p>El sistema constitucional de distribución de competencias entre el
+Estado y las CCAA se regula en los artículos 148 y 149 CE. Es un sistema
+complejo, ya que la CE no establece un listado cerrado de competencias
+autonómicas, sino que combina un techo competencial estatal con un suelo
+mínimo autonómico y un espacio intermedio de asunción voluntaria.</p>
+<h2 id="el-artículo-149-ce-competencias-exclusivas-del-estado">2.1 El
+artículo 149 CE: competencias exclusivas del Estado</h2>
+<p>El artículo 149.1 CE enumera las materias de competencia exclusiva
+del Estado, en las cuales las CCAA no pueden intervenir o solo pueden
+hacerlo en los términos que el Estado establezca. Entre las más
+relevantes:</p>
+<ul>
+<li><p>Relaciones internacionales (<em>art. 149.1.3.ª</em>).</p></li>
+<li><p>Defensa y Fuerzas Armadas (<em>art. 149.1.4.ª</em>).</p></li>
+<li><p>Administración de justicia (<em>art. 149.1.5.ª</em>).</p></li>
+<li><p>Legislación mercantil, penal, penitenciaria y procesal (<em>art.
+149.1.6.ª y 8.ª</em>).</p></li>
+<li><p>Legislación laboral (<em>art. 149.1.7.ª</em>).</p></li>
+<li><p>Hacienda general y Deuda del Estado (<em>art.
+149.1.14.ª</em>).</p></li>
+<li><p>Bases y coordinación de la planificación general de la actividad
+económica (<em>art. 149.1.13.ª</em>).</p></li>
+<li><p>Sanidad exterior; bases y coordinación de la sanidad (<em>art.
+149.1.16.ª</em>).</p></li>
+<li><p>Legislación básica sobre protección del medio ambiente (<em>art.
+149.1.23.ª</em>).</p></li>
+</ul>
+<h2 id="el-artículo-148-ce-competencias-asumibles-por-las-ccaa">2.2 El
+artículo 148 CE: competencias asumibles por las CCAA</h2>
+<p>El artículo 148.1 CE lista las materias sobre las que las CCAA pueden
+asumir competencias mediante sus Estatutos. El art. 148.2 CE permite
+que, transcurridos cinco años, las CCAA que accedieron por la vía del
+art. 143 amplíen sus competencias mediante reforma estatutaria. Entre
+las materias del art. 148 CE: organización de las instituciones de
+autogobierno; ordenación del territorio, urbanismo y vivienda;
+agricultura y ganadería; cultura; promoción del turismo; transporte
+dentro de la CA; lengua propia, etc.</p>
+<p>Cláusula residual (art. 149.3 CE): las materias no atribuidas
+expresamente al Estado por la Constitución podrán corresponder a las
+CCAA, en virtud de sus respectivos Estatutos. La competencia sobre las
+materias que no se hayan asumido por los Estatutos de Autonomía
+corresponderá al Estado, cuyas normas prevalecerán, en caso de
+conflicto, sobre las de las CCAA en todo lo que no esté atribuido a la
+exclusiva competencia de éstas. El derecho estatal será, en todo caso,
+supletorio del derecho de las CCAA.</p>
+<h1 id="tipos-de-competencias-exclusivas-compartidas-y-concurrentes">3.
+Tipos de competencias: exclusivas, compartidas y concurrentes</h1>
+<p>La distribución de competencias entre el Estado y las CCAA da lugar a
+una tipología que es esencial comprender con precisión. Aunque la CE
+utiliza el término «exclusivas» en el art. 149.1, la realidad es que
+muchas de las competencias allí enumeradas <strong>no son exclusivas en
+sentido estricto</strong>, sino que el propio precepto admite la
+participación autonómica en distintas vertientes (desarrollo
+legislativo, ejecución, etc.). El TC ha subrayado reiteradamente (STC
+125/1984) que la materia competencial posee un inevitable grado de
+indeterminación que exige ser clarificado caso por caso.</p>
+<h2 id="competencias-exclusivas">3.1 Competencias exclusivas</h2>
+<h3 id="a-concepto">A) Concepto</h3>
+<p>Una competencia es exclusiva <strong>en sentido estricto</strong>
+cuando su titularidad y ejercicio (legislación + ejecución) corresponden
+íntegramente a un solo ente, que puede legislar y ejecutar sin
+injerencia del otro. Es decir, un ente aglutina todas las facultades
+posibles —legislativa, reglamentaria y ejecutiva— sobre una misma
+materia.</p>
+<p>Sin embargo, el TC ha matizado que la exclusividad raramente es
+absoluta: el Estado puede incidir en materias «exclusivas» autonómicas
+cuando ejercita competencias transversales propias (p. ej., regulación
+de condiciones básicas del art. 149.1.1.ª, legislación laboral, medio
+ambiente). A la inversa, algunas competencias calificadas como
+«exclusivas del Estado» en el art. 149.1 CE solo reservan al Estado una
+determinada función (la legislación básica, por ejemplo), dejando el
+desarrollo y la ejecución a las CCAA.</p>
+<h3 id="b-competencias-exclusivas-del-estado">B) Competencias exclusivas
+del Estado</h3>
+<p>Son las listadas en el art. 149.1 CE cuando la propia norma no admite
+participación autonómica alguna. Ejemplos representativos:</p>
+<ul>
+<li><p><strong>Relaciones internacionales</strong> (art. 149.1.3.ª):
+toda la actividad de política exterior, incluida la celebración de
+tratados, corresponde al Estado. Las CCAA no pueden suscribir tratados
+internacionales, aunque sí pueden realizar actividades de proyección
+exterior en materias de su competencia (acción exterior
+autonómica).</p></li>
+<li><p><strong>Defensa y Fuerzas Armadas</strong> (art. 149.1.4.ª): la
+defensa nacional, la organización militar y el servicio de las Fuerzas
+Armadas son competencia íntegra del Estado.</p></li>
+<li><p><strong>Nacionalidad, inmigración, emigración, extranjería y
+derecho de asilo</strong> (art. 149.1.2.ª): la regulación de quién es
+nacional y el régimen de entrada, permanencia y expulsión de extranjeros
+corresponde al Estado.</p></li>
+<li><p><strong>Administración de Justicia</strong> (art. 149.1.5.ª): el
+Poder Judicial es único en toda España. Las CCAA no pueden crear
+tribunales propios, aunque sí pueden ejercer competencias en materia de
+medios personales y materiales al servicio de la Administración de
+Justicia.</p></li>
+<li><p><strong>Sistema monetario, aduanas y aranceles</strong> (art.
+149.1.10.ª y 11.ª): la política monetaria y la regulación aduanera son
+competencia exclusiva estatal (hoy compartida con la UE en virtud del
+Tratado de Funcionamiento de la UE).</p></li>
+</ul>
+<h3 id="c-competencias-exclusivas-de-las-ccaa">C) Competencias
+exclusivas de las CCAA</h3>
+<p>Son aquellas que la CA ha asumido en su Estatuto y sobre las que el
+Estado carece de título competencial directo. Ejemplos en Illes Balears
+(Estatuto LO 1/2007):</p>
+<ul>
+<li><p><strong>Turismo</strong> (art. 30.11 EA IB): la ordenación y
+promoción del turismo en el ámbito territorial balear es competencia
+exclusiva de la CA. Illes Balears ha legislado profusamente en la
+materia (Ley 8/2012, de turismo).</p></li>
+<li><p><strong>Urbanismo y ordenación del territorio</strong> (art. 30.3
+EA IB): la planificación territorial, la clasificación del suelo y la
+regulación urbanística corresponden a la CA.</p></li>
+<li><p><strong>Artesanía</strong> (art. 30.14 EA IB): la promoción y
+regulación de la actividad artesanal es competencia exclusiva
+autonómica.</p></li>
+<li><p><strong>Deporte y ocio</strong> (art. 30.12 EA IB): la regulación
+del deporte y las actividades de ocio en el ámbito autonómico.</p></li>
+<li><p><strong>Agricultura, ganadería e industrias
+agroalimentarias</strong> (art. 30.18 EA IB), en muchas de sus
+vertientes.</p></li>
+</ul>
+<blockquote>
+<p><strong>⚠ IMPORTANTE:</strong> Que una competencia sea «exclusiva» de
+una CA no significa que el Estado no pueda influir indirectamente en
+ella. El TC ha admitido que las competencias transversales del Estado
+(como la regulación de las condiciones básicas de igualdad del art.
+149.1.1.ª o la legislación básica medioambiental) pueden afectar a
+materias formalmente exclusivas de las CCAA (STC 61/1997, sobre
+urbanismo).</p>
+</blockquote>
+<h2 id="competencias-compartidas">3.2 Competencias compartidas</h2>
+<h3 id="a-concepto-1">A) Concepto</h3>
+<p>Es el tipo <strong>más frecuente y más complejo</strong> del sistema
+competencial español. Se produce cuando sobre una misma materia
+concurren competencias del Estado y de las CCAA, pero con funciones
+diferenciadas. El rasgo distintivo es que cada ente tiene una función
+cualitativamente distinta: no compiten en el mismo plano, sino que se
+complementan.</p>
+<p>Se pueden distinguir dos grandes esquemas de competencias
+compartidas:</p>
+<h3
+id="b-esquema-1-legislación-básica-estatal-desarrollo-y-ejecución-autonómica">B)
+Esquema 1: Legislación básica estatal + Desarrollo y ejecución
+autonómica</h3>
+<p>Es el esquema más extendido. El Estado dicta la <strong>legislación
+básica</strong> —normas que establecen los mínimos comunes
+indispensables para garantizar la igualdad de todos los ciudadanos (STC
+32/1981)— y las CCAA completan esa regulación con sus propias
+<strong>leyes de desarrollo</strong> y ejercen la
+<strong>ejecución</strong> de las políticas en su territorio.</p>
+<p>Ejemplos detallados:</p>
+<ul>
+<li><strong>Sanidad (art. 149.1.16.ª CE)</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><em>Bases estatales:</em> Ley 14/1986, General de Sanidad; Ley
+16/2003, de cohesión y calidad del SNS; Ley 41/2002, de autonomía del
+paciente. Estas leyes fijan el marco común: derecho a la protección de
+la salud, cartera de servicios comunes, coordinación del SNS, derechos
+del paciente.</p></li>
+<li><p><em>Desarrollo autonómico (Illes Balears):</em> Ley 5/2003, de
+salut de les Illes Balears, que crea el sistema sanitario público balear
+y el Servei de Salut de les Illes Balears (IB-Salut). Los Estatutos del
+IB-Salut (Decreto 39/2006) y su estructura orgánica (Decreto 79/2023)
+concretan la organización asistencial adaptándola al territorio
+insular.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Educación (art. 149.1.30.ª CE)</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><em>Bases estatales:</em> LO 2/2006 (LOE), modificada por la LO
+3/2020 (LOMLOE). Regulan la estructura del sistema educativo, los
+títulos académicos, los contenidos mínimos del currículo y los derechos
+y deberes del alumnado.</p></li>
+<li><p><em>Desarrollo autonómico:</em> las CCAA aprueban el currículo
+detallado, gestionan los centros públicos, convocan las oposiciones
+docentes y establecen los calendarios escolares. Por ejemplo, Illes
+Balears complementa los contenidos mínimos con horas de lengua
+catalana.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Medio ambiente (art. 149.1.23.ª CE)</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><em>Legislación básica estatal:</em> Ley 21/2013, de evaluación
+ambiental; Ley 26/2007, de responsabilidad medioambiental; Ley 7/2021,
+de cambio climático y transición energética.</p></li>
+<li><p><em>Desarrollo autonómico:</em> las CCAA pueden establecer normas
+adicionales de protección más estrictas que las estatales. Por ejemplo,
+una CA puede exigir evaluación de impacto ambiental para proyectos que
+la legislación estatal no la requiere, o fijar estándares de emisión más
+restrictivos. No pueden, sin embargo, rebajar el nivel de protección
+mínimo fijado por el Estado.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Régimen estatutario de los funcionarios (art. 149.1.18.ª
+CE)</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><em>Bases estatales:</em> Real Decreto Legislativo 5/2015
+(TREBEP), que fija el marco común de la función pública: clases de
+personal, derechos, deberes, situaciones administrativas, régimen
+disciplinario.</p></li>
+<li><p><em>Desarrollo autonómico:</em> las CCAA regulan sus propios
+cuerpos funcionariales, procesos selectivos específicos y complementos
+retributivos, dentro del marco del TREBEP.</p></li>
+</ul>
+<h3 id="c-esquema-2-legislación-estatal-plena-ejecución-autonómica">C)
+Esquema 2: Legislación estatal plena + Ejecución autonómica</h3>
+<p>En determinadas materias, el Estado conserva la competencia
+legislativa plena (no solo las bases, sino toda la legislación) pero la
+<strong>ejecución</strong> —es decir, la aplicación práctica de la ley—
+corresponde a las CCAA, que la realizan a través de sus propias
+estructuras administrativas.</p>
+<p>Ejemplos:</p>
+<ul>
+<li><p><strong>Legislación laboral (art. 149.1.7.ª CE):</strong> el
+Estado aprueba el Estatuto de los Trabajadores, la Ley de Prevención de
+Riesgos Laborales, etc. Las CCAA ejecutan esa legislación a través de
+sus servicios de empleo, la Inspección de Trabajo (con competencias
+delegadas), las oficinas de prestaciones, la gestión del SEPE en su
+territorio, etc.</p></li>
+<li><p><strong>Legislación de productos farmacéuticos (art. 149.1.16.ª
+CE):</strong> el Estado legisla sobre la autorización de medicamentos y
+los criterios de financiación pública, pero las CCAA gestionan la
+distribución, las farmacias y la prescripción en sus servicios de
+salud.</p></li>
+<li><p><strong>Propiedad intelectual e industrial (art. 149.1.9.ª
+CE):</strong> la regulación de patentes, marcas y derechos de autor es
+competencia legislativa del Estado, pero las CCAA pueden ejercer
+determinadas funciones ejecutivas (registro, tramitación de
+expedientes).</p></li>
+</ul>
+<h3 id="d-la-doctrina-de-las-bases-del-estado">D) La doctrina de las
+«bases» del Estado</h3>
+<p>El concepto de legislación básica o bases del Estado es central en el
+sistema autonómico. La jurisprudencia constitucional (STC 1/1982, STC
+32/1981, STC 197/1996) ha elaborado una doctrina rica:</p>
+<ul>
+<li><p><strong>Criterio material:</strong> son básicas las normas que
+establecen el común denominador normativo necesario para asegurar los
+intereses generales y garantizar la igualdad básica de todos los
+ciudadanos.</p></li>
+<li><p><strong>Criterio formal:</strong> las bases deben declararse
+expresamente como tales por el legislador estatal, aunque el TC ha
+admitido que una norma puede ser básica sin esa declaración expresa si
+así lo impone su contenido.</p></li>
+<li><p><strong>Límite infranqueable:</strong> las bases no deben vaciar
+de contenido las competencias autonómicas; deben dejar un espacio real
+para el desarrollo normativo autonómico (STC 32/1981).</p></li>
+<li><p><strong>Forma de las bases:</strong> deben revestir
+preferentemente forma de ley, aunque el TC ha admitido excepcionalmente
+que puedan contenerse en normas reglamentarias (STC 69/1988).</p></li>
+</ul>
+<h2 id="competencias-concurrentes">3.3 Competencias concurrentes</h2>
+<h3 id="a-concepto-2">A) Concepto</h3>
+<p>Existe <strong>concurrencia competencial</strong> cuando tanto el
+Estado como las CCAA pueden ejercer competencias sobre la misma materia
+de forma simultánea, <strong>con idénticas facultades</strong> (ambos
+pueden legislar y ejecutar), sin que las normas de uno desplacen
+necesariamente a las del otro. A diferencia de las competencias
+compartidas, aquí no hay reparto funcional (bases/desarrollo): ambos
+niveles operan en el mismo plano.</p>
+<p>Es un fenómeno menos sistemático en la CE española que en el
+federalismo alemán o americano, pero existe en materias concretas.</p>
+<h3 id="b-ejemplos-de-competencias-concurrentes">B) Ejemplos de
+competencias concurrentes</h3>
+<ul>
+<li><p><strong>Cultura (art. 149.2 CE):</strong> es el ejemplo
+paradigmático. El art. 149.2 CE establece expresamente que «sin
+perjuicio de las competencias que podrán asumir las Comunidades
+Autónomas, el Estado considerará el servicio de la cultura como deber y
+atribución esencial y facilitará la comunicación cultural entre las
+Comunidades Autónomas, de acuerdo con ellas». Así, tanto el Estado como
+las CCAA pueden fomentar, financiar y regular actividades culturales
+(museos, bibliotecas, archivos, patrimonio, artes escénicas). El Museo
+del Prado lo gestiona el Estado; el Museu de Mallorca, la CA balear.
+Ambas actuaciones coexisten.</p></li>
+<li><p><strong>Investigación científica y técnica (art. 149.1.15.ª
+CE):</strong> el Estado tiene competencia sobre el fomento y
+coordinación general de la investigación, pero las CCAA pueden
+establecer sus propios planes de I+D+i, crear centros de investigación y
+conceder ayudas a la investigación en su ámbito territorial. Ambas
+políticas conviven sin que una desplace a la otra.</p></li>
+<li><p><strong>Deporte:</strong> aunque no hay una atribución expresa en
+el art. 149.1, el Estado legisla sobre el deporte de ámbito estatal (Ley
+39/2022, del Deporte) y las CCAA regulan el deporte autonómico. Ambos
+niveles coexisten: la selección española la gestiona el CSD estatal; las
+federaciones autonómicas y las ligas de ámbito balear las gestiona la
+CA.</p></li>
+</ul>
+<h3 id="c-diferencia-clave-entre-compartidas-y-concurrentes">C)
+Diferencia clave entre compartidas y concurrentes</h3>
+<blockquote>
+<p><strong>⚠ IMPORTANTE:</strong> En las competencias COMPARTIDAS, el
+Estado y la CA operan en funciones diferentes sobre la misma materia
+(uno legisla las bases, otro desarrolla y ejecuta). En las competencias
+CONCURRENTES, ambos operan con las mismas facultades sobre la misma
+materia, y sus actuaciones coexisten. La distinción es esencial para los
+exámenes.</p>
+</blockquote>
+<h2 id="tabla-comparativa-de-tipos-de-competencias">3.4 Tabla
+comparativa de tipos de competencias</h2>
+<table style="width:98%;">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Tipo</strong></th>
+<th style="text-align: left;"><strong>Titularidad</strong></th>
+<th style="text-align: left;"><strong>Función Estado</strong></th>
+<th style="text-align: left;"><strong>Función CA</strong></th>
+<th style="text-align: left;"><strong>Ejemplos</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Exclusiva Estado</td>
+<td style="text-align: left;">Estado</td>
+<td style="text-align: left;">Legisla y ejecuta íntegramente</td>
+<td style="text-align: left;">Ninguna</td>
+<td style="text-align: left;">RREE, defensa, nacionalidad, sistema
+monetario</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exclusiva CA</td>
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">Sin título directo (salvo
+transversales)</td>
+<td style="text-align: left;">Legisla y ejecuta</td>
+<td style="text-align: left;">Turismo, urbanismo, artesanía (en Illes
+Balears)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Compartida (bases/desarrollo)</td>
+<td style="text-align: left;">Compartida</td>
+<td style="text-align: left;">Legislación básica (mínimos comunes)</td>
+<td style="text-align: left;">Desarrollo legislativo + ejecución</td>
+<td style="text-align: left;">Sanidad, educación, medio ambiente,
+función pública</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Compartida (legislación/ejecución)</td>
+<td style="text-align: left;">Compartida</td>
+<td style="text-align: left;">Legislación plena</td>
+<td style="text-align: left;">Ejecución</td>
+<td style="text-align: left;">Legislación laboral, propiedad
+intelectual</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Concurrente</td>
+<td style="text-align: left;">Ambos</td>
+<td style="text-align: left;">Legisla y ejecuta en su ámbito</td>
+<td style="text-align: left;">Legisla y ejecuta en su ámbito</td>
+<td style="text-align: left;">Cultura (art. 149.2), investigación,
+deporte</td>
+</tr>
+</tbody>
+</table></div>
+<h1
+id="las-leyes-del-artículo-150-ce-instrumentos-de-flexibilización-del-sistema-competencial">4.
+Las leyes del artículo 150 CE: instrumentos de flexibilización del
+sistema competencial</h1>
+<p>El artículo 150 CE es uno de los preceptos más significativos de la
+organización territorial. Habilita al Estado para <strong>ampliar o
+reducir</strong>, por actos legislativos propios, el marco estatutario
+de las competencias de las CCAA. Lo hace mediante tres instrumentos
+normativos distintos que otorgan flexibilidad al sistema de reparto
+competencial, permitiendo su adaptación sin necesidad de reformar los
+Estatutos de Autonomía.</p>
+<h2 id="leyes-marco-art.-150.1-ce">4.1 Leyes marco (art. 150.1 CE)</h2>
+<h3 id="a-concepto-y-fundamento">A) Concepto y fundamento</h3>
+<p>Las Cortes Generales, en materias de competencia estatal, pueden
+atribuir a todas o a alguna de las CCAA la facultad de dictar, para sí
+mismas, normas legislativas <strong>en el marco de los principios, bases
+y directrices fijados por una ley estatal</strong>. Es una técnica de
+delegación legislativa limitada: el Estado no transfiere la titularidad
+de la competencia, sino que habilita a las CCAA para que legislen dentro
+de un marco predeterminado.</p>
+<h3 id="b-características">B) Características</h3>
+<ul>
+<li><p><strong>Forma:</strong> ley ordinaria de las Cortes
+Generales.</p></li>
+<li><p><strong>Ámbito:</strong> materias de competencia estatal. No
+procede para materias que ya son competencia de las CCAA.</p></li>
+<li><p><strong>Contenido:</strong> la ley estatal fija los principios,
+bases y directrices dentro de los cuales las CCAA pueden dictar sus
+propias normas legislativas.</p></li>
+<li><p><strong>Control:</strong> en cada ley marco se debe establecer la
+modalidad de control de las Cortes Generales sobre las normas
+autonómicas dictadas en su ejercicio, sin perjuicio del control
+jurisdiccional de los Tribunales.</p></li>
+<li><p><strong>Destinatarios:</strong> puede atribuirse a todas las CCAA
+o solo a algunas (asimetría).</p></li>
+</ul>
+<h3 id="c-diferencia-con-las-leyes-de-bases-del-art.-82-ce">C)
+Diferencia con las leyes de bases del art. 82 CE</h3>
+<p>Aunque ambas figuras comparten el mecanismo de delegación
+legislativa, las <strong>leyes de bases del art. 82 CE</strong>
+habilitan al Gobierno estatal para dictar decretos legislativos,
+mientras que las <strong>leyes marco del art. 150.1 CE</strong>
+habilitan a las Asambleas Legislativas autonómicas para dictar leyes
+propias. El destinatario de la delegación es diferente.</p>
+<h3 id="d-uso-práctico">D) Uso práctico</h3>
+<p>Las leyes marco del art. 150.1 CE <strong>apenas han sido empleadas
+en la práctica</strong>. La doctrina ha señalado que su función ha
+quedado absorbida por otras técnicas de distribución competencial
+(legislación básica/desarrollo). No obstante, se ha invocado el art.
+150.1 CE en las <em>leyes de cesión de tributos estatales a las
+CCAA</em> (como la Ley 22/2009, de financiación de las CCAA de régimen
+común), donde el Estado cede la recaudación y cierta capacidad normativa
+sobre tributos estatales a las CCAA dentro de un marco prefijado.</p>
+<h2 id="leyes-orgánicas-de-transferencia-o-delegación-art.-150.2-ce">4.2
+Leyes orgánicas de transferencia o delegación (art. 150.2 CE)</h2>
+<h3 id="a-concepto-y-fundamento-1">A) Concepto y fundamento</h3>
+<p>El Estado puede <strong>transferir o delegar</strong> en las CCAA,
+mediante ley orgánica, facultades correspondientes a materia de
+titularidad estatal que por su propia naturaleza sean susceptibles de
+transferencia o delegación. La ley preverá la correspondiente
+transferencia de medios financieros y las formas de control que se
+reserve el Estado.</p>
+<h3 id="b-características-1">B) Características</h3>
+<ul>
+<li><p><strong>Forma:</strong> ley orgánica (requiere mayoría absoluta
+del Congreso en votación final sobre el conjunto del texto).</p></li>
+<li><p><strong>Objeto:</strong> materias de titularidad estatal
+susceptibles de transferencia por su naturaleza. No pueden transferirse
+todas las competencias del art. 149.1: quedan excluidas aquellas que por
+su propia esencia son intransferibles (soberanía nacional, relaciones
+internacionales nucleares, defensa en sentido estricto).</p></li>
+<li><p><strong>Medios:</strong> la ley debe prever la transferencia de
+los medios financieros necesarios para ejercer las competencias
+transferidas.</p></li>
+<li><p><strong>Control:</strong> el Estado se reserva formas de control
+(información, suspensión gubernamental temporal, posible revocación).
+Sin embargo, estas formas de control no pueden vaciar de contenido la
+transferencia.</p></li>
+</ul>
+<h3 id="c-diferencia-entre-transferencia-y-delegación">C) Diferencia
+entre transferencia y delegación</h3>
+<p>Aunque el art. 150.2 CE utiliza ambos términos conjuntamente, la
+doctrina (García de Enterría, Aja, Tornos) distingue:</p>
+<ul>
+<li><p><strong>Transferencia:</strong> la CA recibe la competencia y la
+ejerce como propia. El control estatal se limita al rendimiento final,
+sin interferir en la gestión inmediata.</p></li>
+<li><p><strong>Delegación:</strong> la CA ejerce la competencia por
+cuenta del Estado, que mantiene un control más intenso y puede
+introducir reglas de coordinación. La CA debe dar cuenta de las
+alteraciones producidas en el régimen de ejercicio.</p></li>
+</ul>
+<h3 id="d-ejemplos-históricos-concretos">D) Ejemplos históricos
+concretos</h3>
+<p><strong>Este es el instrumento del art. 150 CE que más se ha
+utilizado en la práctica:</strong></p>
+<ul>
+<li><p><strong>LOTRAVA (LO 12/1982):</strong> Ley Orgánica de
+Transferencias a la Comunidad Valenciana. Permitió que la Comunidad
+Valenciana alcanzara un nivel competencial equivalente al de las CCAA
+que habían accedido por la vía del art. 151 CE, pese a haber seguido la
+vía del art. 143. Competencias transferidas: educación, medios de
+comunicación social, etc.</p></li>
+<li><p><strong>LOTRACA (LO 11/1982):</strong> Ley Orgánica de
+Transferencias Complementarias a Canarias. Misma función que la LOTRAVA:
+equiparar las competencias de Canarias con las CCAA del art.
+151.</p></li>
+<li><p><strong>LO 9/1992, de transferencia de competencias a las CCAA
+del art. 143:</strong> fue la ley más ambiciosa dictada al amparo del
+art. 150.2 CE. En el marco de los Pactos Autonómicos de 1992, transfirió
+competencias de titularidad estatal a diez CCAA: Asturias, Cantabria, La
+Rioja, Murcia, Aragón, Castilla-La Mancha, Extremadura, <strong>Islas
+Baleares</strong>, Madrid y Castilla y León. Materias
+transferidas:</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Ordenación y concesión de recursos y aprovechamientos hidráulicos
+(aguas intracomunitarias).</p></li>
+<li><p>Casinos, juegos y apuestas.</p></li>
+<li><p>Cooperativas y mutuas no integradas en la Seguridad
+Social.</p></li>
+<li><p>Educación (desarrollo legislativo y ejecución de la legislación
+básica).</p></li>
+<li><p>Medios de comunicación social del Estado.</p></li>
+<li><p>Espectáculos públicos.</p></li>
+</ul>
+<p>La finalidad de esta ley era transitoria: se pretendía que las
+competencias se incorporasen posteriormente a los Estatutos mediante
+reforma. Así ocurrió con las reformas estatutarias de 1994 (para las
+diez CCAA afectadas).</p>
+<ul>
+<li><strong>LO 16/1995:</strong> transfirió competencias complementarias
+al ámbito de la gestión del tráfico y la circulación de vehículos a
+Cataluña (Mossos d'Esquadra).</li>
+</ul>
+<blockquote>
+<p><strong>⚠ IMPORTANTE:</strong> Las leyes del art. 150.2 CE no forman
+parte del bloque de constitucionalidad en el mismo sentido que los
+Estatutos: son leyes extraestatutarias. Las competencias recibidas por
+esta vía no son «propias» de la CA sino «transferidas», aunque en la
+práctica se ejercen de manera similar. Cuando se incorporan al Estatuto
+mediante reforma, pasan a ser competencias estatutarias plenas.</p>
+</blockquote>
+<h2 id="leyes-de-armonización-art.-150.3-ce">4.3 Leyes de armonización
+(art. 150.3 CE)</h2>
+<h3 id="a-concepto-y-fundamento-2">A) Concepto y fundamento</h3>
+<p>El Estado puede dictar leyes que establezcan los principios
+necesarios para <strong>armonizar las disposiciones normativas de las
+CCAA</strong>, aun en el caso de materias atribuidas a la competencia de
+éstas, cuando así lo exija el <strong>interés general</strong>. A
+diferencia de las dos anteriores (que amplían competencias autonómicas),
+las leyes de armonización <em>reducen o limitan</em> el margen de
+actuación de las CCAA al obligarlas a ajustarse a principios
+comunes.</p>
+<h3 id="b-características-y-requisitos">B) Características y
+requisitos</h3>
+<ul>
+<li><p><strong>Presupuesto habilitante:</strong> debe concurrir una
+exigencia de interés general que justifique la armonización. No basta
+con que existan diferencias normativas entre CCAA; debe acreditarse que
+esas divergencias causan un problema efectivo que afecta al interés
+general.</p></li>
+<li><p><strong>Apreciación de la necesidad:</strong> corresponde a las
+Cortes Generales, por mayoría absoluta de cada Cámara (Congreso y
+Senado), apreciar previamente que concurre la exigencia de interés
+general. Es un acto de naturaleza política que habilita la tramitación
+posterior.</p></li>
+<li><p><strong>Tramitación posterior:</strong> una vez apreciada la
+necesidad, la ley se tramita como ley ordinaria.</p></li>
+<li><p><strong>Contenido:</strong> la ley de armonización solo puede
+fijar principios armonizadores; no puede sustituir por completo la
+regulación autonómica ni vaciar de contenido las competencias de las
+CCAA.</p></li>
+<li><p><strong>Ámbito:</strong> puede afectar incluso a materias de
+competencia exclusiva de las CCAA, a diferencia de la legislación básica
+(que solo se aplica a materias compartidas).</p></li>
+</ul>
+<h3 id="c-la-stc-761983-la-loapa">C) La STC 76/1983: la LOAPA</h3>
+<p>La jurisprudencia clave sobre las leyes de armonización es la
+<strong>STC 76/1983</strong>, que declaró parcialmente inconstitucional
+el proyecto de Ley Orgánica de Armonización del Proceso Autonómico
+(LOAPA). El TC estableció una interpretación muy restrictiva:</p>
+<ul>
+<li><p>El art. 150.3 CE es una «norma de cierre» del sistema
+competencial, aplicable solo cuando el legislador estatal no disponga de
+otros cauces constitucionales suficientes (legislación básica,
+competencias exclusivas, etc.).</p></li>
+<li><p>Las leyes de armonización no pueden usarse para reformar o
+condicionar el contenido de los Estatutos de Autonomía ni el marco
+constitucional de distribución de competencias.</p></li>
+<li><p>No se limitan a materias de competencia exclusiva autonómica:
+también pueden aplicarse a competencias compartidas si las divergencias
+normativas afectan al interés general.</p></li>
+<li><p>La LOAPA fue reconvertida en la Ley 12/1983, del Proceso
+Autonómico, desprovista de su carácter armonizador.</p></li>
+</ul>
+<h3 id="d-uso-práctico-1">D) Uso práctico</h3>
+<p>Las leyes de armonización son el instrumento del art. 150 CE
+<strong>menos utilizado</strong> en la práctica. Tras el varapalo
+constitucional de la LOAPA (STC 76/1983), el legislador estatal ha
+preferido recurrir a otros mecanismos (legislación básica, competencias
+transversales del art. 149.1.1.ª) para lograr la coherencia normativa en
+el territorio, evitando la complejidad política que supone apreciar la
+«necesidad» por mayoría absoluta de ambas cámaras.</p>
+<h2 id="tabla-comparativa-de-las-leyes-del-art.-150-ce">4.4 Tabla
+comparativa de las leyes del art. 150 CE</h2>
+<table style="width:98%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 23%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Aspecto</strong></th>
+<th style="text-align: left;"><strong>Ley marco (150.1)</strong></th>
+<th style="text-align: left;"><strong>Ley transferencia
+(150.2)</strong></th>
+<th style="text-align: left;"><strong>Ley armonización
+(150.3)</strong></th>
+<th style="text-align: left;"><strong>Efecto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Forma</td>
+<td style="text-align: left;">Ley ordinaria</td>
+<td style="text-align: left;">Ley orgánica</td>
+<td style="text-align: left;">Ley ordinaria (previa mayoría
+absoluta)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Función</td>
+<td style="text-align: left;">Habilita a CCAA para legislar en marco
+estatal</td>
+<td style="text-align: left;">Transfiere/delega facultades
+estatales</td>
+<td style="text-align: left;">Armoniza normativa autonómica</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ámbito</td>
+<td style="text-align: left;">Materias de competencia estatal</td>
+<td style="text-align: left;">Materias estatales susceptibles de
+transferencia</td>
+<td style="text-align: left;">Materias de competencia autonómica
+(incluso exclusivas)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Efecto sobre competencias</td>
+<td style="text-align: left;">Amplía</td>
+<td style="text-align: left;">Amplía</td>
+<td style="text-align: left;">Limita/reduce</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Control</td>
+<td style="text-align: left;">El que fije la propia ley +
+Tribunales</td>
+<td style="text-align: left;">Información + suspensión + posible
+revocación</td>
+<td style="text-align: left;">Jurisdiccional (TC)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Uso práctico</td>
+<td style="text-align: left;">Escaso (cesión tributos)</td>
+<td style="text-align: left;">Amplio (LOTRAVA, LOTRACA, LO 9/1992)</td>
+<td style="text-align: left;">Mínimo (STC 76/1983 frenó la LOAPA)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="las-bases-y-la-coordinación-del-estado">5. Las bases y la
+coordinación del Estado</h1>
+<h2 id="instrumentos-de-coordinación">5.1 Instrumentos de
+coordinación</h2>
+<p>La coordinación no exige una relación jerárquica, pero sí la
+integración de las actuaciones autonómicas en un marco coherente. Los
+principales instrumentos son:</p>
+<ul>
+<li><p><strong>Conferencias Sectoriales:</strong> foros de coordinación
+entre el Gobierno estatal y los Gobiernos autonómicos en áreas
+sectoriales (sanidad, educación, agricultura...). En sanidad, el Consejo
+Interterritorial del Sistema Nacional de Salud es el órgano central de
+coordinación (art. 47 Ley 16/2003).</p></li>
+<li><p><strong>Alta Inspección del Estado:</strong> el Estado puede
+verificar que las CCAA cumplen las normas básicas estatales sin
+sustituirlas en su función.</p></li>
+<li><p><strong>Art. 155 CE:</strong> en caso de incumplimiento grave de
+la CE o de las leyes, el Gobierno puede adoptar medidas coercitivas,
+previo requerimiento al Presidente de la CA y aprobación por mayoría
+absoluta del Senado. Es la cláusula de garantía última del Estado
+autonómico.</p></li>
+</ul>
+<h2 id="cooperación-entre-estado-y-ccaa">5.2 Cooperación entre Estado y
+CCAA</h2>
+<p>La cooperación es voluntaria y se articula mediante convenios de
+colaboración (art. 145.2 CE) entre el Estado y las CCAA, y entre CCAA
+entre sí (con comunicación a las Cortes Generales). En el ámbito de la
+sanidad balear, son relevantes los convenios de financiación del
+IB-Salut con el Ministerio de Sanidad y los acuerdos del Consejo
+Interterritorial del SNS.</p>
+<h1 id="tabla-resumen-para-el-examen">6. Tabla resumen para el
+examen</h1>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Materia</strong></th>
+<th style="text-align: left;"><strong>Dato clave</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Principios Estado
+Autonómico</strong></td>
+<td style="text-align: left;">Unidad · Autonomía · Principio dispositivo
+· Solidaridad · Coordinación</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Competencias exclusivas
+Estado</strong></td>
+<td style="text-align: left;">Art. 149.1 CE: RREE, defensa, legislación
+penal, mercantil, laboral, nacionalidad, sistema monetario...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Competencias exclusivas
+CCAA</strong></td>
+<td style="text-align: left;">Asumidas en Estatutos sin título estatal
+directo: turismo, urbanismo, artesanía (en Illes Balears)...</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Competencias compartidas
+(bases)</strong></td>
+<td style="text-align: left;">Estado: legislación básica; CCAA:
+desarrollo y ejecución (sanidad, educación, medio ambiente, función
+pública)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Competencias compartidas
+(legislación)</strong></td>
+<td style="text-align: left;">Estado: legislación plena; CCAA: ejecución
+(legislación laboral, propiedad intelectual)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Competencias
+concurrentes</strong></td>
+<td style="text-align: left;">Ambos legislan y ejecutan: Cultura (art.
+149.2), investigación, deporte</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cláusula residual (art.
+149.3)</strong></td>
+<td style="text-align: left;">Materias no asumidas por Estatutos =
+Estado. Prevalencia estatal salvo exclusivas CCAA. Supletoriedad</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Ley marco (art.
+150.1)</strong></td>
+<td style="text-align: left;">Ley ordinaria; habilita a CCAA para
+legislar en marco estatal; uso escaso</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Ley transferencia (art.
+150.2)</strong></td>
+<td style="text-align: left;">Ley orgánica; transfiere/delega
+competencias estatales; uso amplio (LOTRAVA, LOTRACA, LO 9/1992)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Ley armonización (art.
+150.3)</strong></td>
+<td style="text-align: left;">Ley ordinaria (previa mayoría absoluta);
+armoniza normativa autonómica; uso restrictivo (STC 76/1983)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Art. 155 CE</strong></td>
+<td style="text-align: left;">Medidas coercitivas del Estado si la CA
+incumple gravemente la CE o las leyes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Sanidad en Baleares</strong></td>
+<td style="text-align: left;">Bases: Estado (Ley 14/1986, Ley 16/2003) ·
+Desarrollo: CA (Ley 5/2003; IB-Salut)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Illes Balears</strong></td>
+<td style="text-align: left;">Acceso vía art. 143; EA LO 2/1983; EA
+vigente: LO 1/2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Consells Insulars</strong></td>
+<td style="text-align: left;">Órganos de gobierno de cada isla;
+instituciones propias del EA de Illes Balears</td>
+</tr>
+</tbody>
+</table></div>
+
+</body>
+</html>
