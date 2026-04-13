@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test – Temas 12 y 13</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #5a5a72;
+  --accent: #1e3a5f;
+  --accent-light: #2e75b6;
+  --accent-bg: #edf2f9;
+  --warning: #c00000;
+  --warning-bg: #fef2f2;
+  --border: #d4d0ca;
+  --table-header: #1f3864;
+  --table-stripe: #f4f1ed;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --radius: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 17px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 2rem 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.tema-header {
+  text-align: center;
+  padding: 2.5rem 2rem 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 3px solid var(--accent);
+  position: relative;
+}
+.tema-header::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-light);
+}
+.tema-number {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .02em;
+  margin-bottom: .3rem;
+}
+.tema-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* ── Headings ── */
+h1, h2, h3 {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.3;
+}
+h1 {
+  font-size: 1.65rem;
+  color: var(--accent);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--accent-bg);
+}
+h2 {
+  font-size: 1.3rem;
+  color: var(--accent-light);
+  margin: 2rem 0 .8rem;
+}
+h3 {
+  font-size: 1.1rem;
+  color: #404040;
+  margin: 1.5rem 0 .6rem;
+}
+
+p { margin-bottom: .9rem; }
+
+/* ── Lists ── */
+ul, ol { margin: .5rem 0 1rem 1.8rem; }
+li { margin-bottom: .35rem; }
+li > ul { margin-top: .3rem; }
+
+/* ── Bold / Italic ── */
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ── Important boxes ── */
+.important {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: .95rem;
+}
+.important::before {
+  content: '⚠ IMPORTANTE: ';
+  font-weight: 700;
+  color: var(--warning);
+}
+
+/* ── Tables ── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+thead th {
+  background: var(--table-header);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .7rem .8rem;
+  text-align: left;
+  white-space: nowrap;
+}
+tbody td {
+  padding: .6rem .8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--table-stripe); }
+tbody tr:hover { background: var(--accent-bg); }
+
+/* ── Test-specific ── */
+.question {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1.2rem 0;
+  box-shadow: var(--shadow);
+}
+.question-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: .7rem;
+  line-height: 1.45;
+}
+.question-text .badge {
+  display: inline-block;
+  background: var(--accent-light);
+  color: #fff;
+  font-size: .7rem;
+  padding: .1rem .45rem;
+  border-radius: 3px;
+  margin-right: .3rem;
+  vertical-align: middle;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+.options { list-style: none; margin: 0; padding: 0; }
+.options li {
+  padding: .4rem .6rem;
+  margin: .25rem 0;
+  border-radius: 4px;
+  font-size: .95rem;
+  cursor: default;
+  transition: background .15s;
+}
+.options li:hover { background: var(--accent-bg); }
+.options li .letter {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-right: .3rem;
+}
+.answer-line {
+  margin-top: .7rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  color: var(--text-muted);
+}
+
+/* Answer key */
+.answer-key {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+.answer-key table { font-size: .9rem; }
+.answer-key td:nth-child(2),
+.answer-key th:nth-child(2) { text-align: center; font-weight: 700; }
+.answer-key td:first-child,
+.answer-key th:first-child { text-align: center; }
+
+/* ── Print ── */
+@media print {
+  body { padding: 0; font-size: 15px; }
+  .question { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  h1 { break-before: page; }
+  .table-wrap { box-shadow: none; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  body { padding: 1rem .5rem; }
+  .tema-number { font-size: 2rem; }
+  .answer-key { grid-template-columns: 1fr; }
+}
+
+.test-note {
+  background: var(--accent-bg);
+  border-radius: var(--radius);
+  padding: .8rem 1.2rem;
+  font-size: .9rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<div class="tema-header">
+  <div class="tema-number">TEST</div>
+  <div class="tema-title">Temas 12 y 13 – El Estado de las Autonomías</div>
+</div>
+
+<div class="test-note">
+  Las preguntas marcadas con <span class="badge" style="display:inline-block;background:var(--accent-light);color:#fff;font-size:.7rem;padding:.1rem .45rem;border-radius:3px;font-family:'DM Sans',sans-serif;font-weight:700;">BALEARES</span> hacen referencia específica a la Comunitat Autònoma de les Illes Balears. Cada pregunta tiene una única respuesta correcta (a, b, c o d).
+</div>
+
+<h1>TEMA 12 – El Estado de las Autonomías (I)</h1>
+<p><em>Principios · Procedimientos de acceso · Estatutos de Autonomía</em></p>
+<div class="question">
+  <div class="question-text">1. ¿Cuál es el contenido mínimo que debe incluir todo Estatuto de
+Autonomía según el art. 147.2 CE?</div>
+  <ul class="options"><li><span class="letter">a)</span> Símbolos, territorio, gobierno autonómico y reforma</li>
+<li><span class="letter">b)</span> Denominación, capital, lengua propia y financiación</li>
+<li><span class="letter">c)</span> Denominación, derechos de los ciudadanos, instituciones y relaciones con el Estado</li>
+<li><span class="letter">d)</span> Denominación de la CA, delimitación del territorio, instituciones propias y competencias asumidas</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">2. ¿Cuáles son los cinco principios estructurantes del Estado de las
+Autonomías?</div>
+  <ul class="options"><li><span class="letter">a)</span> Unidad, igualdad, descentralización, cooperación y eficacia</li>
+<li><span class="letter">b)</span> Unidad, autonomía, dispositivo, solidaridad y coordinación</li>
+<li><span class="letter">c)</span> Soberanía, autonomía, igualdad, subsidiariedad y solidaridad</li>
+<li><span class="letter">d)</span> Territorialidad, dispositivo, federalismo, solidaridad y eficacia</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">3. ¿Cuántas Comunidades Autónomas y Ciudades Autónomas existen
+actualmente en España?</div>
+  <ul class="options"><li><span class="letter">a)</span> 17 Comunidades Autónomas y 3 Ciudades Autónomas</li>
+<li><span class="letter">b)</span> 19 Comunidades Autónomas y ninguna Ciudad Autónoma</li>
+<li><span class="letter">c)</span> 17 Comunidades Autónomas y 2 Ciudades Autónomas</li>
+<li><span class="letter">d)</span> 15 Comunidades Autónomas y 2 Ciudades Autónomas</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">4. ¿Qué artículo de la CE organiza el territorio del Estado en
+municipios, provincias y Comunidades Autónomas?</div>
+  <ul class="options"><li><span class="letter">a)</span> Art. 137 CE</li>
+<li><span class="letter">b)</span> Art. 2 CE</li>
+<li><span class="letter">c)</span> Art. 103 CE</li>
+<li><span class="letter">d)</span> Art. 148 CE</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">5. ¿Qué afirma el Tribunal Constitucional sobre la relación entre
+autonomía y soberanía?</div>
+  <ul class="options"><li><span class="letter">a)</span> Las CCAA pueden ejercer soberanía en materias exclusivas</li>
+<li><span class="letter">b)</span> La autonomía no es soberanía: las CCAA ejercen poderes limitados derivados de la CE</li>
+<li><span class="letter">c)</span> La autonomía política implica reconocimiento de soberanía compartida</li>
+<li><span class="letter">d)</span> La autonomía autonómica equivale a soberanía limitada</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">6. \\\[BALEARES\\\] ¿Por qué vía accedió Illes Balears a la autonomía
+y cuál es su Estatuto actualmente vigente?</div>
+  <ul class="options"><li><span class="letter">a)</span> Vía art. 151 CE; Estatuto LO 2/1983</li>
+<li><span class="letter">b)</span> Vía art. 143 CE; Estatuto LO 1/2007</li>
+<li><span class="letter">c)</span> Vía art. 144 CE; Estatuto LO 3/1999</li>
+<li><span class="letter">d)</span> Vía art. 151 CE; Estatuto LO 1/2007</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">7. El principio de solidaridad interterritorial en su dimensión
+negativa prohíbe fundamentalmente:</div>
+  <ul class="options"><li><span class="letter">a)</span> La creación de impuestos propios por las CCAA</li>
+<li><span class="letter">b)</span> Que una CA tenga más competencias que otra</li>
+<li><span class="letter">c)</span> La suscripción de convenios entre CCAA sin autorización estatal</li>
+<li><span class="letter">d)</span> Adoptar medidas que obstaculicen la libre circulación de personas, bienes o servicios</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">8. La vía especial o rápida del art. 151 CE exigía la ratificación
+mediante referéndum por:</div>
+  <ul class="options"><li><span class="letter">a)</span> Mayoría de 3/5 de la población de la región</li>
+<li><span class="letter">b)</span> Mayoría simple en votación conjunta de todas las provincias</li>
+<li><span class="letter">c)</span> Mayoría de votos válidos emitidos en cada provincia</li>
+<li><span class="letter">d)</span> Mayoría absoluta del censo electoral de la región</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">9. Los Estatutos de Autonomía son aprobados formalmente como:</div>
+  <ul class="options"><li><span class="letter">a)</span> Reglamentos de las Asambleas autonómicas</li>
+<li><span class="letter">b)</span> Leyes ordinarias de las Cortes Generales</li>
+<li><span class="letter">c)</span> Leyes orgánicas de las Cortes Generales</li>
+<li><span class="letter">d)</span> Decretos legislativos del Gobierno</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">10. \\\[BALEARES\\\] La reforma del Estatuto de Autonomía de Illes
+Balears vigente (LO 1/2007) requiere:</div>
+  <ul class="options"><li><span class="letter">a)</span> Aprobación del Parlament, de las Cortes Generales y referéndum para materias esenciales</li>
+<li><span class="letter">b)</span> Referéndum obligatorio en todos los casos sin intervención de las Cortes</li>
+<li><span class="letter">c)</span> Únicamente aprobación de las Cortes Generales</li>
+<li><span class="letter">d)</span> Solo aprobación del Parlament de les Illes Balears</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">11. ¿En qué artículo de la Constitución se recoge el principio
+dispositivo o de voluntariedad?</div>
+  <ul class="options"><li><span class="letter">a)</span> Art. 151 CE</li>
+<li><span class="letter">b)</span> Art. 2 CE</li>
+<li><span class="letter">c)</span> Art. 143 CE</li>
+<li><span class="letter">d)</span> Art. 137 CE</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">12. ¿Qué normas integran el llamado \\\'bloque de
+constitucionalidad\\\'?</div>
+  <ul class="options"><li><span class="letter">a)</span> Solo la Constitución Española</li>
+<li><span class="letter">b)</span> La CE, los Estatutos, las leyes básicas y los tratados internacionales</li>
+<li><span class="letter">c)</span> La CE, los Estatutos de Autonomía y las leyes orgánicas del art. 150 CE</li>
+<li><span class="letter">d)</span> La CE, las leyes orgánicas y los reglamentos parlamentarios</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">13. ¿Qué instrumento del art. 158.2 CE tiene como finalidad corregir
+los desequilibrios económicos interterritoriales?</div>
+  <ul class="options"><li><span class="letter">a)</span> Los convenios de colaboración entre CCAA</li>
+<li><span class="letter">b)</span> El Fondo de Compensación Interterritorial</li>
+<li><span class="letter">c)</span> El Presupuesto General del Estado</li>
+<li><span class="letter">d)</span> El sistema de financiación autonómica LOFCA</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">14. El TC ha señalado (STC 135/1992) que el principio de
+solidaridad:</div>
+  <ul class="options"><li><span class="letter">a)</span> Prohíbe que una CA tenga mejores servicios que otra</li>
+<li><span class="letter">b)</span> Implica la igualación absoluta de rentas entre territorios</li>
+<li><span class="letter">c)</span> Obliga a las CCAA a transferir parte de sus ingresos al Estado</li>
+<li><span class="letter">d)</span> No implica uniformidad ni igualación absoluta, sino que prohíbe diferencias injustificadas</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">15. La naturaleza \\\'bifronte\\\' de los Estatutos de Autonomía
+significa que:</div>
+  <ul class="options"><li><span class="letter">a)</span> Pueden ser aplicados tanto por tribunales ordinarios como por el TC</li>
+<li><span class="letter">b)</span> Son normas que pueden reformarse por el Estado o la CA unilateralmente</li>
+<li><span class="letter">c)</span> Son simultáneamente norma estatal (ley orgánica) y norma autonómica (parámetro de constitucionalidad)</li>
+<li><span class="letter">d)</span> Tienen doble eficacia: directa en la CA e indirecta en el resto del Estado</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">16. ¿Qué Comunidades Autónomas accedieron por la disposición
+transitoria 2.ª de la Constitución?</div>
+  <ul class="options"><li><span class="letter">a)</span> Cataluña, País Vasco y Galicia</li>
+<li><span class="letter">b)</span> Cataluña, País Vasco y Andalucía</li>
+<li><span class="letter">c)</span> Galicia, Andalucía y Navarra</li>
+<li><span class="letter">d)</span> Cataluña, Galicia y Navarra</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">17. La vía ordinaria de acceso a la autonomía (art. 143 CE) exigía la
+iniciativa de las Diputaciones y de qué porcentaje de municipios:</div>
+  <ul class="options"><li><span class="letter">a)</span> La mayoría absoluta de los municipios</li>
+<li><span class="letter">b)</span> Las tres cuartas partes de los municipios</li>
+<li><span class="letter">c)</span> La mitad más uno de los municipios de cada provincia</li>
+<li><span class="letter">d)</span> Las dos terceras partes de los municipios que representaran la mayoría del censo</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">18. El principio de coordinación se distingue del de cooperación
+porque:</div>
+  <ul class="options"><li><span class="letter">a)</span> La coordinación puede imponerse por ley, mientras que la cooperación es voluntaria</li>
+<li><span class="letter">b)</span> La coordinación solo opera en materia financiera, la cooperación en el resto</li>
+<li><span class="letter">c)</span> La cooperación opera entre CCAA, y la coordinación entre el Estado y las CCAA</li>
+<li><span class="letter">d)</span> La cooperación la ejerce el TC y la coordinación el Gobierno</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">19. ¿Qué tipo de autonomía tienen las CCAA según la doctrina
+constitucional?</div>
+  <ul class="options"><li><span class="letter">a)</span> Autonomía política, que incluye potestad legislativa propia</li>
+<li><span class="letter">b)</span> Autonomía cuasi-soberana en las materias exclusivas</li>
+<li><span class="letter">c)</span> Autonomía meramente administrativa, similar a la local</li>
+<li><span class="letter">d)</span> Autonomía federalista con derecho a secesión regulado</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">20. ¿Qué precepto constitucional permite al Estado adoptar medidas
+coercitivas si una CA incumple gravemente la Constitución o las leyes?</div>
+  <ul class="options"><li><span class="letter">a)</span> Art. 150.3 CE</li>
+<li><span class="letter">b)</span> Art. 138 CE</li>
+<li><span class="letter">c)</span> Art. 149 CE</li>
+<li><span class="letter">d)</span> Art. 155 CE</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+
+<h1>TEMA 13 – El Estado de las Autonomías (II)</h1>
+<p><em>Organización institucional · Reparto de competencias · Coordinación</em></p>
+<div class="question">
+  <div class="question-text">1. ¿Cuál es la función del Presidente de la Comunidad Autónoma según
+el art. 152.1 CE?</div>
+  <ul class="options"><li><span class="letter">a)</span> Ejerce funciones ejecutivas y legislativas conjuntamente</li>
+<li><span class="letter">b)</span> Solo ostenta la representación simbólica de la CA ante el Estado</li>
+<li><span class="letter">c)</span> Actúa como árbitro entre el Parlamento autonómico y el Gobierno central</li>
+<li><span class="letter">d)</span> Dirige el Gobierno, ostenta su más alta representación y ejerce la representación ordinaria del Estado en la CA</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">2. El art. 149.1.16.ª CE atribuye al Estado competencia exclusiva
+en:</div>
+  <ul class="options"><li><span class="letter">a)</span> La gestión de los servicios sanitarios de todas las CCAA</li>
+<li><span class="letter">b)</span> Sanidad exterior; bases y coordinación general de la sanidad</li>
+<li><span class="letter">c)</span> La ordenación de las profesiones sanitarias en todo el territorio</li>
+<li><span class="letter">d)</span> La financiación de los hospitales públicos de toda España</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">3. ¿En qué materia reconoce expresamente el art. 149.2 CE la
+existencia de competencias concurrentes entre Estado y CCAA?</div>
+  <ul class="options"><li><span class="letter">a)</span> Turismo</li>
+<li><span class="letter">b)</span> Medio ambiente</li>
+<li><span class="letter">c)</span> Cultura</li>
+<li><span class="letter">d)</span> Educación</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">4. Según el TC (STC 32/1981), ¿cuál es el criterio material para
+determinar qué normas son \\\'básicas\\\'?</div>
+  <ul class="options"><li><span class="letter">a)</span> Que establezcan el común denominador normativo para asegurar los intereses generales e igualdad básica de todos los ciudadanos</li>
+<li><span class="letter">b)</span> Que sean aprobadas por ley orgánica en el BOE</li>
+<li><span class="letter">c)</span> Que se apliquen en todo el territorio sin excepción</li>
+<li><span class="letter">d)</span> Que sean dictadas por el Gobierno central mediante decreto</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">5. \\\[BALEARES\\\] ¿Qué ley desarrolla en Illes Balears las bases
+estatales en materia sanitaria (Ley 14/1986 y Ley 16/2003)?</div>
+  <ul class="options"><li><span class="letter">a)</span> El Decreto 39/2006, de estatutos del IB-Salut</li>
+<li><span class="letter">b)</span> La Ley 5/2003, de salut de les Illes Balears</li>
+<li><span class="letter">c)</span> La Ley 7/2010, del sector público instrumental de la CA</li>
+<li><span class="letter">d)</span> La Ley 5/1999, de ordenación sanitaria de Baleares</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">6. \\\[BALEARES\\\] Los Consells Insulars de Illes Balears son:</div>
+  <ul class="options"><li><span class="letter">a)</span> Órganos consultivos de la Administración autonómica sin competencias propias</li>
+<li><span class="letter">b)</span> Órganos de gobierno, administración y representación de cada isla, con naturaleza de entidades locales y competencias propias</li>
+<li><span class="letter">c)</span> Delegaciones del Govern de les Illes Balears en cada isla</li>
+<li><span class="letter">d)</span> Comisiones parlamentarias con funciones de control insular</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">7. En el esquema de competencias compartidas, ¿cuál es el papel de las
+CCAA?</div>
+  <ul class="options"><li><span class="letter">a)</span> Solo ejecutar lo que el Estado legisla, sin capacidad normativa propia</li>
+<li><span class="letter">b)</span> Proponer al Estado las normas básicas que luego este aprueba</li>
+<li><span class="letter">c)</span> Sustituir la legislación estatal básica por su propia normativa</li>
+<li><span class="letter">d)</span> Aprobar legislación de desarrollo y ejecutar las políticas en su territorio, respetando las bases estatales</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">8. \\\[BALEARES\\\] El Síndic de Greuges de Illes Balears es:</div>
+  <ul class="options"><li><span class="letter">a)</span> El magistrado que preside el TSJIB</li>
+<li><span class="letter">b)</span> El órgano consultivo superior de la CA en materia jurídica</li>
+<li><span class="letter">c)</span> El comisionado del Parlament para la defensa de los derechos fundamentales frente a la Administración autonómica</li>
+<li><span class="letter">d)</span> El órgano de fiscalización económica de la Hacienda autonómica</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">9. En materia de legislación laboral, ¿qué esquema competencial
+establece el art. 149.1.7.ª CE?</div>
+  <ul class="options"><li><span class="letter">a)</span> Las CCAA legislan dentro del marco fijado por leyes marco estatales</li>
+<li><span class="letter">b)</span> Competencia exclusiva de las CCAA en sus territorios</li>
+<li><span class="letter">c)</span> El Estado legisla y las CCAA ejecutan esa legislación</li>
+<li><span class="letter">d)</span> Competencias compartidas: Estado bases, CCAA desarrollo y ejecución</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">10. Las Conferencias Sectoriales son instrumentos de:</div>
+  <ul class="options"><li><span class="letter">a)</span> Coordinación entre el Gobierno estatal y los Gobiernos autonómicos en áreas sectoriales</li>
+<li><span class="letter">b)</span> Negociación de los Estatutos de Autonomía</li>
+<li><span class="letter">c)</span> Control del Estado sobre la actividad legislativa de las CCAA</li>
+<li><span class="letter">d)</span> Cooperación voluntaria exclusivamente entre CCAA</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">11. \\\[BALEARES\\\] ¿Qué órgano ejerce la función legislativa
+autonómica en Illes Balears?</div>
+  <ul class="options"><li><span class="letter">a)</span> El Consell Consultiu</li>
+<li><span class="letter">b)</span> El Parlament de les Illes Balears</li>
+<li><span class="letter">c)</span> El Govern de les Illes Balears</li>
+<li><span class="letter">d)</span> El Consell de Govern</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">12. ¿Qué instrumento del art. 150 CE permite al Estado transferir o
+delegar en las CCAA competencias propias del art. 149.1?</div>
+  <ul class="options"><li><span class="letter">a)</span> Las leyes marco (art. 150.1)</li>
+<li><span class="letter">b)</span> Los convenios de colaboración (art. 145.2)</li>
+<li><span class="letter">c)</span> Las leyes de transferencia o delegación (art. 150.2)</li>
+<li><span class="letter">d)</span> Las leyes de armonización (art. 150.3)</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">13. ¿Cuál de las siguientes materias es competencia exclusiva del
+Estado según el art. 149.1 CE?</div>
+  <ul class="options"><li><span class="letter">a)</span> Montes y aprovechamientos forestales</li>
+<li><span class="letter">b)</span> Relaciones internacionales</li>
+<li><span class="letter">c)</span> Urbanismo</li>
+<li><span class="letter">d)</span> Turismo</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">14. ¿Qué tipo de competencia es la más frecuente y compleja del
+sistema autonómico español?</div>
+  <ul class="options"><li><span class="letter">a)</span> Las competencias concurrentes</li>
+<li><span class="letter">b)</span> Las competencias exclusivas de las CCAA</li>
+<li><span class="letter">c)</span> Las competencias delegadas por el art. 150.2 CE</li>
+<li><span class="letter">d)</span> Las competencias compartidas bases/desarrollo</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">15. ¿Qué artículo de la CE autoriza los convenios de colaboración
+entre el Estado y las CCAA?</div>
+  <ul class="options"><li><span class="letter">a)</span> Art. 155 CE</li>
+<li><span class="letter">b)</span> Art. 149 CE</li>
+<li><span class="letter">c)</span> Art. 145.2 CE</li>
+<li><span class="letter">d)</span> Art. 150.2 CE</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">16. \\\[BALEARES\\\] El Tribunal Superior de Justícia de les Illes
+Balears (TSJIB):</div>
+  <ul class="options"><li><span class="letter">a)</span> Corona la organización judicial en el territorio autonómico, sin perjuicio de la jurisdicción del Tribunal Supremo</li>
+<li><span class="letter">b)</span> Es el máximo órgano jurisdiccional de Baleares en materia constitucional</li>
+<li><span class="letter">c)</span> Sustituye al Tribunal Supremo en todas las materias de derecho balear</li>
+<li><span class="letter">d)</span> Es un órgano de la Administración de justicia dependiente del Govern</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">17. \\\[BALEARES\\\] El Consell Consultiu de Illes Balears es:</div>
+  <ul class="options"><li><span class="letter">a)</span> El órgano de gobierno de los jueces en la CA</li>
+<li><span class="letter">b)</span> El consejo económico y social de la comunidad autónoma</li>
+<li><span class="letter">c)</span> El órgano de control del Parlament sobre el Govern</li>
+<li><span class="letter">d)</span> El órgano consultivo superior de la CA que emite dictámenes preceptivos sobre proyectos de ley y reglamentos</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">18. \\\[BALEARES\\\] ¿Qué institución de Illes Balears es el
+equivalente autonómico del Tribunal de Cuentas?</div>
+  <ul class="options"><li><span class="letter">a)</span> La Sindicatura de Comptes</li>
+<li><span class="letter">b)</span> El Consell Consultiu</li>
+<li><span class="letter">c)</span> La Sindicatura de Greuges</li>
+<li><span class="letter">d)</span> El Tribunal Superior de Justícia de les Illes Balears</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">19. Según la jurisprudencia constitucional, las bases estatales
+deben:</div>
+  <ul class="options"><li><span class="letter">a)</span> Establecer el común denominador normativo necesario y dejar espacio real para el desarrollo autonómico</li>
+<li><span class="letter">b)</span> Ser aprobadas siempre por ley orgánica</li>
+<li><span class="letter">c)</span> Agotar la regulación de la materia, dejando solo la ejecución a las CCAA</li>
+<li><span class="letter">d)</span> Sustituir a la legislación autonómica previa en la materia</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+<div class="question">
+  <div class="question-text">20. ¿Por qué el TC ha interpretado restrictivamente las leyes de
+armonización del art. 150.3 CE?</div>
+  <ul class="options"><li><span class="letter">a)</span> Porque requieren mayoría de 3/5 de cada cámara para su aprobación</li>
+<li><span class="letter">b)</span> Porque solo pueden usarse en materias presupuestarias o financieras</li>
+<li><span class="letter">c)</span> Porque solo pueden regular materias de competencia exclusiva del Estado</li>
+<li><span class="letter">d)</span> Porque requieren necesidad real de armonización y efectiva divergencia autonómica problemática (STC 76/1983)</li></ul>
+  <div class="answer-line">Respuesta: _____</div>
+</div>
+
+<h1>Clave de respuestas</h1>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0;">
+<div>
+<h2>Tema 12</h2>
+<table><thead><tr><th>N.º</th><th>Resp.</th></tr></thead><tbody><tr><td>1</td><td>D</td></tr><tr><td>2</td><td>B</td></tr><tr><td>3</td><td>C</td></tr><tr><td>4</td><td>A</td></tr><tr><td>5</td><td>B</td></tr><tr><td>6</td><td>B</td></tr><tr><td>7</td><td>D</td></tr><tr><td>8</td><td>C</td></tr><tr><td>9</td><td>C</td></tr><tr><td>10</td><td>A</td></tr><tr><td>11</td><td>B</td></tr><tr><td>12</td><td>C</td></tr><tr><td>13</td><td>B</td></tr><tr><td>14</td><td>D</td></tr><tr><td>15</td><td>C</td></tr><tr><td>16</td><td>A</td></tr><tr><td>17</td><td>D</td></tr><tr><td>18</td><td>A</td></tr><tr><td>19</td><td>A</td></tr><tr><td>20</td><td>D</td></tr></tbody></table>
+</div>
+<div>
+<h2>Tema 13</h2>
+<table><thead><tr><th>N.º</th><th>Resp.</th></tr></thead><tbody><tr><td>1</td><td>D</td></tr><tr><td>2</td><td>B</td></tr><tr><td>3</td><td>C</td></tr><tr><td>4</td><td>A</td></tr><tr><td>5</td><td>B</td></tr><tr><td>6</td><td>B</td></tr><tr><td>7</td><td>D</td></tr><tr><td>8</td><td>C</td></tr><tr><td>9</td><td>C</td></tr><tr><td>10</td><td>A</td></tr><tr><td>11</td><td>B</td></tr><tr><td>12</td><td>C</td></tr><tr><td>13</td><td>B</td></tr><tr><td>14</td><td>D</td></tr><tr><td>15</td><td>C</td></tr><tr><td>16</td><td>A</td></tr><tr><td>17</td><td>D</td></tr><tr><td>18</td><td>A</td></tr><tr><td>19</td><td>A</td></tr><tr><td>20</td><td>D</td></tr></tbody></table>
+</div>
+</div>
+
+</body>
+</html>
