@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 14 – El Tribunal Constitucional</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #5a5a72;
+  --accent: #1e3a5f;
+  --accent-light: #2e75b6;
+  --accent-bg: #edf2f9;
+  --warning: #c00000;
+  --warning-bg: #fef2f2;
+  --border: #d4d0ca;
+  --table-header: #1f3864;
+  --table-stripe: #f4f1ed;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --radius: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 17px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 2rem 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.tema-header {
+  text-align: center;
+  padding: 2.5rem 2rem 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 3px solid var(--accent);
+  position: relative;
+}
+.tema-header::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-light);
+}
+.tema-number {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .02em;
+  margin-bottom: .3rem;
+}
+.tema-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* ── Headings ── */
+h1, h2, h3 {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.3;
+}
+h1 {
+  font-size: 1.65rem;
+  color: var(--accent);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--accent-bg);
+}
+h2 {
+  font-size: 1.3rem;
+  color: var(--accent-light);
+  margin: 2rem 0 .8rem;
+}
+h3 {
+  font-size: 1.1rem;
+  color: #404040;
+  margin: 1.5rem 0 .6rem;
+}
+
+p { margin-bottom: .9rem; }
+
+/* ── Lists ── */
+ul, ol { margin: .5rem 0 1rem 1.8rem; }
+li { margin-bottom: .35rem; }
+li > ul { margin-top: .3rem; }
+
+/* ── Bold / Italic ── */
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ── Important boxes ── */
+.important {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: .95rem;
+}
+.important::before {
+  content: '⚠ IMPORTANTE: ';
+  font-weight: 700;
+  color: var(--warning);
+}
+
+/* ── Tables ── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+thead th {
+  background: var(--table-header);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .7rem .8rem;
+  text-align: left;
+  white-space: nowrap;
+}
+tbody td {
+  padding: .6rem .8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--table-stripe); }
+tbody tr:hover { background: var(--accent-bg); }
+
+/* ── Test-specific ── */
+.question {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1.2rem 0;
+  box-shadow: var(--shadow);
+}
+.question-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: .7rem;
+  line-height: 1.45;
+}
+.question-text .badge {
+  display: inline-block;
+  background: var(--accent-light);
+  color: #fff;
+  font-size: .7rem;
+  padding: .1rem .45rem;
+  border-radius: 3px;
+  margin-right: .3rem;
+  vertical-align: middle;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+.options { list-style: none; margin: 0; padding: 0; }
+.options li {
+  padding: .4rem .6rem;
+  margin: .25rem 0;
+  border-radius: 4px;
+  font-size: .95rem;
+  cursor: default;
+  transition: background .15s;
+}
+.options li:hover { background: var(--accent-bg); }
+.options li .letter {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-right: .3rem;
+}
+.answer-line {
+  margin-top: .7rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  color: var(--text-muted);
+}
+
+/* Answer key */
+.answer-key {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+.answer-key table { font-size: .9rem; }
+.answer-key td:nth-child(2),
+.answer-key th:nth-child(2) { text-align: center; font-weight: 700; }
+.answer-key td:first-child,
+.answer-key th:first-child { text-align: center; }
+
+/* ── Print ── */
+@media print {
+  body { padding: 0; font-size: 15px; }
+  .question { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  h1 { break-before: page; }
+  .table-wrap { box-shadow: none; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  body { padding: 1rem .5rem; }
+  .tema-number { font-size: 2rem; }
+  .answer-key { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="tema-header">
+  <div class="tema-number">TEMA 14</div>
+  <div class="tema-title">El Tribunal Constitucional: organización, composición, funcionamiento y competencias. Los procesos de inconstitucionalidad y el recurso de amparo. Los conflictos constitucionales. Conflictos constitucionales entre órganos del Estado. Los conflictos positivos y negativos de competencia. La impugnación de disposiciones y resoluciones de las Comunidades Autónomas.</div>
+</div>
+
+<p><strong>EL TRIBUNAL CONSTITUCIONAL: ORGANIZACIÓN, COMPOSICIÓN, FUNCIONAMIENTO Y COMPETENCIAS. LOS PROCESOS DE INCONSTITUCIONALIDAD Y EL RECURSO DE AMPARO. LOS CONFLICTOS CONSTITUCIONALES. CONFLICTOS CONSTITUCIONALES ENTRE ÓRGANOS DEL ESTADO. LOS CONFLICTOS POSITIVOS Y NEGATIVOS DE COMPETENCIA. LA IMPUGNACIÓN DE DISPOSICIONES Y RESOLUCIONES DE LAS COMUNIDADES AUTÓNOMAS.</strong></p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>1. El Tribunal Constitucional: naturaleza y marco normativo</h1>
+
+<p>El Tribunal Constitucional (TC) es el intérprete supremo de la Constitución Española de 1978 (art. 1.1 de la Ley Orgánica 2/1979, de 3 de octubre, del Tribunal Constitucional —LOTC—). Es un órgano constitucional, único en su orden, con jurisdicción en todo el territorio nacional. Su posición institucional lo sitúa fuera del Poder Judicial ordinario y al margen de cualquier relación de subordinación respecto a este; sus resoluciones solo están sometidas a la propia CE y a la LOTC.</p>
+
+<p>El TC no es un órgano judicial en sentido estricto: no forma parte del Poder Judicial (Título VI CE) sino que se regula en el Título IX (arts. 159-165 CE). Es el máximo intérprete de la CE pero no el único: todos los poderes públicos están vinculados a la CE (art. 9.1 CE) y todos los jueces la aplican. Lo que distingue al TC es que su interpretación es definitiva y vinculante <em>erga omnes</em> en los asuntos de su competencia.</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>2. Composición y estatuto de los magistrados</h1>
+
+<h2>2.1 Número y procedencia</h2>
+
+<p>El TC se compone de doce magistrados nombrados por el Rey a propuesta de los siguientes órganos (art. 159.1 CE):</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Órgano proponente</th>
+      <th>Número de magistrados</th>
+      <th>Mayoría requerida</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Congreso de los Diputados</td>
+      <td>4 magistrados</td>
+      <td>3/5 del Congreso</td>
+    </tr>
+    <tr>
+      <td>Senado</td>
+      <td>4 magistrados</td>
+      <td>3/5 del Senado</td>
+    </tr>
+    <tr>
+      <td>Gobierno</td>
+      <td>2 magistrados</td>
+      <td>Acuerdo del Consejo de Ministros</td>
+    </tr>
+    <tr>
+      <td>Consejo General del Poder Judicial</td>
+      <td>2 magistrados</td>
+      <td>Acuerdo del CGPJ (mayoría 3/5)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>2.2 Requisitos de los magistrados</h2>
+
+<p>Para ser magistrado del TC se requiere (art. 159.2 CE): ser ciudadano español, jurista de reconocida competencia con más de quince años de ejercicio profesional. Son incompatibles con todo mandato representativo, cargo político o administrativo, con funciones directivas en partidos políticos o sindicatos y con el ejercicio de la judicatura. El cargo es, por tanto, de dedicación exclusiva.</p>
+
+<h2>2.3 Mandato y renovación</h2>
+
+<p>El mandato de los magistrados es de nueve años, no renovable de forma inmediata (art. 159.3 CE). El TC se renueva por tercios cada tres años, de modo que cada tres años son reemplazados cuatro magistrados: los cuatro propuestos por el Congreso, los cuatro del Senado o los cuatro del Gobierno y CGPJ (dos por cada uno), en turnos rotativos.</p>
+
+<h2>2.4 El Presidente y el Vicepresidente del TC</h2>
+
+<p>El Presidente del TC es elegido por el Pleno entre sus miembros y nombrado formalmente por el Rey (art. 160 CE). Su mandato es de tres años, renovable por una sola vez. El Vicepresidente es elegido por el mismo procedimiento. El Presidente preside el Pleno y la Sala Primera; el Vicepresidente preside la Sala Segunda.</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>3. Organización y funcionamiento</h1>
+
+<h2>3.1 Órganos del TC</h2>
+
+<p>La organización interna del TC se regula principalmente en los arts. 6 a 14 de la LOTC (LO 2/1979, de 3 de octubre) y en el Reglamento de Organización y Personal del TC (ROTC, de 5 de julio de 1990).</p>
+
+<h3>El Pleno</h3>
+
+<p>Integrado por los doce magistrados, es el órgano supremo de deliberación y decisión (art. 6 LOTC). Le corresponden los asuntos de mayor trascendencia constitucional: recursos de inconstitucionalidad (art. 10.1.a LOTC), conflictos de competencia entre el Estado y las CCAA (art. 10.1.c LOTC), conflictos entre órganos constitucionales del Estado (art. 10.1.d LOTC), impugnaciones del art. 161.2 CE (art. 10.1.f LOTC), recursos de amparo de especial trascendencia que el Pleno avoque para sí (art. 10.1.n LOTC), y las cuestiones de inconstitucionalidad cuando el Pleno así lo acuerde. El Pleno puede deferir a las Salas aquellas materias no reservadas expresamente.</p>
+
+<h3>La Sala Primera y la Sala Segunda</h3>
+
+<p>Cada Sala está compuesta por seis magistrados (art. 7.1 LOTC). La Sala Primera es presidida por el Presidente del TC; la Sala Segunda, por el Vicepresidente (art. 7.2 LOTC). Conocen principalmente de los recursos de amparo (arts. 48 y 52 LOTC) y de los asuntos que el Pleno les encomiende. Cuando una Sala considere necesario apartarse de la doctrina constitucional establecida, deberá deferir el asunto al Pleno (art. 13 LOTC).</p>
+
+<h3>Las Secciones</h3>
+
+<p>Se forman cuatro Secciones, integradas cada una por tres magistrados (art. 8.1 LOTC). Su función principal es resolver sobre la admisión o inadmisión a trámite de recursos y cuestiones (art. 8.3 LOTC). Desde la reforma de la LOTC por LO 6/2007, de 24 de mayo, las Secciones pueden también resolver sobre el fondo de los recursos de amparo cuando la doctrina del TC esté consolidada y el asunto no presente especial complejidad (art. 52.2 LOTC).</p>
+
+<h2>3.2 Régimen de deliberación y votos particulares</h2>
+
+<p>Este régimen se regula en los arts. 15 a 17 LOTC y en el ROTC.</p>
+
+<h3>Quórum y adopción de acuerdos</h3>
+
+<p>Para que el Pleno pueda válidamente deliberar y adoptar acuerdos se exige la presencia de dos tercios de sus miembros, es decir, un mínimo de ocho magistrados (art. 14 LOTC). Las decisiones se adoptan por mayoría simple de los magistrados presentes; en caso de empate, el voto del Presidente tiene carácter dirimente (art. 15 LOTC). Para las Salas, el quórum es de cuatro magistrados.</p>
+
+<h3>Deliberación y secreto</h3>
+
+<p>Las deliberaciones del TC son secretas (art. 16 LOTC). El magistrado ponente elabora la propuesta de resolución que se somete a debate en el órgano correspondiente. Ningún magistrado puede excusarse de votar salvo causa legal de abstención.</p>
+
+<h3>Votos particulares</h3>
+
+<p>El art. 90.2 LOTC reconoce expresamente el derecho de cualquier magistrado a formular voto particular. Los votos particulares se publican junto con las sentencias en el BOE.</p>
+
+<h2>3.3 Procedimiento: plazos relevantes</h2>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Proceso</th>
+      <th>Plazo para interponer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recurso de inconstitucionalidad (general)</td>
+      <td>3 meses desde publicación en BOE</td>
+    </tr>
+    <tr>
+      <td>Recurso de inconstitucionalidad (Gobiernos autonómicos — Acuerdo de la Comisión Bilateral)</td>
+      <td>9 meses</td>
+    </tr>
+    <tr>
+      <td>Recurso de amparo</td>
+      <td>30 días desde notificación de la resolución judicial</td>
+    </tr>
+    <tr>
+      <td>Conflictos positivos de competencia (Estado vs. CCAA)</td>
+      <td>2 meses desde la notificación del requerimiento o publicación de la disposición</td>
+    </tr>
+    <tr>
+      <td>Impugnación art. 161.2 CE (Gobierno central)</td>
+      <td>2 meses</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>4. Competencias del Tribunal Constitucional</h1>
+
+<p>El art. 161 CE establece las competencias del TC, desarrolladas por la LOTC.</p>
+
+<h2>4.1 El control de constitucionalidad de normas (Título II LOTC)</h2>
+
+<h3>4.1.1 El recurso de inconstitucionalidad (arts. 161.1.a CE y 31-34 LOTC)</h3>
+
+<p>Es el procedimiento mediante el cual se impugna directamente ante el TC una ley o norma con rango de ley (leyes orgánicas y ordinarias, decretos legislativos, decretos-ley, tratados internacionales y normas autonómicas con rango de ley) por considerarla contraria a la CE. Solo pueden interponerlo los siguientes sujetos legitimados (art. 162.1.a CE):</p>
+
+<ul>
+  <li>El Presidente del Gobierno.</li>
+  <li>El Defensor del Pueblo.</li>
+  <li>Cincuenta diputados.</li>
+  <li>Cincuenta senadores.</li>
+  <li>Los órganos colegiados ejecutivos de las Comunidades Autónomas (Consejos de Gobierno o equivalentes).</li>
+  <li>Las Asambleas Legislativas de las CCAA (Parlamentos autonómicos).</li>
+</ul>
+
+<p>El plazo general es de tres meses desde la publicación en el BOE de la norma impugnada. Existe un plazo ampliado de nueve meses cuando el Gobierno de la Nación y el Gobierno autonómico han activado la Comisión Bilateral de Cooperación (art. 33.2 LOTC), mecanismo de negociación previa que puede desactivar el recurso si se llega a un acuerdo.</p>
+
+<p>La sentencia estimatoria declara la inconstitucionalidad total o parcial de la norma y produce efectos generales (<em>erga omnes</em>) desde su publicación en el BOE (art. 38 LOTC). La inconstitucionalidad puede acarrear también la nulidad de la norma, aunque el TC puede modular los efectos en el tiempo para evitar situaciones de vacío normativo.</p>
+
+<h3>4.1.2 La cuestión de inconstitucionalidad (arts. 163 CE y 35-37 LOTC)</h3>
+
+<p>La cuestión de inconstitucionalidad es un mecanismo de control concreto y difuso: cualquier órgano judicial que, en el curso de un proceso pendiente, albergue dudas fundadas sobre la constitucionalidad de una norma con rango de ley aplicable al caso y de cuya validez dependa el fallo, puede —y está obligado a— plantear la cuestión al TC.</p>
+
+<p>El juez no puede inaplicar la norma por sí solo (principio de reserva de inconstitucionalidad): debe suspender el proceso, oír a las partes y al Ministerio Fiscal, y elevar el auto de planteamiento al TC. El TC puede inadmitir la cuestión notoriamente infundada. La sentencia tiene los mismos efectos generales que en el recurso de inconstitucionalidad.</p>
+
+<div class="important">Mientras el recurso de inconstitucionalidad lo promueven sujetos políticos y puede interponerse con independencia de la existencia de un litigio concreto, la cuestión la plantea un juez como incidente dentro de un proceso real. El recurso es el <strong>control abstracto</strong>; la cuestión es el <strong>control concreto</strong>.</div>
+
+<h3>4.1.3 El recurso previo de inconstitucionalidad</h3>
+
+<p>La LOTC, en su redacción vigente tras la LO 12/2015, prevé un recurso previo de inconstitucionalidad contra los proyectos de Estatutos de Autonomía y sus propuestas de reforma antes de su promulgación definitiva. Este recurso debe interponerse antes de la sanción real del texto. De apreciarse la inconstitucionalidad, el texto no puede promulgarse hasta que se supriman o reformulen los preceptos inconstitucionales.</p>
+
+<h2>4.2 El recurso de amparo (arts. 161.1.b CE y 41-58 LOTC)</h2>
+
+<p>El recurso de amparo es la garantía jurisdiccional específica de los derechos y libertades reconocidos en los arts. 14 a 29 CE (Sección 1.ª del Capítulo II del Título I) y en el art. 30.2 CE (objeción de conciencia). Protege a las personas frente a las violaciones de estos derechos producidas por actos de los poderes públicos (no por actos de particulares entre sí, para los que rige la vía civil ordinaria).</p>
+
+<h3>4.2.1 Legitimación activa</h3>
+
+<p>Están legitimados para interponer el recurso de amparo (art. 162.1.b CE y 46 LOTC): la persona directamente afectada por la lesión, el Defensor del Pueblo y el Ministerio Fiscal.</p>
+
+<h3>4.2.2 Requisitos de admisibilidad</h3>
+
+<ul>
+  <li><strong>Agotamiento previo de la vía judicial:</strong> deben haberse utilizado todos los recursos ordinarios y extraordinarios disponibles ante los tribunales ordinarios (incluido el recurso de casación si procede), salvo en el llamado amparo parlamentario.</li>
+  <li><strong>Especial trascendencia constitucional:</strong> desde la reforma de la LOTC por LO 6/2007, el recurso solo es admisible si presenta especial trascendencia constitucional, es decir, si su resolución puede contribuir a precisar, aclarar o fijar el contenido de los derechos fundamentales. Este requisito convierte el amparo en un recurso de interés objetivo, no meramente subjetivo.</li>
+  <li><strong>Plazo:</strong> treinta días desde la notificación de la resolución judicial firme que agota la vía previa.</li>
+</ul>
+
+<h3>4.2.3 Tipos de amparo según el acto lesivo</h3>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de amparo</th>
+      <th>Acto lesivo</th>
+      <th>Artículo LOTC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amparo parlamentario</td>
+      <td>Actos sin valor de ley del Congreso, Senado, Asambleas autonómicas</td>
+      <td>Art. 42 LOTC</td>
+    </tr>
+    <tr>
+      <td>Amparo gubernativo</td>
+      <td>Actos del Gobierno, órganos ejecutivos y Administraciones Públicas</td>
+      <td>Art. 43 LOTC</td>
+    </tr>
+    <tr>
+      <td>Amparo judicial</td>
+      <td>Actos u omisiones de los órganos judiciales ordinarios</td>
+      <td>Art. 44 LOTC</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>4.2.4 Efectos de la sentencia de amparo</h3>
+
+<p>Si el TC estima el recurso, la sentencia puede: declarar la nulidad del acto lesivo, reconocer el derecho o libertad vulnerados y, en su caso, restablecer al recurrente en su ejercicio. Las sentencias de amparo solo producen efectos <em>inter partes</em> (entre las partes del proceso), a diferencia de las sentencias dictadas en procesos de inconstitucionalidad.</p>
+
+<h2>4.3 Los conflictos constitucionales</h2>
+
+<h3>4.3.1 Conflictos de competencia entre el Estado y las CCAA o entre CCAA entre sí (arts. 60-72 LOTC)</h3>
+
+<p>Son procesos constitucionales que resuelven controversias sobre la titularidad de una competencia entre el Estado y una o varias CCAA, o entre CCAA entre sí. Se distingue entre:</p>
+
+<ul>
+  <li><strong>Conflictos positivos de competencia:</strong> cuando dos entes (Estado y CA, o dos CCAA) reclaman para sí la titularidad de la misma competencia. El ente que se considera competente puede requerir al otro para que derogue la disposición o acto invasor. Si el requerido no cede, el requirente puede plantear el conflicto ante el TC. El Gobierno central puede también impugnar directamente ante el TC, con suspensión automática de la disposición autonómica durante un máximo de cinco meses (art. 161.2 CE).</li>
+  <li><strong>Conflictos negativos de competencia:</strong> cuando ninguno de los entes asume la competencia sobre una materia. Un particular o una Administración que no obtenga respuesta por entender que la competencia corresponde al otro ente puede promover el conflicto negativo. El TC determina a quién corresponde la competencia.</li>
+</ul>
+
+<h3>4.3.2 Conflictos entre órganos constitucionales del Estado (arts. 73-75 LOTC)</h3>
+
+<p>Estos conflictos se producen cuando órganos constitucionales del Estado (el Gobierno, el Congreso de los Diputados, el Senado y el Consejo General del Poder Judicial) reclaman para sí atribuciones que consideran propias y que otro órgano constitucional ha asumido o ejerce. El objeto del conflicto es la determinación del órgano al que corresponde ejercer la atribución constitucional controvertida.</p>
+
+<p>El TC ha tenido escasa actividad en esta vía. Los conflictos entre el CGPJ y el Gobierno sobre funciones de autogobierno del Poder Judicial son el ejemplo más relevante.</p>
+
+<h2>4.4 La impugnación de disposiciones y resoluciones de las CCAA (art. 161.2 CE y 76-80 LOTC)</h2>
+
+<p>El Gobierno central puede impugnar ante el TC cualquier disposición, resolución o acto de las CCAA que considere contraria al ordenamiento constitucional, aunque no tenga rango de ley. El fundamento no es únicamente la competencia (como en los conflictos), sino la posible vulneración de cualquier precepto constitucional. La interposición de la impugnación produce la suspensión automática de la disposición o acto impugnado, aunque el TC debe ratificar o levantar esa suspensión en el plazo de cinco meses.</p>
+
+<div class="important">Esta vía es más amplia que el recurso de inconstitucionalidad (que solo alcanza normas con rango de ley) y que los conflictos de competencia (que solo versan sobre titularidad competencial). Puede dirigirse contra <strong>cualquier acto</strong> de los poderes públicos autonómicos que vulnere la CE.</div>
+
+<h2>4.5 Control previo de constitucionalidad de tratados internacionales (art. 95.2 CE)</h2>
+
+<p>Las Cortes Generales o el Gobierno pueden solicitar al TC que declare si un tratado internacional contiene estipulaciones contrarias a la CE antes de su ratificación. Esta vía de control preventivo evita que España asuma compromisos internacionales inconstitucionales. La aprobación del tratado quedaría suspendida hasta que se realizase la correspondiente reforma constitucional o se reformulase el tratado.</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>5. Efectos de las sentencias del TC</h1>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de proceso</th>
+      <th>Efectos subjetivos</th>
+      <th>Efectos sobre la norma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recurso de inconstitucionalidad</td>
+      <td><em>Erga omnes</em> (frente a todos)</td>
+      <td>Nulidad con efectos generales desde publicación en BOE</td>
+    </tr>
+    <tr>
+      <td>Cuestión de inconstitucionalidad</td>
+      <td><em>Erga omnes</em></td>
+      <td>Nulidad con efectos generales</td>
+    </tr>
+    <tr>
+      <td>Recurso de amparo</td>
+      <td><em>Inter partes</em></td>
+      <td>No anula la norma; puede anular el acto concreto</td>
+    </tr>
+    <tr>
+      <td>Conflictos de competencia</td>
+      <td><em>Erga omnes</em> en delimitación competencial</td>
+      <td>Puede declarar nulidad del acto o norma invasora</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>6. Tabla resumen para el examen</h1>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Materia</th>
+      <th>Dato clave</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Composición TC</strong></td>
+      <td>12 magistrados: 4 Congreso + 4 Senado + 2 Gobierno + 2 CGPJ; mandato 9 años, no renovable inmediatamente</td>
+    </tr>
+    <tr>
+      <td><strong>Renovación</strong></td>
+      <td>Por tercios cada 3 años</td>
+    </tr>
+    <tr>
+      <td><strong>Presidente TC</strong></td>
+      <td>Elegido por el Pleno; nombrado por el Rey; mandato 3 años, renovable una vez</td>
+    </tr>
+    <tr>
+      <td><strong>Órganos internos</strong></td>
+      <td>Pleno (12) · Sala Primera (6) · Sala Segunda (6) · Secciones (3 magistrados c/u)</td>
+    </tr>
+    <tr>
+      <td><strong>Quórum del Pleno</strong></td>
+      <td>2/3 de sus miembros = mínimo 8 magistrados (art. 14 LOTC)</td>
+    </tr>
+    <tr>
+      <td><strong>Recurso de inconstitucionalidad</strong></td>
+      <td>Control abstracto; legitimados: Pdte. Gobierno, Defensor Pueblo, 50 diputados/senadores, CCAA; plazo 3 meses (9 si Comisión Bilateral)</td>
+    </tr>
+    <tr>
+      <td><strong>Cuestión de inconstitucionalidad</strong></td>
+      <td>Control concreto; planteada por jueces en un proceso; efectos <em>erga omnes</em> si estimada</td>
+    </tr>
+    <tr>
+      <td><strong>Recurso previo de inconstitucionalidad</strong></td>
+      <td>LO 12/2015; contra proyectos de EEAA antes de su promulgación</td>
+    </tr>
+    <tr>
+      <td><strong>Recurso de amparo</strong></td>
+      <td>Protege arts. 14-29 y 30.2 CE; requiere agotamiento vía previa y especial trascendencia constitucional; plazo 30 días</td>
+    </tr>
+    <tr>
+      <td><strong>Tipos de amparo</strong></td>
+      <td>Parlamentario (art. 42) · Gubernativo (art. 43) · Judicial (art. 44)</td>
+    </tr>
+    <tr>
+      <td><strong>Conflictos positivos</strong></td>
+      <td>Dos entes reclaman la misma competencia; suspensión automática si Gobierno impugna (art. 161.2 CE); plazo 2 meses</td>
+    </tr>
+    <tr>
+      <td><strong>Conflictos negativos</strong></td>
+      <td>Ningún ente asume la competencia; lo promueve un particular o Administración</td>
+    </tr>
+    <tr>
+      <td><strong>Conflictos entre órganos constitucionales</strong></td>
+      <td>Entre Gobierno, Congreso, Senado o CGPJ por atribuciones propias (arts. 73-75 LOTC)</td>
+    </tr>
+    <tr>
+      <td><strong>Impugnación art. 161.2 CE</strong></td>
+      <td>Gobierno impugna cualquier acto autonómico; suspensión automática; 5 meses para ratificar o levantar</td>
+    </tr>
+    <tr>
+      <td><strong>Control previo de tratados</strong></td>
+      <td>Art. 95.2 CE; petición de Cortes o Gobierno antes de ratificación</td>
+    </tr>
+    <tr>
+      <td><strong>Efectos sentencias inconstitucionalidad</strong></td>
+      <td><em>Erga omnes</em>; nulidad con efectos generales desde publicación en BOE</td>
+    </tr>
+    <tr>
+      <td><strong>Efectos sentencias de amparo</strong></td>
+      <td><em>Inter partes</em>; no anula la norma, puede anular el acto concreto</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</body>
+</html>
