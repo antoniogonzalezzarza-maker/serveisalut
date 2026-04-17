@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 18 – El Estatuto de Autonomía de les Illes Balears</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #5a5a72;
+  --accent: #1e3a5f;
+  --accent-light: #2e75b6;
+  --accent-bg: #edf2f9;
+  --warning: #c00000;
+  --warning-bg: #fef2f2;
+  --border: #d4d0ca;
+  --table-header: #1f3864;
+  --table-stripe: #f4f1ed;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --radius: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 17px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 2rem 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.tema-header {
+  text-align: center;
+  padding: 2.5rem 2rem 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 3px solid var(--accent);
+  position: relative;
+}
+.tema-header::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-light);
+}
+.tema-number {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .02em;
+  margin-bottom: .3rem;
+}
+.tema-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* ── Headings ── */
+h1, h2, h3 {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.3;
+}
+h1 {
+  font-size: 1.65rem;
+  color: var(--accent);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--accent-bg);
+}
+h2 {
+  font-size: 1.3rem;
+  color: var(--accent-light);
+  margin: 2rem 0 .8rem;
+}
+h3 {
+  font-size: 1.1rem;
+  color: #404040;
+  margin: 1.5rem 0 .6rem;
+}
+
+p { margin-bottom: .9rem; }
+
+/* ── Lists ── */
+ul, ol { margin: .5rem 0 1rem 1.8rem; }
+li { margin-bottom: .35rem; }
+li > ul { margin-top: .3rem; }
+
+/* ── Bold / Italic ── */
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ── Important boxes ── */
+.important {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: .95rem;
+}
+.important::before {
+  content: '⚠ IMPORTANTE: ';
+  font-weight: 700;
+  color: var(--warning);
+}
+
+/* ── Tables ── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+thead th {
+  background: var(--table-header);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .7rem .8rem;
+  text-align: left;
+  white-space: nowrap;
+}
+tbody td {
+  padding: .6rem .8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--table-stripe); }
+tbody tr:hover { background: var(--accent-bg); }
+
+/* ── Print ── */
+@media print {
+  body { padding: 0; font-size: 15px; }
+  h1 { break-before: page; }
+  .table-wrap { box-shadow: none; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  body { padding: 1rem .5rem; }
+  .tema-number { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="tema-header">
+  <div class="tema-number">TEMA 18</div>
+  <div class="tema-title">El Estatuto de Autonomía de les Illes Balears: derechos, deberes y libertades de los ciudadanos; competencias; reforma del Estatuto de Autonomía.</div>
+</div>
+
+<p><strong>EL ESTATUTO DE AUTONOMÍA DE LES ILLES BALEARS: DERECHOS, DEBERES Y LIBERTADES DE LOS CIUDADANOS; COMPETENCIAS; REFORMA DEL ESTATUTO DE AUTONOMÍA.</strong></p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>1. El Estatuto de Autonomía de las Illes Balears: marco general</h1>
+
+<p>El Estatuto de Autonomía de las Illes Balears es la norma institucional básica de la Comunitat Autònoma de les Illes Balears (art. 147.1 CE). En la actualidad, el texto vigente es la <strong>Ley Orgánica 1/2007, de 28 de febrero</strong>, de reforma del Estatuto de Autonomía de las Illes Balears (en adelante, EA o Estatuto), que derogó el Estatuto originario de 1983 y sus reformas parciales de 1994 y 1999.</p>
+
+<p>El EA tiene rango de ley orgánica y es, en el bloque de constitucionalidad, el parámetro normativo fundamental para enjuiciar la validez de las normas autonómicas.</p>
+
+<p>Como se estudió en el Tema 12, las Illes Balears accedieron a la autonomía por la <strong>vía ordinaria del art. 143 CE</strong>. El Estatuto de 2007 supuso un salto cualitativo en el nivel de autogobierno: amplió el catálogo de derechos, incrementó el número de competencias asumidas y reforzó la posición institucional de los Consells Insulars.</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>2. Derechos, deberes y libertades de los ciudadanos (Título I EA, arts. 14-36)</h1>
+
+<h2>2.1 Estructura y alcance</h2>
+
+<p>El Título I del Estatuto (arts. 14-36) contiene un catálogo de derechos, deberes y principios rectores de las políticas públicas propios de la CA.</p>
+
+<p>Su naturaleza jurídica es diferente a la de los derechos fundamentales de la CE: <strong>no son derechos fundamentales en sentido constitucional</strong> (no gozan de la garantía del recurso de amparo ante el TC ni de reserva de ley orgánica), sino mandatos a los poderes autonómicos en el ejercicio de sus competencias. El TC (STC 247/2007) aclaró que los Estatutos pueden incluir derechos estatutarios siempre que se proyecten sobre materias de competencia autonómica.</p>
+
+<h2>2.2 Derechos civiles y políticos (arts. 14-18 EA)</h2>
+
+<p>El Estatuto reconoce derechos de carácter civil y político vinculados al ámbito de actuación de la CA:</p>
+
+<ul>
+  <li>Derecho a relacionarse con la Administración autonómica en cualquiera de las dos lenguas oficiales (catalán y castellano) y a recibir respuesta en la misma lengua (art. 14 EA). Este derecho es el eje del sistema de cooficialidad lingüística en la CA.</li>
+  <li>Derecho de acceso a los servicios públicos en condiciones de igualdad (art. 15 EA), sin discriminación por razón de nacimiento, raza, sexo, religión, opinión u cualquier otra condición.</li>
+  <li>Derecho a una buena administración (art. 14 EA): incluye el derecho a que los asuntos se resuelvan en plazo razonable, a recibir información sobre el estado de tramitación, a acceder a los archivos y registros administrativos, y a ser tratado con respeto y deferencia.</li>
+  <li>Derecho de acceso a la información pública (art. 15 EA), en el marco de la legislación vigente.</li>
+</ul>
+
+<h2>2.3 Derechos en el ámbito de los servicios sociales, la salud y la educación (arts. 19-24 EA)</h2>
+
+<p>El Estatuto incorpora derechos prestacionales en ámbitos de especial relevancia para los ciudadanos de las Illes Balears:</p>
+
+<ul>
+  <li><strong>Derecho a la protección de la salud (art. 21 EA):</strong> los ciudadanos tienen derecho a acceder a los servicios sanitarios públicos en condiciones de igualdad. La CA tiene el deber de garantizar la prestación de los servicios sanitarios conforme a las normas del Sistema Nacional de Salud.</li>
+  <li><strong>Derecho a la educación y al acceso a los centros públicos (art. 22 EA):</strong> se garantiza el acceso a la educación en condiciones de igualdad, así como a la enseñanza en lengua catalana y castellana.</li>
+  <li><strong>Derecho a los servicios sociales (art. 23 EA):</strong> las personas en situación de necesidad tienen derecho a acceder a los servicios sociales financiados con fondos públicos. Este derecho es especialmente relevante en el ámbito de la dependencia y la exclusión social.</li>
+  <li><strong>Derecho a la vivienda (art. 22 EA):</strong> la CA promoverá el acceso a la vivienda digna, especialmente para jóvenes y personas con discapacidad.</li>
+</ul>
+
+<h2>2.4 Derechos lingüísticos (arts. 35-36 EA)</h2>
+
+<p>El Estatuto regula con especial detalle el régimen lingüístico de la CA, dado el carácter cooficial del catalán:</p>
+
+<ul>
+  <li>El catalán es la <strong>lengua propia</strong> de las Illes Balears (art. 4 EA). El castellano y el catalán son las dos lenguas oficiales (art. 4.1 EA). Nadie puede ser discriminado por razón de lengua.</li>
+  <li>Los poderes públicos de la CA han de impulsar el conocimiento y el uso del catalán (art. 35 EA). La Administración autonómica ha de garantizar el uso de ambas lenguas oficiales en sus relaciones con los ciudadanos.</li>
+  <li>En el ámbito del empleo público, los funcionarios de la CA y del Servei de Salut de les Illes Balears deben acreditar el conocimiento del catalán en los términos establecidos por la legislación de normalización lingüística y las bases de cada convocatoria.</li>
+</ul>
+
+<h2>2.5 Principios rectores de las políticas públicas (arts. 25-34 EA)</h2>
+
+<p>Además de los derechos propiamente dichos, el Estatuto establece una serie de <strong>principios rectores</strong> que los poderes autonómicos deben orientar sus políticas, sin que generen derechos subjetivos directamente exigibles ante los tribunales. Entre los más relevantes:</p>
+
+<ul>
+  <li>Igualdad efectiva entre mujeres y hombres (art. 25 EA).</li>
+  <li>Protección de la familia y de los menores (art. 26 EA).</li>
+  <li>Atención a las personas con discapacidad (art. 27 EA).</li>
+  <li>Protección del medio ambiente y del paisaje (art. 30 EA), con especial referencia a la singularidad insular.</li>
+  <li>Protección del patrimonio histórico, artístico y cultural de las Illes Balears (art. 31 EA).</li>
+  <li>Fomento del deporte (art. 33 EA).</li>
+  <li>Solidaridad interterritorial e isleña (art. 34 EA).</li>
+</ul>
+
+<h2>2.6 Deberes de los ciudadanos</h2>
+
+<p>El Estatuto también establece deberes de los ciudadanos de las Illes Balears en el ámbito de competencia autonómica, entre los que destacan el deber de conocer el catalán (que se proyecta sobre los poderes públicos como deber de fomento, no como obligación sancionable para los particulares), el deber de contribuir al sostenimiento de los servicios públicos mediante el pago de tributos propios, y el deber de respetar el medio ambiente y el patrimonio cultural.</p>
+
+<div class="important">Los derechos del Título I EA no son derechos fundamentales constitucionales: no tienen acceso al recurso de amparo ante el TC ni están sujetos a reserva de ley orgánica. Son mandatos dirigidos a los poderes autonómicos en el ejercicio de sus propias competencias (STC 247/2007).</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>3. Las competencias de las Illes Balears (Título IV EA, arts. 30-72)</h1>
+
+<h2>3.1 Marco constitucional</h2>
+
+<p>El Estatuto de 2007 incorporó un amplio catálogo competencial, haciendo uso de la capacidad de asunción de competencias que permite el Título VIII CE. Las competencias se clasifican, con arreglo al sistema constitucional estudiado en el Tema 13, en <strong>exclusivas, compartidas y ejecutivas</strong>.</p>
+
+<h2>3.2 Competencias exclusivas de las Illes Balears (art. 30 EA)</h2>
+
+<p>Las Illes Balears tienen competencia exclusiva, en el marco de la CE, sobre las siguientes materias (selección de las más relevantes para el examen):</p>
+
+<ul>
+  <li>Organización de las instituciones de autogobierno (Parlament, Govern, Consells Insulars, Síndic de Greuges, Sindicatura de Comptes, Consell Consultiu).</li>
+  <li>Ordenación del territorio, urbanismo y vivienda.</li>
+  <li>Agricultura y ganadería.</li>
+  <li>Pesca en aguas interiores y acuicultura.</li>
+  <li>Montes y aprovechamientos forestales.</li>
+  <li>Turismo.</li>
+  <li>Cultura: museos, archivos y bibliotecas de titularidad autonómica.</li>
+  <li>Patrimonio histórico, artístico, monumental y arqueológico de interés autonómico.</li>
+  <li>Artesanía.</li>
+  <li>Transporte marítimo, ferroviario y por carretera que discurra íntegramente por el territorio de la CA.</li>
+  <li>Denominaciones de origen y de calidad.</li>
+  <li>Cooperativas y mutualidades no laborales.</li>
+  <li>Fundaciones y asociaciones que desarrollen principalmente sus funciones en la CA.</li>
+</ul>
+
+<h2>3.3 Competencias de desarrollo legislativo y ejecución (compartidas) (art. 31 EA)</h2>
+
+<p>Sobre materias en las que el Estado tiene atribuida la legislación básica, las Illes Balears pueden aprobar legislación de desarrollo y ejercer la función ejecutiva. Las principales son:</p>
+
+<ul>
+  <li><strong>Sanidad interior (art. 31.4 EA)</strong>, en el marco de las bases estatales (art. 149.1.16.ª CE). Aquí se enmarca la gestión del Servei de Salut de les Illes Balears (IB-Salut).</li>
+  <li>Enseñanza: regulación y administración de la educación en todos sus niveles.</li>
+  <li>Protección del medio ambiente.</li>
+  <li>Función pública de la CA.</li>
+  <li>Ordenación del crédito, banca y seguros.</li>
+  <li>Régimen local: en la CA de les Illes Balears, la especificidad insular determina que el régimen de los Consells Insulars tenga un tratamiento singular.</li>
+</ul>
+
+<h2>3.4 Competencias ejecutivas (art. 32 EA)</h2>
+
+<p>En algunas materias, la CA tiene únicamente la función ejecutiva —aplicar la legislación estatal—, sin potestad legislativa propia. Ejemplos relevantes:</p>
+
+<ul>
+  <li>Legislación laboral: la CA ejecuta la legislación laboral del Estado a través de la Conselleria competente y los organismos de empleo.</li>
+  <li>Propiedad intelectual e industrial.</li>
+  <li>Museos, archivos y bibliotecas de titularidad estatal sitos en el territorio.</li>
+</ul>
+
+<h2>3.5 Las competencias en materia de sanidad</h2>
+
+<p>Dado el marco competencial sanitario y su especial relevancia en oposiciones relacionadas con el Servei de Salut de les Illes Balears, conviene tener presente el siguiente esquema:</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Nivel</th>
+      <th>Competencia</th>
+      <th>Norma de referencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Estado</strong></td>
+      <td>Bases y coordinación general de la sanidad; sanidad exterior; legislación de productos farmacéuticos</td>
+      <td>Art. 149.1.16.ª CE; Ley 14/1986; Ley 16/2003</td>
+    </tr>
+    <tr>
+      <td><strong>Illes Balears (compartida)</strong></td>
+      <td>Desarrollo legislativo de las bases estatales; organización y gestión de la sanidad autonómica</td>
+      <td>Art. 31.4 EA; Ley 5/2003 de salut; Decrets 39/2006 y 79/2023</td>
+    </tr>
+    <tr>
+      <td><strong>IB-Salut</strong></td>
+      <td>Ente público empresarial encargado de la gestión de los servicios sanitarios públicos de la CA</td>
+      <td>Art. 68 EA; Decret 39/2006</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>4. La reforma del Estatuto de Autonomía (Título VI EA, arts. 117-118)</h1>
+
+<h2>4.1 Fundamento constitucional</h2>
+
+<p>El art. 147.3 CE establece que la reforma de los Estatutos de Autonomía se ajustará al procedimiento establecido en los propios Estatutos, debiendo ser aprobada mediante ley orgánica. El EA de 2007 regula el procedimiento de reforma en el Título VI (arts. 117-118).</p>
+
+<h2>4.2 Procedimiento de reforma del Estatuto de Illes Balears</h2>
+
+<p>La reforma del Estatuto de Autonomía de las Illes Balears requiere la concurrencia de voluntades autonómica y estatal, en consonancia con la naturaleza bifronte del Estatuto (norma estatal y autonómica a la vez). El proceso es el siguiente:</p>
+
+<ul>
+  <li><strong>Iniciativa:</strong> corresponde al Govern de les Illes Balears, al Parlament de les Illes Balears (por mayoría de dos tercios) o a las Cortes Generales.</li>
+  <li><strong>Aprobación autonómica:</strong> el Parlament de les Illes Balears debe aprobar la propuesta de reforma por <strong>mayoría de dos tercios</strong> de sus miembros.</li>
+  <li><strong>Tramitación en Cortes Generales:</strong> aprobada la propuesta por el Parlament, se remite a las Cortes Generales para su tramitación como ley orgánica (arts. 81 y 147.3 CE).</li>
+  <li><strong>Referéndum:</strong> el art. 117.2 EA establece que la reforma que afecte a los derechos y libertades del Título I requiere referéndum de ratificación de los ciudadanos de las Illes Balears.</li>
+</ul>
+
+<h2>4.3 Reformas del Estatuto: evolución histórica</h2>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Norma</th>
+      <th>Fecha</th>
+      <th>Contenido de la reforma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>LO 2/1983</strong></td>
+      <td>25 de febrero de 1983</td>
+      <td>Estatuto originario; acceso por vía art. 143 CE</td>
+    </tr>
+    <tr>
+      <td><strong>LO 9/1994</strong></td>
+      <td>24 de marzo de 1994</td>
+      <td>Primera reforma; ampliación de competencias</td>
+    </tr>
+    <tr>
+      <td><strong>LO 3/1999</strong></td>
+      <td>8 de enero de 1999</td>
+      <td>Segunda reforma; nuevas competencias</td>
+    </tr>
+    <tr>
+      <td><strong>LO 1/2007</strong></td>
+      <td>28 de febrero de 2007</td>
+      <td>Nuevo Estatuto vigente; amplio catálogo de derechos, más competencias, refuerzo de Consells Insulars</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>4.4 Límites a la reforma</h2>
+
+<p>La reforma del Estatuto no puede vulnerar la CE. Si la reforma pretendiese ampliar las competencias autonómicas en materias que la CE reserva con carácter exclusivo al Estado (art. 149.1 CE), el Estatuto sería inconstitucional en esa parte.</p>
+
+<p>El TC es el órgano competente para controlar la constitucionalidad de las reformas estatutarias, tanto <em>a priori</em> (mediante el recurso previo de inconstitucionalidad) como <em>a posteriori</em> (mediante el recurso de inconstitucionalidad).</p>
+
+<div class="important">La reforma que afecte al Título I EA (derechos y libertades) exige, además de la aprobación por mayoría de 2/3 del Parlament y tramitación como LO en las Cortes Generales, referéndum de ratificación por los ciudadanos de las Illes Balears (art. 117.2 EA).</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>5. Los Consells Insulars: régimen estatutario</h1>
+
+<p>El Estatuto de 2007 dedicó una atención especial a los Consells Insulars (arts. 61-72 EA), reforzando su posición institucional.</p>
+
+<p>Los Consells Insulars de Mallorca, Menorca, Eivissa y Formentera son las instituciones propias de cada isla, con naturaleza de <strong>entidad local de régimen especial</strong>. Sus características más relevantes son:</p>
+
+<ul>
+  <li><strong>Autonomía institucional y funcional (art. 61 EA):</strong> los Consells tienen plena autonomía para la gestión de sus competencias propias.</li>
+  <li>El Estatuto les atribuye competencias propias (art. 70 EA) que las leyes del Parlament pueden ampliar, pero que no pueden reducirse sin modificación del Estatuto o sin su conformidad.</li>
+  <li>El Consell de Mallorca es el de mayor importancia institucional y presupuestaria dada la distribución poblacional de la CA.</li>
+  <li>Los Consells Insulars tienen estructura interna análoga al Govern: <em>Consell Executiu</em> (gobierno insular), <em>Consell en Ple</em> (equivalente al Parlament en el ámbito insular), y el <em>President del Consell Insular</em>.</li>
+</ul>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h1>6. Tabla resumen para el examen</h1>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Materia</th>
+      <th>Dato clave</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Estatuto vigente</strong></td>
+      <td>LO 1/2007, de 28 de febrero, de reforma del Estatuto de Autonomía de las Illes Balears</td>
+    </tr>
+    <tr>
+      <td><strong>Estatuto originario</strong></td>
+      <td>LO 2/1983, de 25 de febrero; acceso por vía art. 143 CE</td>
+    </tr>
+    <tr>
+      <td><strong>Reformas previas</strong></td>
+      <td>LO 9/1994 y LO 3/1999</td>
+    </tr>
+    <tr>
+      <td><strong>Derechos estatutarios</strong></td>
+      <td>Título I EA (arts. 14-36); mandatos a poderes autonómicos; no son derechos fundamentales con amparo ante TC</td>
+    </tr>
+    <tr>
+      <td><strong>Lengua propia</strong></td>
+      <td>Catalán (art. 4 EA); cooficial con el castellano; derecho a usarla en relaciones con la CA</td>
+    </tr>
+    <tr>
+      <td><strong>Competencias exclusivas CA</strong></td>
+      <td>Turismo, urbanismo, agricultura, cultura, montes, pesca en aguas interiores… (art. 30 EA)</td>
+    </tr>
+    <tr>
+      <td><strong>Competencias compartidas</strong></td>
+      <td>Sanidad interior (art. 31.4 EA): legislación de desarrollo y ejecución (bases: Estado; desarrollo: CA)</td>
+    </tr>
+    <tr>
+      <td><strong>Competencias ejecutivas</strong></td>
+      <td>Legislación laboral: la CA aplica la normativa estatal (art. 32 EA)</td>
+    </tr>
+    <tr>
+      <td><strong>Reforma EA</strong></td>
+      <td>Iniciativa: Govern, Parlament (2/3) o Cortes; aprobación Parlament (2/3) + LO Cortes; referéndum si afecta Título I EA</td>
+    </tr>
+    <tr>
+      <td><strong>Consells Insulars</strong></td>
+      <td>Mallorca, Menorca, Eivissa y Formentera; arts. 61-72 EA; entidades locales de régimen especial; competencias propias protegidas estatutariamente</td>
+    </tr>
+    <tr>
+      <td><strong>IB-Salut</strong></td>
+      <td>Ente público; gestión sanitaria autonómica; base: Ley 5/2003; estatutos: Decreto 39/2006; estructura orgánica: Decreto 79/2023</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</body>
+</html>
