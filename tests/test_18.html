@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Tema 18 — Estatut d'Autonomia de les Illes Balears · IB-Salut</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div><div class="nav-title">IB-Salut · Oposicions</div><div class="nav-sub">Grup Tècnic Funció Administrativa</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Inici</a>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Temes ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../temes/tema11.html" class="nav-dropdown-item">Tema 11 — Constitució Espanyola</a>
+        <a href="../temes/tema12.html" class="nav-dropdown-item">Tema 12 — Autonomies (I)</a>
+        <a href="../temes/tema13.html" class="nav-dropdown-item">Tema 13 — Autonomies (II)</a>
+        <a href="../temes/tema14.html" class="nav-dropdown-item">Tema 14 — Tribunal Constitucional</a>
+        <a href="../temes/tema18.html" class="nav-dropdown-item">Tema 18 — Estatut Illes Balears</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Més temes — Pròximament</span>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Tests ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../tests/test_11.html" class="nav-dropdown-item">Test Tema 11 ✓</a>
+        <a href="../tests/test_12_13.html" class="nav-dropdown-item">Test Temes 12-13 ✓</a>
+        <a href="../tests/test_14.html" class="nav-dropdown-item">Test Tema 14 ✓</a>
+        <a href="../tests/test_18.html" class="nav-dropdown-item" style="font-weight:700;color:var(--green-d)">Test Tema 18 ✓</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Més tests — Pròximament</span>
+      </div>
+    </div>
+  </div>
+  <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html" class="nav-link">Inici</a>
+  <div class="mob-section">Temes</div>
+  <a href="../temes/tema11.html" class="nav-link">Tema 11</a>
+  <a href="../temes/tema12.html" class="nav-link">Tema 12</a>
+  <a href="../temes/tema13.html" class="nav-link">Tema 13</a>
+  <a href="../temes/tema14.html" class="nav-link">Tema 14</a>
+  <a href="../temes/tema18.html" class="nav-link">Tema 18</a>
+  <div class="mob-section">Tests</div>
+  <a href="../tests/test_11.html" class="nav-link">Test Tema 11</a>
+  <a href="../tests/test_12_13.html" class="nav-link">Test Temes 12-13</a>
+  <a href="../tests/test_14.html" class="nav-link">Test Tema 14</a>
+  <a href="../tests/test_18.html" class="nav-link active">Test Tema 18</a>
+</div>
+
+<div class="page">
+  <div style="margin-bottom:8px">
+    <h1 style="font-size:24px;font-weight:700;margin-bottom:6px">Test — Tema 18</h1>
+    <p style="font-size:15px;color:var(--g500)">L'Estatut d'Autonomia de les Illes Balears · 17 preguntes · Puntuació real d'examen</p>
+  </div>
+  <div id="area"></div>
+</div>
+
+<footer>Servei de Salut de les Illes Balears · Material de preparació no oficial · 2025</footer>
+
+<script>
+const BLOCS = [
+  { label: "Bloc 1 — Competències (art. 30 i ss.)", range: [0, 6] },
+  { label: "Bloc 2 — Drets dels ciutadans", range: [7, 11] },
+  { label: "Bloc 3 — Reforma de l'Estatut", range: [12, 16] }
+];
+
+const QS = [
+  // ── BLOC 1 ──
+  // P1 → B
+  { q:"El turismo es una competencia de la CAIB de tipo:",
+    opts:["De desarrollo legislativo y ejecución en el marco de la legislación básica estatal.","Exclusiva de la Comunidad Autónoma.","De ejecución.","Compartida con el Estado."],
+    c:1, sec:"Competències",
+    exp:"El turismo es una competencia exclusiva de la Comunitat Autònoma de les Illes Balears, recogida en el art. 30 del Estatuto de Autonomía (LO 1/2007). Las competencias exclusivas son aquellas en las que la CAIB asume la potestad legislativa, la reglamentaria y la función ejecutiva." },
+  // P2 → D
+  { q:"¿Cuál es una competencia de DESARROLLO LEGISLATIVO Y EJECUCIÓN?",
+    opts:["El turismo.","La ordenación farmacéutica.","La caza y la pesca en aguas interiores.","El deporte y el ocio."],
+    c:1, sec:"Competències",
+    exp:"La ordenación farmacéutica es una competencia de desarrollo legislativo y ejecución de la CAIB en el marco de la legislación básica del Estado. En este tipo de competencias, el Estado fija las bases y la Comunidad Autónoma desarrolla y ejecuta la legislación dentro de ese marco." },
+  // P3 → B
+  { q:"¿Cuál es una competencia DE EJECUCIÓN?",
+    opts:["La ordenación del territorio.","La gestión del régimen económico de la Seguridad Social.","La artesanía.","La conservación del derecho civil propio."],
+    c:1, sec:"Competències",
+    exp:"La gestión del régimen económico de la Seguridad Social es una competencia de ejecución de la CAIB. En las competencias ejecutivas, el Estado mantiene la potestad legislativa y la CAIB únicamente ejecuta la legislación estatal, sin capacidad normativa propia." },
+  // P4 → D
+  { q:"La protección y tutela de menores es una competencia:",
+    opts:["De desarrollo legislativo y ejecución.","De ejecución.","De ejecución en el marco de la legislación estatal.","Exclusiva de la Comunidad Autónoma."],
+    c:3, sec:"Competències",
+    exp:"La protección y tutela de menores es una competencia exclusiva de la Comunitat Autònoma de les Illes Balears, recogida en el art. 30 del Estatuto (LO 1/2007). Incluye la regulación de los servicios, las instituciones y los programas de protección del menor." },
+  // P5 → C
+  { q:"¿Qué artículo del Estatuto establece las competencias exclusivas?",
+    opts:["El artículo 28.","El artículo 29.","El artículo 30.","El artículo 33."],
+    c:2, sec:"Competències",
+    exp:"El art. 30 del Estatuto de Autonomía de les Illes Balears (LO 1/2007, de 28 de febrero) enumera las competencias exclusivas de la Comunitat Autònoma. El art. 31 recoge las competencias de desarrollo legislativo y ejecución, y el art. 32 las de ejecución." },
+  // P6 → C
+  { q:"Las minas y los hidrocarburos constituyen una competencia de:",
+    opts:["Competencia exclusiva de la CAIB.","Desarrollo legislativo y ejecución en el marco de la legislación básica estatal.","Ejecución de la legislación del Estado.","Competencia exclusiva del Estado."],
+    c:1, sec:"Competències",
+    exp:"Las minas y los hidrocarburos son una competencia de desarrollo legislativo y ejecución de la CAIB en el marco de la legislación básica estatal. El Estado fija las bases del régimen minero y energético y la CAIB desarrolla y ejecuta dentro de ese marco." },
+  // P7 → B (ordenació del litoral → exclusiva)
+  { q:"¿Cuál es una competencia EXCLUSIVA de la CAIB?",
+    opts:["La ejecución de la legislación laboral del Estado.","La ordenación farmacéutica.","La ordenación del litoral.","La gestión del régimen económico de la Seguridad Social."],
+    c:2, sec:"Competències",
+    exp:"La ordenación del litoral es una competencia exclusiva de la CAIB (art. 30 del Estatuto). La ejecución de la legislación laboral es competencia de ejecución; la ordenación farmacéutica, de desarrollo legislativo y ejecución; y la gestión del régimen económico de la SS, de ejecución." },
+
+  // ── BLOC 2 ──
+  // P8 → C
+  { q:"Los derechos y deberes de los ciudadanos del Estatuto se regulan en:",
+    opts:["El Título I (Disposiciones generales).","El Título III (Institucions).","El Título II (Drets, deures i principis rectors).","El Título IV (Competències)."],
+    c:2, sec:"Drets dels ciutadans",
+    exp:"Los derechos, deberes y principios rectores de los ciudadanos de les Illes Balears se regulan en el Título II del Estatuto de Autonomía (LO 1/2007). Este título combina derechos y deberes propiamente dichos con principios rectores de la política social, económica y cultural." },
+  // P9 → A
+  { q:"¿Qué derecho está expresamente reconocido en el Título II del Estatuto?",
+    opts:["El derecho a acceder a una vivienda digna y adecuada.","El derecho a la prestación por desempleo.","El derecho a la seguridad social.","El derecho a un salario mínimo adecuado."],
+    c:0, sec:"Drets dels ciutadans",
+    exp:"El Título II del Estatuto reconoce expresamente el derecho a acceder a una vivienda digna y adecuada, entre otros derechos sociales. Este reconocimiento estatutario complementa el mandato del art. 47 CE, que establece como principio rector el derecho a una vivienda digna." },
+  // P10 → D
+  { q:"El derecho a la protección de la salud se reconoce a:",
+    opts:["Únicamente a las personas con nacionalidad española.","Únicamente a los trabajadores del sistema sanitario público.","Únicamente a las personas cubiertas por la Seguridad Social.","Todas las personas que residen en las Illes Balears."],
+    c:3, sec:"Drets dels ciutadans",
+    exp:"El Estatuto reconoce el derecho a la protección de la salud a todas las personas que residen en les Illes Balears, con independencia de su nacionalidad o situación administrativa. Este reconocimiento universal es más amplio que el previsto en la legislación estatal básica." },
+  // P11 → A
+  { q:"El Estatuto reconoce, en el Título II, derechos específicos para:",
+    opts:["Las personas con discapacidad, las personas mayores y las personas en situación de dependencia, entre otras.","Únicamente para los funcionarios de la CAIB.","Únicamente para los menores de edad.","Únicamente para los residentes de Mallorca."],
+    c:0, sec:"Drets dels ciutadans",
+    exp:"El Título II del Estatuto reconoce derechos específicos para colectivos vulnerables o con necesidades especiales, entre ellos las personas con discapacidad, las personas mayores y las personas en situación de dependencia. Estos derechos concretan los principios rectores del Estatuto." },
+  // P12 → C
+  { q:"El Título II combina dos grandes tipos de disposiciones, que son:",
+    opts:["Derechos fundamentales y derechos ordinarios.","Derechos civiles y derechos sociales.","Derechos y deberes de los ciudadanos, por una parte, y principios rectores de la política social, económica y cultural, por otra.","Derechos individuales y derechos colectivos."],
+    c:2, sec:"Drets dels ciutadans",
+    exp:"El Título II del Estatuto de Autonomía de les Illes Balears combina dos tipos de disposiciones: por un lado, derechos y deberes de los ciudadanos (directamente exigibles); y por otro, principios rectores de la política social, económica y cultural (mandatos al legislador y a los poderes públicos)." },
+
+  // ── BLOC 3 ──
+  // P13 → B
+  { q:"El Estatuto de Autonomía de las Illes Balears tiene la naturaleza jurídica de:",
+    opts:["Ley ordinaria del Estado.","Ley orgánica.","Real decreto legislativo.","Decreto-ley."],
+    c:1, sec:"Reforma de l'Estatut",
+    exp:"Los Estatutos de Autonomía tienen naturaleza de ley orgánica (art. 81.1 CE), ya que son aprobados por las Cortes Generales como tales. El Estatuto de les Illes Balears fue aprobado como LO 1/2007, de 28 de febrero, de reforma del Estatuto de Autonomía." },
+  // P14 → B
+  { q:"¿Quién tiene la iniciativa para proponer una reforma del Estatuto?",
+    opts:["Únicamente el Parlamento de las Illes Balears.","Únicamente el Gobierno de las Illes Balears.","El Parlamento o el Gobierno de las Illes Balears, o las Cortes Generales.","Únicamente los ciudadanos por iniciativa legislativa popular."],
+    c:2, sec:"Reforma de l'Estatut",
+    exp:"La iniciativa de reforma del Estatuto de les Illes Balears corresponde al Parlament de les Illes Balears, al Govern de les Illes Balears o a las Cortes Generales. No se contempla la iniciativa popular directa para la reforma estatutaria." },
+  // P15 → D
+  { q:"¿Qué mayoría es necesaria en el Parlamento para aprobar una propuesta de reforma?",
+    opts:["Mayoría simple.","Mayoría absoluta.","Mayoría de tres cuartas partes.","Mayoría de dos tercios."],
+    c:3, sec:"Reforma de l'Estatut",
+    exp:"La aprobación de una propuesta de reforma del Estatuto por el Parlament de les Illes Balears requiere mayoría de dos tercios de sus miembros. Esta mayoría reforzada garantiza un amplio consenso para las reformas de la norma institucional básica de la Comunitat Autònoma." },
+  // P16 → A
+  { q:"Una vez el Parlamento aprueba la propuesta de reforma, el paso final es:",
+    opts:["Su ratificación por las Cortes Generales como ley orgánica.","Someterla a referéndum vinculante entre la ciudadanía balear.","Su validación previa por el Tribunal Constitucional.","La emisión de un dictamen preceptivo del Consejo de Estado."],
+    c:0, sec:"Reforma de l'Estatut",
+    exp:"Tras la aprobación de la propuesta de reforma por el Parlament de les Illes Balears (con mayoría de 2/3), el paso final es su ratificación por las Cortes Generales mediante ley orgánica. No se prevé referéndum obligatorio para la reforma del Estatuto balear." },
+  // P17 → C
+  { q:"El actual Estatuto de Autonomía de las Illes Balears fue aprobado por:",
+    opts:["LO 2/1983, de 25 de febrero.","LO 3/1999, de 8 de enero.","LO 1/2007, de 28 de febrero.","LO 5/2001, de 13 de diciembre."],
+    c:2, sec:"Reforma de l'Estatut",
+    exp:"El vigente Estatuto de Autonomía de les Illes Balears fue aprobado por la LO 1/2007, de 28 de febrero. Es la tercera versión del Estatuto: el primero fue aprobado por LO 2/1983 y el segundo por LO 3/1999. La LO 1/2007 supuso una reforma integral y sustancial del texto estatutario." },
+];
+
+const LT=['a','b','c','d'];
+const PASS=8.5, TOTAL=17;
+let ans={}, cur=0, done=false, wrongs=[];
+
+function scorePerQ(){ return TOTAL/QS.length; }
+function calcScore(){
+  const pq=scorePerQ();
+  return QS.reduce((s,q,i)=>{
+    if(ans[i]===undefined)return s;
+    return ans[i]===q.c ? s+pq : s-pq/4;
+  },0);
+}
+function fmt(n){ return n.toFixed(3).replace('.',','); }
+function fmtS(n){ return (Math.round(n*100)/100).toFixed(2).replace('.',','); }
+function scoreColor(s){ if(s<0)return'#DC2626'; if(s/TOTAL>=0.5)return'#1D9E75'; if(s/TOTAL>=0.35)return'#D97706'; return'#DC2626'; }
+function getBlocLabel(i){
+  for(const b of BLOCS){ if(i>=b.range[0]&&i<=b.range[1])return b.label; }
+  return '';
+}
+
+function pick(qi,oi){ if(ans[qi]!==undefined)return; ans[qi]=oi; render(); }
+function go(d){ cur=Math.max(0,Math.min(QS.length-1,cur+d)); render(); }
+function finish(){ done=true; wrongs=QS.reduce((a,q,i)=>{ if(ans[i]!==q.c)a.push(i); return a; },[]); render(); }
+function reset(){ ans={}; cur=0; done=false; render(); }
+
+function renderScoreLive(){
+  const pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const pend=QS.length-Object.keys(ans).length;
+  const score=calcScore(), col=scoreColor(score);
+  const thPct=(PASS/TOTAL)*100, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100));
+  return `<div class="score-live">
+    <div class="score-live-item"><div class="sl-val" style="color:${col}">${fmtS(score)}</div><div class="sl-lbl">Pts / ${TOTAL}</div></div>
+    <div class="score-live-item"><div class="sl-val ok">${ok}</div><div class="sl-lbl">Correctes</div></div>
+    <div class="score-live-item"><div class="sl-val ng">${ng}</div><div class="sl-lbl">Errònies</div></div>
+    <div class="score-live-item"><div class="sl-val pend">${pend}</div><div class="sl-lbl">Pendents</div></div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${sPct}%;background:${col}"></div>
+        <div class="score-threshold" style="left:${thPct}%"></div>
+      </div>
+      <div class="score-bar-labels"><span>0</span><span style="color:var(--amber);font-weight:600">mín ${PASS}</span><span>${TOTAL}</span></div>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const area=document.getElementById('area');
+  if(done){ renderResults(area); return; }
+  const q=QS[cur], answered=ans[cur]!==undefined, ndone=Object.keys(ans).length, pq=scorePerQ();
+
+  let blocHeader='';
+  if(cur===0||getBlocLabel(cur)!==getBlocLabel(cur-1)){
+    blocHeader=`<div style="background:var(--g100);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--g600);text-transform:uppercase;letter-spacing:.04em">${getBlocLabel(cur)}</div>`;
+  }
+
+  let h=renderScoreLive();
+  h+=`<div class="prog-wrap"><div class="prog-top"><span>Progrés</span><b>${ndone} / ${QS.length} respostes</b></div><div class="prog-track"><div class="prog-fill" style="width:${Math.round(ndone/QS.length*100)}%"></div></div></div>`;
+  h+=blocHeader;
+  h+=`<div class="qcard">`;
+  if(q.sec) h+=`<div style="font-size:11px;color:var(--g400);margin-bottom:6px;font-weight:500">${q.sec}</div>`;
+  h+=`<div class="qnum">Pregunta ${cur+1} de ${QS.length}</div>`;
+  h+=`<div class="qtext">${q.q}</div><div class="opts">`;
+  q.opts.forEach((o,i)=>{
+    let cls='opt'+(answered?' dis':'');
+    let delta='';
+    if(answered){
+      if(i===q.c){ cls+=' ok'; if(i===ans[cur]) delta=`<span class="score-delta pos">+${fmt(pq)} pts</span>`; }
+      else if(i===ans[cur]){ cls+=' ng'; delta=`<span class="score-delta neg">-${fmt(pq/4)} pts</span>`; }
+    }
+    h+=`<button class="${cls}" onclick="pick(${cur},${i})"><span class="ol">${LT[i]}</span><span style="flex:1">${o}</span>${delta}</button>`;
+  });
+  h+=`</div>`;
+  if(answered){
+    let exp=`<div class="expl on"><strong>Explicació:</strong> ${q.exp}`;
+    if(q.ref) exp+=` <em style="color:var(--g400);font-size:13px">(Ref: ${q.ref})</em>`;
+    exp+=`</div>`;
+    h+=exp;
+  }
+  h+=`</div>`;
+  const allDone=ndone===QS.length;
+  h+=`<div class="nav-q">
+    <button class="nbtn" onclick="go(-1)" ${cur===0?'disabled':''}>← Anterior</button>
+    <span class="nctr">${cur+1}/${QS.length}</span>
+    ${allDone?'<button class="nbtn pri" onclick="finish()">Veure resultats →</button>':`<button class="nbtn" onclick="go(1)" ${cur===QS.length-1?'disabled':''}>Següent →</button>`}
+  </div>`;
+  area.innerHTML=h;
+}
+
+function renderResults(area){
+  const n=QS.length, pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const score=calcScore(), passed=score>=PASS, col=scoreColor(score);
+  const circ=2*Math.PI*54, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100)), dash=circ*(1-sPct/100);
+  const msg=passed?(score>=15?'Resultat excel·lent!':score>=12?'Molt bon resultat.':'Aprovat. Segueix repassant.'):(score>=7?'Molt a prop! Repassa els errors.':'Cal reforçar aquest tema.');
+
+  const b1ok=QS.slice(0,7).filter((q,i)=>ans[i]===q.c).length;
+  const b2ok=QS.slice(7,12).filter((q,i)=>ans[i+7]===q.c).length;
+  const b3ok=QS.slice(12).filter((q,i)=>ans[i+12]===q.c).length;
+
+  const p1=Math.max(0,Math.min(100,(b1ok/7)*100));
+  const p2=Math.max(0,Math.min(100,(b2ok/5)*100));
+  const p3=Math.max(0,Math.min(100,(b3ok/5)*100));
+  const cc=p=>p>=50?'#1D9E75':p>=35?'#D97706':'#DC2626';
+
+  let h=`<div class="rhero">
+    <div class="ring">
+      <svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="#E5E7EB" stroke-width="9"/>
+        ${score>=0?`<circle cx="60" cy="60" r="54" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${dash.toFixed(2)}" stroke-linecap="round"/>`:''}
+      </svg>
+      <div class="rtext"><span class="rpts" style="color:${col}">${fmtS(score)}</span><span class="rover">/ ${TOTAL} pts</span></div>
+    </div>
+    <div class="raprueba ${passed?'si':'no'}">${passed?'✓ APROVAT':'✗ NO APROVAT'} · mínim ${PASS} pts</div>
+    <div class="rtitle">${msg}</div>
+    <div class="rsub">${n} preguntes · Tema 18</div>
+    <div class="rstats">
+      <div class="sc"><div class="sn g">${ok}</div><div class="sl2">Correctes</div></div>
+      <div class="sc"><div class="sn r">${ng}</div><div class="sl2">Errònies</div></div>
+      <div class="sc"><div class="sn a">+${fmt(pq)}</div><div class="sl2">Pts/encert</div></div>
+      <div class="sc"><div class="sn gr">-${fmt(pq/4)}</div><div class="sl2">Pts/error</div></div>
+    </div>
+  </div>`;
+
+  h+=`<div class="formula">
+    <span>📐 <b>Fórmula:</b></span>
+    <span>Correcta: <b>+${fmt(pq)}</b></span>
+    <span>Errònia: <b>-${fmt(pq/4)}</b></span>
+    <span>En blanc: <b>no permès</b></span>
+    <span>Mínim: <b>${PASS} / ${TOTAL}</b></span>
+  </div>`;
+
+  h+=`<div class="bdown"><h3>Desglose per bloc</h3>
+    <div class="trow"><span class="tlbl" style="min-width:120px">Bloc 1 (7 q.)</span><div class="tbar"><div class="tbfill" style="width:${p1}%;background:${cc(p1)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p1)}">${b1ok}/7</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:120px">Bloc 2 (5 q.)</span><div class="tbar"><div class="tbfill" style="width:${p2}%;background:${cc(p2)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p2)}">${b2ok}/5</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:120px">Bloc 3 (5 q.)</span><div class="tbar"><div class="tbfill" style="width:${p3}%;background:${cc(p3)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p3)}">${b3ok}/5</span></div>
+  </div>`;
+
+  h+=`<div class="ract">
+    <button class="abtn pri" onclick="reset()">Repetir test</button>
+    <a href="../temes/tema18.html" class="abtn" style="background:var(--blue-l);color:var(--blue);border:1.5px solid #BFDBFE;text-decoration:none">Repassar el tema</a>
+  </div>`;
+  area.innerHTML=h;
+}
+
+render();
+</script>
+</body>
+</html>

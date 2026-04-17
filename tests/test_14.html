@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Tema 14 — El Tribunal Constitucional · IB-Salut</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div><div class="nav-title">IB-Salut · Oposicions</div><div class="nav-sub">Grup Tècnic Funció Administrativa</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Inici</a>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Temes ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../temes/tema11.html" class="nav-dropdown-item">Tema 11 — Constitució Espanyola</a>
+        <a href="../temes/tema12.html" class="nav-dropdown-item">Tema 12 — Autonomies (I)</a>
+        <a href="../temes/tema13.html" class="nav-dropdown-item">Tema 13 — Autonomies (II)</a>
+        <a href="../temes/tema14.html" class="nav-dropdown-item">Tema 14 — Tribunal Constitucional</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Tema 15 i següents — Pròximament</span>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Tests ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../tests/test_11.html" class="nav-dropdown-item">Test Tema 11 ✓</a>
+        <a href="../tests/test_12_13.html" class="nav-dropdown-item">Test Temes 12-13 ✓</a>
+        <a href="../tests/test_14.html" class="nav-dropdown-item" style="font-weight:700;color:var(--green-d)">Test Tema 14 ✓</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Més tests — Pròximament</span>
+      </div>
+    </div>
+  </div>
+  <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html" class="nav-link">Inici</a>
+  <div class="mob-section">Temes</div>
+  <a href="../temes/tema11.html" class="nav-link">Tema 11</a>
+  <a href="../temes/tema12.html" class="nav-link">Tema 12</a>
+  <a href="../temes/tema13.html" class="nav-link">Tema 13</a>
+  <a href="../temes/tema14.html" class="nav-link">Tema 14</a>
+  <div class="mob-section">Tests</div>
+  <a href="../tests/test_11.html" class="nav-link">Test Tema 11</a>
+  <a href="../tests/test_12_13.html" class="nav-link">Test Temes 12-13</a>
+  <a href="../tests/test_14.html" class="nav-link active">Test Tema 14</a>
+</div>
+
+<div class="page">
+  <div style="margin-bottom:8px">
+    <h1 style="font-size:24px;font-weight:700;margin-bottom:6px">Test — Tema 14</h1>
+    <p style="font-size:15px;color:var(--g500)">El Tribunal Constitucional · 23 preguntes · Puntuació real d'examen</p>
+  </div>
+  <div id="area"></div>
+</div>
+
+<footer>Servei de Salut de les Illes Balears · Material de preparació no oficial · 2025</footer>
+
+<script>
+const BLOCS = [
+  { label: "Bloc 1 — Composició i organització del Tribunal Constitucional", range: [0, 7] },
+  { label: "Bloc 2 — Competències: recurs i qüestió d'inconstitucionalitat", range: [8, 11] },
+  { label: "Bloc 3 — Recurs d'empara", range: [12, 14] },
+  { label: "Bloc 4 — Conflictes constitucionals", range: [15, 20] },
+  { label: "Bloc 5 — Efectes de les sentències", range: [21, 22] }
+];
+
+const QS = [
+  // ── BLOC 1 ──
+  // P1 → C
+  { q:"El Tribunal Constitucional se compone de:",
+    opts:["9 magistrados designados por el Rey a propuesta exclusiva del Congreso y del Senado.","15 magistrados nombrados por el Rey entre juristas de reconocida competencia.","12 magistrados nombrados por el Rey en la forma establecida en la Constitución.","10 magistrados cuyo mandato es indefinidamente renovable."],
+    c:2, sec:"Composició i organització",
+    exp:"El TC se compone de 12 magistrados nombrados por el Rey: 4 propuestos por el Congreso, 4 por el Senado (ambos por mayoría de 3/5), 2 por el Gobierno y 2 por el CGPJ. Su mandato es de 9 años, sin posibilidad de reelección inmediata (art. 159 CE)." },
+  // P2 → A
+  { q:"De los 12 magistrados del Tribunal Constitucional, ¿cuántos son propuestos por el Congreso de los Diputados?",
+    opts:["4 magistrados.","2 magistrados.","6 magistrados.","3 magistrados."],
+    c:0, sec:"Composició i organització",
+    exp:"De los 12 magistrados del TC, 4 son propuestos por el Congreso, 4 por el Senado (ambos por mayoría de 3/5), 2 por el Gobierno y 2 por el CGPJ (art. 159.1 CE)." },
+  // P3 → D
+  { q:"El mandato de los magistrados del Tribunal Constitucional tiene una duración de:",
+    opts:["6 años, renovable por una sola vez.","12 años, sin posibilidad de renovación.","9 años, con posibilidad de renovación inmediata.","9 años, sin posibilidad de ser inmediatamente reelegidos."],
+    c:3, sec:"Composició i organització",
+    exp:"Los magistrados del TC son nombrados por un período de 9 años, no pudiendo ser reelegidos inmediatamente. El Tribunal se renueva por tercios cada tres años (art. 159.3 CE)." },
+  // P4 → B
+  { q:"El Tribunal Constitucional se renueva por tercios. ¿Con qué periodicidad se producen estas renovaciones?",
+    opts:["Cada 4 años.","Cada 3 años.","Cada 2 años.","Cada 6 años."],
+    c:1, sec:"Composició i organització",
+    exp:"El TC se renueva por tercios cada 3 años (art. 159.3 CE). Dado que el mandato de cada magistrado es de 9 años, la renovación por tercios implica que cada 3 años se renuevan 4 magistrados." },
+  // P5 → A
+  { q:"¿Cómo se designa al Presidente del Tribunal Constitucional?",
+    opts:["Por el Rey, a propuesta del propio Tribunal en pleno, por un período de tres años.","Por el Congreso de los Diputados, por mayoría de tres quintos de sus miembros.","Por el Consejo General del Poder Judicial entre sus propios vocales.","Por el Presidente del Gobierno, previo acuerdo del Consejo de Ministros."],
+    c:0, sec:"Composició i organització",
+    exp:"El Presidente del TC es elegido por el propio Tribunal en pleno entre sus miembros y propuesto al Rey para su nombramiento por un período de tres años, renovable por una sola vez (art. 160 CE)." },
+  // P6 → C
+  { q:"¿Cuánto dura el mandato del Presidente del Tribunal Constitucional?",
+    opts:["4 años, sin posibilidad de renovación.","9 años, coincidiendo con su mandato como magistrado.","3 años, renovable por una sola vez.","6 años, renovable por una sola vez."],
+    c:2, sec:"Composició i organització",
+    exp:"El Presidente del TC es nombrado por el Rey por un período de 3 años, renovable por una sola vez (art. 160 CE). Este mandato presidencial es independiente del mandato de 9 años como magistrado." },
+  // P7 → D
+  { q:"El Pleno del Tribunal Constitucional está formado por:",
+    opts:["El Presidente, el Vicepresidente y los Presidentes de las Salas.","Los seis magistrados de mayor antigüedad en el cargo.","Nueve magistrados elegidos por sorteo para cada asunto.","Los doce magistrados del Tribunal Constitucional."],
+    c:3, sec:"Composició i organització",
+    exp:"El Pleno del TC está integrado por los 12 magistrados del Tribunal, presidido por el Presidente. Es el órgano de mayor rango y conoce de los recursos de inconstitucionalidad, los conflictos de competencia y otras cuestiones de especial trascendencia (LOTC)." },
+  // P8 → B
+  { q:"El Tribunal Constitucional se divide en dos Salas. ¿Cuántos magistrados compone cada Sala?",
+    opts:["Cuatro magistrados presididos por el Presidente del Tribunal.","Seis magistrados, presididos por el Presidente o el Vicepresidente, respectivamente.","Tres magistrados elegidos para cada recurso concreto.","Ocho magistrados, reservando cuatro para el Pleno."],
+    c:1, sec:"Composició i organització",
+    exp:"El TC se organiza en dos Salas de 6 magistrados cada una. La Primera Sala es presidida por el Presidente del Tribunal y la Segunda por el Vicepresidente. Cada Sala conoce principalmente de los recursos de amparo." },
+
+  // ── BLOC 2 ──
+  // P9 → A
+  { q:"¿Cuál de las siguientes NO es una competencia del Tribunal Constitucional?",
+    opts:["El recurso de casación.","El recurso de amparo por vulneración de derechos fundamentales.","El recurso de inconstitucionalidad.","Los conflictos de competencia entre el Estado y las Comunidades Autónomas."],
+    c:0, sec:"Competències",
+    exp:"El recurso de casación corresponde al Tribunal Supremo y a los Tribunales Superiores de Justicia, no al TC. Las competencias del TC incluyen el recurso de inconstitucionalidad, la cuestión de inconstitucionalidad, el recurso de amparo y los conflictos de competencia (art. 161 CE)." },
+  // P10 → D
+  { q:"¿Quiénes están legitimados para interponer el recurso de inconstitucionalidad?",
+    opts:["Cualquier ciudadano que acredite un interés legítimo y directo.","Solo el Presidente del Gobierno y el Defensor del Pueblo.","El Tribunal Supremo y los Tribunales Superiores de Justicia de las CCAA.","El Presidente del Gobierno, el Defensor del Pueblo, 50 diputados o 50 senadores, y los órganos ejecutivos y asambleas de las Comunidades Autónomas."],
+    c:3, sec:"Competències",
+    exp:"Según el art. 162.1.a) CE, están legitimados para interponer el recurso de inconstitucionalidad: el Presidente del Gobierno, el Defensor del Pueblo, 50 diputados, 50 senadores, los órganos colegiados ejecutivos de las CCAA y, en su caso, sus asambleas legislativas." },
+  // P11 → C
+  { q:"¿Cuál es el plazo general para interponer el recurso de inconstitucionalidad?",
+    opts:["6 meses desde la publicación de la norma en el boletín oficial.","2 meses desde la publicación de la norma en el boletín oficial.","3 meses desde la publicación de la norma en el boletín oficial.","1 año desde la entrada en vigor de la norma impugnada."],
+    c:2, sec:"Competències",
+    exp:"El plazo para interponer el recurso de inconstitucionalidad es de 3 meses desde la publicación de la norma impugnada en el boletín oficial correspondiente (art. 33 LOTC). Existe un plazo especial de 9 meses cuando median negociaciones entre el Estado y las CCAA." },
+  // P12 → B
+  { q:"¿Quién puede plantear la cuestión de inconstitucionalidad?",
+    opts:["Solo el Ministerio Fiscal cuando actúa como parte en el proceso.","Cualquier juez o tribunal, de oficio o a instancia de parte, cuando considere que una norma con rango de ley aplicable al caso puede ser contraria a la Constitución.","Únicamente el Tribunal Supremo y los Tribunales Superiores de Justicia.","Las partes en el proceso judicial, mediante escrito de alegaciones."],
+    c:1, sec:"Competències",
+    exp:"La cuestión de inconstitucionalidad la plantea el juez o tribunal ante el TC (no las partes directamente). Se eleva cuando el órgano judicial tiene dudas sobre la constitucionalidad de una norma con rango de ley aplicable al proceso y de cuya validez depende el fallo (art. 163 CE)." },
+
+  // ── BLOC 3 ──
+  // P13 → A
+  { q:"¿Qué derechos protege el recurso de amparo constitucional?",
+    opts:["Los derechos reconocidos en los artículos 14 a 29 y el artículo 30.2 de la Constitución.","Todos los derechos y libertades del Título I de la Constitución.","Únicamente los derechos del artículo 14 (igualdad) y del artículo 24 (tutela judicial efectiva).","Los principios rectores de la política social y económica del Capítulo III del Título I."],
+    c:0, sec:"Recurs d'empara",
+    exp:"El recurso de amparo protege los derechos y libertades reconocidos en los arts. 14 a 29 CE (igualdad, derechos fundamentales y libertades públicas) y la objeción de conciencia del art. 30.2 CE. No protege el resto de derechos del Título I ni los principios rectores del Cap. III (art. 53.2 CE)." },
+  // P14 → D
+  { q:"¿Cuál es el plazo para interponer el recurso de amparo contra resoluciones judiciales definitivas?",
+    opts:["15 días hábiles desde la notificación de la última resolución judicial.","3 meses desde que se agota la vía judicial previa.","20 días desde la notificación de la resolución judicial.","30 días desde la notificación de la resolución judicial definitiva que agota la vía judicial."],
+    c:3, sec:"Recurs d'empara",
+    exp:"El plazo para interponer el recurso de amparo contra resoluciones judiciales es de 30 días hábiles a partir de la notificación de la resolución recaída en el proceso judicial (art. 44.2 LOTC). Previamente deben haberse agotado todos los recursos ordinarios." },
+  // P15 → C
+  { q:"Antes de interponer el recurso de amparo por actos del poder judicial, es necesario:",
+    opts:["Presentar una queja previa ante el Consejo General del Poder Judicial.","Obtener el dictamen favorable del Ministerio Fiscal sobre la viabilidad del recurso.","Haber agotado todos los recursos utilizables dentro de la vía judicial ordinaria.","Acreditar la inexistencia de jurisprudencia previa del Tribunal Constitucional sobre la cuestión."],
+    c:2, sec:"Recurs d'empara",
+    exp:"El principio de subsidiariedad del amparo exige haber agotado previamente todos los recursos utilizables dentro de la vía judicial ordinaria. Solo cuando la lesión no haya podido ser reparada por los tribunales ordinarios puede acudirse al TC (art. 44.1.a) LOTC)." },
+
+  // ── BLOC 4 ──
+  // P16 → B
+  { q:"¿Quiénes pueden plantear los conflictos positivos de competencia ante el Tribunal Constitucional?",
+    opts:["Solo puede plantearlo el Gobierno de la Nación.","El Gobierno de la Nación o los órganos ejecutivos superiores de las Comunidades Autónomas.","El Tribunal Supremo, de oficio o a petición de parte, cuando detecte un conflicto competencial.","El Defensor del Pueblo, como garante de los derechos de los ciudadanos."],
+    c:1, sec:"Conflictes constitucionals",
+    exp:"Los conflictos positivos de competencia pueden ser planteados por el Gobierno de la Nación o por los órganos ejecutivos superiores de las CCAA (art. 62 LOTC). Estos conflictos surgen cuando un ente considera que otro ha invadido su ámbito competencial." },
+  // P17 → A
+  { q:"En los conflictos negativos de competencia, ¿quién puede plantearlos además de las personas físicas o jurídicas interesadas?",
+    opts:["El Gobierno de la Nación, cuando sea necesario para la resolución del conflicto.","Solo las personas físicas o jurídicas directamente afectadas.","Solo los parlamentos de las Comunidades Autónomas implicadas.","El Ministerio Fiscal y los colegios de abogados de ámbito nacional."],
+    c:0, sec:"Conflictes constitucionals",
+    exp:"Los conflictos negativos de competencia pueden ser planteados por las personas físicas o jurídicas interesadas que vean afectados sus derechos e intereses legítimos, así como por el Gobierno de la Nación (arts. 68-72 LOTC)." },
+  // P18 → D
+  { q:"Los conflictos entre órganos constitucionales del Estado pueden suscitarse entre:",
+    opts:["Cualquier órgano de la Administración del Estado que se vea afectado por una invasión competencial.","Solo entre el Gobierno y las Cortes Generales, entendidas como un único órgano.","Entre los órganos judiciales y los órganos legislativos del Estado.","El Congreso de los Diputados, el Senado, el Gobierno y el Consejo General del Poder Judicial."],
+    c:3, sec:"Conflictes constitucionals",
+    exp:"Los conflictos entre órganos constitucionales del Estado se suscitan entre el Congreso, el Senado, el Gobierno y el CGPJ. Estos conflictos surgen cuando uno de estos órganos adopta decisiones que otro considera que invaden sus atribuciones constitucionales (art. 73 LOTC)." },
+  // P19 → B
+  { q:"Cuando el Gobierno impugna ante el Tribunal Constitucional disposiciones de las Comunidades Autónomas al amparo del artículo 161.2 CE, ¿qué efecto se produce automáticamente?",
+    opts:["La nulidad inmediata de la disposición impugnada, salvo ratificación posterior del Tribunal.","La suspensión automática de la disposición o resolución recurrida.","La obligación de la Comunidad Autónoma de modificar la norma en el plazo de un mes.","La convocatoria obligatoria de una Comisión Bilateral de Cooperación Estado-Comunidad Autónoma."],
+    c:1, sec:"Conflictes constitucionals",
+    exp:"El art. 161.2 CE establece que la impugnación gubernamental de disposiciones autonómicas produce la suspensión automática de la disposición o resolución recurrida. No es una nulidad, sino una suspensión cautelar que el TC debe ratificar o levantar en el plazo de 5 meses." },
+  // P20 → C
+  { q:"Cuando se produce la suspensión automática prevista en el artículo 161.2 CE, ¿en qué plazo debe el Tribunal Constitucional ratificarla o levantarla?",
+    opts:["La suspensión es indefinida hasta que el Tribunal dicte sentencia sobre el fondo.","La suspensión dura tres meses, prorrogable por otros tres a petición del Gobierno.","El Tribunal Constitucional debe ratificar o levantar la suspensión en un plazo de cinco meses.","La suspensión dura seis meses, transcurridos los cuales se levanta automáticamente."],
+    c:2, sec:"Conflictes constitucionals",
+    exp:"Producida la suspensión automática por la impugnación gubernamental del art. 161.2 CE, el TC debe ratificarla o levantarla en el plazo de 5 meses (art. 161.2 CE y art. 77 LOTC). Transcurrido dicho plazo sin pronunciamiento, se entiende levantada la suspensión." },
+  // P21 → A
+  { q:"¿Cuál de los siguientes actos NO puede ser objeto directo de recurso de amparo constitucional?",
+    opts:["Una ley del Parlamento que limite el ejercicio de un derecho fundamental.","Un acto de la Administración que vulnere el derecho a la igualdad del artículo 14 CE.","Una resolución judicial que lesione el derecho a la tutela judicial efectiva del artículo 24 CE.","Una vía de hecho de un órgano administrativo que vulnere el derecho a la intimidad."],
+    c:0, sec:"Conflictes constitucionals",
+    exp:"Las leyes no pueden ser objeto directo de recurso de amparo. Si una ley lesiona un derecho fundamental, la vía adecuada es el recurso de inconstitucionalidad (si se tiene legitimación) o la cuestión de inconstitucionalidad planteada por el juez. El amparo procede contra actos, no contra leyes (art. 41 LOTC)." },
+
+  // ── BLOC 5 ──
+  // P22 → D
+  { q:"De acuerdo con el artículo 55 de la Ley Orgánica del Tribunal Constitucional, la sentencia que otorga el amparo puede:",
+    opts:["Solo declarar la nulidad del acto, sin reconocer expresamente el derecho vulnerado.","Únicamente ordenar la retroacción de actuaciones al momento en que se produjo la lesión.","Limitarse a reconocer el derecho vulnerado, sin poder anular el acto que lo causó.","Declarar la nulidad de la resolución impugnada, reconocer el derecho o libertad vulnerado y adoptar las medidas necesarias para su restablecimiento."],
+    c:3, sec:"Efectes de les sentències",
+    exp:"Según el art. 55 LOTC, la sentencia que otorga el amparo puede contener simultáneamente: la declaración de nulidad de la resolución impugnada, el reconocimiento del derecho o libertad fundamental vulnerado y la adopción de las medidas necesarias para su restablecimiento o preservación." },
+  // P23 → B
+  { q:"Las sentencias del Tribunal Constitucional que declaran la inconstitucionalidad de una norma tienen:",
+    opts:["Efectos inter partes: solo vinculan a las partes que intervinieron en el procedimiento.","Valor de cosa juzgada y producen efectos generales (erga omnes) desde su publicación en el BOE.","Efectos únicamente hacia el futuro, sin afectar a situaciones jurídicas ya consolidadas en ningún caso.","Carácter meramente declarativo, correspondiendo al legislador la decisión sobre su aplicación."],
+    c:1, sec:"Efectes de les sentències",
+    exp:"Las sentencias del TC tienen valor de cosa juzgada y producen efectos erga omnes (generales) desde su publicación en el BOE (art. 164.1 CE y art. 38 LOTC). El TC puede modular los efectos en el tiempo —retroactivos, pro futuro o limitados—, pero su eficacia es general, no inter partes." },
+];
+
+const LT=['a','b','c','d'];
+const PASS=11.5, TOTAL=23;
+let ans={}, cur=0, done=false, wrongs=[];
+
+function scorePerQ(){ return TOTAL/QS.length; }
+function calcScore(){
+  const pq=scorePerQ();
+  return QS.reduce((s,q,i)=>{
+    if(ans[i]===undefined)return s;
+    return ans[i]===q.c ? s+pq : s-pq/4;
+  },0);
+}
+function fmt(n){ return n.toFixed(3).replace('.',','); }
+function fmtS(n){ return (Math.round(n*100)/100).toFixed(2).replace('.',','); }
+function scoreColor(s){ if(s<0)return'#DC2626'; if(s/TOTAL>=0.5)return'#1D9E75'; if(s/TOTAL>=0.35)return'#D97706'; return'#DC2626'; }
+function getBlocLabel(i){
+  for(const b of BLOCS){ if(i>=b.range[0]&&i<=b.range[1])return b.label; }
+  return '';
+}
+
+function pick(qi,oi){ if(ans[qi]!==undefined)return; ans[qi]=oi; render(); }
+function go(d){ cur=Math.max(0,Math.min(QS.length-1,cur+d)); render(); }
+function finish(){ done=true; wrongs=QS.reduce((a,q,i)=>{ if(ans[i]!==q.c)a.push(i); return a; },[]); render(); }
+function reset(){ ans={}; cur=0; done=false; render(); }
+
+function renderScoreLive(){
+  const pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const pend=QS.length-Object.keys(ans).length;
+  const score=calcScore(), col=scoreColor(score);
+  const thPct=(PASS/TOTAL)*100, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100));
+  return `<div class="score-live">
+    <div class="score-live-item"><div class="sl-val" style="color:${col}">${fmtS(score)}</div><div class="sl-lbl">Pts / ${TOTAL}</div></div>
+    <div class="score-live-item"><div class="sl-val ok">${ok}</div><div class="sl-lbl">Correctes</div></div>
+    <div class="score-live-item"><div class="sl-val ng">${ng}</div><div class="sl-lbl">Errònies</div></div>
+    <div class="score-live-item"><div class="sl-val pend">${pend}</div><div class="sl-lbl">Pendents</div></div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${sPct}%;background:${col}"></div>
+        <div class="score-threshold" style="left:${thPct}%"></div>
+      </div>
+      <div class="score-bar-labels"><span>0</span><span style="color:var(--amber);font-weight:600">mín ${PASS}</span><span>${TOTAL}</span></div>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const area=document.getElementById('area');
+  if(done){ renderResults(area); return; }
+  const q=QS[cur], answered=ans[cur]!==undefined, ndone=Object.keys(ans).length, pq=scorePerQ();
+
+  let blocHeader='';
+  if(cur===0||getBlocLabel(cur)!==getBlocLabel(cur-1)){
+    blocHeader=`<div style="background:var(--g100);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--g600);text-transform:uppercase;letter-spacing:.04em">${getBlocLabel(cur)}</div>`;
+  }
+
+  let h=renderScoreLive();
+  h+=`<div class="prog-wrap"><div class="prog-top"><span>Progrés</span><b>${ndone} / ${QS.length} respostes</b></div><div class="prog-track"><div class="prog-fill" style="width:${Math.round(ndone/QS.length*100)}%"></div></div></div>`;
+  h+=blocHeader;
+  h+=`<div class="qcard">`;
+  if(q.sec) h+=`<div style="font-size:11px;color:var(--g400);margin-bottom:6px;font-weight:500">${q.sec}</div>`;
+  h+=`<div class="qnum">Pregunta ${cur+1} de ${QS.length}</div>`;
+  h+=`<div class="qtext">${q.q}</div><div class="opts">`;
+  q.opts.forEach((o,i)=>{
+    let cls='opt'+(answered?' dis':'');
+    let delta='';
+    if(answered){
+      if(i===q.c){ cls+=' ok'; if(i===ans[cur]) delta=`<span class="score-delta pos">+${fmt(pq)} pts</span>`; }
+      else if(i===ans[cur]){ cls+=' ng'; delta=`<span class="score-delta neg">-${fmt(pq/4)} pts</span>`; }
+    }
+    h+=`<button class="${cls}" onclick="pick(${cur},${i})"><span class="ol">${LT[i]}</span><span style="flex:1">${o}</span>${delta}</button>`;
+  });
+  h+=`</div>`;
+  if(answered){
+    let exp=`<div class="expl on"><strong>Explicació:</strong> ${q.exp}`;
+    if(q.ref) exp+=` <em style="color:var(--g400);font-size:13px">(Ref: ${q.ref})</em>`;
+    exp+=`</div>`;
+    h+=exp;
+  }
+  h+=`</div>`;
+  const allDone=ndone===QS.length;
+  h+=`<div class="nav-q">
+    <button class="nbtn" onclick="go(-1)" ${cur===0?'disabled':''}>← Anterior</button>
+    <span class="nctr">${cur+1}/${QS.length}</span>
+    ${allDone?'<button class="nbtn pri" onclick="finish()">Veure resultats →</button>':`<button class="nbtn" onclick="go(1)" ${cur===QS.length-1?'disabled':''}>Següent →</button>`}
+  </div>`;
+  area.innerHTML=h;
+}
+
+function renderResults(area){
+  const n=QS.length, pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const score=calcScore(), passed=score>=PASS, col=scoreColor(score);
+  const circ=2*Math.PI*54, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100)), dash=circ*(1-sPct/100);
+  const msg=passed?(score>=20?'Resultat excel·lent!':score>=16?'Molt bon resultat.':'Aprovat. Segueix repassant.'):(score>=10?'Molt a prop! Repassa els errors.':'Cal reforçar aquest tema.');
+
+  const b1ok=QS.slice(0,8).filter((q,i)=>ans[i]===q.c).length;
+  const b2ok=QS.slice(8,12).filter((q,i)=>ans[i+8]===q.c).length;
+  const b3ok=QS.slice(12,15).filter((q,i)=>ans[i+12]===q.c).length;
+  const b4ok=QS.slice(15,21).filter((q,i)=>ans[i+15]===q.c).length;
+  const b5ok=QS.slice(21).filter((q,i)=>ans[i+21]===q.c).length;
+
+  const p1=Math.max(0,Math.min(100,(b1ok/8)*100));
+  const p2=Math.max(0,Math.min(100,(b2ok/4)*100));
+  const p3=Math.max(0,Math.min(100,(b3ok/3)*100));
+  const p4=Math.max(0,Math.min(100,(b4ok/6)*100));
+  const p5=Math.max(0,Math.min(100,(b5ok/2)*100));
+  const cc=p=>p>=50?'#1D9E75':p>=35?'#D97706':'#DC2626';
+
+  let h=`<div class="rhero">
+    <div class="ring">
+      <svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="#E5E7EB" stroke-width="9"/>
+        ${score>=0?`<circle cx="60" cy="60" r="54" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${dash.toFixed(2)}" stroke-linecap="round"/>`:''}
+      </svg>
+      <div class="rtext"><span class="rpts" style="color:${col}">${fmtS(score)}</span><span class="rover">/ ${TOTAL} pts</span></div>
+    </div>
+    <div class="raprueba ${passed?'si':'no'}">${passed?'✓ APROVAT':'✗ NO APROVAT'} · mínim ${PASS} pts</div>
+    <div class="rtitle">${msg}</div>
+    <div class="rsub">${n} preguntes · Tema 14</div>
+    <div class="rstats">
+      <div class="sc"><div class="sn g">${ok}</div><div class="sl2">Correctes</div></div>
+      <div class="sc"><div class="sn r">${ng}</div><div class="sl2">Errònies</div></div>
+      <div class="sc"><div class="sn a">+${fmt(pq)}</div><div class="sl2">Pts/encert</div></div>
+      <div class="sc"><div class="sn gr">-${fmt(pq/4)}</div><div class="sl2">Pts/error</div></div>
+    </div>
+  </div>`;
+
+  h+=`<div class="formula">
+    <span>📐 <b>Fórmula:</b></span>
+    <span>Correcta: <b>+${fmt(pq)}</b></span>
+    <span>Errònia: <b>-${fmt(pq/4)}</b></span>
+    <span>En blanc: <b>no permès</b></span>
+    <span>Mínim: <b>${PASS} / ${TOTAL}</b></span>
+  </div>`;
+
+  h+=`<div class="bdown"><h3>Desglose per bloc</h3>
+    <div class="trow"><span class="tlbl" style="min-width:120px">Bloc 1 (8 q.)</span><div class="tbar"><div class="tbfill" style="width:${p1}%;background:${cc(p1)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p1)}">${b1ok}/8</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:120px">Bloc 2 (4 q.)</span><div class="tbar"><div class="tbfill" style="width:${p2}%;background:${cc(p2)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p2)}">${b2ok}/4</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:120px">Bloc 3 (3 q.)</span><div class="tbar"><div class="tbfill" style="width:${p3}%;background:${cc(p3)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p3)}">${b3ok}/3</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:120px">Bloc 4 (6 q.)</span><div class="tbar"><div class="tbfill" style="width:${p4}%;background:${cc(p4)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p4)}">${b4ok}/6</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:120px">Bloc 5 (2 q.)</span><div class="tbar"><div class="tbfill" style="width:${p5}%;background:${cc(p5)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p5)}">${b5ok}/2</span></div>
+  </div>`;
+
+  h+=`<div class="ract">
+    <button class="abtn pri" onclick="reset()">Repetir test</button>
+    <a href="../temes/tema14.html" class="abtn" style="background:var(--blue-l);color:var(--blue);border:1.5px solid #BFDBFE;text-decoration:none">Repassar el tema</a>
+  </div>`;
+  area.innerHTML=h;
+}
+
+render();
+</script>
+</body>
+</html>
