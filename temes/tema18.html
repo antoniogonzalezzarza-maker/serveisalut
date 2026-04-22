@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 18 — L'Estatut d'Autonomia de les Illes Balears</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── Variables ─────────────────────────────────────────────────── */
+  :root {
+    --paper:     #faf8f4;
+    --paper-alt: #f3f0ea;
+    --ink:       #1a1714;
+    --ink-soft:  #4a4540;
+    --rule:      #d8d0c4;
+    --navy:      #1f3a5f;
+    --navy-mid:  #2e5f9a;
+    --navy-pale: #e8f0f9;
+    --gold:      #b07d2a;
+    --gold-pale: #fdf5e4;
+    --red-warn:  #8b1a1a;
+    --red-pale:  #fdf0f0;
+    --stripe-a:  #ffffff;
+    --stripe-b:  #eef4fb;
+  }
+
+  /* ── Reset & base ───────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  /* ── Header / portada ───────────────────────────────────────────── */
+  .portada {
+    background: var(--navy);
+    color: #fff;
+    margin: 0 -2rem 3rem;
+    padding: 3.5rem 3rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .portada::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.05);
+  }
+  .portada::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+  }
+  .badge {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #aac4e0;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    padding: .25rem .85rem;
+    border-radius: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  .portada h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: .6rem;
+    color: #fff;
+  }
+  .portada .subtitulo {
+    font-size: .92rem;
+    font-weight: 300;
+    color: #b8cfdf;
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+  .portada .meta {
+    margin-top: 1.8rem;
+    font-size: .78rem;
+    color: #7fa4bf;
+    letter-spacing: .04em;
+  }
+
+  /* ── Typographic scale ──────────────────────────────────────────── */
+  h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 2.8rem 0 .5rem;
+    padding-bottom: .4rem;
+    border-bottom: 3px solid var(--navy);
+    line-height: 1.25;
+  }
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin: 2rem 0 .4rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  h4 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 1.4rem 0 .3rem;
+  }
+  p {
+    margin-bottom: .85rem;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    color: var(--ink-soft);
+  }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── Listas ─────────────────────────────────────────────────────── */
+  ul {
+    margin: .5rem 0 1rem 1.4rem;
+    padding: 0;
+  }
+  ul li {
+    margin-bottom: .45rem;
+    color: var(--ink-soft);
+    padding-left: .3rem;
+  }
+  ul li::marker { color: var(--navy-mid); font-size: .85em; }
+  ul li strong { color: var(--navy); }
+
+  /* ── Sección ────────────────────────────────────────────────────── */
+  .seccion {
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── Tablas ─────────────────────────────────────────────────────── */
+  .tabla-wrap {
+    overflow-x: auto;
+    margin: 1.4rem 0 1.8rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+    min-width: 500px;
+  }
+  thead tr {
+    background: var(--navy);
+    color: #fff;
+  }
+  thead th {
+    padding: .65rem 1rem;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: .8rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  tbody tr:nth-child(odd)  { background: var(--stripe-a); }
+  tbody tr:nth-child(even) { background: var(--stripe-b); }
+  tbody tr:hover { background: #deeaf7; transition: background .15s; }
+  tbody td {
+    padding: .6rem 1rem;
+    color: var(--ink-soft);
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.5;
+  }
+  tbody td:first-child {
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  tbody td strong { color: var(--navy); }
+
+  /* ── Nota importante ────────────────────────────────────────────── */
+  .nota {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+    padding: .9rem 1.2rem;
+    margin: 1.4rem 0;
+    border-radius: 0 4px 4px 0;
+    font-size: .9rem;
+    color: #5a3e10;
+    line-height: 1.6;
+  }
+  .nota strong { color: #7b4f0a; }
+
+  /* ── Bloque de advertencia roja ─────────────────────────────────── */
+  .alerta {
+    background: var(--red-pale);
+    border-left: 4px solid var(--red-warn);
+    padding: .9rem 1.2rem;
+    margin: 1.4rem 0;
+    border-radius: 0 4px 4px 0;
+    font-size: .9rem;
+    color: var(--red-warn);
+    line-height: 1.6;
+  }
+
+  /* ── Etiqueta de tipo de competencia ────────────────────────────── */
+  .tag {
+    display: inline-block;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: .15rem .55rem;
+    border-radius: 3px;
+    margin-right: .4rem;
+    vertical-align: middle;
+  }
+  .tag-exc  { background: #d4edda; color: #155724; }
+  .tag-comp { background: #cce5ff; color: #004085; }
+  .tag-ejec { background: #fff3cd; color: #856404; }
+
+  /* ── Tabla resumen especial ─────────────────────────────────────── */
+  .resumen-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    margin: 1.4rem 0 2rem;
+    font-size: .88rem;
+  }
+  .resumen-grid .rg-key {
+    background: var(--navy-pale);
+    padding: .6rem 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+  }
+  .resumen-grid .rg-val {
+    background: #fff;
+    padding: .6rem 1rem;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+  }
+  .resumen-grid > div:nth-child(4n+1),
+  .resumen-grid > div:nth-child(4n+2) {
+    background: var(--stripe-b);
+  }
+  .resumen-grid > div:nth-child(4n+1) { background: var(--navy-pale); }
+
+  /* ── Breadcrumb numérico ────────────────────────────────────────── */
+  .num-section {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem; height: 2rem;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 50%;
+    font-size: .8rem;
+    font-weight: 700;
+    margin-right: .6rem;
+    flex-shrink: 0;
+  }
+  h2 .num-section { vertical-align: middle; }
+
+  /* ── Print ──────────────────────────────────────────────────────── */
+  @media print {
+    body { max-width: 100%; padding: 0 1.5cm; font-size: 11pt; }
+    .portada { margin: 0 -1.5cm 2cm; }
+    h2 { page-break-after: avoid; }
+    .nota, .alerta { page-break-inside: avoid; }
+    table { page-break-inside: auto; }
+    tr { page-break-inside: avoid; }
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    body { padding: 0 1rem 3rem; font-size: 15px; }
+    .portada { padding: 2rem 1.2rem 1.8rem; margin: 0 -1rem 2rem; }
+    .portada h1 { font-size: 1.8rem; }
+    .resumen-grid { grid-template-columns: 1fr; }
+    .resumen-grid .rg-key { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ PORTADA ══════════════════════════ -->
+<div class="portada">
+  <div class="badge">Temari específic · IB-Salut · Grup Tècnic Funció Administrativa</div>
+  <h1>Tema 18</h1>
+  <p class="subtitulo">L'Estatut d'autonomia de les Illes Balears: drets, deures i llibertats dels ciutadans; competències; reforma de l'Estatut d'autonomia.</p>
+  <p class="meta">Ley Orgánica 1/2007, de 28 de febrero &nbsp;·&nbsp; Convocatoria BOIB núm. 115, de 30 d'agost de 2025</p>
+</div>
+
+<!-- ═══════════════════════════════ 1. MARCO GENERAL ════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">1</span>El Estatuto de Autonomía de las Illes Balears: marco general</h2>
+
+<p>El Estatuto de Autonomía de las Illes Balears es la norma institucional básica de la Comunitat Autònoma de les Illes Balears (art. 147.1 CE). En la actualidad, el texto vigente es la <strong>Ley Orgánica 1/2007, de 28 de febrero, de reforma del Estatuto de Autonomía de las Illes Balears</strong> (en adelante, EA o Estatuto), que derogó el Estatuto originario de 1983 y sus reformas parciales de 1994 y 1999. El EA tiene rango de ley orgánica y es, en el bloque de constitucionalidad, el parámetro normativo fundamental para enjuiciar la validez de las normas autonómicas.</p>
+
+<p>Las Illes Balears accedieron a la autonomía por la vía ordinaria del art. 143 CE. El Estatuto de 2007 supuso un salto cualitativo en el nivel de autogobierno: amplió el catálogo de derechos, incrementó el número de competencias asumidas y reforzó la posición institucional de los Consells Insulars.</p>
+</div>
+
+<!-- ═══════════════════════════════ 2. DERECHOS ═════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">2</span>Derechos, deberes y libertades de los ciudadanos (Título II EA, arts. 13-29)</h2>
+
+<h3>2.1 Estructura y alcance</h3>
+<p>El Título II del Estatuto (arts. 13-29) contiene el catálogo de derechos, deberes y principios rectores de las políticas públicas propios de la Comunitat Autònoma. Su naturaleza jurídica es diferente a la de los derechos fundamentales de la CE: no son derechos fundamentales en sentido constitucional —no gozan de la garantía del recurso de amparo ante el TC ni de reserva de ley orgánica—, sino mandatos a los poderes autonómicos en el ejercicio de sus competencias. El TC (STC 247/2007) aclaró que los Estatutos pueden incluir derechos estatutarios siempre que se proyecten sobre materias de competencia autonómica. El propio <strong>art. 13.3 EA</strong> advierte expresamente que los derechos y principios del Título II no suponen alteración alguna del régimen de distribución de competencias ni la creación de nuevos títulos competenciales.</p>
+
+<h3>2.2 Derechos en relación con las Administraciones públicas (art. 14 EA)</h3>
+<ul>
+  <li><strong>Derecho a una buena administración</strong> (art. 14.1-2 EA): a que los asuntos se traten de forma objetiva e imparcial y en plazo razonable, a gozar de servicios públicos de calidad y a acceder a la función pública conforme a los principios de mérito y capacidad.</li>
+  <li><strong>Derecho a usar cualquiera de las dos lenguas oficiales</strong> (art. 14.3 EA): los ciudadanos pueden dirigirse a la Administración autonómica en catalán o en castellano y recibir respuesta en la misma lengua utilizada.</li>
+  <li><strong>Derecho de acceso a los archivos y registros administrativos</strong> (art. 14.1 EA): regulado por ley del Parlament.</li>
+  <li><strong>Derecho a la protección como consumidores y usuarios</strong> (art. 14.5 EA).</li>
+</ul>
+
+<h3>2.3 Derechos de participación (art. 15 EA)</h3>
+<p>Todos los ciudadanos de las Illes Balears tienen derecho a participar de forma individual o colectiva en la vida política, económica, cultural y social de la CA. Este derecho comprende: el derecho a elegir a los miembros de los órganos representativos autonómicos y a concurrir como candidato; el derecho de iniciativa legislativa ante el Parlament; el derecho a promover consultas populares ante el Govern, los Consells Insulars o los Ayuntamientos; y el derecho de petición individual y colectiva.</p>
+
+<h3>2.4 Derechos sociales (art. 16 EA)</h3>
+<p>El art. 16 EA establece que los poderes públicos defenderán y promoverán los derechos sociales, mandatando la elaboración mediante ley del Parlament de una <strong>Carta de Derechos Sociales</strong> de la CA. Los ámbitos prioritarios incluyen: la defensa integral de la familia, la protección del menor, los derechos de las personas dependientes, la protección de las personas mayores, la participación de la juventud, la asistencia a personas en situación de marginación o pobreza, la igualdad entre hombres y mujeres, la protección frente a la violencia de género, y los derechos de los inmigrantes con residencia permanente en la CA.</p>
+
+<h3>2.5 No discriminación por razón de sexo (art. 17 EA)</h3>
+<p>Garantiza el libre desarrollo de la personalidad, la participación plena en la vida laboral, social, familiar y política sin discriminación, la conciliación de la vida familiar y laboral, y el derecho de todas las personas a no ser discriminadas por razón de su orientación sexual.</p>
+
+<h3>2.6 Derechos en el ámbito cultural (art. 18 EA)</h3>
+<p>Derecho de acceso en condiciones de igualdad a la cultura, protección de la creatividad artística, científica y técnica, y derecho a que los poderes públicos promuevan la integración cultural y velen por la protección de la identidad y los valores del pueblo de les Illes Balears.</p>
+
+<h3>2.7 Derechos en relación con las personas dependientes (art. 19 EA)</h3>
+<p>Garantiza a toda persona dependiente el derecho a las prestaciones públicas necesarias para su autonomía personal y su integración socioprofesional, el desarrollo de medidas de acción positiva y accesibilidad universal, y el derecho al uso de la lengua de signos.</p>
+
+<h3>2.8 Otros derechos del Título II</h3>
+<div class="tabla-wrap">
+<table>
+  <thead><tr><th>Artículo</th><th>Denominación</th><th>Contenido esencial</th></tr></thead>
+  <tbody>
+    <tr><td>Art. 20 EA</td><td>Catástrofes</td><td>Los poderes públicos velarán por los derechos y necesidades de las personas que hayan sufrido daños por catástrofes.</td></tr>
+    <tr><td>Art. 21 EA</td><td>Pobreza e inserción social</td><td>Derecho a la solidaridad y a una <strong>renta mínima de inserción</strong> para los ciudadanos en estado de necesidad.</td></tr>
+    <tr><td>Art. 22 EA</td><td>Vivienda digna</td><td>Las AAPP garantizarán el acceso a una vivienda digna, con especial atención a jóvenes, personas sin medios, mujeres maltratadas y personas dependientes.</td></tr>
+    <tr><td>Art. 23 EA</td><td>Medio ambiente</td><td>Derecho a una vida y un medio ambiente seguro y sano; deber de los poderes públicos de proteger el medio ambiente y el territorio.</td></tr>
+    <tr><td>Art. 24 EA</td><td>Turismo y sector primario</td><td>Reconocimiento del turismo como elemento económico estratégico y protección del sector primario.</td></tr>
+    <tr><td>Art. 25 EA</td><td>Salud</td><td>Derecho a la prevención y protección de la salud mediante un sistema sanitario público universal; derechos de información, consentimiento, historia clínica, confidencialidad, plazo máximo de tratamiento, cuidados paliativos y voluntad vital anticipada.</td></tr>
+    <tr><td>Art. 26 EA</td><td>Educación</td><td>Derecho a una educación de calidad en condiciones de igualdad; gratuidad en los niveles obligatorios; atención a las necesidades educativas especiales; derecho a la formación profesional y a la educación permanente.</td></tr>
+    <tr><td>Art. 27 EA</td><td>Ocupación y trabajo</td><td>Impulso de la formación permanente, acceso gratuito a los servicios públicos de empleo y la ocupación estable y de calidad; reconocimiento del diálogo social.</td></tr>
+    <tr><td>Art. 28 EA</td><td>Datos personales</td><td>Derecho de acceso, protección, corrección y cancelación de datos personales en ficheros de las Administraciones autonómicas.</td></tr>
+    <tr><td>Art. 29 EA</td><td>Nuevas tecnologías</td><td>Impulso del acceso a las nuevas tecnologías y a la sociedad de la información.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>2.9 Deberes de los ciudadanos</h3>
+<p>El Título II establece también deberes correlativos. El más relevante en el contexto autonómico es el que se deriva del art. 4 EA en relación con la lengua: los poderes públicos tienen el deber de fomentar el conocimiento del catalán, lo que en el ámbito del empleo público se traduce en la acreditación del nivel de catalán exigido en cada convocatoria. Otros deberes son el de contribuir al sostenimiento de los servicios públicos mediante el pago de los tributos propios de la CA y el de respetar el medio ambiente y el patrimonio cultural.</p>
+</div>
+
+<!-- ═══════════════════════════════ 3. COMPETENCIAS ═════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">3</span>Las competencias de las Illes Balears (Título III EA, arts. 30-38)</h2>
+
+<h3>3.1 Marco constitucional</h3>
+<p>El Estatuto de 2007 incorporó un amplio catálogo competencial, haciendo uso de la capacidad de asunción de competencias que permite el Título VIII CE. Las competencias se clasifican en <span class="tag tag-exc">Exclusivas</span> <span class="tag tag-comp">Compartidas</span> <span class="tag tag-ejec">Ejecutivas</span>.</p>
+
+<h3>3.2 Competencias exclusivas de las Illes Balears (art. 30 EA)</h3>
+<ul>
+  <li>Organización de las instituciones de autogobierno (Parlament, Govern, Consells Insulars, Síndic de Greuges, Sindicatura de Comptes, Consell Consultiu).</li>
+  <li>Ordenación del territorio, urbanismo y vivienda.</li>
+  <li>Agricultura y ganadería.</li>
+  <li>Pesca en aguas interiores y acuicultura.</li>
+  <li>Montes y aprovechamientos forestales.</li>
+  <li>Turismo.</li>
+  <li>Cultura: museos, archivos y bibliotecas de titularidad autonómica.</li>
+  <li>Patrimonio histórico, artístico, monumental y arqueológico de interés autonómico.</li>
+  <li>Artesanía.</li>
+  <li>Transporte marítimo, ferroviario y por carretera íntegramente dentro del territorio de la CA.</li>
+  <li>Denominaciones de origen y de calidad.</li>
+  <li>Cooperativas y mutualidades no laborales.</li>
+  <li>Fundaciones y asociaciones que desarrollen principalmente sus funciones en la CA.</li>
+</ul>
+
+<h3>3.3 Competencias de desarrollo legislativo y ejecución — compartidas (art. 31 EA)</h3>
+<ul>
+  <li><strong>Sanidad interior</strong> (art. 31.4 EA), en el marco de las bases estatales (art. 149.1.16.ª CE). Aquí se enmarca la gestión del Servei de Salut de les Illes Balears.</li>
+  <li>Enseñanza: regulación y administración de la educación en todos sus niveles.</li>
+  <li>Protección del medio ambiente.</li>
+  <li>Función pública de la CA.</li>
+  <li>Ordenación del crédito, banca y seguros.</li>
+  <li>Régimen local: con tratamiento singular de los Consells Insulars dada la especificidad insular.</li>
+</ul>
+
+<h3>3.4 Competencias ejecutivas (art. 32 EA)</h3>
+<ul>
+  <li>Legislación laboral: la CA ejecuta la normativa estatal a través de la Conselleria competente.</li>
+  <li>Propiedad intelectual e industrial.</li>
+  <li>Museos, archivos y bibliotecas de titularidad estatal sitos en el territorio.</li>
+</ul>
+
+<h3>3.5 Policía de las Illes Balears (art. 33 EA)</h3>
+<p>El art. 33 EA atribuye a la CA la competencia para la <strong>creación y organización de un cuerpo de policía propio</strong>, en el marco de la legislación estatal —fundamentalmente la Ley Orgánica 2/1986, de Fuerzas y Cuerpos de Seguridad (LOFCS)—. La CA tiene potestad organizativa propia pero debe respetar el marco normativo estatal que regula las condiciones mínimas y las funciones atribuibles a las policías autonómicas.</p>
+<p>Corresponde asimismo a la CA el <strong>mando</strong> de la policía de las Illes Balears, que ejercerá sus funciones bajo la directa dependencia de las instituciones autonómicas. Las funciones concretas del cuerpo se fijan en su ley de creación, de acuerdo con la legislación estatal.</p>
+<p>Esta competencia debe distinguirse de la seguridad pública reservada al Estado (art. 149.1.29.ª CE), que incluye la Policía Nacional y la Guardia Civil, cuya actuación coexiste en el territorio balear con la policía autonómica propia.</p>
+
+<h3>3.6 Protección y fomento de la cultura (art. 34 EA)</h3>
+<p>Competencia <strong>exclusiva</strong> sobre la protección y el fomento de la <strong>cultura autóctona</strong> y del <strong>legado histórico</strong> de las Illes Balears. Esta exclusividad se refiere a la cultura propia de la CA, sin perjuicio de la competencia concurrente del Estado en materia de cultura (art. 149.2 CE). En desarrollo de esta competencia, la CA puede crear museos, archivos, bibliotecas de titularidad autonómica, fundaciones culturales públicas e institutos de investigación del patrimonio histórico balear.</p>
+
+<h3>3.7 Enseñanza de la lengua propia (art. 35 EA)</h3>
+<p>Competencia <strong>exclusiva</strong> para la enseñanza de la <strong>lengua catalana</strong>, propia de les Illes Balears, de acuerdo con la tradición literaria autóctona. La normalización lingüística es un objetivo expreso de los poderes públicos autonómicos. Tres precisiones relevantes:</p>
+<ul>
+  <li>Las <strong>modalidades insulares del catalán</strong> —de Mallorca, Menorca, Eivissa y Formentera— serán objeto de estudio y protección, sin perjuicio de la <strong>unidad de la lengua</strong>.</li>
+  <li>La <strong>institución oficial consultiva</strong> para todo lo referente a la lengua catalana es la <strong>Universitat de les Illes Balears</strong>.</li>
+  <li>La CA puede participar en una institución dirigida a salvaguardar la unidad lingüística, formada por todas las comunidades que reconozcan la cooficialidad del catalán.</li>
+</ul>
+<div class="nota"><strong>Relevancia para el examen:</strong> Esta competencia exclusiva fundamenta los requisitos de acreditación de catalán exigidos al personal del Servei de Salut de les Illes Balears en cada convocatoria, conforme a la Ley 3/1986, de Normalización Lingüística.</div>
+
+<h3>3.8 Enseñanza (art. 36 EA)</h3>
+<p>El art. 36 EA distribuye las competencias en materia de enseñanza entre la CA y el Estado con arreglo al art. 27 y al art. 149.1.30.ª CE:</p>
+
+<h4>Enseñanza no universitaria</h4>
+<ul>
+  <li><span class="tag tag-exc">Exclusiva</span> en la creación, organización y régimen de los centros públicos; régimen de becas y ayudas con fondos propios; formación y perfeccionamiento del personal docente; servicios educativos y actividades extraescolares complementarias.</li>
+  <li><span class="tag tag-comp">Compartida</span> Competencia de desarrollo legislativo y ejecución de la enseñanza en toda su extensión, niveles, grados, modalidades y especialidades.</li>
+  <li><span class="tag tag-ejec">Ejecutiva</span> Expedición y homologación de los títulos académicos y profesionales estatales.</li>
+</ul>
+
+<h4>Enseñanza universitaria</h4>
+<ul>
+  <li><span class="tag tag-exc">Exclusiva</span> —sin perjuicio de la autonomía universitaria (art. 27.10 CE)— en la programación y coordinación del sistema universitario balear, en la financiación propia de las universidades y en la regulación y gestión del sistema propio de becas y ayudas. La institución de referencia es la <strong>Universitat de les Illes Balears (UIB)</strong>.</li>
+</ul>
+
+<h3>3.9 Las competencias en materia de sanidad</h3>
+<div class="nota"><strong>Especialmente relevante para el Servei de Salut de les Illes Balears (IB-Salut).</strong></div>
+<div class="tabla-wrap">
+<table>
+  <thead><tr><th>Nivel</th><th>Competencia</th><th>Norma de referencia</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Estado</td>
+      <td>Bases y coordinación general de la sanidad; sanidad exterior; legislación de productos farmacéuticos</td>
+      <td>Art. 149.1.16.ª CE; Ley 14/1986; Ley 16/2003</td>
+    </tr>
+    <tr>
+      <td>Illes Balears <em>(compartida)</em></td>
+      <td>Desarrollo legislativo de las bases estatales; organización y gestión de la sanidad autonómica</td>
+      <td>Art. 31.4 EA; Ley 5/2003 de salut; Decrets 39/2006 y 79/2023</td>
+    </tr>
+    <tr>
+      <td>Servei de Salut (IB-Salut)</td>
+      <td>Organismo autónomo encargado de la gestión de los servicios sanitarios públicos de la CA</td>
+      <td>Art. 68 EA; Decret 39/2006 (art. 5)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<!-- ═══════════════════════════════ 4. REFORMA ══════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">4</span>La reforma del Estatuto de Autonomía (Título IX EA, art. 139)</h2>
+
+<h3>4.1 Fundamento constitucional</h3>
+<p>El art. 147.3 CE establece que la reforma de los Estatutos de Autonomía se ajustará al procedimiento establecido en los propios Estatutos, debiendo ser aprobada mediante ley orgánica. El EA de 2007 regula el procedimiento de reforma en el <strong>Título IX (art. 139)</strong>.</p>
+
+<h3>4.2 Procedimiento de reforma del Estatuto de Illes Balears</h3>
+<ul>
+  <li><strong>Iniciativa:</strong> corresponde al Govern de les Illes Balears, al Parlament de les Illes Balears (por <strong>un quinto de sus miembros</strong>, art. 139 EA) o a las Cortes Generales. En caso de tramitación en las Cortes de una propuesta de reforma, el Parlament podrá retirarla.</li>
+  <li><strong>Aprobación autonómica:</strong> el Parlament debe aprobar la propuesta por <strong>mayoría de dos tercios</strong> de sus miembros (art. 139 EA).</li>
+  <li><strong>Tramitación en Cortes Generales:</strong> aprobada la propuesta por el Parlament, se remite a las Cortes para su tramitación como ley orgánica (arts. 81 y 147.3 CE).</li>
+  <li><strong>Ausencia de referéndum:</strong> a diferencia de otros Estatutos (como el catalán o el andaluz), el EA de les Illes Balears no prevé referéndum de ratificación en ningún supuesto. La reforma queda perfeccionada con la aprobación de la ley orgánica por las Cortes Generales.</li>
+</ul>
+
+<h3>4.3 Reformas del Estatuto: evolución histórica</h3>
+<div class="tabla-wrap">
+<table>
+  <thead><tr><th>Norma</th><th>Fecha</th><th>Contenido de la reforma</th></tr></thead>
+  <tbody>
+    <tr><td>LO 2/1983</td><td>25 de febrero de 1983</td><td>Estatuto originario; acceso por vía art. 143 CE</td></tr>
+    <tr><td>LO 9/1994</td><td>24 de marzo de 1994</td><td>Primera reforma; ampliación de competencias</td></tr>
+    <tr><td>LO 3/1999</td><td>8 de enero de 1999</td><td>Segunda reforma; nuevas competencias</td></tr>
+    <tr><td>LO 1/2007</td><td>28 de febrero de 2007</td><td>Nuevo Estatuto vigente; amplio catálogo de derechos, más competencias, refuerzo de Consells Insulars</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>4.4 Límites a la reforma</h3>
+<p>La reforma del Estatuto no puede vulnerar la CE. Si la reforma pretendiese ampliar las competencias autonómicas en materias que la CE reserva con carácter exclusivo al Estado (art. 149.1 CE), el Estatuto sería inconstitucional en esa parte. El TC es el órgano competente para controlar la constitucionalidad de las reformas estatutarias, tanto a priori (mediante el recurso previo de inconstitucionalidad) como a posteriori (mediante el recurso de inconstitucionalidad).</p>
+</div>
+
+<!-- ═══════════════════════════════ 5. CONSELLS ══════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">5</span>Los Consells Insulars: régimen estatutario</h2>
+
+<p>El Estatuto de 2007 dedicó una atención especial a los Consells Insulars (arts. 61-74 EA), reforzando su posición institucional. Los Consells Insulars de Mallorca, Menorca, Eivissa y Formentera son las instituciones propias de cada isla, con naturaleza de <strong>entidad local de régimen especial</strong>.</p>
+
+<ul>
+  <li><strong>Autonomía institucional y funcional</strong> (art. 61 EA): los Consells tienen plena autonomía para la gestión de sus competencias propias.</li>
+  <li><strong>Competencias propias protegidas</strong> (art. 70 EA): las leyes del Parlament pueden ampliarlas pero no reducirlas sin modificación del Estatuto o sin su conformidad.</li>
+  <li><strong>Consell de Mallorca:</strong> el de mayor importancia institucional y presupuestaria dada la distribución poblacional de la CA.</li>
+  <li><strong>Estructura interna análoga al Govern:</strong> Consell Executiu, Consell en Ple y President del Consell Insular.</li>
+</ul>
+</div>
+
+<!-- ═══════════════════════════════ 6. RESUMEN ═══════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">6</span>Tabla resumen para el examen</h2>
+
+<div class="resumen-grid">
+  <div class="rg-key">Estatuto vigente</div>
+  <div class="rg-val">LO 1/2007, de 28 de febrero, de reforma del Estatuto de Autonomía de las Illes Balears</div>
+
+  <div class="rg-key">Estatuto originario</div>
+  <div class="rg-val">LO 2/1983, de 25 de febrero; acceso por vía art. 143 CE</div>
+
+  <div class="rg-key">Reformas previas</div>
+  <div class="rg-val">LO 9/1994 y LO 3/1999</div>
+
+  <div class="rg-key">Derechos estatutarios</div>
+  <div class="rg-val">Título II EA (arts. 13-29); mandatos a poderes autonómicos; no son derechos fundamentales con amparo ante TC</div>
+
+  <div class="rg-key">Lengua propia</div>
+  <div class="rg-val">Catalán (art. 4 EA); cooficial con el castellano; derecho a usarla en relaciones con la CA</div>
+
+  <div class="rg-key">Competencias exclusivas</div>
+  <div class="rg-val">Turismo, urbanismo, agricultura, cultura, montes, pesca en aguas interiores, policía propia, lengua catalana, cultura autóctona…</div>
+
+  <div class="rg-key">Competencias compartidas</div>
+  <div class="rg-val">Sanidad interior (art. 31.4 EA): legislación de desarrollo y ejecución (bases: Estado; desarrollo: CA); enseñanza</div>
+
+  <div class="rg-key">Competencias ejecutivas</div>
+  <div class="rg-val">Legislación laboral: la CA aplica la normativa estatal</div>
+
+  <div class="rg-key">Policía autonómica</div>
+  <div class="rg-val">Art. 33 EA; creación y mando propios; marco LOFCS; coexiste con Policía Nacional y Guardia Civil</div>
+
+  <div class="rg-key">Cultura autóctona</div>
+  <div class="rg-val">Art. 34 EA; competencia exclusiva; sin perjuicio de la concurrencia del Estado (art. 149.2 CE)</div>
+
+  <div class="rg-key">Lengua catalana (enseñanza)</div>
+  <div class="rg-val">Art. 35 EA; competencia exclusiva; unidad de la lengua + modalidades insulares; institución consultiva: UIB</div>
+
+  <div class="rg-key">Enseñanza universitaria</div>
+  <div class="rg-val">Art. 36 EA; competencia exclusiva (sin perjuicio autonomía universitaria); UIB es la institución de referencia</div>
+
+  <div class="rg-key">Reforma EA</div>
+  <div class="rg-val">Art. 139 EA (Título IX); iniciativa: 1/5 del Parlament, Govern o Cortes; aprobación: mayoría de 2/3 del Parlament + LO Cortes; sin referéndum</div>
+
+  <div class="rg-key">Consells Insulars</div>
+  <div class="rg-val">Mallorca, Menorca, Eivissa y Formentera; arts. 61-74 EA; entidades locales de régimen especial; competencias propias protegidas estatutariamente</div>
+
+  <div class="rg-key">IB-Salut</div>
+  <div class="rg-val">Organismo autónomo; gestión sanitaria autonómica; base: Ley 5/2003; estatutos: Decret 39/2006 (art. 5); estructura orgánica: Decret 79/2023</div>
+</div>
+</div>
+
+</body>
+</html>
