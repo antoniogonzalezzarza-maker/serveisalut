@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 15 — Las Cortes Generales (I)</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf8f4; --ink: #1a1714; --ink-soft: #4a4540; --rule: #d8d0c4;
+    --navy: #1f3a5f; --navy-mid: #2e5f9a; --navy-pale: #e8f0f9;
+    --gold: #b07d2a; --gold-pale: #fdf5e4;
+    --stripe-a: #ffffff; --stripe-b: #eef4fb;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.75;
+    color: var(--ink); background: var(--paper); max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+  .portada { background: var(--navy); color: #fff; margin: 0 -2rem 3rem;
+    padding: 3.5rem 3rem 3rem; position: relative; overflow: hidden; }
+  .portada::before { content:''; position:absolute; top:-60px; right:-60px;
+    width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.05); }
+  .portada::after { content:''; position:absolute; bottom:-40px; left:40px;
+    width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,.04); }
+  .badge { display:inline-block; font-size:.72rem; font-weight:600; letter-spacing:.18em;
+    text-transform:uppercase; color:#aac4e0; background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15); padding:.25rem .85rem; border-radius:2rem; margin-bottom:1.2rem; }
+  .portada h1 { font-family:'Crimson Pro',serif; font-size:2.6rem; font-weight:700;
+    line-height:1.2; margin-bottom:.6rem; color:#fff; }
+  .portada .num-tema { font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:300;
+    color:#aac4e0; margin-bottom:.3rem; letter-spacing:.1em; text-transform:uppercase; }
+  .portada .subtitulo { font-size:.92rem; font-weight:300; color:#b8cfdf;
+    font-style:italic; line-height:1.6; max-width:700px; }
+  .portada .meta { margin-top:1.8rem; font-size:.78rem; color:#7fa4bf; letter-spacing:.04em; }
+
+  h2 { font-family:'Crimson Pro',serif; font-size:1.65rem; font-weight:700; color:var(--navy);
+    margin:2.8rem 0 .5rem; padding-bottom:.4rem; border-bottom:3px solid var(--navy); line-height:1.25; }
+  h3 { font-family:'DM Sans',sans-serif; font-size:1.05rem; font-weight:600; color:var(--navy-mid);
+    margin:2rem 0 .4rem; text-transform:uppercase; letter-spacing:.06em; }
+  h4 { font-family:'Crimson Pro',serif; font-size:1.08rem; font-weight:600;
+    font-style:italic; color:var(--ink-soft); margin:1.4rem 0 .3rem; }
+  p { margin-bottom:.85rem; text-align:justify; hyphens:auto; -webkit-hyphens:auto; color:var(--ink-soft); }
+  p:last-child { margin-bottom:0; }
+  strong { color:var(--navy); }
+
+  ul { margin:.5rem 0 1rem 1.4rem; padding:0; }
+  ul li { margin-bottom:.45rem; color:var(--ink-soft); padding-left:.3rem; }
+  ul li::marker { color:var(--navy-mid); font-size:.85em; }
+  ul li strong { color:var(--navy); }
+
+  .seccion { margin-bottom:2.5rem; }
+
+  .tabla-wrap { overflow-x:auto; margin:1.4rem 0 1.8rem; border-radius:6px;
+    box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  table { width:100%; border-collapse:collapse; font-size:.87rem; min-width:400px; }
+  thead tr { background:var(--navy); color:#fff; }
+  thead th { padding:.65rem 1rem; text-align:left; font-weight:600; font-size:.78rem;
+    letter-spacing:.05em; text-transform:uppercase; }
+  tbody tr:nth-child(odd)  { background:var(--stripe-a); }
+  tbody tr:nth-child(even) { background:var(--stripe-b); }
+  tbody tr:hover { background:#deeaf7; transition:background .15s; }
+  tbody td { padding:.6rem 1rem; color:var(--ink-soft); vertical-align:top;
+    border-bottom:1px solid var(--rule); line-height:1.5; }
+  tbody td:first-child { font-weight:500; color:var(--ink); }
+  tbody td strong { color:var(--navy); }
+
+  .nota { background:var(--gold-pale); border-left:4px solid var(--gold);
+    padding:.9rem 1.2rem; margin:1.4rem 0; border-radius:0 4px 4px 0;
+    font-size:.9rem; color:#5a3e10; line-height:1.6; }
+  .nota strong { color:#7b4f0a; }
+
+  .resumen-grid { display:grid; grid-template-columns:1fr 2fr; gap:0;
+    border-radius:6px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08);
+    margin:1.4rem 0 2rem; font-size:.87rem; }
+  .rg-key { background:var(--navy-pale); padding:.6rem 1rem; font-weight:600;
+    color:var(--navy); border-bottom:1px solid var(--rule); line-height:1.5; }
+  .rg-val { background:#fff; padding:.6rem 1rem; color:var(--ink-soft);
+    border-bottom:1px solid var(--rule); line-height:1.5; }
+  .resumen-grid > div:nth-child(4n+1) { background:var(--navy-pale); }
+  .resumen-grid > div:nth-child(4n+2) { background:var(--stripe-b); }
+
+  .num-section { display:inline-flex; align-items:center; justify-content:center;
+    width:2rem; height:2rem; background:var(--navy); color:#fff; border-radius:50%;
+    font-size:.8rem; font-weight:700; margin-right:.6rem; flex-shrink:0; vertical-align:middle; }
+
+  @media print {
+    body { max-width:100%; padding:0 1.5cm; font-size:11pt; }
+    .portada { margin:0 -1.5cm 2cm; }
+    h2 { page-break-after:avoid; }
+    .nota { page-break-inside:avoid; }
+    table { page-break-inside:auto; }
+    tr { page-break-inside:avoid; }
+  }
+  @media (max-width:640px) {
+    body { padding:0 1rem 3rem; font-size:15px; }
+    .portada { padding:2rem 1.2rem 1.8rem; margin:0 -1rem 2rem; }
+    .portada h1 { font-size:1.8rem; }
+    .resumen-grid { grid-template-columns:1fr; }
+    .rg-key { border-bottom:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="portada">
+  <div class="badge">Temari específic · IB-Salut · Grup Tècnic Funció Administrativa</div>
+  <p class="num-tema">Tema 15</p>
+  <h1>Las Cortes Generales (I)</h1>
+  <p class="subtitulo">Concepto, características y composición · La organización de las cámaras · El funcionamiento de las cámaras · La función legislativa de las Cortes Generales, en especial el procedimiento de elaboración de las leyes · La función financiera y presupuestaria · La función parlamentaria de control del Gobierno de España · Otras funciones constitucionales.</p>
+  <p class="meta">Constitución Española, Título III (arts. 66-96) · Convocatoria BOIB núm. 115, de 30 d'agost de 2025</p>
+</div>
+
+<!-- ══ 1 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">1</span>Concepto, naturaleza y características de las Cortes Generales</h2>
+
+<p>Las Cortes Generales son el órgano constitucional que representa al pueblo español (art. 66.1 CE). Su naturaleza y posición en el sistema constitucional se definen a través de un conjunto de rasgos que las distinguen de cualquier otro órgano del Estado:</p>
+
+<h3>1.1 Representación del pueblo español</h3>
+<p>Las Cortes Generales son la expresión directa de la soberanía popular. El art. 1.2 CE proclama que «la soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado»; el art. 66.1 CE precisa que las Cortes Generales «representan al pueblo español». Esta representación no es meramente simbólica: es la fuente de legitimidad democrática del ordenamiento jurídico en su conjunto, pues las leyes que aprueban las Cortes vinculan a todos los poderes públicos y a los ciudadanos (art. 9.1 CE).</p>
+<p>La representación se ejerce a través del mandato representativo (no imperativo): los diputados y senadores no están vinculados por instrucciones de sus electores o de sus partidos en el ejercicio del cargo, y su voto es libre. El art. 67.2 CE prohíbe expresamente el mandato imperativo.</p>
+
+<h3>1.2 Bicameralismo imperfecto o asimétrico</h3>
+<p>Las Cortes Generales se organizan en dos cámaras: el Congreso de los Diputados y el Senado (art. 66.1 CE). El modelo español no es un bicameralismo perfecto o igualitario (en el que ambas cámaras tienen idéntico peso), sino un bicameralismo imperfecto o asimétrico, con preeminencia del Congreso en la mayor parte de los procesos constitucionales:</p>
+<ul>
+  <li>En el proceso legislativo ordinario, el Senado puede vetar o enmendar los proyectos de ley, pero el Congreso puede levantar el veto o rechazar las enmiendas por mayoría absoluta (o simple si han transcurrido dos meses desde el veto) (art. 90 CE).</li>
+  <li>La investidura del Presidente del Gobierno solo la otorga el Congreso (art. 99 CE).</li>
+  <li>La moción de censura y la cuestión de confianza son instrumentos del Congreso (arts. 112-113 CE).</li>
+  <li>La aprobación de las leyes orgánicas requiere mayoría absoluta del Congreso, no del Senado (art. 81.2 CE).</li>
+  <li>Los Presupuestos Generales del Estado se aprueban con primacía del Congreso (art. 134 CE).</li>
+</ul>
+<p>El Senado solo tiene un papel preeminente sobre el Congreso en dos supuestos: la aprobación de las medidas coercitivas del art. 155 CE (requiere mayoría absoluta del Senado) y la tramitación de algunos asuntos autonómicos y/o de coordinación.</p>
+<p>En dichos asuntos, el Senado o bien dispone de iniciación de la tramitación o de intervención preferente.</p>
+<p>Los supuestos concretos son tres, todos con base en la CE:</p>
+<p><strong>1. Art. 145.2 CE — Autorización de convenios de cooperación entre CCAA.</strong> Los convenios entre CCAA para la prestación y gestión de servicios propios deben ser comunicados a las Cortes Generales. Cuando requieren autorización (no mera comunicación), la tramitación se inicia en el Senado, que actúa como cámara de primer examen dado su carácter territorial.</p>
+<p><strong>2. Art. 150.3 CE — Leyes de armonización.</strong> Para que el Estado dicte leyes de armonización de las disposiciones normativas de las CCAA, la declaración de que existe el interés general que la justifica debe ser aprobada por mayoría absoluta de cada cámara, lo que da al Senado un peso equivalente al del Congreso en esa fase previa.</p>
+<p><strong>3. Art. 158.2 CE — Fondo de Compensación Interterritorial.</strong> La tramitación del Fondo de Compensación Interterritorial se inicia en el Senado. El procedimiento relativo al Fondo de Compensación Interterritorial comienza en el Senado, aunque en todo caso la última palabra la tiene el Congreso de los Diputados.</p>
+
+<h3>1.3 Inviolabilidad de las Cortes Generales</h3>
+<p>El art. 66.3 CE establece que las Cortes Generales son inviolables. Esta inviolabilidad institucional protege a las cámaras frente a cualquier intento de disolución, interrupción o perturbación ilegal de su actividad. La inviolabilidad de las Cortes es distinta y debe distinguirse del estatuto personal de los parlamentarios (inviolabilidad e inmunidad).</p>
+
+<h3>1.4 Permanencia y continuidad: la Diputación Permanente</h3>
+<p>Para garantizar la continuidad de la función parlamentaria durante los periodos entre legislaturas y durante los estados excepcionales, la CE prevé la institución de la Diputación Permanente en cada cámara (art. 78 CE).</p>
+<p>La Diputación Permanente vela por los poderes de la cámara cuando esta está disuelta o entre períodos de sesiones, y puede asumir funciones en relación con los decretos-leyes y las medidas excepcionales.</p>
+<div class="nota"><strong>⚠ IMPORTANTE:</strong> La CE (art. 116.5) prohíbe expresamente la disolución de las Cortes durante los estados de alarma, excepción y sitio. La Diputación Permanente asume en esos casos las funciones de control sobre el Gobierno.</div>
+</div>
+
+<!-- ══ 2 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">2</span>Composición del Congreso de los Diputados y del Senado</h2>
+
+<h3>2.1 El Congreso de los Diputados</h3>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Elemento</th><th>Contenido</th></tr></thead>
+  <tbody>
+    <tr><td>Número de diputados</td><td>Entre 300 y 400 (actualmente 350, fijado por la Ley Orgánica del Régimen Electoral General —LOREG—)</td></tr>
+    <tr><td>Mandato</td><td>4 años o hasta disolución anticipada</td></tr>
+    <tr><td>Circunscripción electoral</td><td>La provincia (52 circunscripciones: 50 provincias + Ceuta + Melilla). Ceuta y Melilla eligen 1 diputado cada una.</td></tr>
+    <tr><td>Asignación mínima</td><td>2 diputados por provincia (salvo Ceuta y Melilla: 1); el resto se distribuye proporcionalmente según población</td></tr>
+    <tr><td>Sistema electoral</td><td>Representación proporcional; listas cerradas y bloqueadas; método D'Hondt</td></tr>
+    <tr><td>Barrera electoral</td><td>3% de votos válidos emitidos en la circunscripción</td></tr>
+    <tr><td>Sufragio</td><td>Universal, libre, igual, directo y secreto (art. 68 CE)</td></tr>
+    <tr><td>Edad mínima para votar</td><td>18 años (la mayoría de edad, art. 12 CE)</td></tr>
+    <tr><td>Edad mínima para ser elegido</td><td>18 años</td></tr>
+  </tbody>
+</table></div>
+
+<h3>2.2 El Senado</h3>
+<p>El Senado es la cámara de representación territorial (art. 69 CE), aunque su configuración constitucional no ha llegado a hacer de él una segunda cámara plenamente territorial en la práctica. Se integra por dos tipos de senadores:</p>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Tipo de senador</th><th>Número</th><th>Mecanismo de designación</th></tr></thead>
+  <tbody>
+    <tr><td>Senadores provinciales (peninsulares)</td><td>4 por provincia (peninsular)</td><td>Elección directa; sufragio universal; sistema mayoritario de lista abierta (voto limitado a 3 candidatos)</td></tr>
+    <tr><td>Senadores insulares</td><td>3 por Gran Canaria, Mallorca y Tenerife; 1 por Ibiza-Formentera, Menorca, Fuerteventura, Gomera, Hierro, Lanzarote y La Palma</td><td>Elección directa</td></tr>
+    <tr><td>Senadores de Ceuta y Melilla</td><td>2 por cada ciudad autónoma</td><td>Elección directa</td></tr>
+    <tr><td>Senadores designados por CCAA</td><td>1 por CA + 1 más por cada millón de habitantes</td><td>Designados por el Parlamento autonómico; pueden ser revocados</td></tr>
+  </tbody>
+</table></div>
+<p>El Senado tiene mandato de 4 años, salvo los senadores designados por las CCAA, cuyo mandato viene determinado por el del parlamento autonómico que los designa.</p>
+<p>El número total de senadores varía en función de la población de cada CA. Los senadores de elección directa son 208 (calculados sobre la base fija de 4 por provincia peninsular, más los insulares y los de Ceuta y Melilla); a ellos se suman los designados por los Parlamentos autonómicos (1 por CA más 1 adicional por cada millón de habitantes), cuyo número exacto fluctúa con cada legislatura. El total habitual oscila entre 255 y 270 senadores.</p>
+<div class="nota"><strong>⚠ IMPORTANTE:</strong> El sistema electoral del Senado difiere del Congreso: mientras el Congreso usa el método D'Hondt (proporcional), el Senado emplea el voto limitado (sistema mayoritario).</div>
+
+<h3>2.3 El estatuto personal de los parlamentarios</h3>
+<p>Los parlamentarios (diputados y senadores) gozan de un estatuto constitucional especial que garantiza su independencia y la de las cámaras:</p>
+
+<h4>2.3.1 Inviolabilidad (art. 71.1 CE)</h4>
+<p>Los diputados y senadores gozan de inviolabilidad por las opiniones manifestadas en el ejercicio de sus funciones (art. 71.1 CE). Esta garantía presenta tres características bien delimitadas:</p>
+<p>Primera, es absoluta: no puede ser levantada ni por la propia cámara ni por ningún otro órgano, a diferencia de la inmunidad, que sí es levantable mediante suplicatorio.</p>
+<p>Segunda, es permanente: protege al parlamentario incluso después de concluido su mandato, de modo que no puede ser perseguido judicialmente por lo que dijo durante él.</p>
+<p>Tercera, su ámbito material está estrictamente acotado: solo cubre los actos funcionales realizados en el ejercicio del cargo (discursos en cámara, votos, enmiendas, interpelaciones, informes de ponencia). No ampara opiniones emitidas fuera del ejercicio de las funciones parlamentarias ni conductas no vinculadas al cargo.</p>
+
+<h4>2.3.2 Inmunidad (art. 71.2 CE)</h4>
+<p>Los parlamentarios no pueden ser detenidos ni procesados sin la previa autorización de la cámara a la que pertenezcan (suplicatorio), salvo en caso de flagrante delito. La inmunidad es temporal (solo durante el mandato), relativa (puede ser levantada por la cámara) y tiene por objeto prevenir que el procesamiento judicial sea usado como instrumento político para neutralizar a la oposición. La cámara puede denegarla apreciando motivaciones políticas en la persecución.</p>
+<p>El TC ha precisado (STC 206/1992 y otras) que la inmunidad no es un privilegio personal sino una garantía institucional de funcionamiento de las cámaras.</p>
+
+<h4>2.3.3 Fuero especial (art. 71.3 CE)</h4>
+<p>Las causas contra diputados y senadores son competencia de la Sala de lo Penal del Tribunal Supremo. Esta atribución de competencia al Tribunal Supremo garantiza que el parlamentario no sea juzgado por órganos inferiores y asegura la máxima imparcialidad en el enjuiciamiento.</p>
+
+<h4>2.3.4 Incompatibilidades (art. 70 CE)</h4>
+<p>La CE remite a la ley electoral la regulación de las incompatibilidades. La LOREG establece que el cargo de parlamentario es incompatible con: el ejercicio de cargos en la Administración del Estado (con excepciones); la pertenencia al Tribunal Constitucional, al Consejo General del Poder Judicial, al Tribunal de Cuentas o al Consejo de Estado; y con el ejercicio de la judicatura. La doble condición de diputado y senador simultáneamente también está prohibida (art. 67.1 CE).</p>
+</div>
+
+<!-- ══ 3 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">3</span>Organización interna de las cámaras</h2>
+<p>Cada cámara se organiza de forma autónoma, con plena potestad de auto-organización reconocida constitucional y reglamentariamente. Los órganos de cada cámara son de dos tipos: órganos de gobierno y órganos de trabajo.</p>
+
+<h3>3.1 Órganos de gobierno de las cámaras</h3>
+<h4>3.1.1 La Mesa</h4>
+<p>La Mesa es el órgano rector de la cámara. Gobierna y administra la cámara, dirige sus debates, califica los escritos y documentos parlamentarios, ordena los gastos y ejerce cuantas funciones le atribuyan el Reglamento y la CE. Se renueva parcialmente en la mitad de la legislatura.</p>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Cámara</th><th>Composición de la Mesa</th></tr></thead>
+  <tbody>
+    <tr><td>Congreso de los Diputados</td><td>El Presidente del Congreso + 4 Vicepresidentes + 4 Secretarios</td></tr>
+    <tr><td>Senado</td><td>El Presidente del Senado + 2 Vicepresidentes + 4 Secretarios</td></tr>
+  </tbody>
+</table></div>
+<p>El Presidente de la cámara ostenta la representación de esta, dirige los debates del Pleno, mantiene el orden y hace cumplir el Reglamento. El Presidente del Congreso ocupa, por el principio de bicameralismo asimétrico, una posición protocolaria superior al del Senado. El cargo de Presidente del Congreso es el tercero en el orden de precedencia del Estado, tras el Rey y el Presidente del Gobierno.</p>
+
+<h4>3.1.2 La Junta de Portavoces</h4>
+<p>Está integrada por los portavoces de todos los grupos parlamentarios. No es un órgano de gobierno stricto sensu, sino de coordinación y consulta. El Presidente de la cámara la convoca para fijar el orden del día, distribuir tiempos de intervención y coordinar la actividad parlamentaria. Su funcionamiento se rige por el criterio del voto ponderado (cada portavoz vota en proporción a la representación de su grupo).</p>
+
+<h3>3.2 Los Grupos Parlamentarios</h3>
+<p>Los grupos parlamentarios son las agrupaciones de parlamentarios que comparten una misma orientación política. Son la pieza fundamental de la organización parlamentaria: toda la actividad de las cámaras se articula a través de los grupos, que tienen asignados tiempos de intervención, recursos económicos y personales, y presencia proporcional en todos los órganos de la cámara.</p>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Cámara</th><th>Mínimo para formar grupo</th><th>Alternativa</th></tr></thead>
+  <tbody>
+    <tr><td>Congreso de los Diputados</td><td>15 diputados</td><td>5 diputados si han obtenido el 15% de votos en sus circunscripciones o el 5% a nivel nacional</td></tr>
+    <tr><td>Senado</td><td>10 senadores</td><td>No hay alternativa numérica; los que no alcanzan el mínimo se integran en el Grupo Mixto</td></tr>
+  </tbody>
+</table></div>
+<p>Los parlamentarios que no se integran en ningún grupo específico forman el Grupo Mixto, que tiene los mismos derechos formales que cualquier grupo pero con tiempos de intervención reducidos. La prohibición del mandato imperativo (art. 67.2 CE) impide que los partidos fuercen a sus parlamentarios a votar de una manera determinada, aunque en la práctica la disciplina de grupo es casi absoluta.</p>
+
+<h3>3.3 Órganos de trabajo: las Comisiones</h3>
+<p>Las comisiones son el verdadero laboratorio legislativo y de control. La mayor parte del trabajo parlamentario se realiza en comisión, y el Pleno actúa con frecuencia ratificando lo ya elaborado en comisión.</p>
+<h4>3.3.1 Tipos de comisiones</h4>
+<ul>
+  <li><strong>Comisiones permanentes legislativas:</strong> coinciden con los grandes ámbitos de la acción del Estado (Constitucional, Justicia, Interior, Hacienda, Sanidad, Educación, etc.). Son las que tramitan la mayor parte de los proyectos y proposiciones de ley.</li>
+  <li><strong>Comisiones permanentes no legislativas:</strong> se ocupan de materias de organización interna (Reglamento, Peticiones, Estatuto de los Diputados) o de control (Comisión de Peticiones, Comisión de Seguimiento y Evaluación de los Acuerdos del Pacto de Toledo).</li>
+  <li><strong>Comisiones de investigación:</strong> pueden crearse por acuerdo del Pleno para investigar cualquier asunto de interés público (art. 76 CE). Sus conclusiones no son jurídicamente vinculantes, pero tienen trascendencia política y pueden dar lugar a responsabilidades. El TC ha aclarado que no pueden sustituir a la jurisdicción penal.</li>
+  <li><strong>Comisiones mixtas Congreso-Senado:</strong> constituidas con miembros de ambas cámaras para tramitar asuntos que requieren la actuación conjunta (p. ej., la Comisión Mixta para la UE, la Comisión Mixta de la Comisión Nacional de Energía).</li>
+  <li><strong>Comisiones de legislación delegada:</strong> el Pleno puede delegar en las comisiones la aprobación definitiva de proyectos de ley (art. 75 CE), salvo para leyes orgánicas, de bases, tributarias y del Presupuesto, y para la reforma constitucional.</li>
+</ul>
+<h4>3.3.2 El Pleno</h4>
+<p>El Pleno es la reunión de todos los miembros de la cámara. Es el órgano soberano de la misma. Aunque en la práctica buena parte del trabajo se realiza en comisión, el Pleno retiene la aprobación definitiva de todas las leyes orgánicas, de los Presupuestos, de las leyes de bases y de los asuntos de mayor relevancia política.</p>
+<p>Los debates plenarios son públicos y se retransmiten; las comisiones pueden ser a puerta cerrada cuando así lo exige la materia.</p>
+</div>
+
+<!-- ══ 4 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">4</span>Funcionamiento de las cámaras</h2>
+
+<h3>4.1 Períodos de sesiones</h3>
+<p>Las Cortes Generales se reúnen anualmente en dos períodos ordinarios de sesiones (art. 73.1 CE):</p>
+<ul>
+  <li>Primer período: de septiembre a diciembre.</li>
+  <li>Segundo período: de febrero a junio.</li>
+</ul>
+<p>Fuera de estos períodos, las cámaras pueden reunirse en sesiones extraordinarias (art. 73.2 CE), convocadas a petición del Gobierno, de la Diputación Permanente o de la mayoría absoluta de los miembros de cualquier cámara. Las sesiones extraordinarias deben convocarse sobre un orden del día determinado y clausurarse una vez agotado.</p>
+
+<h3>4.2 Quórum y mayorías</h3>
+<p>Para la válida constitución de la sesión y la adopción de acuerdos, los reglamentos exigen determinados quórums y mayorías:</p>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Tipo de mayoría</th><th>Definición</th><th>Ejemplos de aplicación</th></tr></thead>
+  <tbody>
+    <tr><td>Mayoría simple</td><td>Más votos a favor que en contra (abstenciones no cuentan)</td><td>Aprobación de leyes ordinarias; cuestión de confianza; levantamiento del veto del Senado (pasados 2 meses)</td></tr>
+    <tr><td>Mayoría absoluta</td><td>Votos favorables superiores a la mitad del total de miembros (no solo de los presentes)</td><td>Leyes orgánicas (Congreso); moción de censura (Congreso); medidas art. 155 CE (Senado); declaración del estado de sitio</td></tr>
+    <tr><td>Mayoría de 3/5</td><td>3 de cada 5 miembros</td><td>Reforma constitucional ordinaria (art. 167); nombramiento de magistrados TC, vocales CGPJ</td></tr>
+    <tr><td>Mayoría de 2/3</td><td>2 de cada 3 miembros</td><td>Reforma constitucional agravada (art. 168); en reforma ordinaria (art. 167), si el Senado veta por mayoría absoluta y no hay acuerdo en Comisión Mixta, el Congreso necesita 2/3 para imponerse</td></tr>
+  </tbody>
+</table></div>
+
+<h3>4.3 El orden del día y la autonomía parlamentaria</h3>
+<p>El orden del día de cada sesión es fijado por la Mesa de la cámara, oída la Junta de Portavoces. El Gobierno tiene el derecho de incluir asuntos en el orden del día con carácter preferente cuando haya declarado la urgencia de un proyecto (art. 90.3 CE para el Senado; art. 94 del Reglamento del Congreso para este).</p>
+<p>La autonomía reglamentaria de las cámaras (art. 72 CE) garantiza que su funcionamiento interno quede fuera del control judicial ordinario, aunque el TC puede revisar los actos parlamentarios que lesionen derechos fundamentales de los propios parlamentarios (amparo parlamentario, art. 42 LOTC).</p>
+
+<h3>4.4 La publicidad de los trabajos parlamentarios</h3>
+<p>Los plenos de las cámaras son públicos por regla general. Las sesiones de comisión son, en principio, también públicas, pero pueden acordarse sesiones secretas cuando así lo exija la materia (defensa nacional, secretos oficiales). Las votaciones son en general públicas y nominales cuando así lo solicita un grupo parlamentario; el voto secreto solo cabe para decisiones que afecten a personas.</p>
+</div>
+
+<!-- ══ 5 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">5</span>La función legislativa de las Cortes Generales</h2>
+<p>La función legislativa es la más característica de las Cortes Generales (art. 66.2 CE: «Las Cortes Generales ejercen la potestad legislativa del Estado»). Consiste en la producción de normas con rango de ley, que son superiores jerárquicamente a los reglamentos y actos administrativos. El monopolio de la potestad legislativa ordinaria corresponde a las Cortes, sin perjuicio de las leyes delegadas y los decretos-ley del Gobierno.</p>
+
+<h3>5.1 Tipos de leyes aprobadas por las Cortes Generales</h3>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Tipo de ley</th><th>Mayoría requerida</th><th>Materias</th><th>Artículo CE</th></tr></thead>
+  <tbody>
+    <tr><td>Ley de reforma constitucional (agravada)</td><td>2/3 de cada cámara + disolución + nuevas Cortes + referéndum</td><td>Revisión total o afectación al Tít. Preliminar, Cap. II Secc. 1.ª Tít. I, Tít. II</td><td>Art. 168</td></tr>
+    <tr><td>Ley de reforma constitucional (ordinaria)</td><td>3/5 de cada cámara (fórmulas alternativas)</td><td>Resto de la CE</td><td>Art. 167</td></tr>
+    <tr><td>Ley orgánica</td><td>Mayoría absoluta del Congreso en votación final del conjunto</td><td>DDFF y libertades públicas; Estatutos de Autonomía; régimen electoral general; otras materias previstas en la CE</td><td>Art. 81</td></tr>
+    <tr><td>Ley de Presupuestos Generales del Estado</td><td>Mayoría simple en aprobación final</td><td>Ingresos y gastos del Estado y SS; no puede crear tributos ni modificarlos salvo ley tributaria especial que lo prevea</td><td>Art. 134</td></tr>
+    <tr><td>Ley ordinaria</td><td>Mayoría simple</td><td>Todas las materias no reservadas a LO u otro tipo especial</td><td>Art. 90</td></tr>
+    <tr><td>Ley de bases</td><td>Mayoría simple</td><td>Autoriza al Gobierno a dictar decretos legislativos por delegación</td><td>Art. 82</td></tr>
+    <tr><td>Ley de armonización (art. 150.3)</td><td>Mayoría absoluta de cada cámara previa declaración de interés general</td><td>Armonización normativa autonómica</td><td>Art. 150.3</td></tr>
+  </tbody>
+</table></div>
+
+<h3>5.2 La iniciativa legislativa (art. 87 CE)</h3>
+<p>La iniciativa para presentar un proyecto o proposición de ley puede corresponder a distintos sujetos:</p>
+<ul>
+  <li><strong>Gobierno (art. 87.1 CE):</strong> a través de proyectos de ley. Es la iniciativa más frecuente y goza de prioridad en el orden del día. El Consejo de Ministros aprueba el proyecto, que es remitido al Congreso junto con una exposición de motivos y los antecedentes necesarios.</li>
+  <li><strong>Congreso de los Diputados (art. 87.1 CE):</strong> a través de proposiciones de ley, que pueden ser presentadas por un grupo parlamentario o por 15 diputados.</li>
+  <li><strong>Senado (art. 87.1 CE):</strong> a través de proposiciones de ley aprobadas por el Senado, que se remiten al Congreso para su tramitación.</li>
+  <li><strong>Asambleas Legislativas de las CCAA (art. 87.2 CE):</strong> pueden solicitar al Gobierno que adopte un proyecto de ley o remitir directamente una proposición al Congreso, designando a tres comisionados que defenderán la propuesta.</li>
+  <li><strong>Iniciativa legislativa popular (art. 87.3 CE):</strong> requiere un mínimo de 500.000 firmas acreditadas. Está excluida para materias tributarias, de carácter internacional, prerrogativos de gracia, y las materias reservadas a ley orgánica.</li>
+</ul>
+<div class="nota"><strong>⚠ IMPORTANTE:</strong> Los proyectos de ley del Gobierno tienen prioridad en la tramitación. Las proposiciones de ley deben superar un primer filtro de toma en consideración por el Pleno antes de entrar en comisión.</div>
+
+<h3>5.3 El procedimiento legislativo ordinario</h3>
+<p>El procedimiento legislativo ordinario se desarrolla en varias fases bien diferenciadas:</p>
+<h4>5.3.1 Fase en el Congreso</h4>
+<ul>
+  <li><strong>Presentación y calificación:</strong> el proyecto o proposición de ley se presenta ante la Mesa del Congreso, que lo califica y lo admite a trámite (o lo inadmite motivadamente). A continuación se publica en el Boletín Oficial de las Cortes Generales (BOCG).</li>
+  <li><strong>Enmiendas al articulado:</strong> los grupos parlamentarios disponen de un plazo (ordinariamente 15 días) para presentar enmiendas. Las enmiendas pueden ser: de totalidad (rechazo del proyecto con devolución al Gobierno o proposición de texto alternativo) o al articulado (adición, modificación o supresión de preceptos concretos).</li>
+  <li><strong>Debate de totalidad en Pleno:</strong> si se presentan enmiendas de totalidad, el Pleno debate y vota si las admite. Si se aprueba una enmienda de totalidad, el proyecto queda rechazado o devuelto al Gobierno. Si se rechazan, continúa la tramitación en comisión.</li>
+  <li><strong>Fase en Comisión:</strong> la Comisión competente designa una Ponencia (subgrupo de entre 3 y 6 miembros) que elabora un informe sobre el proyecto a la luz de las enmiendas presentadas. El informe de la Ponencia sirve de base para el debate en comisión, donde se votan las enmiendas artículo por artículo. La Comisión elabora un dictamen.</li>
+  <li><strong>Debate en Pleno del Congreso:</strong> el Pleno debate y vota el dictamen de la Comisión, incluyendo los votos particulares de los grupos que no quedaron satisfechos con el resultado en comisión. El Pleno puede aprobar o modificar el dictamen.</li>
+  <li><strong>Aprobación por el Congreso:</strong> el texto aprobado por el Pleno del Congreso se remite al Senado.</li>
+</ul>
+<h4>5.3.2 Fase en el Senado (art. 90 CE)</h4>
+<p>El Senado dispone de un plazo de dos meses (o veinte días naturales en caso de urgencia declarada por el Gobierno o el Congreso) para pronunciarse sobre el texto aprobado por el Congreso. Puede optar por:</p>
+<ul>
+  <li><strong>Aprobarlo sin modificaciones:</strong> en este caso, el texto se envía directamente al Rey para su sanción.</li>
+  <li><strong>Introducir enmiendas:</strong> el texto se devuelve al Congreso, que puede aceptarlas o rechazarlas. Si las rechaza, prevalece el texto original del Congreso.</li>
+  <li><strong>Vetarlo (art. 90.2 CE):</strong> el Senado puede vetar el proyecto por mayoría absoluta. El veto se supera en el Congreso: por mayoría absoluta en primera votación, o por mayoría simple transcurridos dos meses desde la interposición del veto.</li>
+</ul>
+<div class="nota"><strong>⚠ IMPORTANTE:</strong> El veto del Senado no es definitivo. El Congreso siempre puede imponerse, bien por mayoría absoluta inmediatamente, bien por mayoría simple tras dos meses. Esto confirma la posición subordinada del Senado en el proceso legislativo ordinario.</div>
+<h4>5.3.3 Sanción, promulgación y publicación</h4>
+<p>Aprobado definitivamente el texto, el Rey lo sanciona, lo promulga y ordena su publicación en el Boletín Oficial del Estado (BOE) en el plazo de quince días (art. 91 CE). La sanción real es un acto reglado: el Rey no puede negarse a sancionar una ley aprobada por las Cortes. La ley entra en vigor a los 20 días de su publicación en el BOE, salvo que en ella se disponga otra cosa (art. 2.1 del Código Civil).</p>
+
+<h3>5.4 Procedimientos legislativos especiales</h3>
+<h4>5.4.1 Procedimiento de urgencia</h4>
+<p>El Gobierno, los grupos parlamentarios o el propio Congreso pueden solicitar la tramitación urgente de un proyecto o proposición. En caso de urgencia, todos los plazos ordinarios se reducen a la mitad. El Senado dispone en este caso de solo veinte días naturales.</p>
+<h4>5.4.2 Procedimiento en Comisión con competencia legislativa plena (art. 75 CE)</h4>
+<p>El Pleno puede delegar en las comisiones la aprobación definitiva de proyectos de ley, sin necesidad de voto final en Pleno. Este procedimiento agiliza la tramitación de leyes técnicas o poco controvertidas. Quedan excluidas de esta posibilidad: la reforma constitucional, las leyes orgánicas, las leyes de bases y los Presupuestos Generales del Estado, así como los tratados internacionales.</p>
+<h4>5.4.3 Lectura única</h4>
+<p>Cuando la naturaleza del proyecto lo permite (por su simplicidad técnica o por razones de urgencia extrema), el Pleno puede acordar la tramitación directa y en lectura única, sin paso por comisión ni enmiendas al articulado. El proyecto se somete directamente a una votación de conjunto.</p>
+<h4>5.4.4 El procedimiento de elaboración de las leyes orgánicas (art. 81 CE)</h4>
+<p>Las leyes orgánicas siguen el procedimiento legislativo ordinario, con la especialidad de que su aprobación, modificación o derogación requiere mayoría absoluta del Congreso en votación final sobre el conjunto del proyecto. Esto significa que los votos favorables deben ser superiores a la mitad del total de miembros del Congreso (176 de 350), no solo de los presentes. El Senado no tiene posición cualificada en las leyes orgánicas más allá de la que le corresponde en cualquier ley ordinaria.</p>
+<p>Las materias reservadas a ley orgánica son: el desarrollo de los derechos fundamentales y libertades públicas (arts. 15 a 29 CE), los Estatutos de Autonomía, el régimen electoral general, y las demás materias que expresamente así lo prevea la CE (p. ej., el CGPJ, el TC, el Defensor del Pueblo, las Fuerzas Armadas, el Código Penal, el Poder Judicial).</p>
+<div class="nota"><strong>⚠ IMPORTANTE:</strong> Distinción clave para el examen: la mayoría absoluta del art. 81.2 CE para aprobar, modificar o derogar leyes orgánicas es exclusivamente del Congreso de los Diputados (176 de 350). El Senado NO tiene ninguna mayoría cualificada en las leyes orgánicas: solo puede vetarlas o enmendarlas como en cualquier ley ordinaria, y el Congreso puede siempre imponerse conforme al art. 90 CE (mayoría absoluta inmediatamente o simple pasados dos meses). Error frecuente en test: atribuir la mayoría absoluta también al Senado. Es incorrecta.</div>
+
+<h3>5.5 Las normas con rango de ley del Gobierno: referencia</h3>
+<p>Aunque no son elaboradas por las Cortes, las siguientes normas tienen rango de ley y están sujetas al control parlamentario y jurisdiccional del TC:</p>
+<ul>
+  <li><strong>Decretos legislativos (arts. 82-85 CE):</strong> el Parlamento delega en el Gobierno la potestad de dictar normas con rango de ley mediante una ley de bases (para textos articulados) o una ley ordinaria de autorización (para textos refundidos). El decreto legislativo está sujeto al control del Congreso y del TC.</li>
+  <li><strong>Decretos-ley (art. 86 CE):</strong> el Gobierno puede dictar disposiciones legislativas provisionales en casos de extraordinaria y urgente necesidad. Deben ser convalidados (o derogados) por el Congreso en el plazo de 30 días. No pueden afectar a los derechos, deberes y libertades del Título I CE, al régimen de las CCAA, al derecho electoral general ni a las instituciones básicas del Estado.</li>
+</ul>
+</div>
+
+<!-- ══ 6 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">6</span>La función financiera y presupuestaria</h2>
+
+<h3>6.1 Fundamento constitucional</h3>
+<p>Las Cortes Generales aprueban los Presupuestos Generales del Estado (art. 66.2 CE). Esta función financiera es expresión directa de la máxima clásica del parlamentarismo: «No taxation without representation». El art. 133.1 CE atribuye al Estado la potestad originaria para establecer tributos mediante ley, y el art. 134 CE regula específicamente los Presupuestos Generales del Estado.</p>
+
+<h3>6.2 Los Presupuestos Generales del Estado (art. 134 CE)</h3>
+<p>Los Presupuestos Generales del Estado constituyen la expresión cifrada, conjunta y sistemática de las obligaciones que, como máximo, pueden reconocer el Estado y sus organismos autónomos, y de los derechos que se prevea liquidar durante el correspondiente ejercicio presupuestario. Sus características constitucionales más relevantes son:</p>
+<ul>
+  <li><strong>Elaboración exclusiva por el Gobierno:</strong> el Gobierno es el único sujeto que puede presentar el proyecto de ley de Presupuestos. Las Cortes aprueban, modifican o rechazan el proyecto, pero no pueden elaborarlo por iniciativa propia (art. 134.1 CE).</li>
+  <li><strong>Periodicidad anual:</strong> el ejercicio presupuestario coincide con el año natural. El proyecto debe presentarse ante el Congreso al menos tres meses antes de la expiración del Presupuesto vigente (art. 134.3 CE), es decir, antes del 1 de octubre.</li>
+  <li><strong>Prórroga automática:</strong> si los Presupuestos no son aprobados antes del primer día del ejercicio económico (1 de enero), quedan automáticamente prorrogados los del ejercicio anterior hasta la aprobación de los nuevos (art. 134.4 CE).</li>
+  <li><strong>Tramitación preferente en el Congreso:</strong> el proyecto de Presupuestos tiene prioridad absoluta en el orden del día del Congreso durante su tramitación. Dispone el Senado de 20 días para pronunciarse.</li>
+  <li><strong>Límite a las enmiendas:</strong> las enmiendas que supongan aumento de crédito o disminución de ingresos requieren la conformidad del Gobierno (art. 134.6 CE). Esta restricción preserva la coherencia fiscal de los Presupuestos tal como los ha diseñado el Ejecutivo.</li>
+  <li><strong>No puede crear tributos:</strong> la ley de Presupuestos no puede crear tributos. Solo puede modificarlos si una ley tributaria sustantiva lo prevé expresamente (art. 134.7 CE).</li>
+</ul>
+<div class="nota"><strong>⚠ IMPORTANTE:</strong> Si el Gobierno está en funciones (por dimisión, pérdida de la confianza parlamentaria, etc.), no puede presentar proyecto de Presupuestos. Los presupuestos prorrogados son los que rigen hasta la formación de un nuevo Gobierno.</div>
+
+<h3>6.3 Otras funciones financieras de las Cortes</h3>
+<ul>
+  <li><strong>Autorización de endeudamiento y crédito público:</strong> la contratación de crédito público por el Estado requiere autorización de las Cortes (art. 135 CE, reformado en 2011 para incluir el principio de estabilidad presupuestaria).</li>
+  <li><strong>Control del gasto público:</strong> las Cortes reciben la Cuenta General del Estado rendida por el Tribunal de Cuentas (órgano dependiente de las Cortes, arts. 136 CE). El control externo del gasto público es función del Tribunal de Cuentas, que actúa bajo la tutela parlamentaria.</li>
+  <li><strong>Establecimiento de tributos:</strong> solo mediante ley pueden establecerse tributos (art. 31.3 CE), lo que corresponde a las Cortes en el ámbito estatal y a los Parlamentos autonómicos en el autonómico.</li>
+</ul>
+</div>
+
+<!-- ══ 7 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">7</span>La función parlamentaria de control del Gobierno</h2>
+<p>El control parlamentario del Gobierno es la segunda gran función de las Cortes, junto con la función legislativa. Su fundamento es el principio de responsabilidad política del Gobierno ante el Parlamento (art. 108 CE). Este control es especialmente intenso en el Congreso, dado el bicameralismo asimétrico, aunque el Senado también dispone de instrumentos de control.</p>
+
+<h3>7.1 Instrumentos de control ordinario o informativo</h3>
+<p>El control ordinario no produce efectos jurídicos vinculantes sobre el Gobierno, pero tiene una enorme importancia política: permite a la oposición fiscalizar la acción gubernamental, obtener información y generar opinión pública.</p>
+<h4>7.1.1 Las preguntas parlamentarias (arts. 111 CE y concordantes de los Reglamentos)</h4>
+<p>Son el instrumento de control más numeroso y ágil. Cualquier parlamentario puede formular preguntas al Gobierno sobre cualquier asunto de interés público. Las preguntas pueden ser:</p>
+<ul>
+  <li><strong>Con respuesta escrita:</strong> el Gobierno tiene 20 días hábiles para responder por escrito. No hay debate.</li>
+  <li><strong>Con respuesta oral en comisión:</strong> el ministro comparece ante la comisión competente para responder y se abre un breve turno de réplica.</li>
+  <li><strong>Con respuesta oral en Pleno:</strong> son las que dan lugar a las sesiones de «control al Gobierno» que se celebran en el Pleno (habitualmente los miércoles). El Presidente del Gobierno y los ministros responden en Pleno. Son el instrumento de mayor visibilidad política.</li>
+</ul>
+<h4>7.1.2 Las interpelaciones (art. 111 CE)</h4>
+<p>La interpelación versa sobre la política general del Gobierno o de un ministerio en un ámbito determinado, y da lugar a un debate más amplio que la simple pregunta. La diferencia con la pregunta no es solo de forma sino de fondo: la interpelación cuestiona orientaciones políticas, no hechos concretos. Las interpelaciones pueden concluir con la presentación de una moción (proposición no de ley) que el Pleno vota y que expresa la posición de la cámara.</p>
+<h4>7.1.3 Las comparecencias e informes</h4>
+<p>El Gobierno y sus miembros pueden ser llamados a comparecer ante las comisiones del Congreso y del Senado para informar sobre asuntos de su competencia. Esta obligación de comparecer deriva de la responsabilidad política del Gobierno ante el Parlamento. Las comisiones de investigación son el instrumento más intenso de esta modalidad de control.</p>
+
+<h3>7.2 Instrumentos de control con efectos jurídico-políticos</h3>
+<h4>7.2.1 La moción de censura (art. 113 CE)</h4>
+<p>Es el instrumento de control político más drástico: su aprobación supone la dimisión forzosa del Gobierno. En España, la moción de censura es constructiva, lo que significa que debe incluir un candidato alternativo a la Presidencia del Gobierno. La CE de 1978 adoptó este modelo de la Ley Fundamental de Bonn de 1949 precisamente para evitar la inestabilidad gubernamental característica de la II República.</p>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Elemento</th><th>Contenido</th></tr></thead>
+  <tbody>
+    <tr><td>Iniciativa</td><td>1/10 de los miembros del Congreso (al menos 35 diputados sobre los 350 actuales)</td></tr>
+    <tr><td>Candidato alternativo</td><td>Obligatorio. Debe incluirse en el escrito de presentación</td></tr>
+    <tr><td>Plazo de debate</td><td>No puede ser votada hasta transcurridos 5 días desde su presentación. Durante ese plazo pueden presentarse mociones alternativas</td></tr>
+    <tr><td>Mayoría requerida</td><td>Mayoría absoluta del Congreso (176 de 350 diputados)</td></tr>
+    <tr><td>Efectos si se aprueba</td><td>El candidato incluido en la moción queda investido automáticamente como Presidente del Gobierno; el Gobierno dimite</td></tr>
+    <tr><td>Efectos si se rechaza</td><td>Los firmantes de la moción no pueden presentar otra moción durante el mismo período de sesiones</td></tr>
+    <tr><td>Cámara competente</td><td>Solo el Congreso (el Senado no interviene)</td></tr>
+  </tbody>
+</table></div>
+<p>Históricamente, en España se han presentado seis mociones de censura: en 1980 (González contra Suárez, rechazada), en 1987 (Hernández Mancha contra González, rechazada), en 2017 (Iglesias contra Rajoy, rechazada), en 2018 (Sánchez contra Rajoy, aprobada), en 2020 (Abascal contra Sánchez, rechazada) y en 2023 (Tamames contra Sánchez, rechazada). La única moción aprobada hasta la fecha es la de 2018.</p>
+
+<h4>7.2.2 La cuestión de confianza (art. 112 CE)</h4>
+<p>A diferencia de la moción de censura, la cuestión de confianza la plantea el propio Presidente del Gobierno, no la oposición. Es un instrumento voluntario que el Presidente utiliza para reforzar su posición política o para desbloquear una situación de conflicto con el Parlamento.</p>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Elemento</th><th>Contenido</th></tr></thead>
+  <tbody>
+    <tr><td>Iniciativa</td><td>El Presidente del Gobierno, previa deliberación del Consejo de Ministros</td></tr>
+    <tr><td>Objeto</td><td>Sobre el programa político del Gobierno o sobre una declaración de política general</td></tr>
+    <tr><td>Mayoría para obtenerla</td><td>Mayoría simple del Congreso (más síes que noes)</td></tr>
+    <tr><td>Efecto si se obtiene</td><td>El Gobierno queda reforzado políticamente; continúa en funciones</td></tr>
+    <tr><td>Efecto si no se obtiene</td><td>El Presidente del Gobierno está obligado a dimitir (art. 114.1 CE)</td></tr>
+    <tr><td>Cámara competente</td><td>Solo el Congreso</td></tr>
+  </tbody>
+</table></div>
+
+<h4>7.2.3 Las proposiciones no de ley y mociones</h4>
+<p>Las proposiciones no de ley son textos aprobados por el Pleno o por una comisión que expresan la posición de la cámara sobre un asunto, pero sin valor normativo: no obligan jurídicamente al Gobierno. Sin embargo, tienen gran trascendencia política porque condensan la voluntad mayoritaria del Parlamento y pueden generar presión sobre el Ejecutivo. Las mociones son proposiciones no de ley que se presentan como consecuencia de una interpelación.</p>
+
+<h3>7.3 El control de los estados excepcionales (art. 116 CE)</h3>
+<p>Las Cortes Generales ejercen un control específico y reforzado sobre el Gobierno cuando este declara estados excepcionales:</p>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Estado</th><th>Declaración</th><th>Control parlamentario</th><th>Plazo</th></tr></thead>
+  <tbody>
+    <tr><td>Alarma (art. 116.2)</td><td>Decreto del Consejo de Ministros</td><td>Congreso: puede revocar la prórroga; el decreto debe comunicarse inmediatamente</td><td>15 días prorrogables solo con autorización del Congreso</td></tr>
+    <tr><td>Excepción (art. 116.3)</td><td>Decreto del Gobierno autorizado por el Congreso</td><td>Congreso autoriza y fija el plazo, el ámbito y las condiciones</td><td>30 días prorrogables por otros 30 con autorización del Congreso</td></tr>
+    <tr><td>Sitio (art. 116.4)</td><td>Declarado por el Congreso</td><td>El Congreso por mayoría absoluta; propuesta del Gobierno</td><td>El Congreso determina el ámbito y la duración</td></tr>
+  </tbody>
+</table></div>
+<div class="nota"><strong>⚠ IMPORTANTE:</strong> Durante los estados de alarma, excepción y sitio, las Cortes no pueden ser disueltas (art. 116.5 CE). La Diputación Permanente asume las funciones de la cámara si esta hubiera sido disuelta previamente o si estuviera entre períodos de sesiones.</div>
+</div>
+
+<!-- ══ 8 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">8</span>Otras funciones constitucionales de las Cortes Generales</h2>
+
+<h3>8.1 Función de nombramiento y designación</h3>
+<p>Las Cortes Generales participan en la designación de los titulares de los órganos constitucionales más relevantes, garantizando así la legitimidad democrática de los mismos:</p>
+<div class="tabla-wrap"><table>
+  <thead><tr><th>Órgano / Cargo</th><th>Participación de las Cortes</th></tr></thead>
+  <tbody>
+    <tr><td>Magistrados del Tribunal Constitucional</td><td>4 por el Congreso + 4 por el Senado (mayoría 3/5)</td></tr>
+    <tr><td>Vocales del CGPJ</td><td>4 por el Congreso + 4 por el Senado de entre juristas (mayoría 3/5); 12 de entre jueces propuestos por asociaciones judiciales</td></tr>
+    <tr><td>Presidente del Gobierno</td><td>Investidura por el Congreso (mayoría absoluta en 1.ª votación; simple en 2.ª, 48 h después)</td></tr>
+    <tr><td>Defensor del Pueblo</td><td>Elegido por mayoría de 3/5 de cada cámara (Comisión Mixta Congreso-Senado)</td></tr>
+    <tr><td>Consejeros del Tribunal de Cuentas</td><td>12 consejeros: 6 propuestos por el Congreso + 6 por el Senado (mayoría 3/5)</td></tr>
+    <tr><td>Fiscal General del Estado</td><td>Propuesto por el Gobierno; oído el CGPJ; comparece ante el Congreso para ser oído (sin voto vinculante)</td></tr>
+  </tbody>
+</table></div>
+
+<h3>8.2 Función de autorización internacional (art. 94 CE)</h3>
+<p>Las Cortes Generales autorizan la prestación del consentimiento del Estado en determinados tratados internacionales.</p>
+<p>Según el art. 94.1 CE, requieren autorización previa de las Cortes los tratados de carácter político, los que afecten a la integridad territorial del Estado o a los derechos y deberes fundamentales del Título I, los que impongan obligaciones financieras a la Hacienda Pública, y los que supongan modificación o derogación de una ley o exijan medidas legislativas para su ejecución.</p>
+<p>Los tratados de menor trascendencia solo requieren la información inmediata al Congreso y al Senado (art. 94.2 CE).</p>
+<p>El art. 95.2 CE permite al Gobierno o a las Cortes solicitar al TC un control previo de constitucionalidad antes de la ratificación del tratado.</p>
+
+<h3>8.3 Función de reforma constitucional (arts. 166-169 CE)</h3>
+<p>Las Cortes son el órgano protagonista en los procedimientos de reforma constitucional, tanto en el ordinario del art. 167 CE (mayorías de 3/5) como en el agravado del art. 168 CE (mayorías de 2/3, disolución, referéndum).</p>
+
+<h3>8.4 Función de control del Poder Ejecutivo en materia autonómica</h3>
+<p>Las Cortes Generales intervienen también en la relación entre el Estado y las CCAA:</p>
+<ul>
+  <li><strong>Aprobación de Estatutos de Autonomía:</strong> como leyes orgánicas (art. 81 CE).</li>
+  <li><strong>Aprobación de leyes del art. 150 CE:</strong> leyes marco, de transferencia y de armonización.</li>
+  <li><strong>Autorización del art. 155 CE:</strong> el Senado (por mayoría absoluta) autoriza las medidas coercitivas del Gobierno frente a una CA que incumpla la CE o las leyes.</li>
+  <li><strong>Aprobación del Fondo de Compensación Interterritorial:</strong> las Cortes aprueban anualmente su dotación y distribución dentro de los Presupuestos Generales del Estado.</li>
+</ul>
+
+<h3>8.5 La Diputación Permanente (art. 78 CE)</h3>
+<p>Cada cámara cuenta con una Diputación Permanente integrada por un mínimo de 21 miembros que representan a los grupos parlamentarios en proporción a su importancia numérica. Sus funciones son:</p>
+<ul>
+  <li>Velar por los poderes de la cámara entre períodos de sesiones.</li>
+  <li>Asumir las funciones de la cámara disuelta hasta la constitución de las nuevas Cortes.</li>
+  <li>Convalidar o derogar los decretos-ley dictados durante el período de disolución (función del Congreso).</li>
+  <li>Autorizar la prórroga o la declaración de los estados excepcionales en caso de disolución de la cámara.</li>
+</ul>
+<p>Una vez constituidas las nuevas Cortes, la Diputación Permanente rinde cuenta de los asuntos tratados y de sus decisiones a la nueva cámara, que puede revisarlas.</p>
+</div>
+
+<!-- ══ 9 ══════════════════════════════════════════════════════════════════ -->
+<div class="seccion">
+<h2><span class="num-section">9</span>Tabla resumen para el examen</h2>
+<div class="resumen-grid">
+  <div class="rg-key">Representación</div><div class="rg-val">Art. 66.1 CE: las Cortes representan al pueblo español</div>
+  <div class="rg-key">Inviolabilidad</div><div class="rg-val">Art. 66.3 CE: las Cortes son inviolables</div>
+  <div class="rg-key">Congreso: composición</div><div class="rg-val">300-400 diputados (350 en la actualidad); circunscripción: provincia; D'Hondt; barrera 3%</div>
+  <div class="rg-key">Senado: composición</div><div class="rg-val">208 electos directos (provinciales + insulares + Ceuta/Melilla) + designados por CCAA (1 + 1/millón hab.); total variable entre 255 y 270</div>
+  <div class="rg-key">Senado: representación territorial</div><div class="rg-val">Art. 69 CE; pero bicameralismo asimétrico: el Congreso prevalece en el proceso legislativo</div>
+  <div class="rg-key">Inviolabilidad parlamentaria</div><div class="rg-val">Art. 71.1 CE: opiniones en el ejercicio del cargo; absoluta y permanente</div>
+  <div class="rg-key">Inmunidad parlamentaria</div><div class="rg-val">Art. 71.2 CE: no detención ni procesamiento sin suplicatorio; temporal y relativa; salvo flagrante delito</div>
+  <div class="rg-key">Mesa del Congreso</div><div class="rg-val">Presidente + 4 Vicepresidentes + 4 Secretarios</div>
+  <div class="rg-key">Grupos parlamentarios (Congreso)</div><div class="rg-val">Mínimo 15 diputados (o 5 con 15% en sus circunscripciones o 5% nacional)</div>
+  <div class="rg-key">Períodos de sesiones</div><div class="rg-val">Art. 73 CE: septiembre-diciembre y febrero-junio</div>
+  <div class="rg-key">Veto del Senado</div><div class="rg-val">Art. 90 CE: el Congreso lo levanta por mayoría absoluta (inmediatamente) o simple (pasados 2 meses)</div>
+  <div class="rg-key">Ley orgánica</div><div class="rg-val">Art. 81 CE: mayoría absoluta del Congreso en votación final del conjunto</div>
+  <div class="rg-key">Presupuestos: presentación</div><div class="rg-val">Gobierno exclusivamente; antes del 1 de octubre (3 meses antes del fin del ejercicio)</div>
+  <div class="rg-key">Presupuestos: prórroga</div><div class="rg-val">Automática si no se aprueban el 31 de diciembre (art. 134.4 CE)</div>
+  <div class="rg-key">Moción de censura</div><div class="rg-val">Art. 113 CE: constructiva; iniciativa 1/10 de los miembros del Congreso (mín. 35); mayoría absoluta Congreso; 5 días mínimo para votar</div>
+  <div class="rg-key">Cuestión de confianza</div><div class="rg-val">Art. 112 CE: iniciativa del Presidente; mayoría simple Congreso; si no la obtiene, dimite</div>
+  <div class="rg-key">Mociones de censura en España</div><div class="rg-val">1980, 1987, 2017 (rechazadas); 2018 (aprobada: Sánchez); 2020, 2023 (rechazadas)</div>
+  <div class="rg-key">TC: magistrados propuestos por Cortes</div><div class="rg-val">4 Congreso + 4 Senado (mayoría 3/5 de cada cámara)</div>
+  <div class="rg-key">Defensor del Pueblo</div><div class="rg-val">Elegido por 3/5 de cada cámara; comisionado de las Cortes para la defensa del Tít. I CE</div>
+  <div class="rg-key">Art. 155 CE: papel del Senado</div><div class="rg-val">El Senado (mayoría absoluta) autoriza las medidas coercitivas del Gobierno vs. una CA</div>
+  <div class="rg-key">Diputación Permanente</div><div class="rg-val">Art. 78 CE: mínimo 21 miembros; vela por poderes de la cámara entre sesiones y en disolución</div>
+</div>
+</div>
+
+</body>
+</html>
