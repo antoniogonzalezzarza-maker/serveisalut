@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Tema 15 — Les Corts Generals (I) · IB-Salut</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div><div class="nav-title">IB-Salut · Oposicions</div><div class="nav-sub">Grup Tècnic Funció Administrativa</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Inici</a>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Temes ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../temes/tema11.html" class="nav-dropdown-item">Tema 11 — Constitució Espanyola</a>
+        <a href="../temes/tema12.html" class="nav-dropdown-item">Tema 12 — Autonomies (I)</a>
+        <a href="../temes/tema13.html" class="nav-dropdown-item">Tema 13 — Autonomies (II)</a>
+        <a href="../temes/tema14.html" class="nav-dropdown-item">Tema 14 — Tribunal Constitucional</a>
+        <a href="../temes/tema15.html" class="nav-dropdown-item">Tema 15 — Corts Generals (I)</a>
+        <a href="../temes/tema18.html" class="nav-dropdown-item">Tema 18 — Estatut Illes Balears</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Més temes — Pròximament</span>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Tests ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="../tests/test_11.html" class="nav-dropdown-item">Test Tema 11 ✓</a>
+        <a href="../tests/test_12_13.html" class="nav-dropdown-item">Test Temes 12-13 ✓</a>
+        <a href="../tests/test_14.html" class="nav-dropdown-item">Test Tema 14 ✓</a>
+        <a href="../tests/test_15.html" class="nav-dropdown-item" style="font-weight:700;color:var(--green-d)">Test Tema 15 ✓</a>
+        <a href="../tests/test_18.html" class="nav-dropdown-item">Test Tema 18 ✓</a>
+        <div class="nav-dropdown-sep"></div>
+        <span class="nav-dropdown-item locked">Més tests — Pròximament</span>
+      </div>
+    </div>
+  </div>
+  <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html" class="nav-link">Inici</a>
+  <div class="mob-section">Temes</div>
+  <a href="../temes/tema11.html" class="nav-link">Tema 11</a>
+  <a href="../temes/tema12.html" class="nav-link">Tema 12</a>
+  <a href="../temes/tema13.html" class="nav-link">Tema 13</a>
+  <a href="../temes/tema14.html" class="nav-link">Tema 14</a>
+  <a href="../temes/tema15.html" class="nav-link">Tema 15</a>
+  <a href="../temes/tema18.html" class="nav-link">Tema 18</a>
+  <div class="mob-section">Tests</div>
+  <a href="../tests/test_11.html" class="nav-link">Test Tema 11</a>
+  <a href="../tests/test_12_13.html" class="nav-link">Test Temes 12-13</a>
+  <a href="../tests/test_14.html" class="nav-link">Test Tema 14</a>
+  <a href="../tests/test_15.html" class="nav-link active">Test Tema 15</a>
+  <a href="../tests/test_18.html" class="nav-link">Test Tema 18</a>
+</div>
+
+<div class="page">
+  <div style="margin-bottom:8px">
+    <h1 style="font-size:24px;font-weight:700;margin-bottom:6px">Test — Tema 15</h1>
+    <p style="font-size:15px;color:var(--g500)">Les Corts Generals (I) · 20 preguntes · Puntuació real d'examen</p>
+  </div>
+  <div id="area"></div>
+</div>
+
+<footer>Servei de Salut de les Illes Balears · Material de preparació no oficial · 2025</footer>
+
+<script>
+const BLOCS = [
+  { label: "Bloc 1 — Composició i estatut dels parlamentaris", range: [0, 6] },
+  { label: "Bloc 2 — Organització i funcionament de les cambres", range: [7, 11] },
+  { label: "Bloc 3 — Funció legislativa", range: [12, 15] },
+  { label: "Bloc 4 — Control del Govern i altres funcions", range: [16, 19] }
+];
+
+const QS = [
+  // ── BLOC 1 ──
+  // P1 → B
+  { q: "La inviolabilidad parlamentaria reconocida en el art. 71.1 CE es absoluta y permanente, pero ¿qué límite tiene su ámbito material?",
+    opts: [
+      "Solo cubre las opiniones emitidas durante el mandato, pero puede ser levantada por la cámara si los hechos constituyen un delito.",
+      "Solo cubre los actos funcionales realizados en el ejercicio del cargo; no ampara opiniones emitidas fuera de las funciones parlamentarias.",
+      "Ampara todas las opiniones del parlamentario, incluidas las emitidas fuera del ejercicio del cargo, durante toda su vida.",
+      "Es levantable mediante suplicatorio para cualquier tipo de acto, igual que la inmunidad."
+    ],
+    c: 1, sec: "Composició i estatut",
+    exp: "La inviolabilidad (art. 71.1 CE) es absoluta —no puede levantarse ni por la propia cámara— y permanente —persiste tras el mandato—, pero solo cubre los actos funcionales: discursos en cámara, votos, enmiendas, interpelaciones, informes de ponencia. No ampara conductas ajenas al ejercicio del cargo." },
+
+  // P2 → C
+  { q: "¿Cuál es la diferencia esencial entre la inviolabilidad y la inmunidad parlamentaria?",
+    opts: [
+      "La inviolabilidad es temporal (solo durante el mandato) y la inmunidad es permanente.",
+      "Ambas son absolutas e irrenunciables, pero la inviolabilidad protege las opiniones y la inmunidad protege las acciones.",
+      "La inviolabilidad es absoluta y permanente; la inmunidad es temporal, relativa y levantable mediante suplicatorio, salvo flagrante delito.",
+      "La inviolabilidad la puede levantar el Tribunal Supremo; la inmunidad solo la puede levantar la cámara."
+    ],
+    c: 2, sec: "Composició i estatut",
+    exp: "La inviolabilidad (art. 71.1 CE) es absoluta —ningún órgano puede levantarla— y permanente. La inmunidad (art. 71.2 CE) es temporal —solo durante el mandato—, relativa —la cámara puede levantarla mediante suplicatorio— y no opera en caso de flagrante delito. El TC (STC 206/1992) ha precisado que la inmunidad es una garantía institucional, no un privilegio personal." },
+
+  // P3 → A
+  { q: "Para presentar una moción de censura en el Congreso de los Diputados se requiere la firma de:",
+    opts: [
+      "Al menos 1/10 de los miembros del Congreso, es decir, un mínimo de 35 diputados sobre los 350 actuales.",
+      "Al menos la mayoría absoluta de los diputados del Congreso (176 diputados).",
+      "Al menos 50 diputados, igual que el umbral del recurso de inconstitucionalidad.",
+      "Al menos 1/5 de los miembros del Congreso (70 diputados)."
+    ],
+    c: 0, sec: "Composició i estatut",
+    exp: "El art. 113 CE exige que la moción de censura sea presentada por al menos 1/10 de los miembros del Congreso. Con la composición actual de 350 diputados, eso supone un mínimo de 35 firmas. Además debe incluir obligatoriamente un candidato alternativo a la Presidencia del Gobierno." },
+
+  // P4 → D
+  { q: "Para aprobar una ley orgánica, el art. 81.2 CE exige mayoría absoluta del Congreso en votación final sobre el conjunto del proyecto. ¿Qué mayoría se requiere en el Senado?",
+    opts: [
+      "Mayoría absoluta del Senado, en paralelo a la exigida al Congreso.",
+      "Mayoría de 3/5 del Senado, por tratarse de normas que afectan a derechos fundamentales.",
+      "Mayoría de 2/3 del Senado, como garantía reforzada de las materias reservadas.",
+      "Ninguna mayoría cualificada: el Senado actúa como en cualquier ley ordinaria y el Congreso puede imponerse conforme al art. 90 CE."
+    ],
+    c: 3, sec: "Composició i estatut",
+    exp: "Error clásico de test. La mayoría absoluta del art. 81.2 CE es exclusivamente del Congreso (176 de 350). El Senado no tiene ninguna posición cualificada en las leyes orgánicas: puede vetar o enmendar, pero el Congreso siempre puede imponerse por mayoría absoluta inmediatamente o por mayoría simple transcurridos dos meses (art. 90 CE)." },
+
+  // P5 → B
+  { q: "Los senadores de elección directa son 208. ¿Cuántos senadores designan las Comunidades Autónomas adicionalmente?",
+    opts: [
+      "Un número fijo de 57, establecido en la CE.",
+      "Un número variable: 1 por CA más 1 adicional por cada millón de habitantes, lo que hace fluctuar el total según la legislatura.",
+      "Un número fijo de 50, a razón de un senador por cada CA más uno por Ceuta y Melilla.",
+      "Ninguno; todos los senadores son de elección directa según la CE."
+    ],
+    c: 1, sec: "Composició i estatut",
+    exp: "El art. 69.5 CE establece que las CCAA designan 1 senador más 1 adicional por cada millón de habitantes. Como la población varía, el número de senadores designados fluctúa cada legislatura. Los 208 electos directos (provinciales, insulares, Ceuta y Melilla) son fijos; el total de la cámara oscila habitualmente entre 255 y 270." },
+
+  // P6 → C
+  { q: "¿Cuántos diputados integran actualmente el Congreso de los Diputados y cuál es el margen constitucional?",
+    opts: [
+      "350 diputados; la CE fija ese número exacto como inamovible.",
+      "400 diputados; la CE establece un mínimo de 350 y un máximo de 400.",
+      "350 diputados; la CE establece un mínimo de 300 y un máximo de 400, siendo 350 el número fijado por la LOREG.",
+      "300 diputados; la CE establece un mínimo de 300 y un máximo de 350."
+    ],
+    c: 2, sec: "Composició i estatut",
+    exp: "El art. 68.1 CE establece que el Congreso se compone de un mínimo de 300 y un máximo de 400 diputados. La Ley Orgánica del Régimen Electoral General (LOREG) fija actualmente el número en 350. La CE no establece una cifra concreta, sino solo los límites." },
+
+  // P7 → D
+  { q: "El mandato imperativo está prohibido por el art. 67.2 CE. ¿Qué consecuencia jurídica directa tiene esta prohibición?",
+    opts: [
+      "Los parlamentarios no pueden pertenecer a ningún grupo parlamentario, pues ello implicaría seguir instrucciones del partido.",
+      "Los parlamentarios están vinculados a las instrucciones de sus electores pero no a las de su partido político.",
+      "Los parlamentarios están vinculados al programa electoral de su partido pero no a instrucciones concretas en cada votación.",
+      "Los parlamentarios ejercen su cargo con plena libertad de voto y no pueden ser jurídicamente obligados por instrucciones de electores ni de partidos."
+    ],
+    c: 3, sec: "Composició i estatut",
+    exp: "La prohibición del mandato imperativo (art. 67.2 CE) significa que el voto del parlamentario no puede ser jurídicamente compelido por nadie: ni electores, ni partido, ni grupo parlamentario. Otra cosa es la disciplina de partido, que es un hecho político sin efecto jurídico sobre la validez del voto. El parlamentario puede votar libremente sin consecuencias jurídicas formales." },
+
+  // ── BLOC 2 ──
+  // P8 → A
+  { q: "¿Cuál es la composición de la Mesa del Congreso de los Diputados?",
+    opts: [
+      "El Presidente del Congreso + 4 Vicepresidentes + 4 Secretarios.",
+      "El Presidente del Congreso + 2 Vicepresidentes + 4 Secretarios.",
+      "El Presidente del Congreso + 4 Vicepresidentes + 2 Secretarios.",
+      "El Presidente del Congreso + 6 Vicepresidentes + 4 Secretarios."
+    ],
+    c: 0, sec: "Organització i funcionament",
+    exp: "La Mesa del Congreso se compone del Presidente + 4 Vicepresidentes + 4 Secretarios. La Mesa del Senado, en cambio, tiene el Presidente + 2 Vicepresidentes + 4 Secretarios. El Presidente del Congreso es el tercero en el orden de precedencia del Estado, tras el Rey y el Presidente del Gobierno." },
+
+  // P9 → B
+  { q: "¿Cuántos diputados se necesitan para constituir un grupo parlamentario en el Congreso? ¿Existe alguna vía alternativa?",
+    opts: [
+      "10 diputados; no hay vía alternativa.",
+      "15 diputados; o 5 diputados si han obtenido el 15% de votos en sus circunscripciones o el 5% a nivel nacional.",
+      "15 diputados; o 10 diputados si pertenecen a partidos con representación en más de cinco provincias.",
+      "20 diputados; o 10 diputados si han obtenido el 5% de votos a nivel nacional."
+    ],
+    c: 1, sec: "Organització i funcionament",
+    exp: "El Reglamento del Congreso exige un mínimo de 15 diputados para formar grupo parlamentario. La vía alternativa permite constituir grupo con solo 5 diputados si el partido ha obtenido al menos el 15% de los votos en las circunscripciones donde se presentó, o el 5% en el conjunto del territorio nacional. En el Senado el mínimo es de 10 senadores, sin vía alternativa." },
+
+  // P10 → C
+  { q: "Las Cortes Generales se reúnen en dos períodos ordinarios de sesiones al año (art. 73.1 CE). ¿Cuáles son?",
+    opts: [
+      "De enero a junio y de julio a diciembre.",
+      "De octubre a enero y de marzo a julio.",
+      "De septiembre a diciembre y de febrero a junio.",
+      "De enero a abril y de septiembre a diciembre."
+    ],
+    c: 2, sec: "Organització i funcionament",
+    exp: "El art. 73.1 CE establece dos períodos ordinarios de sesiones: de septiembre a diciembre y de febrero a junio. Fuera de estos períodos, las cámaras pueden reunirse en sesiones extraordinarias convocadas a petición del Gobierno, la Diputación Permanente o la mayoría absoluta de los miembros de cualquier cámara." },
+
+  // P11 → D
+  { q: "Si el Senado veta un proyecto de ley ordinaria por mayoría absoluta, ¿cómo puede el Congreso superar ese veto?",
+    opts: [
+      "El veto del Senado es definitivo cuando se adopta por mayoría absoluta; el proyecto queda rechazado.",
+      "El Congreso necesita mayoría de 3/5 para superar el veto del Senado.",
+      "El Congreso puede levantarlo en cualquier momento por mayoría simple, sin necesidad de esperar plazo alguno.",
+      "El Congreso puede levantarlo por mayoría absoluta de forma inmediata, o por mayoría simple transcurridos dos meses desde la interposición del veto."
+    ],
+    c: 3, sec: "Organització i funcionament",
+    exp: "El art. 90.2 CE establece que el Congreso puede levantar el veto del Senado por mayoría absoluta en votación inmediata, o por mayoría simple una vez transcurridos dos meses desde su interposición. El veto del Senado nunca es definitivo en leyes ordinarias, lo que confirma el bicameralismo asimétrico." },
+
+  // P12 → A
+  { q: "¿Cuál de las siguientes materias NO puede tramitarse mediante el procedimiento de comisión con competencia legislativa plena (art. 75 CE)?",
+    opts: [
+      "Una ley orgánica de reforma del Código Penal.",
+      "Una ley de modificación de la normativa sobre costas.",
+      "Una ley de régimen jurídico de las entidades locales.",
+      "Una ley de regulación del sector audiovisual."
+    ],
+    c: 0, sec: "Organització i funcionament",
+    exp: "El art. 75.3 CE excluye expresamente de la delegación en comisión las leyes orgánicas, las leyes de bases, los Presupuestos Generales del Estado, la reforma constitucional y los tratados internacionales. Una reforma del Código Penal es materia de ley orgánica y, por tanto, debe aprobarse en Pleno." },
+
+  // ── BLOC 3 ──
+  // P13 → B
+  { q: "La iniciativa legislativa popular (art. 87.3 CE) requiere 500.000 firmas. ¿Sobre cuál de las siguientes materias NO puede ejercerse?",
+    opts: [
+      "La modificación de la Ley de Arrendamientos Urbanos.",
+      "La regulación del derecho de reunión y manifestación, por estar reservada a ley orgánica.",
+      "La regulación del régimen jurídico de las asociaciones civiles.",
+      "La modificación de la legislación de residuos y suelos contaminados."
+    ],
+    c: 1, sec: "Funció legislativa",
+    exp: "El art. 87.3 CE excluye expresamente de la iniciativa legislativa popular las materias reservadas a ley orgánica, entre ellas el desarrollo de los derechos fundamentales (arts. 15-29 CE), como el derecho de reunión (art. 21 CE). También quedan excluidas las materias tributarias, internacionales y de prerrogativa de gracia." },
+
+  // P14 → C
+  { q: "El Gobierno puede dictar decretos-ley en casos de extraordinaria y urgente necesidad (art. 86 CE). ¿Qué debe hacer el Congreso con ellos?",
+    opts: [
+      "Remitirlos al Senado para su ratificación en el plazo de 30 días.",
+      "Tramitarlos como proyectos de ley ordinarios, con enmiendas al articulado, en el plazo de 60 días.",
+      "Pronunciarse sobre su convalidación o derogación como conjunto en el plazo de 30 días desde su promulgación.",
+      "Aceptarlos automáticamente si el Congreso está disuelto, con ratificación de las nuevas Cortes en 90 días."
+    ],
+    c: 2, sec: "Funció legislativa",
+    exp: "El art. 86.2 CE exige que el Congreso se pronuncie expresamente sobre la convalidación o derogación del decreto-ley en el plazo de 30 días desde su promulgación. La votación es sobre el conjunto: no caben enmiendas al articulado en esta fase. El Senado no interviene en la convalidación." },
+
+  // P15 → D
+  { q: "La ley de Presupuestos Generales del Estado (art. 134 CE) tiene importantes limitaciones constitucionales. ¿Cuál de las siguientes afirmaciones es correcta?",
+    opts: [
+      "El Congreso tiene plena libertad para enmendar cualquier partida del proyecto presentado por el Gobierno.",
+      "La ley de Presupuestos puede crear nuevos tributos siempre que lo autorice una mayoría de 3/5 del Congreso.",
+      "El Senado dispone de dos meses para pronunciarse sobre el proyecto de Presupuestos.",
+      "Las enmiendas que supongan aumento de crédito o disminución de ingresos requieren la conformidad del Gobierno; además, la ley de Presupuestos no puede crear tributos."
+    ],
+    c: 3, sec: "Funció legislativa",
+    exp: "El art. 134.6 CE establece que las enmiendas que supongan aumento de crédito o disminución de ingresos requieren la conformidad del Gobierno. El art. 134.7 CE prohíbe que la ley de Presupuestos cree tributos; solo puede modificarlos si una ley tributaria sustantiva lo prevé. El Senado dispone únicamente de 20 días (no dos meses) para pronunciarse sobre los Presupuestos." },
+
+  // P16 → A
+  { q: "Si los Presupuestos Generales del Estado no son aprobados antes del 31 de diciembre, ¿qué ocurre?",
+    opts: [
+      "Quedan automáticamente prorrogados los del ejercicio anterior hasta que se aprueben los nuevos (art. 134.4 CE).",
+      "El Gobierno debe presentar un nuevo proyecto en el plazo de 30 días; mientras tanto queda paralizado el gasto público.",
+      "Las Cortes deben aprobar un presupuesto provisional de continuidad por mayoría simple en el plazo de 15 días.",
+      "El Gobierno puede gobernar por decreto-ley en materia presupuestaria hasta que las Cortes aprueben el nuevo Presupuesto."
+    ],
+    c: 0, sec: "Funció legislativa",
+    exp: "El art. 134.4 CE establece que si la Ley de Presupuestos no se aprueba antes del 1 de enero, quedan automáticamente prorrogados los del ejercicio anterior. Es una prórroga constitucional automática, sin necesidad de acto formal del Parlamento ni del Gobierno. Los presupuestos prorrogados rigen hasta la aprobación de los nuevos." },
+
+  // ── BLOC 4 ──
+  // P17 → B
+  { q: "La moción de censura española es 'constructiva'. ¿Qué significa exactamente esto?",
+    opts: [
+      "Que solo puede presentarse una vez por legislatura, para evitar la inestabilidad gubernamental.",
+      "Que debe incluir obligatoriamente un candidato alternativo a la Presidencia del Gobierno; si prospera, ese candidato queda automáticamente investido.",
+      "Que el candidato propuesto debe obtener la confianza por mayoría simple, no absoluta, para evitar bloqueos.",
+      "Que puede presentarse simultáneamente en el Congreso y en el Senado, siendo suficiente que prospere en uno de ellos."
+    ],
+    c: 1, sec: "Control del Govern",
+    exp: "La moción de censura constructiva (art. 113 CE) exige incluir un candidato alternativo a la Presidencia. Si la moción se aprueba por mayoría absoluta del Congreso (176 de 350), el candidato queda automáticamente investido y el Gobierno dimite. Este modelo, tomado de la Ley Fundamental de Bonn (1949), garantiza la continuidad gubernamental y evita la inestabilidad de la II República." },
+
+  // P18 → C
+  { q: "¿Cuántas mociones de censura se han presentado en España desde la Constitución de 1978 y cuántas han prosperado?",
+    opts: [
+      "Cuatro mociones; ninguna ha prosperado.",
+      "Cinco mociones; una ha prosperado (2018, Sánchez contra Rajoy).",
+      "Seis mociones; solo una ha prosperado (2018, Sánchez contra Rajoy).",
+      "Tres mociones; ninguna ha prosperado."
+    ],
+    c: 2, sec: "Control del Govern",
+    exp: "Se han presentado seis mociones de censura: 1980 (González contra Suárez), 1987 (Hernández Mancha contra González), 2017 (Iglesias contra Rajoy), 2018 (Sánchez contra Rajoy), 2020 (Abascal contra Sánchez) y 2023 (Tamames contra Sánchez). Solo la de 2018 prosperó, con 180 votos a favor." },
+
+  // P19 → D
+  { q: "Durante los estados de alarma, excepción y sitio, ¿pueden disolverse las Cortes Generales?",
+    opts: [
+      "Sí, siempre que lo apruebe el Senado por mayoría absoluta.",
+      "Sí, el Presidente del Gobierno puede disolver las Cortes bajo su exclusiva responsabilidad en cualquier momento.",
+      "Solo pueden disolverse durante el estado de alarma, no durante los de excepción y sitio.",
+      "No; el art. 116.5 CE prohíbe expresamente la disolución de las Cortes durante los tres estados excepcionales."
+    ],
+    c: 3, sec: "Control del Govern",
+    exp: "El art. 116.5 CE prohíbe expresamente disolver las Cortes durante la vigencia de los estados de alarma, excepción y sitio. La Diputación Permanente asume las funciones de la cámara si esta hubiera sido disuelta previamente. Esta garantía protege el control parlamentario precisamente cuando el Gobierno acumula más poderes de excepción." },
+
+  // P20 → B
+  { q: "El Senado tiene un papel exclusivo y sin posibilidad de intervención del Congreso en un supuesto concreto. ¿Cuál es?",
+    opts: [
+      "La aprobación de las leyes orgánicas, donde se requiere también mayoría absoluta del Senado.",
+      "La autorización de las medidas coercitivas del art. 155 CE contra una Comunidad Autónoma, que requiere mayoría absoluta del Senado.",
+      "La investidura del Presidente del Gobierno, que debe ser ratificada por el Senado tras la votación del Congreso.",
+      "La aprobación de los Presupuestos Generales del Estado, en los que el Senado tiene un voto definitivo."
+    ],
+    c: 1, sec: "Control del Govern",
+    exp: "El único supuesto en que el Senado tiene potestad plena y exclusiva, sin posibilidad de intervención del Congreso, es la autorización de las medidas coercitivas del art. 155 CE, que requiere mayoría absoluta del Senado. En todos los demás supuestos (legislación, investidura, Presupuestos), el Congreso puede imponerse o actúa en solitario." }
+];
+
+const LT=['a','b','c','d'];
+const PASS=8.5, TOTAL=20;
+let ans={}, cur=0, done=false;
+
+function scorePerQ(){ return TOTAL/QS.length; }
+function calcScore(){
+  const pq=scorePerQ();
+  return QS.reduce((s,q,i)=>{
+    if(ans[i]===undefined)return s;
+    return ans[i]===q.c ? s+pq : s-pq/4;
+  },0);
+}
+function fmt(n){ return n.toFixed(3).replace('.',','); }
+function fmtS(n){ return (Math.round(n*100)/100).toFixed(2).replace('.',','); }
+function scoreColor(s){ if(s<0)return'#DC2626'; if(s/TOTAL>=0.5)return'#1D9E75'; if(s/TOTAL>=0.35)return'#D97706'; return'#DC2626'; }
+function getBlocLabel(i){
+  for(const b of BLOCS){ if(i>=b.range[0]&&i<=b.range[1])return b.label; }
+  return '';
+}
+
+function pick(qi,oi){ if(ans[qi]!==undefined)return; ans[qi]=oi; render(); }
+function go(d){ cur=Math.max(0,Math.min(QS.length-1,cur+d)); render(); }
+function finish(){ done=true; render(); }
+function reset(){ ans={}; cur=0; done=false; render(); }
+
+function renderScoreLive(){
+  const pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const pend=QS.length-Object.keys(ans).length;
+  const score=calcScore(), col=scoreColor(score);
+  const thPct=(PASS/TOTAL)*100, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100));
+  return `<div class="score-live">
+    <div class="score-live-item"><div class="sl-val" style="color:${col}">${fmtS(score)}</div><div class="sl-lbl">Pts / ${TOTAL}</div></div>
+    <div class="score-live-item"><div class="sl-val ok">${ok}</div><div class="sl-lbl">Correctes</div></div>
+    <div class="score-live-item"><div class="sl-val ng">${ng}</div><div class="sl-lbl">Errònies</div></div>
+    <div class="score-live-item"><div class="sl-val pend">${pend}</div><div class="sl-lbl">Pendents</div></div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${sPct}%;background:${col}"></div>
+        <div class="score-threshold" style="left:${thPct}%"></div>
+      </div>
+      <div class="score-bar-labels"><span>0</span><span style="color:var(--amber);font-weight:600">mín ${PASS}</span><span>${TOTAL}</span></div>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const area=document.getElementById('area');
+  if(done){ renderResults(area); return; }
+  const q=QS[cur], answered=ans[cur]!==undefined, ndone=Object.keys(ans).length, pq=scorePerQ();
+
+  let blocHeader='';
+  if(cur===0||getBlocLabel(cur)!==getBlocLabel(cur-1)){
+    blocHeader=`<div style="background:var(--g100);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--g600);text-transform:uppercase;letter-spacing:.04em">${getBlocLabel(cur)}</div>`;
+  }
+
+  let h=renderScoreLive();
+  h+=`<div class="prog-wrap"><div class="prog-top"><span>Progrés</span><b>${ndone} / ${QS.length} respostes</b></div><div class="prog-track"><div class="prog-fill" style="width:${Math.round(ndone/QS.length*100)}%"></div></div></div>`;
+  h+=blocHeader;
+  h+=`<div class="qcard">`;
+  if(q.sec) h+=`<div style="font-size:11px;color:var(--g400);margin-bottom:6px;font-weight:500">${q.sec}</div>`;
+  h+=`<div class="qnum">Pregunta ${cur+1} de ${QS.length}</div>`;
+  h+=`<div class="qtext">${q.q}</div><div class="opts">`;
+  q.opts.forEach((o,i)=>{
+    let cls='opt'+(answered?' dis':'');
+    let delta='';
+    if(answered){
+      if(i===q.c){ cls+=' ok'; if(i===ans[cur]) delta=`<span class="score-delta pos">+${fmt(pq)} pts</span>`; }
+      else if(i===ans[cur]){ cls+=' ng'; delta=`<span class="score-delta neg">-${fmt(pq/4)} pts</span>`; }
+    }
+    h+=`<button class="${cls}" onclick="pick(${cur},${i})"><span class="ol">${LT[i]}</span><span style="flex:1">${o}</span>${delta}</button>`;
+  });
+  h+=`</div>`;
+  if(answered){
+    let exp=`<div class="expl on"><strong>Explicació:</strong> ${q.exp}</div>`;
+    h+=exp;
+  }
+  h+=`</div>`;
+  const allDone=ndone===QS.length;
+  h+=`<div class="nav-q">
+    <button class="nbtn" onclick="go(-1)" ${cur===0?'disabled':''}>← Anterior</button>
+    <span class="nctr">${cur+1}/${QS.length}</span>
+    ${allDone?'<button class="nbtn pri" onclick="finish()">Veure resultats →</button>':`<button class="nbtn" onclick="go(1)" ${cur===QS.length-1?'disabled':''}>Següent →</button>`}
+  </div>`;
+  area.innerHTML=h;
+}
+
+function renderResults(area){
+  const n=QS.length, pq=scorePerQ();
+  const ok=QS.filter((q,i)=>ans[i]===q.c).length;
+  const ng=QS.filter((q,i)=>ans[i]!==undefined&&ans[i]!==q.c).length;
+  const score=calcScore(), passed=score>=PASS, col=scoreColor(score);
+  const circ=2*Math.PI*54, sPct=Math.max(0,Math.min(100,(score/TOTAL)*100)), dash=circ*(1-sPct/100);
+  const msg=passed?(score>=15?'Resultat excel·lent!':score>=12?'Molt bon resultat.':'Aprovat. Segueix repassant.'):(score>=7?'Molt a prop! Repassa els errors.':'Cal reforçar aquest tema.');
+
+  const b1ok=QS.slice(0,7).filter((q,i)=>ans[i]===q.c).length;
+  const b2ok=QS.slice(7,12).filter((q,i)=>ans[i+7]===q.c).length;
+  const b3ok=QS.slice(12,16).filter((q,i)=>ans[i+12]===q.c).length;
+  const b4ok=QS.slice(16,20).filter((q,i)=>ans[i+16]===q.c).length;
+
+  const p1=Math.max(0,Math.min(100,(b1ok/7)*100));
+  const p2=Math.max(0,Math.min(100,(b2ok/5)*100));
+  const p3=Math.max(0,Math.min(100,(b3ok/4)*100));
+  const p4=Math.max(0,Math.min(100,(b4ok/4)*100));
+  const cc=p=>p>=50?'#1D9E75':p>=35?'#D97706':'#DC2626';
+
+  let h=`<div class="rhero">
+    <div class="ring">
+      <svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="#E5E7EB" stroke-width="9"/>
+        ${score>=0?`<circle cx="60" cy="60" r="54" fill="none" stroke="${col}" stroke-width="9" stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${dash.toFixed(2)}" stroke-linecap="round"/>`:''}
+      </svg>
+      <div class="rtext"><span class="rpts" style="color:${col}">${fmtS(score)}</span><span class="rover">/ ${TOTAL} pts</span></div>
+    </div>
+    <div class="raprueba ${passed?'si':'no'}">${passed?'✓ APROVAT':'✗ NO APROVAT'} · mínim ${PASS} pts</div>
+    <div class="rtitle">${msg}</div>
+    <div class="rsub">${n} preguntes · Tema 15</div>
+    <div class="rstats">
+      <div class="sc"><div class="sn g">${ok}</div><div class="sl2">Correctes</div></div>
+      <div class="sc"><div class="sn r">${ng}</div><div class="sl2">Errònies</div></div>
+      <div class="sc"><div class="sn a">+${fmt(pq)}</div><div class="sl2">Pts/encert</div></div>
+      <div class="sc"><div class="sn gr">-${fmt(pq/4)}</div><div class="sl2">Pts/error</div></div>
+    </div>
+  </div>`;
+
+  h+=`<div class="formula">
+    <span>📐 <b>Fórmula:</b></span>
+    <span>Correcta: <b>+${fmt(pq)}</b></span>
+    <span>Errònia: <b>-${fmt(pq/4)}</b></span>
+    <span>En blanc: <b>no permès</b></span>
+    <span>Mínim: <b>${PASS} / ${TOTAL}</b></span>
+  </div>`;
+
+  h+=`<div class="bdown"><h3>Desglose per bloc</h3>
+    <div class="trow"><span class="tlbl" style="min-width:140px">Bloc 1 (7 q.)</span><div class="tbar"><div class="tbfill" style="width:${p1}%;background:${cc(p1)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p1)}">${b1ok}/7</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:140px">Bloc 2 (5 q.)</span><div class="tbar"><div class="tbfill" style="width:${p2}%;background:${cc(p2)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p2)}">${b2ok}/5</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:140px">Bloc 3 (4 q.)</span><div class="tbar"><div class="tbfill" style="width:${p3}%;background:${cc(p3)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p3)}">${b3ok}/4</span></div>
+    <div class="trow"><span class="tlbl" style="min-width:140px">Bloc 4 (4 q.)</span><div class="tbar"><div class="tbfill" style="width:${p4}%;background:${cc(p4)}"></div><div class="tth" style="left:50%"></div></div><span class="tpct" style="color:${cc(p4)}">${b4ok}/4</span></div>
+  </div>`;
+
+  h+=`<div class="ract">
+    <button class="abtn pri" onclick="reset()">Repetir test</button>
+    <a href="../temes/tema15.html" class="abtn" style="background:var(--blue-l);color:var(--blue);border:1.5px solid #BFDBFE;text-decoration:none">Repassar el tema</a>
+  </div>`;
+  area.innerHTML=h;
+}
+
+render();
+</script>
+</body>
+</html>
