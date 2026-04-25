@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 67 – Llei General Pressupostària</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f9f6f0;
+    --ink: #1c1a18;
+    --ink-light: #4a4540;
+    --ink-muted: #7a736a;
+    --accent: #8b2020;
+    --accent-dark: #5c1414;
+    --accent-light: #f5e6e6;
+    --blue-dark: #1a3560;
+    --blue-mid: #2b5fa8;
+    --blue-light: #dce8f7;
+    --blue-pale: #eef4fb;
+    --warn-bg: #fdf8e8;
+    --warn-border: #c8960c;
+    --warn-text: #6b4f00;
+    --table-head: #1a3560;
+    --table-alt: #f4f1ec;
+    --border: #d4cfc8;
+    --shadow: rgba(0,0,0,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    text-align: center;
+    padding: 3rem 1rem 2.5rem;
+    border-bottom: 3px solid var(--blue-dark);
+    margin-bottom: 3rem;
+  }
+  .cover-badge {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue-dark);
+    background: var(--blue-light);
+    border: 1px solid var(--blue-mid);
+    padding: 0.35rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+  .cover-num {
+    font-family: 'Crimson Pro', serif;
+    font-size: 5.5rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .cover-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--blue-mid);
+    margin-bottom: 0.4rem;
+  }
+  .cover-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ── SECTIONS ── */
+  h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin: 2.8rem 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--blue-light);
+  }
+  h1::before {
+    content: attr(data-n) ". ";
+    color: var(--blue-mid);
+  }
+  h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--blue-mid);
+    margin: 2rem 0 0.6rem;
+  }
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    text-align: justify;
+    margin-bottom: 0.9rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0.5rem 0 1rem 0;
+    padding: 0;
+  }
+  ul li {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    padding: 0.3rem 0 0.3rem 1.6rem;
+    position: relative;
+    text-align: justify;
+  }
+  ul li::before {
+    content: "▸";
+    color: var(--blue-mid);
+    position: absolute;
+    left: 0;
+    font-size: 0.85rem;
+    top: 0.45rem;
+  }
+
+  /* ── ARTICLE BOX ── */
+  .art-box {
+    background: var(--blue-pale);
+    border-left: 4px solid var(--blue-mid);
+    border-radius: 0 4px 4px 0;
+    padding: 0.9rem 1.2rem;
+    margin: 1rem 0 1.2rem;
+  }
+  .art-box .art-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue-dark);
+    margin-bottom: 0.4rem;
+  }
+  .art-box blockquote {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* ── CE BOX (Constitution article — wider) ── */
+  .ce-box {
+    background: #f0f4fb;
+    border: 1px solid var(--blue-mid);
+    border-radius: 4px;
+    padding: 1rem 1.3rem;
+    margin: 1rem 0 1.2rem;
+  }
+  .ce-box .art-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue-dark);
+    margin-bottom: 0.6rem;
+  }
+  .ce-box ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ce-box ol li {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--ink);
+    padding: 0.2rem 0 0.2rem 2.2rem;
+    position: relative;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  .ce-box ol li .num {
+    position: absolute;
+    left: 0;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--blue-mid);
+    font-size: 0.9rem;
+  }
+
+  /* ── WARN BOX ── */
+  .warn-box {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 0 4px 4px 0;
+    padding: 0.8rem 1.2rem;
+    margin: 1rem 0 1.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--warn-text);
+    line-height: 1.6;
+  }
+  .warn-box strong { color: var(--accent-dark); }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.4rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+  }
+  thead tr th {
+    background: var(--table-head);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    border: 1px solid var(--table-head);
+  }
+  tbody tr td {
+    padding: 0.55rem 0.9rem;
+    border: 1px solid var(--border);
+    color: var(--ink-light);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  tbody tr:nth-child(even) td { background: var(--table-alt); }
+  tbody tr:hover td { background: var(--blue-pale); }
+
+  /* ── CICLO DIAGRAM ── */
+  .ciclo {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 1.2rem 0 1.6rem;
+    flex-wrap: wrap;
+  }
+  .ciclo-step {
+    flex: 1;
+    min-width: 140px;
+    background: var(--blue-dark);
+    color: #fff;
+    padding: 1rem 0.9rem;
+    text-align: center;
+    position: relative;
+  }
+  .ciclo-step:not(:last-child)::after {
+    content: "▶";
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--blue-mid);
+    font-size: 1.1rem;
+    z-index: 2;
+  }
+  .ciclo-step:nth-child(2) { background: #1e4878; }
+  .ciclo-step:nth-child(3) { background: #235590; }
+  .ciclo-step:nth-child(4) { background: #2b63a8; }
+  .ciclo-step .step-n {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-bottom: 0.3rem;
+  }
+  .ciclo-step .step-name {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .ciclo-step .step-art {
+    font-size: 0.72rem;
+    opacity: 0.75;
+    margin-top: 0.3rem;
+  }
+
+  /* ── FASES GASTO ── */
+  .fases {
+    counter-reset: fase;
+    margin: 0.8rem 0 1.2rem;
+  }
+  .fase-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-top: none;
+    align-items: flex-start;
+  }
+  .fase-item:first-child { border-top: 1px solid var(--border); border-radius: 4px 4px 0 0; }
+  .fase-item:last-child { border-radius: 0 0 4px 4px; }
+  .fase-item:nth-child(even) { background: var(--table-alt); }
+  .fase-num {
+    min-width: 2rem;
+    height: 2rem;
+    background: var(--blue-dark);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .fase-body strong {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--blue-dark);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .fase-body span {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    color: var(--ink-light);
+  }
+
+  /* ── PREGUNTAS ── */
+  .preguntas { margin: 1.2rem 0; }
+  .pregunta {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0.8rem;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px var(--shadow);
+  }
+  .preg-num {
+    min-width: 3rem;
+    background: var(--blue-mid);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .preg-text {
+    background: var(--blue-pale);
+    padding: 0.85rem 1.1rem;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  /* ── RESUMEN TABLE ── */
+  .resumen-table thead tr th:first-child { width: 35%; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { padding: 0; background: white; font-size: 13px; }
+    .cover { page-break-after: always; }
+    h1 { page-break-before: auto; }
+    .art-box, .warn-box, .ce-box { page-break-inside: avoid; }
+    .pregunta { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Servei de Salut · Grup Tècnic de la Funció Administrativa</div>
+  <div class="cover-num">67</div>
+  <div class="cover-title">LEY GENERAL PRESUPUESTARIA:</div>
+  <div class="cover-sub">estructura y contenido.</div>
+  <div class="cover-sub">Los principios presupuestarios: concepto, naturaleza jurídica y tipo.</div>
+  <div class="cover-sub">El ciclo presupuestario: elaboración, aprobación, ejecución y liquidación.</div>
+</div>
+
+<!-- 1 -->
+<h1 data-n="1">Introducción: la Ley 47/2003, de 26 de noviembre, General Presupuestaria</h1>
+
+<p>La Ley 47/2003, de 26 de noviembre, General Presupuestaria (en adelante, LGP) es la norma de referencia que regula el régimen presupuestario, económico-financiero, de contabilidad, intervención y control financiero del sector público estatal. Así lo establece expresamente su artículo 1:</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 1 LGP – Objeto</div>
+  <blockquote>Esta ley tiene por objeto la regulación del régimen presupuestario, económico-financiero, de contabilidad, intervención y de control financiero del sector público estatal.</blockquote>
+</div>
+
+<p>La LGP derogó el texto refundido de la Ley General Presupuestaria de 1988 y supuso una modernización integral del marco normativo de las finanzas públicas estatales en España, adaptándolo a los nuevos requerimientos europeos de estabilidad presupuestaria y a la evolución de las formas organizativas del sector público.</p>
+
+<p>Aunque su ámbito de aplicación directo es el sector público estatal (art. 2 LGP), sus principios y estructura sirven de referencia para el resto de administraciones públicas, incluidas las comunidades autónomas como las Illes Balears, que aprueban sus propias leyes de hacienda inspiradas en sus postulados.</p>
+
+<!-- 2 -->
+<h1 data-n="2">Estructura y contenido de la LGP</h1>
+
+<p>La Ley 47/2003 se estructura en siete títulos, además de las disposiciones adicionales, transitorias, derogatoria y finales:</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Título</th><th>Denominación</th><th>Contenido esencial</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Título I</strong></td><td>Ámbito y Hacienda Pública estatal</td><td>Sector público estatal (art. 2); derechos y obligaciones de la Hacienda Pública (arts. 5-25).</td></tr>
+    <tr><td><strong>Título II</strong></td><td>Presupuestos Generales del Estado</td><td>Principios, elaboración, estructura, créditos, modificaciones y gestión presupuestaria (arts. 26-81). <strong>Núcleo central de la LGP.</strong></td></tr>
+    <tr><td><strong>Título III</strong></td><td>Relaciones financieras con otras Administraciones</td><td>Relaciones con la UE, comunidades autónomas y entidades locales (arts. 82-89).</td></tr>
+    <tr><td><strong>Título IV</strong></td><td>Tesoro Público, Deuda del Estado y Operaciones Financieras</td><td>Funciones del Tesoro; régimen jurídico de la Deuda del Estado (arts. 90-117).</td></tr>
+    <tr><td><strong>Título V</strong></td><td>Contabilidad del sector público estatal</td><td>Principios contables públicos; Cuenta General del Estado; rendición de cuentas (arts. 118-145).</td></tr>
+    <tr><td><strong>Título VI</strong></td><td>Control de la gestión económico-financiera</td><td>Función interventora; control financiero permanente; auditoría pública (arts. 146-172).</td></tr>
+    <tr><td><strong>Título VII</strong></td><td>Responsabilidades</td><td>Responsabilidades en materia económico-financiera (arts. 173-183).</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>El Título II es el eje central de este tema, pues en él se regulan los principios presupuestarios, la elaboración, aprobación y estructura del presupuesto y la gestión del ciclo presupuestario.</p>
+
+<h2>2.1 El sector público estatal (art. 2 LGP)</h2>
+
+<p>El ámbito de aplicación de la LGP queda delimitado por el concepto de «sector público estatal» del art. 2, que incluye: la Administración General del Estado, los organismos autónomos, las autoridades administrativas independientes, las entidades gestoras y servicios comunes de la Seguridad Social, las sociedades mercantiles estatales, las fundaciones del sector público estatal, los fondos sin personalidad jurídica y los consorcios de control estatal, entre otros.</p>
+
+<p>El art. 3 LGP distingue a su vez entre sector público administrativo, empresarial y fundacional, diferenciación relevante a efectos del tipo de presupuesto que les resulta aplicable (limitativo o estimativo).</p>
+
+<div class="warn-box"><strong>⚠ IMPORTANTE:</strong> Las Cortes Generales gozan de autonomía presupuestaria (art. 72 CE) y quedan excluidas del ámbito de la LGP, aunque deben coordinar su elaboración con la del Proyecto de Ley de PGE.</div>
+
+<!-- 3 -->
+<h1 data-n="3">Los principios presupuestarios: concepto, naturaleza jurídica y tipos</h1>
+
+<h2>3.1 Concepto y naturaleza jurídica</h2>
+
+<p>Los principios presupuestarios son los criterios o reglas fundamentales que rigen la elaboración, aprobación, ejecución y control de los presupuestos públicos. Su naturaleza jurídica es doble: son a la vez principios constitucionales —en la medida en que la Constitución Española los recoge en su artículo 134— y principios legales, desarrollados y concretados por la LGP.</p>
+
+<p>El artículo 134 CE establece las bases constitucionales del presupuesto: carácter anual, alcance de los PGE (totalidad de gastos e ingresos del sector público estatal), iniciativa exclusiva del Gobierno para su elaboración, plazo de presentación y aprobación, así como el régimen de prórroga automática en caso de no aprobación.</p>
+
+<div class="ce-box">
+  <div class="art-label">Artículo 134 CE</div>
+  <ol>
+    <li><span class="num">1.</span> Corresponde al Gobierno la elaboración de los Presupuestos Generales del Estado y a las Cortes Generales, su examen, enmienda y aprobación.</li>
+    <li><span class="num">2.</span> Los Presupuestos Generales del Estado tendrán carácter anual, incluirán la totalidad de los gastos e ingresos del sector público estatal y en ellos se consignará el importe de los beneficios fiscales que afecten a los tributos del Estado.</li>
+    <li><span class="num">3.</span> El Gobierno deberá presentar ante el Congreso de los Diputados los Presupuestos Generales del Estado al menos tres meses antes de la expiración de los del año anterior.</li>
+    <li><span class="num">4.</span> Si la Ley de Presupuestos no se aprobara antes del primer día del ejercicio económico correspondiente, se considerarán automáticamente prorrogados los Presupuestos del ejercicio anterior hasta la aprobación de los nuevos.</li>
+    <li><span class="num">5.</span> Aprobados los Presupuestos Generales del Estado, el Gobierno podrá presentar proyectos de ley que impliquen aumento del gasto público o disminución de los ingresos correspondientes al mismo ejercicio presupuestario.</li>
+    <li><span class="num">6.</span> Toda proposición o enmienda que suponga aumento de los créditos o disminución de los ingresos presupuestarios requerirá la conformidad del Gobierno para su tramitación.</li>
+    <li><span class="num">7.</span> La Ley de Presupuestos no puede crear tributos. Podrá modificarlos cuando una ley tributaria sustantiva así lo prevea.</li>
+  </ol>
+</div>
+
+<p>Por su parte, la LGP recoge los principios presupuestarios en dos preceptos clave del Título II: el artículo 26 (principios de programación) y el artículo 27 (principios de gestión), complementados con los principios contenidos en la Sección 1.ª del Capítulo III (arts. 32 a 35) relativos al contenido y principios de ordenación de los PGE.</p>
+
+<h2>3.2 Clasificación: principios constitucionales y principios legales</h2>
+
+<p>La doctrina presupuestaria clásica distingue entre principios de origen político-constitucional —cuya violación supone inconstitucionalidad— y principios de carácter técnico-contable o de gestión, de desarrollo legal. La LGP integra ambas categorías:</p>
+
+<h3>A) Principios constitucionales (art. 134 CE)</h3>
+
+<h3>A.1 Principio de competencia o reserva de ley</h3>
+<p>Los Presupuestos Generales del Estado se aprueban mediante ley (Ley de Presupuestos Generales del Estado), con iniciativa exclusiva del Gobierno. Ningún otro órgano puede elaborarlos ni aprobarlos al margen de este cauce. La Ley de Presupuestos no puede crear tributos, aunque sí modificarlos cuando una ley tributaria sustantiva así lo prevea (art. 134.7 CE).</p>
+
+<h3>A.2 Principio de anualidad</h3>
+<p>El presupuesto se aprueba anualmente y cubre un ejercicio económico. Así lo recoge el art. 34.1 LGP: el período de vigencia de los PGE coincide con el año natural. La LGP instrumenta el principio de anualidad con la regla de temporalidad de los créditos (art. 49 LGP):</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 49 LGP – Temporalidad de los créditos</div>
+  <blockquote>Los créditos para gastos que en el último día del ejercicio presupuestario no estén afectados al cumplimiento de obligaciones ya reconocidas quedarán anulados de pleno derecho, sin perjuicio de lo dispuesto en el artículo 58 de esta ley.</blockquote>
+</div>
+
+<p>Como excepción al principio de anualidad, la LGP admite la prórroga automática del presupuesto anterior si la Ley de PGE no se aprueba antes del 1 de enero (art. 38 LGP) y los compromisos de gasto plurianuales en los términos del art. 47 LGP.</p>
+
+<h3>A.3 Principio de universalidad</h3>
+<p>El presupuesto debe comprender la totalidad de gastos e ingresos del sector público estatal. No pueden existir presupuestos ocultos o extrapresupuestarios. Este principio se conecta con el de «presupuesto bruto» o «no compensación»: los ingresos y gastos deben figurar por su importe íntegro, sin compensarse entre sí (salvo excepciones expresamente previstas en el art. 27.4 LGP).</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 27 (ap. 2 y 4) LGP – No compensación</div>
+  <blockquote>Los presupuestos de gastos e ingresos del sector público estatal se presupuestarán por su importe íntegro, quedando prohibida la compensación entre unos y otros, con las excepciones legalmente previstas.</blockquote>
+</div>
+
+<h3>A.4 Principio de unidad</h3>
+<p>Todos los presupuestos del sector público estatal deben integrarse en un único documento presupuestario: los Presupuestos Generales del Estado. El art. 33 LGP delimita el alcance subjetivo de los PGE, que incluye presupuestos con carácter limitativo (Estado, organismos autónomos, Seguridad Social) y presupuestos con carácter estimativo (entidades públicas empresariales, sociedades mercantiles estatales y fundaciones).</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 32 LGP – Definición de los Presupuestos Generales del Estado</div>
+  <blockquote>Los Presupuestos Generales del Estado constituyen la expresión cifrada, conjunta y sistemática de los derechos y obligaciones a liquidar durante el ejercicio por cada uno de los órganos y entidades que forman parte del sector público estatal.</blockquote>
+</div>
+
+<h3>A.5 Principio de equilibrio presupuestario (estabilidad presupuestaria)</h3>
+<p>Tras la reforma del artículo 135 CE en 2011, la estabilidad presupuestaria adquirió rango constitucional pleno, siendo desarrollada por la Ley Orgánica 2/2012, de Estabilidad Presupuestaria y Sostenibilidad Financiera. En el plano de la LGP, el art. 26.1 enuncia la estabilidad presupuestaria como principio rector de la programación presupuestaria:</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 26.1 LGP – Principios de programación presupuestaria</div>
+  <blockquote>La programación presupuestaria se regirá por los principios de estabilidad presupuestaria, <strong>plurianualidad</strong>, transparencia y eficiencia en la asignación y utilización de los recursos públicos.</blockquote>
+</div>
+
+<h3>B) Principios legales de programación (art. 26 LGP)</h3>
+<p>El artículo 26 LGP enumera los principios que rigen la fase de programación presupuestaria (fase previa a la elaboración anual del presupuesto):</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Principio (art. 26 LGP)</th><th>Contenido</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Estabilidad presupuestaria</strong></td><td>Situación de equilibrio o superávit estructural. Conectado con el art. 135 CE y la LO 2/2012.</td></tr>
+    <tr><td><strong>Plurianualidad</strong></td><td>La gestión presupuestaria anual se enmarca en un escenario plurianual (3 ejercicios siguientes). Desarrollado en los arts. 28-30 LGP.</td></tr>
+    <tr><td><strong>Transparencia</strong></td><td>Las cuentas públicas deben ser claras y accesibles; toda actuación con repercusión presupuestaria debe valorarse y publicarse.</td></tr>
+    <tr><td><strong>Eficiencia en la asignación y uso de recursos</strong></td><td>Las asignaciones presupuestarias deben orientarse al cumplimiento de objetivos, evaluando resultados (gestión por objetivos, arts. 70-72 LGP).</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>C) Principios legales de gestión (art. 27 LGP)</h3>
+<p>El artículo 27 LGP establece las reglas de gestión presupuestaria, que son principios de carácter técnico que rigen la ejecución del presupuesto ya aprobado:</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Regla / Principio (art. 27 LGP)</th><th>Contenido</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Legalidad</strong></td><td>La gestión económico-financiera se somete al ordenamiento jurídico y al presupuesto aprobado por las Cortes Generales.</td></tr>
+    <tr><td><strong>Eficiencia y economía</strong></td><td>Obtención de los máximos resultados con el menor coste posible; uso racional de los recursos públicos.</td></tr>
+    <tr><td><strong>Presupuesto anual aprobado por las Cortes</strong></td><td>La gestión del sector público estatal está sometida al régimen de presupuesto anual aprobado por las Cortes Generales y enmarcado en el escenario plurianual (art. 27.1 LGP).</td></tr>
+    <tr><td><strong>Limitación y especificación de los créditos</strong></td><td>Los créditos para gastos son limitativos (no pueden superarse) y específicos (art. 42 LGP). Solo pueden gastarse para el fin concreto para el que fueron autorizados.</td></tr>
+    <tr><td><strong>No compensación (presupuesto bruto)</strong></td><td>Gastos e ingresos se presupuestan por su importe íntegro, sin compensaciones salvo excepciones legales.</td></tr>
+    <tr><td><strong>Temporalidad</strong></td><td>Los créditos no aplicados al cierre del ejercicio quedan anulados (art. 49 LGP). Excepciones: incorporaciones de crédito (art. 58 LGP).</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="warn-box"><strong>⚠ IMPORTANTE:</strong> Distinción clave: los principios del art. 26 LGP rigen la PROGRAMACIÓN (fase anterior a la elaboración del presupuesto anual); los del art. 27 LGP rigen la GESTIÓN del presupuesto ya aprobado. Ambos artículos se ubican en el Capítulo I del Título II.</div>
+
+<!-- 4 -->
+<h1 data-n="4">El ciclo presupuestario: elaboración, aprobación, ejecución y liquidación</h1>
+
+<p>El ciclo presupuestario comprende el conjunto de fases por las que pasa el presupuesto desde su concepción hasta su cierre. La LGP regula cada una de estas fases en el Título II, principalmente en los Capítulos II, III y VI. El ciclo se repite anualmente y sus fases son sucesivas aunque, en la práctica, se solapan en el tiempo (mientras se ejecuta el presupuesto de un ejercicio, ya se está elaborando el del ejercicio siguiente).</p>
+
+<div class="ciclo">
+  <div class="ciclo-step">
+    <div class="step-n">Fase 1</div>
+    <div class="step-name">Elaboración</div>
+    <div class="step-art">Arts. 28-31, 36 LGP</div>
+  </div>
+  <div class="ciclo-step">
+    <div class="step-n">Fase 2</div>
+    <div class="step-name">Aprobación</div>
+    <div class="step-art">Arts. 37-38 LGP</div>
+  </div>
+  <div class="ciclo-step">
+    <div class="step-n">Fase 3</div>
+    <div class="step-name">Ejecución</div>
+    <div class="step-art">Arts. 69-81 LGP</div>
+  </div>
+  <div class="ciclo-step">
+    <div class="step-n">Fase 4</div>
+    <div class="step-name">Liquidación</div>
+    <div class="step-art">Título V LGP</div>
+  </div>
+</div>
+
+<h2>4.1 Fase 1: Elaboración del proyecto de presupuesto (arts. 36 y 28-31 LGP)</h2>
+
+<p>La iniciativa de elaboración corresponde en exclusiva al Gobierno (art. 134.1 CE). El Ministerio de Hacienda dirige el proceso, con la colaboración de todos los departamentos y organismos del sector público estatal, los cuales elaboran cada uno de ellos sus correspondientes anteproyectos/proyectos de presupuestos. La LGP regula este proceso en los artículos 28 a 31 (programación plurianual) y 36 (procedimiento de elaboración):</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 36.1 LGP – Procedimiento de elaboración</div>
+  <blockquote>El Ministerio de Hacienda elaborará el proyecto de Ley de Presupuestos Generales del Estado de acuerdo con las directrices generales de política económica establecidas por el Gobierno.</blockquote>
+</div>
+
+<p>El proceso de elaboración sigue las siguientes etapas internas:</p>
+<ul>
+  <li>El Gobierno establece los objetivos de estabilidad presupuestaria y el escenario macroeconómico para los tres ejercicios siguientes (art. 28 LGP).</li>
+  <li>El Ministerio de Hacienda elabora y remite a cada ministerio los límites de gasto de sus secciones presupuestarias.</li>
+  <li>Los ministerios y organismos elaboran sus anteproyectos de presupuesto de acuerdo con dichos límites y los elevan al Ministerio de Hacienda.</li>
+  <li>El Ministerio de Hacienda integra todos los anteproyectos en el Proyecto de Ley de PGE.</li>
+  <li>El Consejo de Ministros aprueba el Proyecto de Ley de PGE y lo remite a las Cortes Generales.</li>
+</ul>
+
+<h2>4.2 Fase 2: Aprobación parlamentaria (arts. 37 y 38 LGP)</h2>
+
+<p>Corresponde a las Cortes Generales la aprobación del presupuesto mediante la Ley de Presupuestos Generales del Estado. El art. 37 LGP regula el plazo y requisitos de remisión a las Cortes:</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 37.1 LGP – Remisión a las Cortes Generales</div>
+  <blockquote>El proyecto de Ley de Presupuestos Generales del Estado, integrado por el articulado con sus anexos y los estados de ingresos y de gastos, con el nivel de especificación de créditos establecido en los artículos 40 y 41 de esta Ley, será remitido a las Cortes Generales antes del día 1 de octubre del año anterior al que se refiera.</blockquote>
+</div>
+
+<p>El procedimiento parlamentario de aprobación sigue las reglas generales del procedimiento legislativo, con algunas especialidades constitucionales relevantes (art. 134 CE):</p>
+<ul>
+  <li>El Gobierno puede oponerse a toda proposición o enmienda que suponga aumento de créditos o disminución de ingresos (art. 134.6 CE).</li>
+  <li>Las Cortes no pueden, a iniciativa propia, aumentar los créditos del proyecto del Gobierno, salvo con el consentimiento de este.</li>
+  <li>Si la Ley de PGE no se aprobara antes del 1 de enero, se prorrogan automáticamente los presupuestos del ejercicio anterior hasta la aprobación de los nuevos:</li>
+</ul>
+
+<div class="art-box">
+  <div class="art-label">Artículo 38.1 LGP – Prórroga de los Presupuestos Generales del Estado</div>
+  <blockquote>Si la Ley de Presupuestos Generales del Estado no se aprobara antes del primer día del ejercicio económico correspondiente, se considerarán automáticamente prorrogados los Presupuestos del ejercicio anterior hasta la aprobación de los nuevos.</blockquote>
+</div>
+
+<div class="warn-box"><strong>⚠ IMPORTANTE:</strong> La prórroga automática no es ilimitada: solo se prorrogan los créditos de operaciones corrientes y no se pueden tramitar modificaciones de crédito sobre los presupuestos prorrogados más allá de los casos expresamente previstos.</div>
+
+<p>Existe una relevante discusión doctrinal acerca de qué elementos del presupuesto quedan exactamente prorrogados cuando se aplica la prórroga automática prevista en la ley. Algunos autores sostienen que únicamente se prorrogan los estados de ingresos y gastos, es decir, las cifras y partidas presupuestarias, mientras que otros defienden que la prórroga debería extenderse también a todo el articulado de la Ley de Presupuestos, incluyendo las disposiciones normativas que acompañan a los estados.</p>
+
+<p>Sin embargo, una postura intermedia considera que solo se prorrogan aquellas disposiciones del articulado que tengan carácter estrictamente presupuestario, quedando excluidas las normas de contenido extrapresupuestario o aquellas de vigencia anual. Esta controversia tiene importantes consecuencias prácticas, ya que de ella depende la aplicabilidad de determinadas normas o medidas incorporadas a la Ley de Presupuestos en ejercicios anteriores. En la práctica administrativa, suele prevalecer el criterio de que únicamente los estados de ingresos y gastos y las disposiciones de naturaleza presupuestaria quedan prorrogadas, mientras que las normas de vigencia temporal anual deben ser objeto de nueva aprobación.</p>
+
+<h2>4.3 Fase 3: Ejecución del presupuesto (arts. 73-81 LGP)</h2>
+
+<p>La ejecución es la fase en que los créditos aprobados en el presupuesto se materializan en gastos e ingresos efectivos. Es la fase más extensa en el tiempo: abarca todo el ejercicio económico (año natural). La LGP regula la gestión del presupuesto en el Capítulo VI del Título II (arts. 69 a 81).</p>
+
+<h3>4.3.1 Ejecución del presupuesto de gastos: fases del procedimiento (art. 73 LGP)</h3>
+
+<p>El art. 73 LGP establece las fases del procedimiento de gestión de los gastos públicos, que son de carácter sucesivo y preclusivo:</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 73.1 LGP – Fases del procedimiento de la gestión de los gastos</div>
+  <blockquote>La gestión de los gastos públicos con cargo a los créditos del Presupuesto se realizará a través de las siguientes fases: aprobación del gasto, compromiso de gasto, reconocimiento de la obligación y ordenación del pago.</blockquote>
+</div>
+
+<div class="fases">
+  <div class="fase-item">
+    <div class="fase-num">1ª</div>
+    <div class="fase-body">
+      <strong>Aprobación del gasto</strong>
+      <span>Acto por el que el órgano competente decide la realización de un gasto determinado por una cuantía cierta o aproximada, reservando la totalidad o parte de un crédito presupuestario (acto interno; no genera derechos frente a terceros).</span>
+    </div>
+  </div>
+  <div class="fase-item">
+    <div class="fase-num">2ª</div>
+    <div class="fase-body">
+      <strong>Compromiso de gasto</strong>
+      <span>Acto que vincula al sector público con un tercero, naciendo una obligación potencial (p. ej., formalización de un contrato). Implica la reserva definitiva de crédito.</span>
+    </div>
+  </div>
+  <div class="fase-item">
+    <div class="fase-num">3ª</div>
+    <div class="fase-body">
+      <strong>Reconocimiento de la obligación</strong>
+      <span>El órgano gestor certifica que el acreedor ha cumplido la contraprestación, naciendo así la obligación de pago a cargo de la Hacienda Pública.</span>
+    </div>
+  </div>
+  <div class="fase-item">
+    <div class="fase-num">4ª</div>
+    <div class="fase-body">
+      <strong>Ordenación del pago</strong>
+      <span>Expedición de la orden de pago por el órgano competente (el ordenador de pagos). No supone el pago efectivo, sino la autorización para que el Tesoro realice el pago (art. 75 LGP).</span>
+    </div>
+  </div>
+  <div class="fase-item">
+    <div class="fase-num" style="background: var(--accent)">✓</div>
+    <div class="fase-body">
+      <strong>Pago efectivo (Tesoro Público)</strong>
+      <span>Materialización definitiva del gasto. Corresponde al Tesoro Público. En la práctica, las fases 1.ª y 2.ª pueden tramitarse conjuntamente (expediente «aprobación-compromiso» o «AD»).</span>
+    </div>
+  </div>
+</div>
+
+<h3>4.3.2 Ejecución del presupuesto de ingresos (art. 80 LGP)</h3>
+
+<p>La gestión de los ingresos se rige por las normas del ordenamiento tributario y por las disposiciones de la LGP sobre derechos de la Hacienda Pública estatal (arts. 5 a 18 LGP). El art. 80 LGP regula la gestión del presupuesto de ingresos y el régimen de aplicación contable de los mismos. A diferencia del presupuesto de gastos, los créditos de ingresos tienen carácter de previsión (no son limitativos): su superación no conlleva nulidad, sino que los ingresos adicionales quedan incorporados al presupuesto.</p>
+
+<h3>4.3.3 Modificaciones de crédito (arts. 51-63 LGP)</h3>
+
+<p>Durante la ejecución del presupuesto pueden surgir necesidades no previstas o variaciones respecto a las previsiones iniciales. La LGP regula en los arts. 51 a 63 las figuras de modificación presupuestaria, las cuales serán de aplicación en uno u otro caso según las circunstancias concretas que se planteen. A modo de introducción, se indican los tipos existentes:</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Figura (LGP)</th><th>Efecto</th><th>Particularidades</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Crédito extraordinario (art. 55)</strong></td><td>Crea nuevo crédito inexistente</td><td>Requiere ley aprobada por las Cortes Generales. Financiación mediante baja en otros créditos, nuevos ingresos o deuda.</td></tr>
+    <tr><td><strong>Suplemento de crédito (art. 55)</strong></td><td>Amplía crédito insuficiente</td><td>Mismo procedimiento que el crédito extraordinario. Requiere aprobación por ley.</td></tr>
+    <tr><td><strong>Ampliación de crédito (art. 54)</strong></td><td>Amplía un crédito «ampliable»</td><td>Solo para los créditos expresamente declarados ampliables en la Ley de PGE. Aprobación por Consejo de Ministros o Ministro de Hacienda.</td></tr>
+    <tr><td><strong>Transferencia de crédito (art. 52)</strong></td><td>Traslada dotación entre créditos existentes</td><td>No varía el total del presupuesto. Sujeta a límites materiales (no puede afectar a capítulos de gastos de personal en determinados supuestos).</td></tr>
+    <tr><td><strong>Generación de crédito (art. 53)</strong></td><td>Incrementa créditos por ingresos concretos</td><td>Vinculada a ingresos efectivos no previstos (ventas, reintegros, aportaciones de terceros). Requiere resolución del Ministro de Hacienda.</td></tr>
+    <tr><td><strong>Incorporación de crédito (art. 58)</strong></td><td>Pasa créditos no gastados al ejercicio siguiente</td><td>Excepción al principio de temporalidad. Solo para créditos habilitados por ley, con financiación afectada o comprometidos al cierre del ejercicio.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>4.4 Fase 4: Liquidación y cierre del presupuesto</h2>
+
+<p>La liquidación es la fase final del ciclo presupuestario: una vez concluido el ejercicio económico (31 de diciembre), se procede a cerrar las cuentas y a determinar el resultado presupuestario. La LGP regula esta fase en conexión con las normas de contabilidad pública del Título V.</p>
+
+<h3>4.4.1 Cierre del ejercicio</h3>
+<p>El ejercicio presupuestario coincide con el año natural (art. 34 LGP). Al cierre:</p>
+<ul>
+  <li>Los créditos no aplicados quedan anulados de pleno derecho (principio de temporalidad, art. 49 LGP), salvo los que puedan incorporarse al ejercicio siguiente (art. 58 LGP).</li>
+  <li>Los derechos reconocidos y no cobrados y las obligaciones reconocidas y no pagadas se traspasan a la cuenta de deudores y acreedores presupuestarios, respectivamente.</li>
+</ul>
+
+<h3>4.4.2 Liquidación del presupuesto</h3>
+<p>La liquidación se materializa en la Cuenta General del Estado, cuya formación y rendición al Tribunal de Cuentas regula el Título V LGP. La Intervención General de la Administración del Estado (IGAE) formula la Cuenta General, que el Gobierno somete al Tribunal de Cuentas para su fiscalización. El resultado de la liquidación puede ser:</p>
+<ul>
+  <li><strong>Superávit presupuestario:</strong> los ingresos liquidados superan a los gastos liquidados.</li>
+  <li><strong>Déficit presupuestario:</strong> los gastos liquidados superan a los ingresos liquidados.</li>
+  <li><strong>Equilibrio:</strong> coincidencia entre ingresos y gastos liquidados.</li>
+</ul>
+
+<p>Es importante destacar que el equilibrio presupuestario durante la fase de presupuestación no garantiza que no exista déficit presupuestario en la liquidación final del presupuesto. En la elaboración del presupuesto, se realizan estimaciones de ingresos y gastos que buscan el equilibrio, es decir, que los ingresos previstos igualen a los gastos previstos. Sin embargo, estas cifras son solo proyecciones y pueden no coincidir con la realidad durante la ejecución del ejercicio. A lo largo del año, pueden surgir desviaciones por ingresos inferiores a los esperados o gastos superiores a los presupuestados, lo que puede dar lugar a un déficit en la liquidación del presupuesto.</p>
+
+<p>Por tanto, el equilibrio presupuestario en la planificación representa una intención, pero el resultado efectivo dependerá del comportamiento real de los ingresos y gastos durante la ejecución presupuestaria. El resultado presupuestario, junto con el remanente de tesorería y el ahorro neto, son los indicadores fundamentales del estado financiero de la Administración.</p>
+
+<div class="warn-box"><strong>⚠ IMPORTANTE:</strong> Distinción práctica: el presupuesto se APRUEBA el año anterior (remisión antes del 1 de octubre); se EJECUTA durante el año en curso; y se LIQUIDA al cierre del ejercicio (año natural), rindiendo la Cuenta General al Tribunal de Cuentas.</div>
+
+<!-- 5 -->
+<h1 data-n="5">La estructura de los Presupuestos Generales del Estado (arts. 39-41 LGP)</h1>
+
+<p>La estructura del presupuesto determina cómo se clasifican y ordenan los créditos para gastos y las previsiones de ingresos. La LGP regula la estructura en los arts. 39 a 41:</p>
+
+<div class="art-box">
+  <div class="art-label">Artículo 39 LGP – Estructura de los presupuestos del sector público estatal</div>
+  <blockquote>Los presupuestos integrantes de los Presupuestos Generales del Estado se estructurarán de acuerdo con lo que disponga el Ministerio de Hacienda, de forma que pueda determinarse el origen o el destino de los fondos públicos con arreglo a criterios orgánicos, por programas y económicos.</blockquote>
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Clasificación</th><th>Criterio</th><th>Ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Orgánica (o institucional)</strong></td><td>Quién gasta. Por secciones, servicios y organismos autónomos.</td><td>Sección 26: Ministerio de Sanidad.</td></tr>
+    <tr><td><strong>Funcional o por programas</strong></td><td>Para qué se gasta. Grupos de función, funciones y programas.</td><td>Programa 313A: Atención primaria de salud.</td></tr>
+    <tr><td><strong>Económica</strong></td><td>Qué se compra. Capítulos (1 dígito), artículos (2), conceptos (3) y subconceptos (4+).</td><td>Capítulo 1: Gastos de personal. Cap. 2: Gastos corrientes. Cap. 6: Inversiones reales.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>El art. 40 LGP determina la estructura de los estados de gastos (clasificación orgánica + funcional + económica) y el art. 41 LGP la de los estados de ingresos (clasificación orgánica + económica). El Ministerio de Hacienda aprueba cada año la orden ministerial de estructura presupuestaria, mediante una Orden Ministerial.</p>
+
+<!-- 6 -->
+<h1 data-n="6">Tabla resumen para el examen</h1>
+
+<div class="table-wrap">
+<table class="resumen-table">
+  <thead><tr><th>Materia</th><th>Dato clave</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Ley General Presupuestaria</strong></td><td>Ley 47/2003, de 26 de noviembre. Objeto: art. 1 LGP (régimen presupuestario, económico-financiero, contabilidad, intervención y control).</td></tr>
+    <tr><td><strong>Estructura de la LGP</strong></td><td>7 Títulos. Núcleo: Título II (PGE). Otros: Hacienda Pública (T. I), Deuda/Tesoro (T. IV), Contabilidad (T. V), Control (T. VI), Responsabilidades (T. VII).</td></tr>
+    <tr><td><strong>Definición del presupuesto</strong></td><td>Art. 32 LGP: «expresión cifrada, conjunta y sistemática de los derechos y obligaciones a liquidar durante el ejercicio».</td></tr>
+    <tr><td><strong>Principios de programación (art. 26)</strong></td><td>Estabilidad presupuestaria · Plurianualidad · Transparencia · Eficiencia.</td></tr>
+    <tr><td><strong>Principios de gestión (art. 27)</strong></td><td>Legalidad · Eficiencia · Economía · Presupuesto anual aprobado por Cortes · Limitación de créditos · No compensación · Temporalidad.</td></tr>
+    <tr><td><strong>Temporalidad de créditos</strong></td><td>Art. 49 LGP: los créditos no aplicados al 31/12 quedan anulados de pleno derecho.</td></tr>
+    <tr><td><strong>Fases ejecución gasto (art. 73)</strong></td><td>1.ª Aprobación → 2.ª Compromiso → 3.ª Reconocimiento de obligación → 4.ª Ordenación del pago → Pago efectivo (Tesoro).</td></tr>
+    <tr><td><strong>Elaboración PGE</strong></td><td>Iniciativa del Gobierno (art. 134.1 CE). Ministerio de Hacienda elabora el proyecto. Se remite a Cortes antes del 1 de octubre (art. 37 LGP).</td></tr>
+    <tr><td><strong>Prórroga automática</strong></td><td>Art. 38 LGP: si no se aprueba antes del 1 de enero, se prorrogan automáticamente los presupuestos del ejercicio anterior.</td></tr>
+    <tr><td><strong>Estructura PGE (gastos)</strong></td><td>Arts. 39-40 LGP: clasificación orgánica + funcional/por programas + económica.</td></tr>
+    <tr><td><strong>Liquidación y Cuenta General</strong></td><td>Al cierre del ejercicio; IGAE formula la Cuenta General; remisión al Tribunal de Cuentas (Título V LGP).</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 7 -->
+<h1 data-n="7">Preguntas de autoevaluación</h1>
+
+<p>Las siguientes preguntas de respuesta abierta tienen por objeto comprobar la comprensión del ciclo presupuestario y sus fases principales. Trata de responderlas sin consultar los apuntes en una primera ronda.</p>
+
+<div class="preguntas">
+  <div class="pregunta">
+    <div class="preg-num">1</div>
+    <div class="preg-text">El Ministerio de Hacienda elabora el proyecto de Ley de Presupuestos Generales del Estado. ¿Antes de qué fecha debe ser remitido a las Cortes Generales y qué artículo de la LGP lo establece? ¿Qué sucede si las Cortes no lo aprueban a tiempo?</div>
+  </div>
+  <div class="pregunta">
+    <div class="preg-num">2</div>
+    <div class="preg-text">El artículo 73 LGP enumera las fases del procedimiento de gestión de los gastos públicos. Enuméralas en orden e indica brevemente en qué consiste cada una. ¿En qué fase se origina la obligación de pago a cargo de la Hacienda Pública frente al acreedor?</div>
+  </div>
+  <div class="pregunta">
+    <div class="preg-num">3</div>
+    <div class="preg-text">¿Qué ocurre con los créditos presupuestarios para gastos que, al 31 de diciembre, no han sido aplicados al cumplimiento de obligaciones ya reconocidas? ¿Qué figura de modificación presupuestaria permite excepcionalmente trasladar créditos al ejercicio siguiente?</div>
+  </div>
+  <div class="pregunta">
+    <div class="preg-num">4</div>
+    <div class="preg-text">¿Qué diferencia existe entre los principios del artículo 26 LGP y los del artículo 27 LGP? ¿A qué fase del ciclo presupuestario se aplica cada uno?</div>
+  </div>
+</div>
+
+</body>
+</html>
