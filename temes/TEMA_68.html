@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 68 — El Presupuesto de la CAIB</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-mid: #2d2d4a;
+    --ink-light: #5a5a7a;
+    --ink-faint: #9898b0;
+    --paper: #faf9f6;
+    --paper-warm: #f4f2ec;
+    --paper-tinted: #edeae0;
+    --rule: #c8c4b4;
+    --rule-light: #e2dfd4;
+    --accent: #8b2635;
+    --accent-mid: #b03040;
+    --accent-pale: #f5e8ea;
+    --accent-faint: #faf3f4;
+    --gold: #c4963a;
+    --gold-pale: #faf6ee;
+    --nota: #1a3a5c;
+    --nota-pale: #eef3f8;
+    --nota-border: #4a7aaa;
+    --w-content: 860px;
+    --w-narrow: 680px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--paper);
+    font-weight: 300;
+  }
+
+  /* ── HEADER ─────────────────────────────────────── */
+  .portada {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 72px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .portada::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 59px,
+        rgba(255,255,255,0.03) 59px,
+        rgba(255,255,255,0.03) 60px
+      );
+    pointer-events: none;
+  }
+  .portada-inner {
+    max-width: var(--w-content);
+    margin: 0 auto;
+    position: relative;
+  }
+  .portada-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 20px;
+  }
+  .portada h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3.5vw, 34px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--paper);
+    max-width: 780px;
+    margin-bottom: 24px;
+  }
+  .portada-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    font-style: italic;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  /* ── LAYOUT ──────────────────────────────────────── */
+  .page-wrap {
+    max-width: var(--w-content);
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ── TABLE OF CONTENTS ───────────────────────────── */
+  .toc {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    margin: 48px 0 56px;
+    padding: 32px 36px;
+  }
+  .toc-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc-main;
+  }
+  .toc > ol > li {
+    counter-increment: toc-main;
+    margin-bottom: 6px;
+  }
+  .toc > ol > li > a {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.15s;
+  }
+  .toc > ol > li > a::before {
+    content: counter(toc-main) ".";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 20px;
+    font-weight: 500;
+  }
+  .toc > ol > li > a:hover { color: var(--accent); }
+  .toc > ol > li > a::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px dotted var(--rule);
+    margin: 0 6px 3px;
+  }
+
+  /* ── SECTION HEADINGS ────────────────────────────── */
+  .section-main {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 2px solid var(--ink);
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .section-main h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink-mid);
+    margin: 40px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-mid);
+    margin: 28px 0 10px;
+    font-style: italic;
+  }
+
+  /* ── BODY TEXT ───────────────────────────────────── */
+  p {
+    margin-bottom: 1em;
+    color: var(--ink);
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  /* ── LISTS ───────────────────────────────────────── */
+  ul {
+    list-style: none;
+    margin: 12px 0 18px;
+    padding-left: 0;
+  }
+  ul li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 6px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  /* ── ARTICLE QUOTE BLOCKS (CE articles) ──────────── */
+  .art-quote {
+    background: var(--paper-tinted);
+    border-left: 3px solid var(--rule);
+    margin: 20px 0;
+    padding: 18px 24px;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+  .art-quote p { color: var(--ink-light); margin-bottom: 6px; text-align: left; }
+  .art-quote p:last-child { margin-bottom: 0; }
+
+  /* ── NOTA BOX ────────────────────────────────────── */
+  .nota {
+    background: var(--nota-pale);
+    border: 1px solid rgba(74,122,170,0.3);
+    border-left: 4px solid var(--nota-border);
+    margin: 28px 0;
+    padding: 18px 22px;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--nota);
+    line-height: 1.65;
+  }
+  .nota p { color: var(--nota); margin-bottom: 4px; text-align: left; }
+  .nota p:last-child { margin-bottom: 0; }
+
+  /* ── TABLES ──────────────────────────────────────── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 28px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  thead tr {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  thead th {
+    padding: 11px 14px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  tbody tr:nth-child(even) { background: var(--paper-warm); }
+  tbody tr:nth-child(odd) { background: var(--paper); }
+  tbody tr:hover { background: var(--accent-faint); }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule-light);
+    vertical-align: top;
+    color: var(--ink-mid);
+  }
+  td strong { color: var(--ink); font-weight: 600; }
+  td:first-child { font-weight: 500; color: var(--ink); }
+
+  /* ── INLINE BOLD (strong) ────────────────────────── */
+  strong { font-weight: 600; color: var(--ink); }
+
+  /* ── FASES ADOP BOX ──────────────────────────────── */
+  .fase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .fase-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    padding: 18px 16px;
+  }
+  .fase-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .fase-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 10px;
+  }
+  .fase-desc {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+
+  /* ── RESUMEN TABLE special styling ───────────────── */
+  .table-resumen thead th { background: var(--accent); }
+  .table-resumen td:first-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── PRINT STYLES ────────────────────────────────── */
+  @media print {
+    .portada { background: var(--ink) !important; -webkit-print-color-adjust: exact; }
+    .fase-card { break-inside: avoid; }
+    table { break-inside: avoid; }
+    h2, h3 { break-after: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .portada { padding: 48px 24px 40px; }
+    .page-wrap { padding: 0 20px 60px; }
+    .fase-grid { grid-template-columns: 1fr 1fr; }
+    .toc { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<header class="portada">
+  <div class="portada-inner">
+    <p class="portada-label">Secretaría-Intervención · Oposiciones · Tema 68</p>
+    <h1>El Presupuesto de la Comunidad Autónoma de las Illes Balears: Concepto y Régimen Jurídico. Elaboración, Estructura, Ejecución y Contenido. Leyes de Acompañamiento Presupuestario en el Ámbito Autonómico.</h1>
+    <p class="portada-sub">Ley 14/2014, de Finanzas de la CAIB (LFCAIB) · Comunitat Autònoma de les Illes Balears</p>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+<!-- ÍNDICE -->
+<nav class="toc" aria-label="Índice de contenidos">
+  <p class="toc-title">Índice</p>
+  <ol>
+    <li><a href="#s1">Concepto y régimen jurídico del presupuesto de la CAIB</a></li>
+    <li><a href="#s2">Elaboración del presupuesto (arts. 33–47 LFCAIB)</a></li>
+    <li><a href="#s3">Estructura del presupuesto (arts. 36–43 LFCAIB)</a></li>
+    <li><a href="#s4">Ejecución del presupuesto (Título II, Cap. VI LFCAIB)</a></li>
+    <li><a href="#s5">Modificaciones de crédito (arts. 54–72 LFCAIB)</a></li>
+    <li><a href="#s6">Contenido y documentación del presupuesto (art. 45 LFCAIB)</a></li>
+    <li><a href="#s7">El presupuesto del Servei de Salut: peculiaridades como organismo autónomo</a></li>
+    <li><a href="#s8">Leyes de acompañamiento presupuestario</a></li>
+    <li><a href="#s9">Control del presupuesto (Título IV LFCAIB)</a></li>
+    <li><a href="#s10">Tabla resumen para el examen</a></li>
+  </ol>
+</nav>
+
+<!-- SECCIÓN 1 -->
+<section class="section-main" id="s1">
+  <span class="section-num">Apartado 1</span>
+  <h2>Concepto y régimen jurídico del presupuesto de la CAIB</h2>
+
+  <h3>1.1 Concepto de presupuesto</h3>
+  <p>El presupuesto es el instrumento fundamental de planificación económico-financiera de las Administraciones públicas. En términos jurídicos, el presupuesto es la autorización legislativa que habilita al Gobierno para realizar gastos y recaudar ingresos durante un ejercicio económico determinado.</p>
+  <p>Desde una perspectiva amplia, el presupuesto de la Comunitat Autònoma de les Illes Balears (CAIB) puede definirse como el plan económico-financiero anual, aprobado por el Parlament, que recoge las previsiones de ingresos y las autorizaciones de gasto para atender las necesidades públicas autonómicas durante el ejercicio, con sujeción a los principios de legalidad, equilibrio y eficiencia.</p>
+
+  <h3>1.2 Marco constitucional y estatutario</h3>
+  <p>El fundamento constitucional del presupuesto autonómico descansa en los siguientes preceptos:</p>
+  <ul>
+    <li><strong>Artículo 156 CE:</strong> garantiza la autonomía financiera de las Comunidades Autónomas para el desarrollo y ejecución de sus competencias.</li>
+  </ul>
+  <div class="art-quote">
+    <p><em>Artículo 156</em></p>
+    <p>1. Las Comunidades Autónomas gozarán de autonomía financiera para el desarrollo y ejecución de sus competencias con arreglo a los principios de coordinación con la Hacienda estatal y de solidaridad entre todos los españoles.</p>
+    <p>2. Las Comunidades Autónomas podrán actuar como delegados o colaboradores del Estado para la recaudación, la gestión y la liquidación de los recursos tributarios de aquél, de acuerdo con las leyes y los Estatutos.</p>
+  </div>
+  <ul>
+    <li><strong>Artículo 157 CE:</strong> enumera los recursos de las CCAA (tributos propios, participaciones en tributos estatales, transferencias del Fondo de Compensación Interterritorial, etc.).</li>
+  </ul>
+  <div class="art-quote">
+    <p><em>Artículo 157</em></p>
+    <p>1. Los recursos de las Comunidades Autónomas estarán constituidos por:</p>
+    <p>a) Impuestos cedidos total o parcialmente por el Estado; recargos sobre impuestos estatales y otras participaciones en los ingresos del Estado.</p>
+    <p>b) Sus propios impuestos, tasas y contribuciones especiales.</p>
+    <p>c) Transferencias de un Fondo de Compensación interterritorial y otras asignaciones con cargo a los Presupuestos Generales del Estado.</p>
+    <p>d) Rendimientos procedentes de su patrimonio e ingresos de derecho privado.</p>
+    <p>e) El producto de las operaciones de crédito.</p>
+  </div>
+  <ul>
+    <li><strong>Artículo 158 CE:</strong> prevé asignaciones complementarias para CCAA con menor capacidad fiscal, en garantía de un nivel mínimo de servicios.</li>
+    <li><strong>Artículo 134 CE:</strong> aunque regulador de los Presupuestos Generales del Estado, actúa como parámetro interpretativo del régimen presupuestario autonómico.</li>
+  </ul>
+  <p>En el plano estatutario, el Estatut d'Autonomia de les Illes Balears (LO 1/2007) reconoce la Hisenda de la Comunitat Autònoma como propia, regula la capacidad normativa en materia tributaria y atribuye al Parlament la potestad de aprobar los presupuestos.</p>
+  <div class="art-quote">
+    <p><em>Artículo 135. El presupuesto.</em></p>
+    <p>1. El presupuesto general de la Comunidad Autónoma de las Illes Balears tiene carácter anual, es único y constituye la expresión cifrada, conjunta y sistemática de todos los gastos y de todos los ingresos de las instituciones, los organismos, las entidades y las empresas que constituyen el sector público autonómico.</p>
+    <p>2. Corresponde al Gobierno de las Illes Balears elaborar y ejecutar el presupuesto, y al Parlamento examinarlo, enmendarlo, aprobarlo y controlarlo, sin perjuicio del control que corresponda a la Sindicatura de Cuentas y al Tribunal de Cuentas.</p>
+    <p>3. La tramitación parlamentaria del proyecto de ley de presupuestos generales de la Comunidad Autónoma de las Illes Balears se llevará a cabo con las especialidades previstas en el Reglamento del Parlament de les Illes Balears.</p>
+  </div>
+
+  <h3>1.3 Régimen jurídico específico: la Ley 14/2014, de Finanzas de la CAIB</h3>
+  <p>La norma fundamental que regula el presupuesto autonómico balear es la <strong>Ley 14/2014, de 29 de diciembre, de Finanzas de la Comunitat Autònoma de les Illes Balears (LFCAIB)</strong>. Esta ley sustituyó a la anterior Ley de Hacienda (Ley 7/1988) y constituye el núcleo del régimen jurídico presupuestario y financiero de la CAIB.</p>
+  <p>La LFCAIB establece:</p>
+  <ul>
+    <li>Los principios generales que rigen la actividad financiera autonómica.</li>
+    <li>La estructura, elaboración, aprobación y ejecución de los Presupuestos Generales de la CAIB.</li>
+    <li>El régimen de los créditos presupuestarios y sus modificaciones.</li>
+    <li>El control interno y externo del gasto público.</li>
+    <li>El régimen del patrimonio autonómico y de la tesorería.</li>
+  </ul>
+  <p>Junto a la LFCAIB, el régimen jurídico presupuestario se integra también con:</p>
+  <ul>
+    <li>La <strong>Ley Orgánica 2/2012, de Estabilidad Presupuestaria y Sostenibilidad Financiera (LOEPSF)</strong>, que impone a las CCAA reglas de gasto y de déficit.</li>
+    <li>La <strong>Ley Orgánica 8/1980, de Financiación de las Comunidades Autónomas (LOFCA)</strong>, que regula el sistema de financiación autonómica.</li>
+    <li>La <strong>Ley 47/2003, General Presupuestaria</strong>, de aplicación supletoria en todos aquellos aspectos no básicos.</li>
+  </ul>
+</section>
+
+<!-- SECCIÓN 2 -->
+<section class="section-main" id="s2">
+  <span class="section-num">Apartado 2</span>
+  <h2>Elaboración del presupuesto <small style="font-size:0.6em;font-weight:400;color:var(--ink-light)">(arts. 33–47 LFCAIB)</small></h2>
+
+  <h3>2.1 Programación presupuestaria a medio plazo (art. 33 LFCAIB)</h3>
+  <p>La LFCAIB introduce, alineándose con la legislación estatal básica (art. 29 LOEPSF), la obligación del Govern de aprobar un plan presupuestario a medio plazo —con horizonte mínimo de tres años— que enmarque la elaboración del presupuesto anual. Este plan fija los objetivos de estabilidad presupuestaria y de deuda pública para el período, así como las previsiones macroeconómicas y las proyecciones de ingresos y gastos. Actúa como guía vinculante del proceso de elaboración anual.</p>
+
+  <h3>2.2 La regla de gasto y el límite máximo de gasto no financiero (art. 34 LFCAIB)</h3>
+  <p>En desarrollo del art. 12 LOEPSF, el art. 34 LFCAIB establece que el gasto computable de la CAIB no puede crecer por encima de la tasa de referencia de crecimiento del PIB a medio plazo de la economía española. Esta regla de gasto es el principal instrumento de disciplina presupuestaria durante la fase de elaboración. El límite máximo de gasto no financiero —que excluye las partidas de deuda— es aprobado por el Consell de Govern a propuesta del conseller competente en materia de hacienda.</p>
+
+  <h3>2.3 Contenido de los Presupuestos Generales de la CAIB (art. 35 LFCAIB)</h3>
+  <p>Los Presupuestos Generales de la CAIB tienen carácter unitario y comprenden la totalidad del sector público autonómico. Conforme al art. 35 LFCAIB, integran:</p>
+  <ul>
+    <li>El presupuesto del Parlament de les Illes Balears y de los órganos estatutarios (Sindicatura de Comptes, Sindicatura de Greuges, Consell Consultiu, etc.).</li>
+    <li>El presupuesto de la Administración General de la CAIB y sus organismos autónomos.</li>
+    <li><strong>El presupuesto del Servei de Salut de les Illes Balears</strong>, que se trata como organismo autónomo a efectos presupuestarios (art. 1.3.d LFCAIB), con las especialidades propias de su naturaleza sanitaria.</li>
+    <li>El presupuesto de la Agència Tributària de les Illes Balears.</li>
+    <li>Los presupuestos de las entidades públicas empresariales.</li>
+    <li>Los presupuestos de las sociedades mercantiles públicas y de las fundaciones del sector público autonómico.</li>
+    <li>A efectos informativos, los estados correspondientes a la Universitat de les Illes Balears (UIB) y a los entes de la disposición adicional primera de la Ley 7/2010.</li>
+  </ul>
+  <div class="nota">
+    <p><strong>Nota:</strong> El art. 1.3.d LFCAIB clasifica expresamente al Servei de Salut de les Illes Balears dentro del sector público administrativo, sometido al régimen propio de los organismos autónomos y al principio de especialidad presupuestaria, pero con las especialidades de su normativa sectorial (Ley 5/2003 de Salut de les Illes Balears; Decreto 39/2006 de Estatuts del Servei de Salut). Su presupuesto se aprueba de forma integrada en la Ley de Pressupostos Generals de la CAIB, figurando como sección presupuestaria independiente.</p>
+  </div>
+
+  <h3>2.4 Estructura básica del presupuesto (art. 36 LFCAIB)</h3>
+  <p>La estructura de los estados de gastos e ingresos es determinada por el conseller competente en materia de hacienda, teniendo en cuenta la organización del sector público autonómico. La Orden de elaboración que dicta anualmente el conseller concreta esta estructura para cada ejercicio, y obliga tanto a la Administración General como a los organismos autónomos —incluido Servei de Salut— y al resto de entidades del sector público.</p>
+
+  <h3>2.5 Fondo de contingencia (art. 37 LFCAIB)</h3>
+  <p>La LFCAIB regula el fondo de contingencia como una dotación presupuestaria específica destinada a cubrir las necesidades nuevas, inaplazables y no discrecionales que puedan surgir a lo largo del ejercicio. Su dotación es aprobada por el Parlament junto con el resto del presupuesto y su utilización requiere autorización del Consell de Govern a propuesta del conseller d'Hisenda. No puede financiar gastos de carácter recurrente o estructural, o previsibles en el momento de aprobar el presupuesto.</p>
+
+  <h3>2.6 Gastos con financiación afectada (art. 42 LFCAIB)</h3>
+  <p>Son aquellos créditos que se financian con ingresos procedentes de fondos externos —principalmente fondos europeos (FEDER, FSE, REACT-EU) o transferencias finalistas del Estado— cuya obtención está condicionada a la realización del gasto correspondiente. La LFCAIB regula un régimen especial para estos gastos: los remanentes de crédito con financiación afectada pueden incorporarse al ejercicio siguiente sin necesidad de tramitar otro tipo de modificación de crédito, dado que la financiación ya está garantizada. En el caso del Servei de Salut, son relevantes los fondos afectados procedentes del Ministerio de Sanidad para programas de cohesión del Sistema Nacional de Salud.</p>
+
+  <h3>2.7 Procedimiento de elaboración (art. 44 LFCAIB)</h3>
+  <p>La competencia para elaborar y someter al Consell de Govern el anteproyecto de ley de presupuestos corresponde al conseller competente en materia de hacienda y presupuestos (art. 8.b LFCAIB). El procedimiento se articula en las siguientes fases:</p>
+
+  <h4>a) Fase preparatoria: escenario presupuestario y directrices</h4>
+  <p>El Govern aprueba, a propuesta del conseller d'Hisenda, el plan presupuestario a medio plazo (art. 33) y el límite máximo de gasto no financiero (art. 34). A continuación, el conseller dicta la Orden de Elaboración con las directrices técnicas: techos de gasto por sección, estructura de clasificaciones, plazos de remisión de anteproyectos y criterios de priorización de políticas públicas.</p>
+
+  <h4>b) Fase de formulación de propuestas sectoriales</h4>
+  <p>Cada conselleria, organismo autónomo y entidad del sector público formula su propuesta de gasto ajustada a las directrices. En el caso del Servei de Salut, la Gerència del Servei de Salut elabora y remite a la Direcció General de Pressuposts su propuesta presupuestaria antes del 15 de septiembre del ejercicio anterior (conforme a la Orden de elaboración), incluyendo las fichas de propuesta de variación de dotación y los planes de inversiones por isla.</p>
+
+  <h4>c) Consolidación y anteproyecto</h4>
+  <p>La Conselleria d'Hisenda (Direcció General de Pressuposts i Finançament) consolida todas las propuestas, verifica el cumplimiento del límite de gasto y del objetivo de estabilidad, y elabora el anteproyecto consolidado. Éste es sometido al informe de la Intervenció General de la CAIB (IGCAIB) antes de su aprobación por el Consell de Govern. En ese momento pasa de ser un anteproyecto a ser un proyecto de Ley de presupuestos.</p>
+
+  <h4>d) Proyecto de Ley y remisión al Parlament (art. 46 LFCAIB)</h4>
+  <p>El Consell de Govern aprueba el proyecto de Ley de Presupuestos Generales de la CAIB y lo remite al Parlament. El art. 46 LFCAIB establece el plazo ordinario de remisión: <strong>antes del 1 de octubre del año anterior al ejercicio presupuestario</strong>. El proyecto va acompañado de la documentación complementaria prevista en el art. 45 LFCAIB.</p>
+
+  <h4>e) Tramitación parlamentaria y aprobación</h4>
+  <p>El Parlament de les Illes Balears debate y aprueba el proyecto de Ley de Presupuestos mediante el procedimiento legislativo ordinario. La Comissió d'Hisenda i Pressuposts del Parlament interviene activamente en la tramitación. La aprobación otorga al Govern la autorización para recaudar ingresos y ejecutar gastos durante el ejercicio.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Fase</th><th>Protagonista</th><th>Base legal / Instrumento</th></tr></thead>
+      <tbody>
+        <tr><td>Plan presupuestario a medio plazo</td><td>Consell de Govern</td><td>Art. 33 LFCAIB</td></tr>
+        <tr><td>Límite máximo de gasto no financiero</td><td>Consell de Govern (prop. Conseller d'Hisenda)</td><td>Art. 34 LFCAIB</td></tr>
+        <tr><td>Orden de elaboración + directrices</td><td>Conseller d'Hisenda</td><td>Art. 8 y 44 LFCAIB</td></tr>
+        <tr><td>Propuestas sectoriales (incl. Servei de Salut)</td><td>Conselleries i organismes autónoms</td><td>Orden de elaboración anual</td></tr>
+        <tr><td>Anteproyecto consolidado + fiscalización</td><td>Conselleria d'Hisenda + IGCAIB</td><td>Art. 44 LFCAIB</td></tr>
+        <tr><td>Aprobación proyecto de Ley</td><td>Consell de Govern</td><td>Art. 46 LFCAIB</td></tr>
+        <tr><td>Remisión al Parlament (antes del 1/10)</td><td>Govern → Parlament</td><td>Art. 46 LFCAIB</td></tr>
+        <tr><td>Aprobación definitiva (Ley)</td><td>Parlament de les Illes Balears</td><td>Art. 6 LFCAIB</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.8 Prórroga presupuestaria (art. 47 LFCAIB)</h3>
+  <p>Si el Parlament no aprueba el presupuesto antes del 1 de enero del ejercicio, el art. 47 LFCAIB establece la <strong>prórroga automática</strong> del presupuesto del ejercicio anterior en sus créditos iniciales. La prórroga opera por ministerio de la ley, sin necesidad de acto formal, y tiene carácter excepcional. Durante su vigencia:</p>
+  <ul>
+    <li>Se mantienen los créditos iniciales del presupuesto prorrogado, sin posibilidad de aprobar nuevas inversiones no comprometidas.</li>
+    <li>No pueden autorizarse operaciones de endeudamiento superiores a las previstas en el presupuesto prorrogado.</li>
+    <li>Los créditos afectados a financiación externa (fondos europeos, etc.) pueden ejecutarse en los términos pactados con el financiador.</li>
+    <li>La prórroga cesa automáticamente cuando el Parlament aprueba el nuevo presupuesto.</li>
+  </ul>
+</section>
+
+<!-- SECCIÓN 3 -->
+<section class="section-main" id="s3">
+  <span class="section-num">Apartado 3</span>
+  <h2>Estructura del presupuesto <small style="font-size:0.6em;font-weight:400;color:var(--ink-light)">(arts. 36–43 LFCAIB)</small></h2>
+
+  <h3>3.1 El principio de especialidad presupuestaria (arts. 48–51 LFCAIB)</h3>
+  <p>El principio de especialidad de los créditos presupuestarios es el eje central del régimen de los estados de gasto. La LFCAIB lo desarrolla en tres dimensiones (arts. 48–51):</p>
+  <ul>
+    <li><strong>Especialidad cualitativa (art. 49 LFCAIB):</strong> los créditos solo pueden destinarse a la finalidad específica para la que han sido autorizados. No cabe aplicar créditos a fines distintos, salvo modificación presupuestaria.</li>
+    <li><strong>Especialidad cuantitativa —vinculación de créditos— (art. 50 LFCAIB):</strong> los créditos son limitativos: no pueden superarse salvo autorización expresa. La ley establece los niveles de vinculación, es decir, el grado de agregación dentro del cual los créditos son fungibles sin necesidad de tramitar transferencia.</li>
+    <li><strong>Especialidad temporal (art. 51 LFCAIB):</strong> los créditos están afectados al ejercicio en que fueron aprobados. Los créditos no utilizados al cierre del ejercicio quedan anulados, salvo los que puedan incorporarse conforme al régimen de modificaciones.</li>
+  </ul>
+
+  <h3>3.2 Clasificaciones del presupuesto de gastos</h3>
+  <p>Los estados de gastos de los entes del sector público administrativo (incluido Servei de Salut) se articulan mediante cuatro clasificaciones:</p>
+
+  <h4>a) Clasificación orgánica</h4>
+  <p>Identifica el centro gestor responsable de la ejecución del gasto. Cada entidad con presupuesto propio constituye una sección presupuestaria independiente. Las principales secciones de los Presupuestos Generales de la CAIB son: el Parlament, los órganos estatutarios, cada una de las consejerías de la Administración General y —de forma destacada— el Servei de Salut de les Illes Balears como sección autónoma. Dentro de cada sección se distinguen los servicios o unidades gestoras.</p>
+
+  <h4>b) Clasificación funcional o por programas</h4>
+  <p>Responde a la pregunta <em>¿para qué se gasta?</em> Articula el gasto en torno a los objetivos de política pública. Se estructura en áreas de gasto, políticas de gasto, grupos de programas y programas presupuestarios. Cada programa presupuestario incluye objetivos medibles e indicadores de seguimiento. En el ámbito del Servei de Salut, los principales programas se encuadran en el área de <em>Producció de béns públics de caràcter preferent</em>, en la política de sanidad.</p>
+
+  <h4>c) Clasificación económica</h4>
+  <p>Responde a la pregunta <em>¿en qué se gasta?</em> Distingue entre operaciones corrientes, de capital y financieras, organizadas en capítulos:</p>
+  <ul>
+    <li><strong>Capítulo 1 – Gastos de personal:</strong> retribuciones del personal estatutario, funcionario y laboral, y cuotas de la Seguridad Social.</li>
+    <li><strong>Capítulo 2 – Gastos en bienes corrientes y servicios:</strong> suministros, contratos de servicios, farmacia extrahospitalaria, material sanitario fungible.</li>
+    <li><strong>Capítulo 3 – Gastos financieros:</strong> intereses de la deuda.</li>
+    <li><strong>Capítulo 4 – Transferencias corrientes:</strong> subvenciones corrientes a entidades y particulares.</li>
+    <li><strong>Capítulo 6 – Inversiones reales:</strong> obras de construcción y reforma de centros sanitarios, equipamiento médico y tecnológico.</li>
+    <li><strong>Capítulo 7 – Transferencias de capital:</strong> subvenciones de capital.</li>
+    <li><strong>Capítulo 8 – Activos financieros:</strong> adquisición de acciones, participaciones.</li>
+    <li><strong>Capítulo 9 – Pasivos financieros:</strong> amortización de deuda.</li>
+  </ul>
+
+  <h4>d) Clasificación territorial por islas (inversiones reales)</h4>
+  <p>Especificidad del sistema presupuestario balear derivada de la organización territorial insular de la CAIB. Los gastos de inversión real (capítulo 6) se desagregan por islas —Mallorca, Menorca, Eivissa, Formentera e inversiones de carácter general— a efectos de seguimiento, control y rendición de cuentas ante el Parlament y ante los Consells Insulars.</p>
+
+  <div class="nota">
+    <p>Las cuatro clasificaciones del presupuesto de gastos son: (1) orgánica —quién gasta—; (2) funcional por programas —para qué—; (3) económica —en qué—; y (4) territorial por islas —en qué ámbito geográfico insular, para las inversiones reales—. La clasificación territorial es específica de la CAIB por su realidad insular y no tiene equivalente en la mayoría de presupuestos de otras CCAA.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Clasificación</th><th>Pregunta</th><th>Nivel máximo de desagregación</th><th>Relevancia para Servei de Salut</th></tr></thead>
+      <tbody>
+        <tr><td>Orgánica</td><td>¿Quién gasta?</td><td>Sección → Servicio → Unidad</td><td>Servei de Salut es sección independiente</td></tr>
+        <tr><td>Funcional / Programas</td><td>¿Para qué?</td><td>Área → Política → Grupo → Programa</td><td>Programas de atención primaria, hospitalaria, etc.</td></tr>
+        <tr><td>Económica</td><td>¿En qué?</td><td>Capítulo → Artículo → Concepto → Subconcepto</td><td>Cap. 1 (personal) y Cap. 2 (farmacia, material sanitario) son mayoritarios</td></tr>
+        <tr><td>Territorial por islas</td><td>¿Dónde?</td><td>Por isla (Mallorca, Menorca, Eivissa, Formentera)</td><td>Inversiones en hospitales y CS por gerencia territorial</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.3 Clasificación del presupuesto de ingresos</h3>
+  <p>Los estados de ingresos se clasifican igualmente por clasificación económica. Los principales capítulos de ingreso de la CAIB son:</p>
+  <ul>
+    <li><strong>Cap. 1 – Impuestos directos:</strong> IRPF (tarifa autonómica cedida), Impost sobre Successions i Donacions, Impost sobre el Patrimoni.</li>
+    <li><strong>Cap. 2 – Impuestos indirectos:</strong> IVA (porcentaje cedido), ITP-AJD, Impost sobre el joc, Impost de turisme sostenible.</li>
+    <li><strong>Cap. 3 – Tasas y otros ingresos:</strong> tasas administrativas y sanitarias (incluidas las del Servei de Salut por prestaciones a terceros obligados).</li>
+    <li><strong>Cap. 4 – Transferencias corrientes:</strong> participación en el sistema de financiación autonómica de régimen común (LOFCA), transferencias del Estado para la financiación del SNS.</li>
+    <li><strong>Cap. 5 – Ingresos patrimoniales:</strong> rentas provenientes de bienes y derechos patrimoniales de la comunidad autónoma, como alquileres, intereses o dividendos.</li>
+    <li><strong>Cap. 6 – Enajenación de inversiones reales:</strong> ingresos derivados de la venta de bienes inmuebles, terrenos, instalaciones u otros activos de la CAIB.</li>
+    <li><strong>Cap. 7 – Transferencias de capital:</strong> fondos europeos estructurales con carácter de inversión (FEDER, FSE+).</li>
+    <li><strong>Cap. 8 – Activos financieros:</strong> recuperación de préstamos concedidos, reintegros de anticipos y otros ingresos relacionados con operaciones financieras.</li>
+    <li><strong>Cap. 9 – Pasivos financieros:</strong> endeudamiento autorizado por la Ley de Presupuestos y dentro del límite de deuda de la LOEPSF.</li>
+  </ul>
+</section>
+
+<!-- SECCIÓN 4 -->
+<section class="section-main" id="s4">
+  <span class="section-num">Apartado 4</span>
+  <h2>Ejecución del presupuesto <small style="font-size:0.6em;font-weight:400;color:var(--ink-light)">(Título II, Cap. VI LFCAIB)</small></h2>
+
+  <h3>4.1 Competencias en la ejecución presupuestaria</h3>
+  <p>La ejecución presupuestaria es competencia del Govern y de los titulares de cada conselleria y organismo autónomo. El art. 9 LFCAIB atribuye a los titulares de las conselleries la gestión del gasto de su sección, así como la autorización de compromisos de gasto dentro de los límites fijados por la ley. En el caso del Servei de Salut, el art. 10 LFCAIB atribuye a los organismos autónomos competencias específicas en la ejecución de su propio presupuesto, con sujeción a la tutela financiera de la Conselleria d'Hisenda y al control de la IGCAIB.</p>
+
+  <h3>4.2 El ciclo de ejecución del gasto: fases A-D-O-P</h3>
+  <p>La LFCAIB regula el proceso de gestión del gasto distinguiendo cuatro fases:</p>
+
+  <div class="fase-grid">
+    <div class="fase-card">
+      <div class="fase-letter">A</div>
+      <div class="fase-name">Autorización</div>
+      <div class="fase-desc">El órgano competente decide iniciar el expediente de gasto y reserva el crédito. No genera obligación frente a terceros.</div>
+    </div>
+    <div class="fase-card">
+      <div class="fase-letter">D</div>
+      <div class="fase-name">Disposición / Compromiso</div>
+      <div class="fase-desc">El gasto queda vinculado a un tercero determinado mediante contrato, convenio o resolución de subvención. Genera obligación condicional.</div>
+    </div>
+    <div class="fase-card">
+      <div class="fase-letter">O</div>
+      <div class="fase-name">Reconocimiento de obligación</div>
+      <div class="fase-desc">El tercero ha cumplido su prestación y la Administración verifica la conformidad del bien o servicio recibido. Nace la obligación jurídica de pago.</div>
+    </div>
+    <div class="fase-card">
+      <div class="fase-letter">P</div>
+      <div class="fase-name">Ordenación del pago</div>
+      <div class="fase-desc">Autorización formal de pago al acreedor. En la CAIB, corresponde a la Conselleria d'Hisenda (Tresoreria de la CAIB).</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Fase</th><th>Sigla</th><th>Contenido</th><th>Efecto jurídico</th><th>Peculiaridad en Servei de Salut</th></tr></thead>
+      <tbody>
+        <tr><td>Autorización</td><td>A</td><td>Reserva de crédito</td><td>Afectación interna del crédito</td><td>Fiscalización IGCAIB en contratos relevantes</td></tr>
+        <tr><td>Disposición / Compromiso</td><td>D</td><td>Vinculación con tercero</td><td>Obligación condicional</td><td>Contratos de farmacia, equipamiento, servicios sanitarios</td></tr>
+        <tr><td>Reconocimiento obligación</td><td>O</td><td>Verificación prestación</td><td>Obligación firme de pago</td><td>Conformidad del servicio/unidad receptora</td></tr>
+        <tr><td>Ordenación del pago</td><td>P</td><td>Autorización de pago</td><td>Libramiento al acreedor</td><td>Centralización en Tresoreria CAIB (unidad de caja)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.3 Tramitación anticipada de expedientes de gasto</h3>
+  <p>La LFCAIB regula la tramitación anticipada de expedientes de gasto: permite iniciar las fases de autorización y compromiso antes del 1 de enero del ejercicio al que se imputan, cuando existe certeza razonable de que el presupuesto estará aprobado (o prorrogado) y se trata de gastos de carácter periódico o previsible. Esta previsión es especialmente relevante para el Servei de Salut en materia de contratos plurianuales de suministro de medicamentos, reactivos de laboratorio o servicios tecnológicos.</p>
+
+  <h3>4.4 Pagos a justificar y anticipos de caja fija</h3>
+  <p>La LFCAIB regula dos mecanismos de flexibilización de la ejecución del gasto:</p>
+  <ul>
+    <li><strong>Pagos a justificar:</strong> libramiento de fondos antes de acreditar la obligación, con obligación de justificación documental posterior en el plazo fijado. El perceptor queda obligado a rendir cuenta justificativa ante la IGCAIB.</li>
+    <li><strong>Anticipos de caja fija:</strong> dotación permanente de fondos a habilitados para atender gastos periódicos de escasa cuantía sin necesidad de tramitar expediente completo para cada pago (ej.: material de oficina, gastos de locomoción, pequeñas reparaciones urgentes en centros sanitarios).</li>
+  </ul>
+
+  <h3>4.5 Gastos plurianuales (Título II, Cap. V LFCAIB)</h3>
+  <p>Los contratos, convenios y demás actos jurídicos que impliquen compromisos de gasto que se extiendan a ejercicios futuros requieren autorización plurianual. La LFCAIB fija los límites máximos de compromiso plurianual:</p>
+  <ul>
+    <li>Ejercicio siguiente (n+1): <strong>70%</strong> del crédito inicial del ejercicio en curso.</li>
+    <li>Segundo ejercicio (n+2): <strong>60%</strong>.</li>
+    <li>Ejercicios ulteriores: <strong>50%</strong>.</li>
+  </ul>
+  <p>Para levantar estos límites se requiere la autorización de la Comissió d'Hisenda i Pressuposts del Parlament de les Illes Balears, lo que refuerza el control parlamentario sobre los compromisos financieros a largo plazo.</p>
+</section>
+
+<!-- SECCIÓN 5 -->
+<section class="section-main" id="s5">
+  <span class="section-num">Apartado 5</span>
+  <h2>Modificaciones de crédito <small style="font-size:0.6em;font-weight:400;color:var(--ink-light)">(arts. 54–72 LFCAIB)</small></h2>
+
+  <h3>5.1 Principio de especialidad y modificaciones tasadas</h3>
+  <p>Las modificaciones de crédito son la única vía para alterar válidamente las autorizaciones presupuestarias, y tienen carácter tasado: solo proceden en los supuestos expresamente previstos en la LFCAIB (art. 54).</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tipo de modificación</th><th>Concepto</th><th>Requiere</th><th>Incidencia en estabilidad</th></tr></thead>
+      <tbody>
+        <tr><td>Crédito extraordinario</td><td>Gasto no previsto de carácter inaplazable</td><td>Ley del Parlament</td><td>Debe garantizarse financiación sin aumentar déficit</td></tr>
+        <tr><td>Suplemento de crédito</td><td>Crédito insuficiente para gasto inaplazable</td><td>Ley del Parlament</td><td>Igual que el extraordinario</td></tr>
+        <tr><td>Ampliación de crédito</td><td>Incremento automático vinculado a mayor ingreso afectado</td><td>Autorización Consell de Govern o conseller d'Hisenda</td><td>Neutral (financiación afectada)</td></tr>
+        <tr><td>Transferencia de crédito</td><td>Traslado de dotación entre partidas</td><td>Según cuantía y tipo: conseller d'Hisenda o Consell de Govern</td><td>Neutral (no altera total)</td></tr>
+        <tr><td>Generación de crédito</td><td>Ingresos nuevos o superiores financian gasto concreto</td><td>Autorización conseller d'Hisenda</td><td>Neutral si ingreso es real</td></tr>
+        <tr><td>Incorporación de crédito</td><td>Remanentes del ejercicio anterior se trasladan al siguiente</td><td>Autorización reglada; solo supuestos tasados LFCAIB</td><td>Neutral (fondos ya comprometidos)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.2 Disponibilidad e indisponibilidad de créditos (arts. 52–53 LFCAIB)</h3>
+  <p>El art. 52 LFCAIB regula la disponibilidad de los créditos: los créditos están en principio disponibles para su utilización desde el inicio del ejercicio, salvo que se declaren indisponibles. El art. 53 LFCAIB prevé que el Consell de Govern, a propuesta del conseller d'Hisenda, pueda acordar la indisponibilidad de créditos cuando sea necesario para cumplir el objetivo de estabilidad presupuestaria o la regla de gasto, o cuando el ritmo de ejecución supere lo previsto.</p>
+
+  <h3>5.3 Especialidades del Servei de Salut en modificaciones de crédito</h3>
+  <p>Sus modificaciones de crédito se tramitan a través de la Conselleria de Salut y requieren en todo caso la fiscalización de la IGCAIB. Las más habituales en la práctica sanitaria son:</p>
+  <ul>
+    <li>Ampliaciones de crédito vinculadas a ingresos por terceros pagadores (accidentes de tráfico, accidentes laborales, turistas UE con tarjeta sanitaria europea, reintegros de farmacia por laboratorios, etc.).</li>
+    <li>Generaciones de crédito por fondos procedentes del Ministerio de Sanidad (acuerdos del Consejo Interterritorial del SNS para programas específicos de vacunación, salud mental, etc.).</li>
+    <li>Incorporaciones de crédito con financiación afectada (fondos FEDER/FSE+ pendientes de justificación, créditos vinculados a obras hospitalarias en curso).</li>
+  </ul>
+</section>
+
+<!-- SECCIÓN 6 -->
+<section class="section-main" id="s6">
+  <span class="section-num">Apartado 6</span>
+  <h2>Contenido y documentación del presupuesto <small style="font-size:0.6em;font-weight:400;color:var(--ink-light)">(art. 45 LFCAIB)</small></h2>
+
+  <h3>6.1 Documentación complementaria del proyecto de ley (art. 45 LFCAIB)</h3>
+  <p>El proyecto de Ley de Pressupostos Generals de la CAIB se acompaña de documentación complementaria obligatoria:</p>
+  <ul>
+    <li>Memorias explicativas de los programas presupuestarios: justifican los objetivos y metas de cada programa, con indicadores de seguimiento.</li>
+    <li>Informe económico-financiero: analiza el contexto macroeconómico y verifica el equilibrio presupuestario y el cumplimiento de la regla de gasto.</li>
+    <li>Plan anual de inversiones: desglosa las inversiones reales previstas por isla y por proyecto, con identificación del estado de tramitación de cada actuación.</li>
+    <li>Estados financieros de las entidades instrumentales: balance de situación previsional, cuenta de resultados y presupuesto de explotación y capital de las entidades del sector público empresarial y fundacional.</li>
+    <li>A efectos informativos: estados de la UIB y entidades de la disposición adicional 1.ª de la Ley 7/2010.</li>
+  </ul>
+
+  <h3>6.2 Cierre y liquidación del presupuesto (art. 80 LFCAIB)</h3>
+  <p>El ejercicio presupuestario coincide con el año natural. Al 31 de diciembre quedan anulados los créditos no comprometidos y se cierran las cuentas del ejercicio. La liquidación recoge el resultado de la ejecución:</p>
+  <ul>
+    <li><strong>Resultado presupuestario:</strong> diferencia entre los derechos reconocidos netos y las obligaciones reconocidas netas.</li>
+    <li><strong>Remanente de tesorería:</strong> fondos líquidos más derechos pendientes de cobro menos obligaciones pendientes de pago. La LFCAIB distingue el remanente afectado (vinculado a gastos con financiación afectada) del no afectado.</li>
+    <li><strong>Remanente de tesorería no afectado positivo:</strong> en virtud del art. 12.5 y 32 LOEPSF, debe destinarse preferentemente a amortizar anticipadamente deuda pública.</li>
+  </ul>
+  <p>La IGCAIB fiscaliza la liquidación y el Govern la remite al Parlament y a la Sindicatura de Comptes en los plazos previstos en la LFCAIB.</p>
+</section>
+
+<!-- SECCIÓN 7 -->
+<section class="section-main" id="s7">
+  <span class="section-num">Apartado 7</span>
+  <h2>El presupuesto del Servei de Salut: peculiaridades como organismo autónomo</h2>
+
+  <h3>7.1 Naturaleza presupuestaria del Servei de Salut</h3>
+  <p>El Servei de Salut de les Illes Balears fue creado por la Ley 5/2003, de 4 de abril, de Salut de les Illes Balears, como organismo autónomo de naturaleza administrativa adscrito a la Conselleria de Salut. Sus Estatuts fueron aprobados por el Decreto 39/2006, de 21 de abril.</p>
+  <p>A efectos de la Ley 14/2014 de Finanzas, el art. 1.3.d LFCAIB confirma expresamente que el Servei de Salut se sujeta al régimen aplicable a los organismos autónomos, con las especialidades contenidas en la propia LFCAIB y en su normativa sectorial. Ello tiene consecuencias presupuestarias directas:</p>
+  <ul>
+    <li>Su presupuesto es de <strong>gasto limitativo y de ingreso estimativo</strong>: los créditos de gasto son techo y no pueden superarse sin modificación presupuestaria; los ingresos son previsiones.</li>
+    <li>Sus créditos quedan sometidos al principio de especialidad (arts. 48–51 LFCAIB) en sus tres dimensiones: cualitativa, cuantitativa y temporal.</li>
+    <li>Sus modificaciones de crédito siguen el régimen del art. 54 LFCAIB, sin las flexibilidades propias de las entidades del sector público empresarial.</li>
+    <li>Integra la hacienda pública de la CAIB a efectos de las prerrogativas previstas en el art. 2 LFCAIB (inembargabilidad de fondos, beneficios procesales, etc.).</li>
+  </ul>
+
+  <h3>7.2 Estructura presupuestaria específica del Servei de Salut</h3>
+
+  <h4>a) Clasificación orgánica: centre gestor</h4>
+  <p>El Servei de Salut constituye una sección presupuestaria independiente dentro de los Pressupostos Generals de la CAIB. Las sucesivas leyes de presupuestos establecen una regla especial para el Servei de Salut: la vinculación orgánica opera a nivel de <strong>centre gestor</strong> (frente al nivel de sección en la Administración General), lo que supone un ámbito de fungibilidad de créditos más restringido. La vinculación funcional opera a nivel de función (frente al programa de la Administración General), y la vinculación económica a nivel de capítulo en ambos casos, con la excepción del concepto 160 (cuotas sociales), que vincula a nivel de concepto.</p>
+
+  <h4>b) Clasificación funcional: programas sanitarios</h4>
+  <p>Los programas del Servei de Salut se encuadran en el área de gasto de protección y promoción de la salud. Los principales programas presupuestarios son:</p>
+  <ul>
+    <li>Atención primaria y salud comunitaria.</li>
+    <li>Atención especializada hospitalaria.</li>
+    <li>Salud mental y adicciones.</li>
+    <li>Urgencias y emergencias sanitarias (SAMU-061).</li>
+    <li>Salud pública y epidemiología.</li>
+    <li>Farmacia y prestación farmacéutica.</li>
+    <li>Gestión y administración del Servei de Salut.</li>
+  </ul>
+
+  <h4>c) Clasificación económica: predominio del capítulo 1 y 2</h4>
+  <ul>
+    <li><strong>Capítulo 1 (Personal):</strong> retribuciones del personal estatutario sanitario (médicos, enfermeras, técnicos, auxiliares) y del personal de gestión y servicios. Normativa aplicable: Estatut Marc del Personal Estatutari (Ley 55/2003).</li>
+    <li><strong>Capítulo 2 (Bienes corrientes y servicios):</strong> gasto farmacéutico, material sanitario fungible, reactivos de laboratorio, servicios de diagnóstico por imagen, contratos de mantenimiento de equipos médicos, suministros energéticos y conciertos con entidades privadas.</li>
+    <li><strong>Capítulo 6 (Inversiones reales):</strong> construcción y reforma de centros sanitarios, adquisición y renovación de equipamiento médico de alta tecnología (TAC, resonancias, robots quirúrgicos) e inversión en sistemas de información sanitaria. Se desagrega territorialmente por islas.</li>
+  </ul>
+
+  <h4>d) Clasificación territorial insular del Servei de Salut</h4>
+  <p>Las inversiones reales del Servei de Salut (capítulo 6) se planifican y controlan por gerència territorial (Decreto 79/2023):</p>
+  <ul>
+    <li><strong>Gerència de Mallorca:</strong> Hospital Universitari Son Espases, Hospital Son Llàtzer, Hospital Comarcal de Inca, red de centros de salud de Mallorca.</li>
+    <li><strong>Gerència de Menorca:</strong> Hospital Mateu Orfila, centros de salud y consultorios de Menorca.</li>
+    <li><strong>Gerència d'Eivissa i Formentera:</strong> Hospital Can Misses, centros de salud de Eivissa y Formentera.</li>
+    <li><strong>Serveis Corporatius:</strong> inversiones de ámbito general (sistemas de información, logística centralizada, infraestructuras transversales).</li>
+  </ul>
+
+  <h3>7.3 Fuentes de financiación del presupuesto del Servei de Salut</h3>
+  <p>El presupuesto del Servei de Salut se financia principalmente a través de una transferencia corriente (capítulo 4 de ingresos) desde la Administración General de la CAIB, que a su vez nutre esa transferencia con los recursos del sistema de financiación autonómica de régimen común (LOFCA) y con la financiación específica del SNS. Adicionalmente, el Servei de Salut genera ingresos propios:</p>
+  <ul>
+    <li>Ingresos por terceros obligados al pago (seguros de accidentes de tráfico, mutuas de accidentes laborales, compañías de seguros privadas).</li>
+    <li>Tasas por prestaciones sanitarias a extranjeros no cubiertos por convenios internacionales.</li>
+    <li>Reintegros por facturación interterritorial del SNS (asistencia prestada a residentes de otras CCAA).</li>
+    <li>Transferencias finalistas del Ministerio de Sanidad para programas específicos del SNS.</li>
+    <li>Fondos europeos para proyectos de salud digital, investigación biomédica e infraestructuras sanitarias.</li>
+  </ul>
+  <div class="nota">
+    <p>La financiación del Servei de Salut descansa fundamentalmente en la transferencia de la CAIB, lo que implica que el volumen de gasto sanitario autonómico depende directamente de los recursos del sistema de financiación de régimen común. Esta dependencia es una fuente habitual de tensión financiera en el sector sanitario público balear, que presenta uno de los mayores costes por habitante de España por la dispersión geográfica insular y la presión asistencial turística estacional.</p>
+  </div>
+
+  <h3>7.4 Control presupuestario del Servei de Salut</h3>
+  <ul>
+    <li><strong>Control interno (Título IV LFCAIB):</strong> la IGCAIB ejerce la función interventora sobre los actos de contenido económico del Servei de Salut, así como el control financiero permanente. En la práctica, determinados gastos de cuantía inferior a los umbrales previstos están sujetos a control financiero posterior en lugar de fiscalización previa.</li>
+    <li><strong>Control externo:</strong> la Sindicatura de Comptes de les Illes Balears fiscaliza las cuentas del Servei de Salut junto con las de la Administración General, incluyendo el control de la inversión sanitaria por isla, la gestión farmacéutica y el cumplimiento de los objetivos de los programas presupuestarios sanitarios.</li>
+  </ul>
+</section>
+
+<!-- SECCIÓN 8 -->
+<section class="section-main" id="s8">
+  <span class="section-num">Apartado 8</span>
+  <h2>Leyes de acompañamiento presupuestario</h2>
+
+  <h3>8.1 Concepto y naturaleza jurídica</h3>
+  <p>Las leyes de acompañamiento presupuestario son normas con rango de ley ordinaria que se tramitan coetáneamente a la Ley de Presupuestos, con el objetivo de introducir en el ordenamiento jurídico autonómico las reformas normativas necesarias para la correcta aplicación del presupuesto y para la consecución de los objetivos de política económica del Govern. No son leyes presupuestarias <em>stricto sensu</em> —no contienen estados de ingresos ni autorizaciones de gasto— sino leyes ordinarias que modifican el ordenamiento jurídico con vocación de permanencia.</p>
+  <p>El Tribunal Constitucional ha admitido su constitucionalidad siempre que exista conexión lógica entre las materias reguladas y los objetivos presupuestarios del ejercicio, y que no invadan el núcleo indisponible de la Ley de Presupuestos (reserva constitucional del art. 134 CE).</p>
+
+  <h3>8.2 Contenido habitual en la CAIB</h3>
+  <p>Las leyes de acompañamiento de la CAIB (denominadas habitualmente <em>'Ley de Medidas Tributarias y Administrativas'</em> o <em>'Ley de Medidas para el año X'</em>) suelen incluir:</p>
+  <ul>
+    <li><strong>Medidas fiscales:</strong> modificaciones de la tarifa autonómica del IRPF, de tipos y deducciones del ITP-AJD, del Impost sobre Successions i Donacions, del Impost de Turisme Sostenible y de tasas y precios públicos (incluidas tasas sanitarias del Servei de Salut).</li>
+    <li><strong>Medidas en materia de personal:</strong> modificación de complementos retributivos del personal estatutario sanitario, habilitaciones para convocatorias de empleo público, regulación de situaciones administrativas especiales.</li>
+    <li><strong>Medidas organizativas:</strong> creación, modificación o supresión de organismos públicos y unidades administrativas; adecuación de estructuras orgánicas (incluida la del Servei de Salut) a las necesidades del ejercicio.</li>
+    <li><strong>Medidas de política sanitaria:</strong> modificaciones en la cartera de servicios sanitarios, régimen de copagos farmacéuticos, habilitaciones para conciertos sanitarios con entidades privadas, medidas de racionalización del gasto farmacéutico.</li>
+    <li><strong>Medidas de simplificación y racionalización del gasto:</strong> modificación de convenios y subvenciones, medidas de contención del gasto corriente.</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Aspecto</th><th>Ley de Presupuestos</th><th>Ley de Acompañamiento</th></tr></thead>
+      <tbody>
+        <tr><td>Contenido</td><td>Estados de ingresos y créditos de gasto autorizados</td><td>Reformas normativas complementarias al presupuesto</td></tr>
+        <tr><td>Naturaleza jurídica</td><td>Ley especial con función presupuestaria (art. 134 CE)</td><td>Ley ordinaria de régimen común</td></tr>
+        <tr><td>Tramitación parlamentaria</td><td>Procedimiento presupuestario especial</td><td>Procedimiento legislativo ordinario</td></tr>
+        <tr><td>Vigencia</td><td>Temporal (el ejercicio presupuestario)</td><td>Permanente (modifica el ordenamiento)</td></tr>
+        <tr><td>Relación con LFCAIB</td><td>Complementa y desarrolla la LFCAIB</td><td>Puede modificar la LFCAIB y otras leyes autonómicas</td></tr>
+        <tr><td>Afectación al Servei de Salut</td><td>Fija la dotación presupuestaria del Servei de Salut</td><td>Puede modificar tasas sanitarias, cartera de servicios, personal</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECCIÓN 9 -->
+<section class="section-main" id="s9">
+  <span class="section-num">Apartado 9</span>
+  <h2>Control del presupuesto <small style="font-size:0.6em;font-weight:400;color:var(--ink-light)">(Título IV LFCAIB)</small></h2>
+
+  <h3>9.1 La Intervenció General de la CAIB (IGCAIB): control interno</h3>
+  <p>La IGCAIB es el órgano de control interno de la actividad económico-financiera del sector público autonómico (Título IV, Capítulo I LFCAIB). Actúa con plena independencia funcional respecto de los órganos gestores. Sus funciones son:</p>
+  <ul>
+    <li><strong>Función interventora:</strong> fiscalización previa de los actos que generan derechos u obligaciones de contenido económico, verificando su conformidad con la legalidad presupuestaria y financiera.</li>
+    <li><strong>Control financiero permanente:</strong> seguimiento continuo de la gestión económica de los organismos autónomos y entidades del sector público. Incluye el análisis periódico de la ejecución presupuestaria del Servei de Salut y el cumplimiento de sus objetivos.</li>
+    <li><strong>Auditoría pública:</strong> control a posteriori mediante auditorías financieras, de cumplimiento y operativas.</li>
+    <li><strong>Contabilidad pública:</strong> llevanza y supervisión de la contabilidad del sector público autonómico; formación de la Cuenta General de la CAIB.</li>
+  </ul>
+
+  <h3>9.2 La Sindicatura de Comptes: control externo</h3>
+  <p>La Sindicatura de Comptes de les Illes Balears es el órgano de fiscalización externa de la gestión económico-financiera del sector público autonómico. Depende orgánicamente del Parlament y ejerce sus funciones con plena independencia. Su base legal se encuentra en el Estatut d'Autonomia (LO 1/2007) y en la <strong>Ley 4/2004, de 2 de abril, de la Sindicatura de Comptes de les Illes Balears</strong>. Sus funciones principales:</p>
+  <ul>
+    <li>Fiscalización de la Cuenta General de la CAIB (incluidas las cuentas del Servei de Salut) que el Govern rinde anualmente.</li>
+    <li>Informes de fiscalización sobre actuaciones específicas: contratos del Servei de Salut, gestión farmacéutica, inversiones hospitalarias, etc.</li>
+    <li>Enjuiciamiento contable en coordinación con el Tribunal de Cuentas del Estado.</li>
+  </ul>
+
+  <h3>9.3 Seguimiento de la ejecución presupuestaria (Cap. VII LFCAIB)</h3>
+  <p>La LFCAIB dedica el Capítulo VII del Título II al seguimiento de la ejecución presupuestaria. El Govern está obligado a remitir periódicamente al Parlament información sobre la ejecución del presupuesto, el cumplimiento de los objetivos de estabilidad y la evolución del endeudamiento. Esta información incluye los datos del Servei de Salut como sección presupuestaria diferenciada, lo que permite al Parlament un control parlamentario efectivo del gasto sanitario público.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Órgano de control</th><th>Tipo</th><th>Momento</th><th>Dependencia</th><th>Referencia legal</th></tr></thead>
+      <tbody>
+        <tr><td>IGCAIB (función interventora)</td><td>Interno previo</td><td>Antes del gasto</td><td>Govern (independencia funcional)</td><td>Título IV, Cap. I y II LFCAIB</td></tr>
+        <tr><td>IGCAIB (control financiero perm.)</td><td>Interno continuo</td><td>Durante el ejercicio</td><td>Govern (independencia funcional)</td><td>Título IV, Cap. II LFCAIB</td></tr>
+        <tr><td>IGCAIB (auditoría)</td><td>Interno posterior</td><td>Tras el ejercicio</td><td>Govern (independencia funcional)</td><td>Título IV, Cap. II LFCAIB</td></tr>
+        <tr><td>Sindicatura de Comptes</td><td>Externo</td><td>Posterior (Cuenta General)</td><td>Parlament de les Illes Balears</td><td>Art. 1 y ss. Ley 4/2004</td></tr>
+        <tr><td>Tribunal de Cuentas</td><td>Externo estatal</td><td>Posterior</td><td>Cortes Generales</td><td>LO 2/1982; Ley 7/1988</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECCIÓN 10 — RESUMEN EXAMEN -->
+<section class="section-main" id="s10">
+  <span class="section-num">Apartado 10</span>
+  <h2>Tabla resumen para el examen</h2>
+
+  <div class="table-wrap">
+    <table class="table-resumen">
+      <thead><tr><th>Materia</th><th>Dato clave</th></tr></thead>
+      <tbody>
+        <tr><td>Norma central de la CAIB</td><td>Ley 14/2014, de 29 de diciembre, de Finanzas de la CAIB (LFCAIB) — 147 arts. — en vigor desde 1/1/2016</td></tr>
+        <tr><td>Estructura de la LFCAIB</td><td>Título Preliminar (principios y competencias) + 6 Títulos (Hacienda, Presupuestos, Tesorería-Deuda, Control, Responsabilidades, Información)</td></tr>
+        <tr><td>Plan presupuestario medio plazo</td><td>Art. 33 LFCAIB: obligatorio; horizonte mínimo 3 años; objetivos de estabilidad y deuda</td></tr>
+        <tr><td>Regla de gasto</td><td>Art. 34 LFCAIB: gasto computable no puede crecer más que el PIB de referencia (art. 12 LOEPSF)</td></tr>
+        <tr><td>Contenido presupuesto CAIB</td><td>Art. 35 LFCAIB: Administración General + organismos autónomos + Servei de Salut + ATIB + EPEs + SM + fundaciones</td></tr>
+        <tr><td>Servei de Salut en LFCAIB</td><td>Art. 1.3.d LFCAIB: organismo autónomo — régimen de especialidad presupuestaria — sección independiente en los Presupuestos Generales de la CAIB</td></tr>
+        <tr><td>Clasificaciones del gasto</td><td>4 clasificaciones: orgánica (quién) + funcional/programas (para qué) + económica (en qué) + territorial por islas (inversiones)</td></tr>
+        <tr><td>Clasificación territorial</td><td>Específica de la CAIB: gastos de inversión real (cap. 6) desagregados por isla (Mallorca, Menorca, Eivissa, Formentera)</td></tr>
+        <tr><td>Principio especialidad</td><td>Arts. 48–51 LFCAIB: cualitativa + cuantitativa (vinculación) + temporal</td></tr>
+        <tr><td>Fases ejecución gasto</td><td>A (autorización) → D (disposición) → O (obligación) → P (pago)</td></tr>
+        <tr><td>Modificaciones crédito</td><td>Art. 54 LFCAIB: tasadas — crédito extraordinario, suplemento, ampliación, transferencia, generación, incorporación</td></tr>
+        <tr><td>Gastos plurianuales</td><td>Límites del 70%-60%-50% en años n+1, n+2, n+3; levantamiento por Comissió d'Hisenda i Pressuposts del Parlament</td></tr>
+        <tr><td>Prórroga presupuestaria</td><td>Art. 47 LFCAIB: automática si el Parlament no aprueba antes del 1 de enero</td></tr>
+        <tr><td>Documentación complementaria</td><td>Art. 45 LFCAIB: memorias de programas + informe económico-financiero + plan inversiones por isla + estados entidades instrumentales</td></tr>
+        <tr><td>Cierre y liquidación</td><td>Art. 80 LFCAIB: resultado presupuestario + remanente de tesorería (afectado y no afectado)</td></tr>
+        <tr><td>Control interno</td><td>IGCAIB: función interventora + control financiero permanente + auditoría (Título IV LFCAIB)</td></tr>
+        <tr><td>Control externo</td><td>Sindicatura de Comptes (ante Parlament) + Tribunal de Cuentas (Cortes Generales)</td></tr>
+        <tr><td>Ley de acompañamiento</td><td>Ley ordinaria complementaria: tasas, personal, organización, farmacia, cartera servicios del Servei de Salut</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div><!-- /page-wrap -->
+
+</body>
+</html>
