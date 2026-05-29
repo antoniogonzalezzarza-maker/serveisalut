@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tema 17 · El Gobierno · IB-Salut Oposicions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../style.css"/>
+<style>
+.tema-hero{background:linear-gradient(135deg,#1F4E79 0%,#2E4057 100%);color:#fff;padding:2.5rem 2rem 2rem;border-radius:12px;margin-bottom:2.5rem}
+.tema-hero .num{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-bottom:.4rem}
+.tema-hero h1{font-family:'Crimson Pro',serif;font-size:2.1rem;font-weight:700;line-height:1.2;margin:0 0 .6rem}
+.tema-hero .sub{font-family:'DM Sans',sans-serif;font-size:.9rem;opacity:.8;font-style:italic;line-height:1.5}
+.tema-body h2{font-family:'Crimson Pro',serif;font-size:1.6rem;font-weight:700;color:#1F4E79;margin:2.4rem 0 .7rem;padding-bottom:.3rem;border-bottom:2px solid #D6E4F0}
+.tema-body h3{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:600;color:#2E4057;margin:1.6rem 0 .5rem}
+.tema-body h4{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:#1F4E79;margin:1.2rem 0 .4rem;text-transform:uppercase;letter-spacing:.05em}
+.tema-body p{font-family:'Crimson Pro',serif;font-size:1.08rem;line-height:1.75;color:#2c2c2c;text-align:justify;margin:0 0 .9rem}
+.tema-body ul{margin:.4rem 0 1rem 1.4rem;padding:0}
+.tema-body ul li{font-family:'Crimson Pro',serif;font-size:1.08rem;line-height:1.7;color:#2c2c2c;margin-bottom:.35rem}
+.tema-body ul li strong{color:#1F4E79}
+.art-box{background:#EBF4FB;border-left:4px solid #1F4E79;border-radius:0 6px 6px 0;padding:.85rem 1.1rem;margin:1rem 0 1.1rem;font-family:'Crimson Pro',serif;font-size:1rem;color:#1a3a5c;font-style:italic;line-height:1.65}
+.art-box strong{font-style:normal;font-weight:700}
+.art-box-long{background:#EBF4FB;border-left:4px solid #1F4E79;border-radius:0 6px 6px 0;padding:.85rem 1.1rem;margin:1rem 0 1.1rem;font-family:'Crimson Pro',serif;font-size:.97rem;color:#1a3a5c;line-height:1.7}
+.art-box-long strong{font-weight:700;font-style:normal}
+.art-box-long p{font-size:.97rem;color:#1a3a5c;margin:0 0 .4rem;text-align:left}
+.warn-box{background:#FFF8E1;border-left:4px solid #E8B931;border-radius:0 6px 6px 0;padding:.85rem 1.1rem;margin:1.2rem 0 1.3rem;font-family:'Crimson Pro',serif;font-size:1rem;color:#3a2e00;line-height:1.65}
+.warn-box .warn-label{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8a6500;margin-bottom:.3rem;display:block}
+.key-box{background:#E8F5E9;border-left:4px solid #388E3C;border-radius:0 6px 6px 0;padding:.85rem 1.1rem;margin:1.2rem 0 1.3rem;font-family:'DM Sans',sans-serif;font-size:.92rem;color:#1B5E20;line-height:1.65}
+.key-box .key-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#2E7D32;margin-bottom:.35rem;display:block}
+.table-wrap{overflow-x:auto;margin:1.2rem 0 1.6rem;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+table thead tr th{background:#2E4057;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;padding:.65rem .9rem;text-align:left;font-size:.85rem}
+table tbody tr:nth-child(even){background:#F5F7FA}
+table tbody tr:nth-child(odd){background:#fff}
+table tbody td{padding:.6rem .9rem;font-family:'Crimson Pro',serif;font-size:1rem;color:#2c2c2c;border-bottom:1px solid #e4e8ef;vertical-align:top;line-height:1.5}
+table tbody td:first-child{font-weight:600;color:#1F4E79}
+.nav-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid #D6E4F0;gap:1rem;flex-wrap:wrap}
+.nav-btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:#1F4E79;text-decoration:none;padding:.55rem 1rem;border:1.5px solid #D6E4F0;border-radius:8px;transition:all .2s}
+.nav-btn:hover{background:#EBF4FB;border-color:#1F4E79}
+.nav-btn.next{background:#1F4E79;color:#fff;border-color:#1F4E79}
+.nav-btn.next:hover{background:#163a5c}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div>
+      <div class="nav-title">IB-Salut · Oposicions</div>
+      <div class="nav-subtitle">Grup Tècnic Funció Administrativa</div>
+    </div>
+  </a>
+  <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menú">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="nav-links" id="mobile-menu">
+    <a href="../index.html">Inici</a>
+    <a href="../index.html#bloc-i" class="active">Bloc I · Constitució</a>
+  </div>
+</nav>
+
+<div class="page">
+<div class="tema-body">
+
+<div class="tema-hero">
+  <div class="num">Temari específic · Bloc I — Constitució Espanyola</div>
+  <h1>Tema 17. El Gobierno</h1>
+  <div class="sub">Concepto, naturaleza jurídica y antecedentes · Composición · Funciones · El Presidente del Gobierno · Los Ministros · Las Comisiones Delegadas · Estatuto jurídico y responsabilidad · Nombramiento y cese · El Gobierno en funciones</div>
+</div>
+
+<!-- Normativa -->
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Norma</th><th>Contenido relevante</th></tr></thead>
+  <tbody>
+    <tr><td>CE 1978, Título IV</td><td>Arts. 97–107. Del Gobierno: concepto, composición, Presidente, funciones, responsabilidad, cese.</td></tr>
+    <tr><td>Ley 50/1997, de 27 de noviembre</td><td>Ley del Gobierno. Desarrolla el Título IV CE: organización, competencias, funcionamiento, estatuto de sus miembros, Gobierno en funciones.</td></tr>
+    <tr><td>CE, Título V</td><td>Arts. 108–116. Relaciones Gobierno-Cortes: responsabilidad política, cuestión de confianza, moción de censura.</td></tr>
+  </tbody>
+</table>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>1. El Gobierno: concepto, naturaleza jurídica y antecedentes</h2>
+
+<h3>1.1 Concepto constitucional</h3>
+
+<p>El Gobierno es el órgano constitucional que ejerce la función ejecutiva y la potestad reglamentaria del Estado. La Constitución Española de 1978 le dedica su Título IV (arts. 97 a 107), configurándolo como un órgano colegiado que dirige la política interior y exterior, la Administración civil y militar, y la defensa del Estado.</p>
+
+<div class="art-box">
+  <strong>Art. 97 CE:</strong> «El Gobierno dirige la política interior y exterior, la Administración civil y militar y la defensa del Estado. Ejerce la función ejecutiva y la potestad reglamentaria de acuerdo con la Constitución y las leyes.»
+</div>
+
+<p>Del artículo 97 CE se extraen las cuatro grandes funciones del Gobierno: la función de dirección política, la función ejecutiva, la potestad reglamentaria y la dirección de la Administración. Esta configuración sitúa al Gobierno en el centro del sistema institucional como motor de la acción del Estado.</p>
+
+<h3>1.2 Naturaleza jurídica</h3>
+
+<p>El Gobierno es un <strong>órgano constitucional</strong>: su existencia, composición y funciones esenciales derivan directamente de la Constitución. Es, además, un <strong>órgano colegiado</strong>, pues actúa como tal en el Consejo de Ministros, si bien algunos de sus miembros (singularmente el Presidente) gozan de competencias propias y diferenciadas.</p>
+
+<p>La naturaleza jurídica del Gobierno presenta una doble dimensión. Por un lado, es un <strong>órgano político</strong>, en cuanto dirige la política general del Estado y responde políticamente ante el Congreso de los Diputados (art. 108 CE). Por otro lado, es el <strong>vértice de la Administración del Estado</strong>, en cuanto dirige su organización y funcionamiento. Esta doble condición —órgano político y órgano administrativo— es una característica esencial del sistema parlamentario español.</p>
+
+<p>El Gobierno goza de <strong>legitimación democrática indirecta</strong>: el Presidente del Gobierno es investido por el Congreso de los Diputados (art. 99 CE), y los demás miembros del Gobierno son nombrados y separados por el Rey a propuesta del Presidente. Existe, pues, una cadena de confianza parlamentaria que conecta al electorado con el Gobierno a través del Congreso.</p>
+
+<h3>1.3 Antecedentes históricos</h3>
+
+<p>En las Constituciones del siglo XIX (1812, 1837, 1845, 1869, 1876), los Secretarios de Despacho o Ministros dependían del Rey y no existía propiamente un Presidente del Gobierno con funciones diferenciadas de la Corona. La Constitución de 1931 (II República) configuró por primera vez un Gobierno con perfil propio y un sistema de responsabilidad parlamentaria.</p>
+
+<p>Durante el régimen franquista, el Jefe del Estado asumía también la Presidencia del Gobierno hasta la Ley Orgánica del Estado de 1967, que permitió la separación de ambas funciones (materializada en 1973 con el nombramiento de Carrero Blanco como Presidente del Gobierno).</p>
+
+<p>La Constitución de 1978 consagra definitivamente la separación entre la Corona (Título II) y el Gobierno (Título IV), configurando un sistema parlamentario racionalizado en el que el Gobierno responde ante el Congreso y el Rey desempeña funciones esencialmente simbólicas y representativas.</p>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>2. Composición del Gobierno</h2>
+
+<div class="art-box">
+  <strong>Art. 98.1 CE:</strong> «El Gobierno se compone del Presidente, de los Vicepresidentes, en su caso, de los Ministros y de los demás miembros que establezca la ley.»
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Miembro</th><th>Presencia</th><th>Observaciones</th></tr></thead>
+  <tbody>
+    <tr><td>Presidente</td><td>Necesaria</td><td>Es el miembro imprescindible. Propone al Rey el nombramiento de los demás.</td></tr>
+    <tr><td>Vicepresidente(s)</td><td>Potestativa («en su caso»)</td><td>Puede haber uno, varios o ninguno. Pueden acumular la titularidad de un Departamento ministerial.</td></tr>
+    <tr><td>Ministros</td><td>Necesaria</td><td>Titulares de los Departamentos ministeriales. También pueden existir Ministros sin cartera.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>La CE utiliza la fórmula abierta «y de los demás miembros que establezca la ley» (art. 98.1 CE), pero la Ley 50/1997 ha cerrado la composición a las tres categorías indicadas. Los <strong>Secretarios de Estado</strong>, aunque asisten a las reuniones del Consejo de Ministros cuando son convocados, <strong>no forman parte del Gobierno</strong>.</p>
+
+<div class="key-box">
+  <span class="key-label">📋 Dato clave para el examen</span>
+  Los Secretarios de Estado NO son miembros del Gobierno (art. 1.2 LGob). Los Vicepresidentes son una figura potestativa: puede no haber ninguno. Pueden existir Ministros sin cartera (art. 4.2 LGob).
+</div>
+
+<h3>2.1 Los órganos de colaboración y apoyo</h3>
+
+<ul>
+  <li><strong>Los Secretarios de Estado (art. 7 LGob):</strong> órganos superiores de la Administración General del Estado directamente responsables de la ejecución de la acción del Gobierno en un sector de actividad específica.</li>
+  <li><strong>La Comisión General de Secretarios de Estado y Subsecretarios (art. 8 LGob):</strong> órgano de preparación de las sesiones del Consejo de Ministros. Estudia los asuntos que se someterán al Consejo y prepara sus deliberaciones. No puede adoptar decisiones o acuerdos por delegación del Gobierno. Está presidida por un Vicepresidente del Gobierno o, en su defecto, por el Ministro de la Presidencia.</li>
+  <li><strong>El Secretariado del Gobierno (art. 9 LGob):</strong> ejerce funciones de asistencia técnica al Gobierno, velando por la correcta publicación de las disposiciones y normas emanadas del Gobierno.</li>
+</ul>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>3. Funciones del Gobierno</h2>
+
+<p>Las funciones del Gobierno se derivan del artículo 97 CE y se concretan a lo largo de la Ley 50/1997. Pueden sistematizarse en cuatro grandes bloques:</p>
+
+<h3>3.1 Función de dirección política</h3>
+
+<p>El Gobierno dirige la política interior y exterior del Estado. Esto implica la capacidad de fijar los objetivos políticos generales, establecer prioridades, impulsar la acción legislativa mediante la presentación de proyectos de ley a las Cortes Generales, y conducir las relaciones internacionales del Estado. Manifestaciones concretas: presentación de proyectos de ley (art. 87.1 CE), elaboración de los Presupuestos Generales del Estado (art. 134.1 CE), negociación y firma de tratados internacionales, dirección de la política de defensa.</p>
+
+<h3>3.2 Función ejecutiva</h3>
+
+<p>El Gobierno ejecuta las leyes aprobadas por las Cortes Generales y adopta las decisiones necesarias para la aplicación efectiva del ordenamiento jurídico. Esta función incluye la adopción de acuerdos, resoluciones y actos administrativos en los ámbitos de su competencia.</p>
+
+<h3>3.3 Potestad reglamentaria</h3>
+
+<p>El Gobierno ejerce la potestad reglamentaria «de acuerdo con la Constitución y las leyes» (art. 97 CE). Esta potestad se manifiesta en la aprobación de reglamentos ejecutivos (Reales Decretos aprobados en Consejo de Ministros) y de Órdenes Ministeriales por los titulares de cada departamento. El artículo 24 de la Ley 50/1997 regula la potestad reglamentaria, exigiendo que los reglamentos se ajusten a los principios de legalidad, jerarquía normativa y publicidad.</p>
+
+<p>El artículo 5 de la Ley 50/1997 enumera las competencias del Consejo de Ministros: aprobar los proyectos de ley y el Proyecto de Ley de PGE; aprobar los Reales Decretos-leyes y Decretos Legislativos; acordar la negociación y firma de tratados internacionales; declarar los estados de alarma y de excepción y proponer al Congreso el estado de sitio; disponer la emisión de Deuda Pública; aprobar reglamentos de ejecución de las leyes; y adoptar programas, planes y directrices vinculantes para la Administración General del Estado.</p>
+
+<h3>3.4 Dirección de la Administración civil y militar y de la defensa del Estado</h3>
+
+<p>El Gobierno se sitúa en la cúspide de la Administración General del Estado, dirigiendo su organización y funcionamiento. Asimismo, dirige la Administración militar y es responsable de la defensa del Estado (art. 97 CE), correspondiendo al Rey el mando supremo de las Fuerzas Armadas (art. 62.h CE).</p>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>4. El Presidente del Gobierno</h2>
+
+<h3>4.1 Naturaleza jurídica</h3>
+
+<p>El Presidente del Gobierno es el miembro preeminente del órgano gubernamental. La CE le configura no como un <em>primus inter pares</em> sino como el verdadero director y líder del Gobierno. Su posición constitucional se define en los artículos 98.2, 99, 100, 101, 112 y 115 CE, y se desarrolla en los artículos 2 y 3 de la Ley 50/1997.</p>
+
+<div class="art-box">
+  <strong>Art. 98.2 CE:</strong> «El Presidente dirige la acción del Gobierno y coordina las funciones de los demás miembros del mismo, sin perjuicio de la competencia y responsabilidad directa de éstos en su gestión.»
+</div>
+
+<p>Esta preeminencia se manifiesta en varias dimensiones: es él quien recibe la investidura del Congreso; es él quien propone al Rey el nombramiento y separación de los demás miembros del Gobierno; y es él quien puede plantear la cuestión de confianza y proponer la disolución de las Cámaras.</p>
+
+<h3>4.2 Nombramiento del Presidente: la investidura (art. 99 CE)</h3>
+
+<div class="art-box">
+  <strong>Art. 99 CE (extracto):</strong> «El candidato propuesto expondrá ante el Congreso de los Diputados el programa político del Gobierno que pretenda formar y solicitará la confianza de la Cámara. Si el Congreso de los Diputados, por el voto de la mayoría absoluta de sus miembros, otorgare su confianza a dicho candidato, el Rey le nombrará Presidente. De no alcanzarse dicha mayoría, se someterá la misma propuesta a nueva votación cuarenta y ocho horas después de la anterior, y la confianza se entenderá otorgada si obtuviere la mayoría simple. Si transcurrido el plazo de dos meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Congreso, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso.»
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Fase</th><th>Descripción</th></tr></thead>
+  <tbody>
+    <tr><td>1. Consultas del Rey</td><td>El Rey consulta a los representantes de los grupos políticos con representación parlamentaria.</td></tr>
+    <tr><td>2. Propuesta</td><td>El Rey propone un candidato a través del Presidente del Congreso.</td></tr>
+    <tr><td>3. Debate de investidura</td><td>El candidato expone su programa de gobierno y solicita la confianza del Congreso.</td></tr>
+    <tr><td>4. Primera votación</td><td>Se requiere mayoría absoluta (176 votos de 350).</td></tr>
+    <tr><td>5. Segunda votación</td><td>48 horas después: basta mayoría simple (más síes que noes).</td></tr>
+    <tr><td>6. Nuevas propuestas</td><td>Si no se obtiene la confianza, se tramitan sucesivas propuestas.</td></tr>
+    <tr><td>7. Disolución automática</td><td>Transcurridos 2 meses sin investidura: disolución automática y nuevas elecciones.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>4.3 Funciones del Presidente del Gobierno (art. 2 LGob)</h3>
+
+<p>Las principales funciones del Presidente son: representar al Gobierno; establecer el programa político y determinar las directrices de la política interior y exterior; proponer al Rey, previa deliberación del Consejo de Ministros, la disolución del Congreso, del Senado o de las Cortes Generales; plantear ante el Congreso la cuestión de confianza; proponer al Rey la convocatoria de un referéndum consultivo, previa autorización del Congreso; dirigir la política de defensa; convocar, presidir y fijar el orden del día de las reuniones del Consejo de Ministros; refrendar, en su caso, los actos del Rey; interponer el recurso de inconstitucionalidad; crear, modificar y suprimir Departamentos Ministeriales y Secretarías de Estado por Real Decreto; proponer al Rey el nombramiento y separación de los Vicepresidentes y de los Ministros; y resolver los conflictos de atribuciones entre Ministerios.</p>
+
+<div class="key-box">
+  <span class="key-label">📋 Dato clave para el examen</span>
+  El Presidente NO puede disolver las Cámaras sin previa deliberación del Consejo de Ministros (art. 115 CE). La cuestión de confianza se plantea ante el Congreso, nunca ante el Senado. El Presidente propone al Rey los nombramientos; el Rey los formaliza (art. 100 CE).
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>5. Los Ministros</h2>
+
+<h3>5.1 Naturaleza jurídica</h3>
+
+<p>Los Ministros tienen una <strong>doble naturaleza</strong>: son miembros del Gobierno (órgano político-constitucional) y, al mismo tiempo, son los jefes superiores de sus respectivos Departamentos ministeriales (órgano administrativo). Esta doble condición les confiere funciones tanto políticas como administrativas.</p>
+
+<div class="art-box">
+  <strong>Art. 4.1 Ley 50/1997:</strong> «Los Ministros, como titulares de sus Departamentos, tienen competencia y responsabilidad en la esfera específica de su actuación, y les corresponde el ejercicio de las siguientes funciones: a) Desarrollar la acción del Gobierno en el ámbito de su Departamento. b) Ejercer la potestad reglamentaria en las materias propias de su Departamento. c) Ejercer cuantas otras competencias les atribuyan las leyes. d) Refrendar, en su caso, los actos del Rey en materia propia de su Departamento.»
+</div>
+
+<h3>5.2 Funciones de los Ministros</h3>
+
+<p><strong>Como miembros del Gobierno:</strong> participan en las reuniones del Consejo de Ministros; contribuyen a la elaboración de la política general; refrendan, en su caso, los actos del Rey; y responden solidariamente de la actividad política del Gobierno ante el Congreso.</p>
+
+<p><strong>Como jefes de su Departamento:</strong> ejercen la potestad reglamentaria en las materias de su Departamento (mediante Órdenes Ministeriales); dirigen la organización y el funcionamiento de su Ministerio; fijan los objetivos del Departamento y aprueban los planes de actuación; y ejercen la superior autoridad sobre el personal de su Departamento.</p>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>6. Los Vicepresidentes</h2>
+
+<p>La figura de los Vicepresidentes del Gobierno es <strong>potestativa</strong> («en su caso», art. 98.1 CE). El artículo 3 de la Ley 50/1997 establece que al Vicepresidente o Vicepresidentes, cuando existan, les corresponderá el ejercicio de las funciones que les encomiende el Presidente. El Vicepresidente que asuma la titularidad de un Departamento Ministerial ostentará, además, la condición de Ministro.</p>
+
+<p>Los Vicepresidentes ejercen las funciones que les encomiende el Presidente y, cuando sean varios, se ordenan numéricamente (Vicepresidencia Primera, Segunda, etc.). La función esencial del Vicepresidente es <strong>sustituir al Presidente</strong> en caso de vacante, ausencia o enfermedad, conforme al orden establecido (art. 13 LGob).</p>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>7. Las Comisiones Delegadas del Gobierno</h2>
+
+<p>Las Comisiones Delegadas del Gobierno son órganos colegiados del Gobierno que reúnen a varios Ministros para coordinar la acción gubernamental en ámbitos que afectan a más de un Departamento ministerial. Están reguladas en el artículo 6 de la Ley 50/1997.</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Aspecto</th><th>Descripción</th></tr></thead>
+  <tbody>
+    <tr><td>Creación</td><td>Por Real Decreto del Consejo de Ministros, a propuesta del Presidente del Gobierno.</td></tr>
+    <tr><td>Composición</td><td>Miembros del Gobierno y, en su caso, Secretarios de Estado (incluidos expresamente en el RD de creación o convocados cuando los asuntos lo requieran).</td></tr>
+    <tr><td>Función principal</td><td>Coordinar la acción gubernamental en ámbitos interministeriales; resolver asuntos que afecten a más de un Ministerio sin necesidad de elevarlos al Consejo de Ministros.</td></tr>
+    <tr><td>Ejemplo clásico</td><td>Comisión Delegada para Asuntos Económicos; Comisión Delegada para Política Exterior.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>El Real Decreto de creación de cada Comisión Delegada debe especificar: el miembro del Gobierno que asume la presidencia; los miembros del Gobierno y, en su caso, Secretarios de Estado que la integran; las funciones que se atribuyen a la Comisión; y el miembro de la Comisión al que corresponde la Secretaría.</p>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>8. El estatuto jurídico de los miembros del Gobierno y su responsabilidad</h2>
+
+<h3>8.1 Requisitos e incompatibilidades</h3>
+
+<p>El artículo 11 de la Ley 50/1997 establece que para ser miembro del Gobierno se requiere ser español, mayor de edad, disfrutar de los derechos de sufragio activo y pasivo, y no estar inhabilitado para ejercer empleo o cargo público por sentencia judicial firme.</p>
+
+<div class="art-box">
+  <strong>Art. 98.3 CE:</strong> «Los miembros del Gobierno no podrán ejercer otras funciones representativas que las propias del mandato parlamentario, ni cualquier otra función pública que no derive de su cargo, ni actividad profesional o mercantil alguna.»
+</div>
+
+<p>Este régimen de incompatibilidades se desarrolla en el artículo 12 de la Ley 50/1997, que remite al régimen de incompatibilidades de los altos cargos de la Administración General del Estado (Ley 3/2015, de 30 de marzo). La finalidad es garantizar la dedicación exclusiva de los miembros del Gobierno a sus funciones y prevenir conflictos de intereses.</p>
+
+<h3>8.2 Fuero jurisdiccional especial</h3>
+
+<div class="art-box">
+  <strong>Art. 102 CE:</strong> «1. La responsabilidad criminal del Presidente y los demás miembros del Gobierno será exigible, en su caso, ante la Sala de lo Penal del Tribunal Supremo. 2. Si la acusación fuere por traición o por cualquier delito contra la seguridad del Estado en el ejercicio de sus funciones, sólo podrá ser planteada por iniciativa de la cuarta parte de los miembros del Congreso, y con la aprobación de la mayoría absoluta del mismo. 3. La prerrogativa real de gracia no será aplicable a ninguno de los supuestos del presente artículo.»
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Tipo de responsabilidad</th><th>Régimen</th></tr></thead>
+  <tbody>
+    <tr><td>Responsabilidad política</td><td>Solidaria ante el Congreso (art. 108 CE). Se exige mediante la moción de censura (art. 113 CE) o la cuestión de confianza (art. 112 CE).</td></tr>
+    <tr><td>Responsabilidad penal</td><td>Individual ante la Sala de lo Penal del Tribunal Supremo (art. 102.1 CE). Por traición o delitos contra la seguridad del Estado: iniciativa de 1/4 del Congreso y aprobación por mayoría absoluta.</td></tr>
+    <tr><td>Responsabilidad civil</td><td>Se exige ante la Sala Primera (Civil) del Tribunal Supremo.</td></tr>
+    <tr><td>Responsabilidad patrimonial</td><td>De la Administración, por el funcionamiento de los servicios públicos (art. 106.2 CE). No es estrictamente de los miembros del Gobierno, sino de la Administración como tal.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>8.3 Responsabilidad política: la moción de censura y la cuestión de confianza</h3>
+
+<div class="art-box">
+  <strong>Art. 108 CE:</strong> «El Gobierno responde solidariamente en su gestión política ante el Congreso de los Diputados.»
+</div>
+
+<p>La CE configura dos mecanismos de exigencia de responsabilidad política:</p>
+
+<ul>
+  <li><strong>Moción de censura (art. 113 CE):</strong> es constructiva, lo que significa que debe incluir un candidato alternativo a la Presidencia del Gobierno. Debe ser propuesta al menos por la décima parte de los Diputados (35 sobre 350) y aprobada por <strong>mayoría absoluta del Congreso</strong>. Si prospera, el Gobierno debe dimitir y el candidato alternativo queda investido como nuevo Presidente.</li>
+  <li><strong>Cuestión de confianza (art. 112 CE):</strong> la plantea el Presidente del Gobierno, previa deliberación del Consejo de Ministros, sobre su programa o sobre una declaración de política general. Se entiende otorgada cuando vote a favor la <strong>mayoría simple del Congreso</strong>. Si no se obtiene la confianza, el Gobierno debe presentar su dimisión al Rey.</li>
+</ul>
+
+<div class="key-box">
+  <span class="key-label">📋 Dato clave para el examen</span>
+  Moción de censura: mayoría ABSOLUTA para prosperar. Es CONSTRUCTIVA (incluye candidato alternativo). — Cuestión de confianza: mayoría SIMPLE para entenderse otorgada. La plantea el Presidente. — La responsabilidad política es SOLIDARIA y se exige ante el CONGRESO (nunca ante el Senado).
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>9. Nombramiento y cese del Gobierno</h2>
+
+<h3>9.1 Nombramiento</h3>
+
+<div class="art-box">
+  <strong>Art. 100 CE:</strong> «Los demás miembros del Gobierno serán nombrados y separados por el Rey, a propuesta de su Presidente.»
+</div>
+
+<p>Una vez investido el Presidente por el Congreso (art. 99 CE), este propone al Rey el nombramiento de los Vicepresidentes y Ministros. El Rey formaliza el nombramiento mediante Real Decreto. El acto del Rey es un <strong>acto debido, no discrecional</strong>: el Rey no puede negarse a nombrar a quien el Presidente proponga.</p>
+
+<p>La determinación del número, denominación y competencias de los Departamentos ministeriales corresponde al Presidente del Gobierno, quien lo establece mediante Real Decreto (art. 2.2.j LGob).</p>
+
+<h3>9.2 Cese del Gobierno</h3>
+
+<div class="art-box">
+  <strong>Art. 101 CE:</strong> «1. El Gobierno cesa tras la celebración de elecciones generales, en los casos de pérdida de la confianza parlamentaria previstos en la Constitución, o por dimisión o fallecimiento de su Presidente. 2. El Gobierno cesante continuará en funciones hasta la toma de posesión del nuevo Gobierno.»
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Causa de cese</th><th>Descripción</th></tr></thead>
+  <tbody>
+    <tr><td>Elecciones generales</td><td>Tras la celebración de elecciones al Congreso, el Gobierno cesa automáticamente.</td></tr>
+    <tr><td>Pérdida de confianza parlamentaria</td><td>Por denegación de la cuestión de confianza (art. 112 CE) o por aprobación de moción de censura (art. 113 CE).</td></tr>
+    <tr><td>Dimisión del Presidente</td><td>El Presidente comunica su dimisión al Rey. El Gobierno entero cesa.</td></tr>
+    <tr><td>Fallecimiento del Presidente</td><td>Produce el cese automático de todo el Gobierno.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Es importante distinguir el cese del Gobierno (que afecta al órgano en su conjunto y solo se produce por las causas del art. 101.1 CE) del cese individual de un Ministro o Vicepresidente, que se produce por decisión del Presidente (quien propone al Rey su separación, art. 100 CE) o por dimisión individual del interesado.</p>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>10. El Gobierno en funciones</h2>
+
+<div class="art-box">
+  <strong>Art. 21.1 Ley 50/1997:</strong> «El Gobierno en funciones facilitará el normal desarrollo del proceso de formación del nuevo Gobierno y el traspaso de poderes al mismo y limitará su gestión al despacho ordinario de los asuntos públicos, absteniéndose de adoptar, salvo casos de urgencia debidamente acreditados o por razones de interés general cuya acreditación expresa así lo justifique, cualesquiera otras medidas.»
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Puede hacer (despacho ordinario)</th><th>NO puede hacer</th></tr></thead>
+  <tbody>
+    <tr><td>Gestionar asuntos de trámite ordinario.</td><td>Proponer la disolución de las Cámaras (Presidente).</td></tr>
+    <tr><td>Atender urgencias debidamente acreditadas.</td><td>Plantear la cuestión de confianza (Presidente).</td></tr>
+    <tr><td>Adoptar medidas por razones de interés general acreditadas.</td><td>Proponer un referéndum consultivo (Presidente).</td></tr>
+    <tr><td>Facilitar el traspaso de poderes.</td><td>Aprobar el Proyecto de Ley de Presupuestos (Gobierno).</td></tr>
+    <tr><td></td><td>Presentar proyectos de ley (Gobierno).</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>La ratio de esta regulación es lógica: un Gobierno que ha perdido su vinculación parlamentaria (por elecciones, dimisión o pérdida de confianza) carece de legitimación para tomar decisiones de trascendencia política. Su función se limita al despacho ordinario de los asuntos públicos y a facilitar la transición al nuevo Gobierno.</p>
+
+<div class="key-box">
+  <span class="key-label">📋 Dato clave para el examen</span>
+  El Gobierno en funciones se limita al «despacho ordinario de los asuntos públicos». El Presidente en funciones NO puede: disolver Cámaras, plantear cuestión de confianza, convocar referéndum. El Gobierno en funciones NO puede: aprobar PGE ni presentar proyectos de ley.
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>11. Tabla resumen para el examen</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Concepto</th><th>Contenido esencial</th></tr></thead>
+  <tbody>
+    <tr><td>Base normativa</td><td>CE, Título IV (arts. 97–107) + Ley 50/1997, de 27 de noviembre, del Gobierno.</td></tr>
+    <tr><td>Concepto</td><td>Órgano constitucional colegiado que dirige la política interior y exterior, la Administración civil y militar, y la defensa del Estado (art. 97 CE).</td></tr>
+    <tr><td>Composición</td><td>Presidente + Vicepresidente(s), en su caso + Ministros (art. 98.1 CE, art. 1.2 LGob). Los Secretarios de Estado NO son miembros del Gobierno.</td></tr>
+    <tr><td>Funciones</td><td>Dirección política, función ejecutiva, potestad reglamentaria, dirección de la Administración (art. 97 CE).</td></tr>
+    <tr><td>Presidente: nombramiento</td><td>Investidura por el Congreso (art. 99 CE): 1.ª votación, mayoría absoluta; 2.ª votación (48 h), mayoría simple. Si no: 2 meses → disolución automática.</td></tr>
+    <tr><td>Presidente: funciones</td><td>Dirige la acción del Gobierno; coordina a los Ministros; propone nombramientos; convoca Consejo de Ministros; plantea cuestión de confianza; propone disolución (art. 2 LGob).</td></tr>
+    <tr><td>Ministros</td><td>Doble condición: miembros del Gobierno + jefes de Departamento. Potestad reglamentaria (Órdenes Ministeriales). Pueden ser Ministros sin cartera (art. 4 LGob).</td></tr>
+    <tr><td>Vicepresidentes</td><td>Figura potestativa. Funciones delegadas por el Presidente. Sustituyen al Presidente. Pueden ostentar además condición de Ministro (art. 3 LGob).</td></tr>
+    <tr><td>Comisiones Delegadas</td><td>Órganos colegiados interministeriales. Creación por RD del Consejo de Ministros, a propuesta del Presidente. Coordinan y resuelven asuntos pluridepartamentales (art. 6 LGob).</td></tr>
+    <tr><td>Incompatibilidades</td><td>Solo mandato parlamentario; vedada cualquier otra función pública no derivada del cargo, actividad profesional o mercantil (art. 98.3 CE, art. 12 LGob).</td></tr>
+    <tr><td>Responsabilidad política</td><td>Solidaria ante el Congreso (art. 108 CE). Mecanismos: moción de censura constructiva (art. 113 CE, mayoría absoluta) y cuestión de confianza (art. 112 CE, mayoría simple).</td></tr>
+    <tr><td>Responsabilidad penal</td><td>Ante la Sala de lo Penal del TS (art. 102 CE). Traición/seguridad del Estado: iniciativa 1/4 Congreso, aprobación mayoría absoluta. Sin derecho de gracia.</td></tr>
+    <tr><td>Causas de cese</td><td>Elecciones generales, pérdida de confianza parlamentaria (moción de censura o cuestión de confianza), dimisión o fallecimiento del Presidente (art. 101 CE).</td></tr>
+    <tr><td>Gobierno en funciones</td><td>Despacho ordinario. Presidente: no puede disolver Cámaras, plantear cuestión de confianza ni convocar referéndum. Gobierno: no puede aprobar PGE ni presentar proyectos de ley (art. 21 LGob).</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="nav-bottom">
+  <a href="tema16.html" class="nav-btn">← Tema 16</a>
+  <a href="../index.html" class="nav-btn">Inici</a>
+  <a href="tema18.html" class="nav-btn next">Tema 18 →</a>
+</div>
+
+</div>
+</div>
+
+<footer>Servei de Salut de les Illes Balears · Material de preparació no oficial · 2025–2026</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('nav'))document.getElementById('mobile-menu').classList.remove('open');
+});
+</script>
+</body>
+</html>
