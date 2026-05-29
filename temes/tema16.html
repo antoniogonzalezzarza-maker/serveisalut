@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tema 16 · Las Cortes Generales (II) · IB-Salut Oposicions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../style.css"/>
+<style>
+.tema-hero{background:linear-gradient(135deg,#1F4E79 0%,#2E4057 100%);color:#fff;padding:2.5rem 2rem 2rem;border-radius:12px;margin-bottom:2.5rem}
+.tema-hero .num{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-bottom:.4rem}
+.tema-hero h1{font-family:'Crimson Pro',serif;font-size:2.1rem;font-weight:700;line-height:1.2;margin:0 0 .6rem}
+.tema-hero .sub{font-family:'DM Sans',sans-serif;font-size:.9rem;opacity:.8;font-style:italic;line-height:1.5}
+.tema-body h2{font-family:'Crimson Pro',serif;font-size:1.6rem;font-weight:700;color:#1F4E79;margin:2.4rem 0 .7rem;padding-bottom:.3rem;border-bottom:2px solid #D6E4F0}
+.tema-body h3{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:600;color:#2E4057;margin:1.6rem 0 .5rem}
+.tema-body h4{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:#1F4E79;margin:1.2rem 0 .4rem;text-transform:uppercase;letter-spacing:.05em}
+.tema-body p{font-family:'Crimson Pro',serif;font-size:1.08rem;line-height:1.75;color:#2c2c2c;text-align:justify;margin:0 0 .9rem}
+.tema-body ul{margin:.4rem 0 1rem 1.4rem;padding:0}
+.tema-body ul li{font-family:'Crimson Pro',serif;font-size:1.08rem;line-height:1.7;color:#2c2c2c;margin-bottom:.35rem}
+.tema-body ul li strong{color:#1F4E79}
+.art-box{background:#EBF4FB;border-left:4px solid #1F4E79;border-radius:0 6px 6px 0;padding:.85rem 1.1rem;margin:1rem 0 1.1rem;font-family:'Crimson Pro',serif;font-size:1rem;color:#1a3a5c;font-style:italic;line-height:1.65}
+.art-box strong{font-style:normal;font-weight:700}
+.warn-box{background:#FFF8E1;border-left:4px solid #E8B931;border-radius:0 6px 6px 0;padding:.85rem 1.1rem;margin:1.2rem 0 1.3rem;font-family:'Crimson Pro',serif;font-size:1rem;color:#3a2e00;line-height:1.65}
+.warn-box .warn-label{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8a6500;margin-bottom:.3rem;display:block}
+.table-wrap{overflow-x:auto;margin:1.2rem 0 1.6rem;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+table thead tr th{background:#2E4057;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;padding:.65rem .9rem;text-align:left;font-size:.85rem}
+table tbody tr:nth-child(even){background:#F5F7FA}
+table tbody tr:nth-child(odd){background:#fff}
+table tbody td{padding:.6rem .9rem;font-family:'Crimson Pro',serif;font-size:1rem;color:#2c2c2c;border-bottom:1px solid #e4e8ef;vertical-align:top;line-height:1.5}
+table tbody td:first-child{font-weight:600;color:#1F4E79}
+.nav-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid #D6E4F0;gap:1rem;flex-wrap:wrap}
+.nav-btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:#1F4E79;text-decoration:none;padding:.55rem 1rem;border:1.5px solid #D6E4F0;border-radius:8px;transition:all .2s}
+.nav-btn:hover{background:#EBF4FB;border-color:#1F4E79}
+.nav-btn.next{background:#1F4E79;color:#fff;border-color:#1F4E79}
+.nav-btn.next:hover{background:#163a5c}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div>
+      <div class="nav-title">IB-Salut · Oposicions</div>
+      <div class="nav-subtitle">Grup Tècnic Funció Administrativa</div>
+    </div>
+  </a>
+  <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menú">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="nav-links" id="mobile-menu">
+    <a href="../index.html">Inici</a>
+    <a href="../index.html#bloc-i" class="active">Bloc I · Constitució</a>
+  </div>
+</nav>
+
+<div class="page">
+<div class="tema-body">
+
+<div class="tema-hero">
+  <div class="num">Temari específic · Bloc I — Constitució Espanyola</div>
+  <h1>Tema 16. Las Cortes Generales (II)</h1>
+  <div class="sub">Los órganos dependientes de las Cortes Generales · El Tribunal de Cuentas: concepto, naturaleza jurídica, composición, organización, funcionamiento y funciones · El Defensor del Pueblo: concepto, naturaleza jurídica, designación, cese y funciones · Procedimiento de actuación</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>1. Los órganos dependientes de las Cortes Generales</h2>
+
+<p>La Constitución Española de 1978 prevé, junto a las dos cámaras que integran las Cortes Generales, una serie de órganos que actúan bajo su tutela o dependencia institucional. Estos órganos no forman parte del Poder Ejecutivo ni del Poder Judicial, sino que se insertan en la órbita del Parlamento como expresión del principio democrático y del control sobre los poderes públicos. Los más relevantes son el Tribunal de Cuentas (art. 136 CE) y el Defensor del Pueblo (art. 54 CE).</p>
+
+<p>Ambos comparten una característica estructural: su independencia funcional en el ejercicio de sus atribuciones, a pesar de que su legitimidad de origen y su estatuto orgánico los vinculan a las Cortes. No son órganos de las Cortes en sentido estricto —no forman parte de su organización interna— sino órganos auxiliares o comisionados del Parlamento, con competencias propias definidas por la Constitución y sus leyes orgánicas de desarrollo.</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Órgano</th><th>Base constitucional</th><th>Ley de desarrollo</th><th>Dependencia</th></tr></thead>
+  <tbody>
+    <tr><td>Tribunal de Cuentas</td><td>Art. 136 CE</td><td>Ley Orgánica 2/1982, de 12 de mayo</td><td>Cortes Generales</td></tr>
+    <tr><td>Defensor del Pueblo</td><td>Art. 54 CE</td><td>Ley Orgánica 3/1981, de 6 de abril</td><td>Cortes Generales</td></tr>
+    <tr><td>Diputación Permanente</td><td>Art. 78 CE</td><td>Reglamentos de las cámaras</td><td>Cada cámara respectiva</td></tr>
+  </tbody>
+</table>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>2. El Tribunal de Cuentas</h2>
+
+<h3>2.1 Concepto y naturaleza jurídica</h3>
+
+<p>El Tribunal de Cuentas es el supremo órgano fiscalizador de las cuentas y de la gestión económica del Estado y del sector público (art. 136.1 CE). Su naturaleza jurídica es dual:</p>
+
+<ul>
+  <li><strong>Órgano constitucional de control externo:</strong> ejerce el control externo del gasto público con plena autonomía e independencia respecto del Gobierno. No es un órgano de la Administración ni está sometido a su jerarquía. Su dependencia de las Cortes Generales es de naturaleza orgánica (rendición de cuentas, nombramiento), pero no funcional: en el ejercicio de sus funciones actúa con plena independencia.</li>
+  <li><strong>Órgano jurisdiccional especializado:</strong> ejerce también una función jurisdiccional propia, el enjuiciamiento contable. Esta función lo distingue de los órganos de control meramente administrativos y le da carácter de verdadero órgano judicial para los asuntos de su competencia, con sus resoluciones teniendo valor de cosa juzgada.</li>
+</ul>
+
+<p>La Ley Orgánica 2/1982, de 12 de mayo, del Tribunal de Cuentas (LOTCu) y la Ley 7/1988, de 5 de abril, de Funcionamiento del Tribunal de Cuentas (LFTCu) desarrollan su régimen jurídico. El artículo 1 LOTCu establece que el Tribunal de Cuentas es único en su orden y extiende su jurisdicción a todo el territorio nacional, sin perjuicio de los órganos fiscalizadores propios de las CCAA (las Sindicaturas o Cámaras de Cuentas autonómicas).</p>
+
+<div class="warn-box">
+  <span class="warn-label">⚠ Importante</span>
+  El Tribunal de Cuentas depende directamente de las Cortes Generales y ejerce sus funciones por delegación de ellas en el examen y comprobación de la Cuenta General del Estado (art. 136.1 CE). La Sindicatura de Comptes de les Illes Balears (art. 82 EA, LO 1/2007) es el órgano fiscalizador externo autonómico, coordinado con el Tribunal de Cuentas estatal.
+</div>
+
+<h3>2.2 Composición</h3>
+
+<p>El Tribunal de Cuentas está integrado por los siguientes órganos personales (art. 136.2 CE y arts. 4-12 LOTCu):</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Órgano</th><th>Número</th><th>Designación</th><th>Mandato</th></tr></thead>
+  <tbody>
+    <tr><td>Consejeros de Cuentas</td><td>12 (6+6)</td><td>6 propuestos por el Congreso + 6 por el Senado, ambos por mayoría de 3/5</td><td>9 años; renovación parcial cada 3</td></tr>
+    <tr><td>Presidente</td><td>1</td><td>Elegido por los propios Consejeros; nombrado por el Rey</td><td>3 años, renovable</td></tr>
+    <tr><td>Fiscal</td><td>1</td><td>Nombrado por el Gobierno a propuesta del Fiscal General del Estado</td><td>No tasado</td></tr>
+    <tr><td>Secretario General</td><td>1</td><td>Nombrado por el Pleno</td><td>No tasado</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Los Consejeros de Cuentas son inamovibles y gozan de las mismas garantías de independencia que los magistrados del Poder Judicial (art. 136.3 CE): no pueden ser separados, suspendidos, trasladados ni jubilados sino por las causas y mediante el procedimiento establecido en la ley. Son incompatibles con todo cargo, profesión o actividad pública o privada, salvo el ejercicio docente e investigador.</p>
+
+<p>Para ser Consejero de Cuentas se requiere ser español, mayor de edad, con título de Doctor, Licenciado, Ingeniero, Arquitecto o equivalente, y acreditar más de quince años de ejercicio profesional en materias relacionadas con la competencia del Tribunal.</p>
+
+<h3>2.3 Organización interna</h3>
+
+<h4>A) Sección de Fiscalización</h4>
+<p>Ejerce la función fiscalizadora. Se organiza en departamentos sectoriales (Administración del Estado, Seguridad Social, Sector Público Empresarial, Corporaciones Locales, CCAA, etc.). Elabora los informes de fiscalización y la Declaración definitiva sobre la Cuenta General del Estado, que se eleva a las Cortes Generales. El Pleno del Tribunal aprueba los informes de fiscalización, que son públicos y se publican en el BOE.</p>
+
+<h4>B) Sección de Enjuiciamiento</h4>
+<p>Ejerce la función jurisdiccional contable. Se organiza en Salas, integradas cada una por un Presidente y dos Consejeros de Cuentas (art. 24 LOTCu). Las Salas conocen en apelación de las resoluciones dictadas en primera instancia por los Consejeros de Cuentas. Contra las resoluciones de las Salas cabe recurso de casación ante la Sala Tercera del Tribunal Supremo.</p>
+
+<h4>C) El Pleno y la Comisión de Gobierno</h4>
+<p>El Pleno está integrado por todos los Consejeros de Cuentas y el Fiscal. Es el órgano máximo de decisión en materia fiscalizadora: aprueba los informes, memorias y mociones que se elevan a las Cortes. El quórum para la válida constitución del Pleno es de dos tercios de sus componentes y los acuerdos se adoptan por mayoría de asistentes. La Comisión de Gobierno, integrada por el Presidente y los Consejeros presidentes de Sección, es el órgano de administración y gobierno interno del Tribunal.</p>
+
+<h3>2.4 Funciones del Tribunal de Cuentas</h3>
+
+<p>El art. 136.1 CE atribuye al Tribunal de Cuentas dos funciones constitucionales distintas, que se ejercen con independencia entre sí:</p>
+
+<h4>A) La función fiscalizadora (arts. 9-14 LOTCu)</h4>
+
+<p>La función fiscalizadora consiste, según el art. 2 LOTCu, en la fiscalización <strong>externa, permanente y consuntiva</strong> de la actividad económico-financiera del sector público, verificando si se ha ajustado a los principios de legalidad, eficiencia y economía. Los tres adjetivos tienen significado preciso:</p>
+<ul>
+  <li><strong>Externa:</strong> realizada por un órgano independiente del controlado.</li>
+  <li><strong>Permanente:</strong> no esporádica, sino continua a lo largo del ejercicio.</li>
+  <li><strong>Consuntiva:</strong> posterior a la ejecución, no previa ni simultánea.</li>
+</ul>
+
+<p>El sector público fiscalizado abarca: la Administración General del Estado y sus organismos autónomos; la Seguridad Social; las entidades del sector público empresarial (sociedades mercantiles de titularidad pública, entidades públicas empresariales, fundaciones del sector público); las CCAA y sus entes dependientes; las Corporaciones Locales (Ayuntamientos, Diputaciones, Cabildos insulares); y los partidos políticos que reciben financiación pública.</p>
+
+<p>El resultado de la fiscalización se plasma en tres tipos de documentos:</p>
+<ul>
+  <li><strong>Informes de fiscalización:</strong> versan sobre entes o programas concretos y se aprueban por el Pleno.</li>
+  <li><strong>Memoria anual:</strong> comprende el análisis de la Cuenta General del Estado y demás del sector público; se remite a las Cortes Generales.</li>
+  <li><strong>Mociones o notas:</strong> advertencias al Parlamento sobre irregularidades detectadas que requieren atención específica.</li>
+</ul>
+
+<div class="warn-box">
+  <span class="warn-label">⚠ Importante</span>
+  La Cuenta General del Estado es el instrumento central de la función fiscalizadora. El Gobierno la forma y la rinde al Tribunal de Cuentas, que la examina y aprueba o formula reparos. La Declaración definitiva del Tribunal se eleva a las Cortes Generales (art. 136.1 CE). Este ciclo cierra el control parlamentario sobre la ejecución presupuestaria.
+</div>
+
+<h4>B) La función jurisdiccional: el enjuiciamiento contable (arts. 15-26 LOTCu)</h4>
+
+<p>La función jurisdiccional del Tribunal de Cuentas se concreta en el <strong>enjuiciamiento contable</strong>: el juzgamiento de la responsabilidad contable en que puedan incurrir quienes tengan a su cargo el manejo de caudales o efectos públicos. Es una jurisdicción exclusiva y excluyente: ningún otro orden jurisdiccional puede entrar en el enjuiciamiento de la responsabilidad contable.</p>
+
+<p>La responsabilidad contable exige la concurrencia de los siguientes elementos:</p>
+<ul>
+  <li><strong>Que el sujeto sea cuentadante:</strong> que tenga a su cargo la gestión de fondos o caudales públicos (funcionarios habilitados, ordenadores de pagos, interventores, etc.).</li>
+  <li><strong>Que exista un alcance, malversación, administración desleal o infracción de la normativa presupuestaria:</strong> el daño puede derivar de un alcance (déficit injustificado), de una malversación (sustracción o desviación de fondos) o de pagos indebidos.</li>
+  <li><strong>Dolo o culpa grave:</strong> la responsabilidad contable directa exige dolo o culpa grave; la subsidiaria puede derivar de culpa leve.</li>
+  <li><strong>Daño efectivo e individualizado al erario público:</strong> debe existir un menoscabo real, evaluable económicamente.</li>
+</ul>
+
+<p>La responsabilidad contable es compatible con la responsabilidad penal o disciplinaria por los mismos hechos. El enjuiciamiento contable se sustancia a través de dos procedimientos principales:</p>
+<ul>
+  <li><strong>Juicio de cuentas:</strong> para el examen y aprobación o reparación de las cuentas que deben rendirse al Tribunal.</li>
+  <li><strong>Procedimiento de reintegro por alcance:</strong> para los supuestos en que se detecta un déficit de fondos públicos. El Tribunal condena al responsable al reintegro de los fondos más los intereses legales.</li>
+</ul>
+
+<div class="warn-box">
+  <span class="warn-label">⚠ Importante</span>
+  El Tribunal de Cuentas NO puede imponer sanciones penales ni administrativas. Solo puede declarar la responsabilidad contable y condenar al reintegro. Si los hechos son constitutivos de delito, lo pone en conocimiento del Ministerio Fiscal.
+</div>
+
+<h3>2.5 Relación con las Cortes Generales y con las CCAA</h3>
+
+<p>El Tribunal de Cuentas depende directamente de las Cortes Generales (art. 136.1 CE). Esta dependencia se materializa en la elevación de todos los informes, la Memoria anual y la Declaración sobre la Cuenta General a las Cortes; la rendición anual de un informe de gestión; y el nombramiento de los Consejeros por las Cortes (6 por el Congreso y 6 por el Senado, por mayoría de 3/5).</p>
+
+<p>Respecto a las CCAA, el Tribunal ejerce la fiscalización de toda la actividad económico-financiera autonómica, sin perjuicio de los órganos fiscalizadores propios de cada CA. En las Illes Balears, la Sindicatura de Comptes (art. 82 EA) es el órgano equivalente autonómico.</p>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>3. El Defensor del Pueblo</h2>
+
+<h3>3.1 Concepto, origen y naturaleza jurídica</h3>
+
+<p>El Defensor del Pueblo es el alto comisionado de las Cortes Generales designado para la defensa de los derechos comprendidos en el Título I de la Constitución, a cuyo efecto podrá supervisar la actividad de la Administración, dando cuenta a las Cortes Generales (art. 54 CE). La institución tiene su origen en el <em>Ombudsman</em> escandinavo (creado en Suecia en 1809), figura que se extendió por Europa tras la II Guerra Mundial como mecanismo de protección de los ciudadanos frente a los abusos de la Administración.</p>
+
+<p>Su naturaleza jurídica presenta los siguientes rasgos:</p>
+<ul>
+  <li><strong>Comisionado parlamentario:</strong> no forma parte del Poder Ejecutivo ni del Judicial. Actúa por delegación del Parlamento y rinde cuentas ante él, pero en el ejercicio de sus funciones goza de plena independencia.</li>
+  <li><strong>Órgano constitucional de control:</strong> supervisa la actividad de todas las Administraciones Públicas (AGE, autonómicas y locales) en relación con los derechos del Título I CE.</li>
+  <li><strong>Órgano sin poder de decisión imperativa:</strong> el Defensor del Pueblo no puede anular actos administrativos ni sancionar a los funcionarios directamente. Sus resoluciones adoptan la forma de recomendaciones, sugerencias y recordatorios de deberes legales, que no son jurídicamente vinculantes para la Administración, aunque tienen gran fuerza moral y política.</li>
+</ul>
+
+<p>La Ley Orgánica 3/1981, de 6 de abril, del Defensor del Pueblo (LODP), modificada por la Ley Orgánica 2/1992, de 5 de marzo, regula en detalle la institución. En 2009 se añadió a la LODP una disposición final que atribuye al Defensor las funciones del Mecanismo Nacional de Prevención de la Tortura.</p>
+
+<h3>3.2 Designación</h3>
+
+<p>El Defensor del Pueblo es elegido por las Cortes Generales conforme a un procedimiento específico. Para ser elegido solo se requiere ser español mayor de edad en el pleno disfrute de los derechos civiles y políticos, sin que se exija ninguna titulación específica.</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Fase</th><th>Contenido</th></tr></thead>
+  <tbody>
+    <tr><td>Propuesta de candidatos</td><td>Los grupos parlamentarios de cada cámara pueden presentar candidatos a la Comisión Mixta Congreso-Senado</td></tr>
+    <tr><td>Comisión Mixta</td><td>La Comisión Mixta Congreso-Senado para las Relaciones con el Defensor del Pueblo propone un candidato por consenso o por votación</td></tr>
+    <tr><td>Votación en el Congreso</td><td>Mayoría de 3/5 del Congreso en primera votación</td></tr>
+    <tr><td>Votación en el Senado</td><td>Mayoría de 3/5 del Senado en primera votación</td></tr>
+    <tr><td>Segunda vuelta (si no hay acuerdo)</td><td>Mayoría absoluta de cada cámara</td></tr>
+    <tr><td>Nombramiento formal</td><td>Mediante resolución de las Mesas de ambas cámaras; publicación en el BOE</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>El mandato del Defensor del Pueblo es de <strong>cinco años, renovable</strong>. No puede ser removido antes del vencimiento de su mandato salvo por incapacidad sobrevenida, negligencia notoria, condena mediante sentencia firme por delito doloso, o actuación con notoria mala fe. La destitución requiere la aprobación de la mayoría de cada cámara.</p>
+
+<div class="warn-box">
+  <span class="warn-label">⚠ Importante</span>
+  La mayoría de 3/5 exigida para la elección del Defensor del Pueblo es la misma que se requiere para la designación de los magistrados del Tribunal Constitucional propuestos por las Cortes y de los vocales del CGPJ. Esta mayoría reforzada busca garantizar que el Defensor goce de consenso político amplio, sin quedar identificado con el partido gubernamental.
+</div>
+
+<h3>3.3 Estatuto personal: garantías de independencia</h3>
+
+<ul>
+  <li><strong>Inviolabilidad:</strong> no puede ser detenido ni retenido sino en caso de flagrante delito. La decisión de inculparle o procesarle corresponde a la Sala de lo Penal del Tribunal Supremo (fuero especial).</li>
+  <li><strong>Incompatibilidades absolutas:</strong> el cargo es incompatible con todo mandato representativo, cargo político o administrativo, actividad profesional, empresarial, mercantil o laboral, y con la pertenencia a partidos políticos o sindicatos.</li>
+  <li><strong>Inamovilidad:</strong> solo puede ser cesado por las causas tasadas previstas en la LODP (art. 5), sin posibilidad de remoción <em>ad nutum</em>.</li>
+  <li><strong>Independencia funcional:</strong> en el ejercicio de sus funciones no está sometido a mandato imperativo alguno ni recibe instrucciones de ninguna autoridad. Solo está vinculado a la CE y a la LODP.</li>
+</ul>
+
+<h3>3.4 Estructura organizativa</h3>
+
+<p>El Defensor del Pueblo cuenta con dos Adjuntos —Adjunto Primero y Adjunto Segundo— que le sustituyen en caso de ausencia, vacante o incapacidad temporal. Los Adjuntos son nombrados por el Defensor, con la aprobación de la Comisión Mixta Congreso-Senado, y comparten su estatuto de independencia e incompatibilidades.</p>
+
+<p>La institución dispone de un cuerpo propio de asesores y funcionarios técnicos especializados en las distintas áreas de supervisión (Administración Central, Administración Autonómica y Local, Justicia, Interior, Defensa, etc.).</p>
+
+<h3>3.5 Funciones</h3>
+
+<h4>A) Supervisión de la actividad administrativa (función principal)</h4>
+
+<p>El Defensor del Pueblo supervisa la actividad de la Administración del Estado, las CCAA y las Corporaciones Locales, con el fin de proteger los derechos del Título I CE. Esta supervisión es de oficio o a instancia de parte (mediante la queja del ciudadano afectado). Como resultado de su investigación, el Defensor puede dirigir a la Administración:</p>
+<ul>
+  <li><strong>Recomendaciones:</strong> propuestas de modificación de normas o de criterios de actuación.</li>
+  <li><strong>Sugerencias:</strong> propuestas concretas de actuación alternativa.</li>
+  <li><strong>Recordatorios de deberes legales:</strong> advertencias a los funcionarios del deber de cumplir la ley.</li>
+  <li><strong>Advertencias:</strong> cuando se detecta una irregularidad concreta en la actuación de un funcionario.</li>
+</ul>
+<p>La Administración no está jurídicamente obligada a aceptar estas resoluciones, pero si no las acepta debe motivar su negativa.</p>
+
+<h4>B) Legitimación para interponer recursos ante el Tribunal Constitucional</h4>
+
+<p>El Defensor del Pueblo está legitimado para interponer ante el Tribunal Constitucional (art. 162.1 CE):</p>
+<ul>
+  <li><strong>Recurso de inconstitucionalidad:</strong> contra leyes y disposiciones con fuerza de ley que considere contrarias a la CE.</li>
+  <li><strong>Recurso de amparo:</strong> en defensa de los derechos fundamentales de los ciudadanos cuando estos han agotado la vía judicial ordinaria.</li>
+</ul>
+
+<h4>C) Función de informe y relación con las Cortes Generales</h4>
+
+<p>El Defensor del Pueblo remite anualmente a las Cortes Generales un informe de gestión en el que da cuenta de las quejas recibidas, las investigaciones realizadas, las resoluciones adoptadas y su grado de aceptación por la Administración. El informe anual se presenta ante el Pleno de cada cámara. Puede presentar informes extraordinarios cuando la gravedad o urgencia de la situación lo requiera.</p>
+
+<h3>3.6 Procedimiento de actuación</h3>
+
+<h4>Fase 1. Iniciación: la queja</h4>
+<p>El procedimiento puede iniciarse de oficio (por propia iniciativa del Defensor) o a instancia de parte. Cualquier persona natural o jurídica puede presentar una queja, sin necesidad de asistencia letrada y de forma gratuita. Conforme al art. 15 LODP, la queja debe presentarse firmada por el interesado, con indicación de su nombre, apellidos y domicilio, en escrito razonado y <strong>en el plazo máximo de un año</strong> contado a partir del momento en que el interesado tuvo conocimiento de los hechos. No es necesario haber agotado previamente la vía administrativa o judicial, aunque si el asunto está <em>sub iudice</em> el Defensor deberá abstenerse de intervenir.</p>
+
+<h4>Fase 2. Admisión o inadmisión</h4>
+<p>Recibida la queja, el Defensor decide su admisión o inadmisión. Son causas de inadmisión:</p>
+<ul>
+  <li>Anonimato del quejoso.</li>
+  <li>Mala fe, abuso de derecho o carencia manifiesta de fundamento.</li>
+  <li>Inexistencia de pretensión: el asunto no afecta a los derechos del Título I CE o no implica una actuación administrativa.</li>
+  <li>Queja sobre actos de particulares (el Defensor solo supervisa Administraciones Públicas, no relaciones entre privados).</li>
+  <li>Queja referida a materia que está siendo conocida por los tribunales.</li>
+</ul>
+
+<h4>Fase 3. Investigación</h4>
+<p>Admitida la queja, el Defensor inicia la investigación. Para ello puede: solicitar información a cualquier Administración o funcionario; personarse en cualquier dependencia pública (centros penitenciarios, hospitales públicos, centros de internamiento, etc.); y examinar expedientes y documentos administrativos (incluso los declarados secretos, con la excepción de los declarados reservados por el Consejo de Ministros).</p>
+
+<h4>Fase 4. Resolución</h4>
+<p>Concluida la investigación, el Defensor puede adoptar las siguientes resoluciones:</p>
+<ul>
+  <li><strong>Resolución de archivo:</strong> si la queja no se confirma o no existe vulneración de derechos.</li>
+  <li><strong>Recomendación, sugerencia o recordatorio de deberes legales:</strong> si se confirma la irregularidad. La Administración debe responder motivadamente si acepta o rechaza la resolución.</li>
+  <li><strong>Comunicación al Ministerio Fiscal:</strong> si los hechos pueden ser constitutivos de delito.</li>
+  <li><strong>Ejercicio de la legitimación ante el TC:</strong> si la vulneración deriva de una norma con rango de ley, puede interponer recurso de inconstitucionalidad.</li>
+</ul>
+
+<h3>3.7 El Defensor del Pueblo como Mecanismo Nacional de Prevención de la Tortura</h3>
+
+<p>El Defensor del Pueblo asume en España las funciones del Mecanismo Nacional de Prevención de la Tortura (MNP), en cumplimiento del Protocolo Facultativo a la Convención de la ONU contra la Tortura (OPCAT). Esta atribución se realizó mediante una disposición final añadida a la propia LODP en 2009. En esta condición, el Defensor visita periódica y preventivamente todos los centros de privación de libertad (prisiones, centros de internamiento de extranjeros, hospitales psiquiátricos, centros de menores, etc.) para prevenir la tortura y los tratos crueles, inhumanos o degradantes. La LODP prevé la creación de un Consejo Asesor presidido por el Adjunto en quien el Defensor delegue las funciones del MNP.</p>
+
+<h3>3.8 El Defensor del Pueblo y las instituciones autonómicas análogas</h3>
+
+<p>La mayoría de las CCAA han creado instituciones análogas al Defensor del Pueblo: Síndic de Greuges (Catalunya, Illes Balears, Comunitat Valenciana), Ararteko (País Vasco), Valedor do Pobo (Galicia), Justicia de Aragón, Defensor del Pueblo Andaluz, etc.</p>
+
+<p>El <strong>Síndic de Greuges de les Illes Balears</strong> está previsto en el art. 51 del Estatuto de Autonomía (LO 1/2007) como el comisionado del Parlament balear para la defensa de los derechos y libertades del Título I CE frente a la actuación de la Administración autonómica y local de les Illes Balears. Su regulación detallada se contiene en la Ley 1/1993, de 10 de febrero.</p>
+
+<p>La relación entre el Defensor del Pueblo estatal y los comisionados autonómicos es de <strong>coordinación, no de jerarquía</strong>. El Defensor del Pueblo puede supervisar la actividad de las Administraciones autonómicas y locales incluso en aquellas CCAA que tienen comisionado propio; los comisionados autonómicos, a su vez, pueden remitir quejas al Defensor cuando la materia exceda de sus competencias.</p>
+
+<div class="warn-box">
+  <span class="warn-label">⚠ Importante</span>
+  El Defensor del Pueblo supervisa Administraciones Públicas, no actos de particulares. Sus resoluciones no son vinculantes pero deben ser motivadamente respondidas por la Administración. No puede anular actos administrativos ni sancionar funcionarios directamente: su poder es de persuasión e influencia institucional, no coactivo.
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>4. Comparativa entre el Tribunal de Cuentas y el Defensor del Pueblo</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Elemento</th><th>Tribunal de Cuentas</th><th>Defensor del Pueblo</th></tr></thead>
+  <tbody>
+    <tr><td>Base constitucional</td><td>Art. 136 CE</td><td>Art. 54 CE</td></tr>
+    <tr><td>Ley de desarrollo</td><td>LO 2/1982 (LOTCu) + L 7/1988 (LFTCu)</td><td>LO 3/1981 (LODP)</td></tr>
+    <tr><td>Naturaleza</td><td>Órgano fiscalizador y jurisdiccional</td><td>Comisionado parlamentario; órgano de supervisión</td></tr>
+    <tr><td>Composición</td><td>12 Consejeros (6 Congreso + 6 Senado, 3/5) + Presidente + Fiscal</td><td>1 Defensor + 2 Adjuntos</td></tr>
+    <tr><td>Mandato</td><td>9 años (renovación por tercios cada 3)</td><td>5 años, renovable</td></tr>
+    <tr><td>Ámbito de control</td><td>Actividad económico-financiera del sector público</td><td>Actividad de todas las AAPP en relación con los derechos del Título I CE</td></tr>
+    <tr><td>Tipo de resolución</td><td>Informes de fiscalización (no vinculantes) + sentencias de enjuiciamiento contable (vinculantes)</td><td>Recomendaciones, sugerencias y recordatorios (no vinculantes)</td></tr>
+    <tr><td>Función jurisdiccional</td><td>Sí: enjuiciamiento contable (responsabilidad contable)</td><td>No tiene función jurisdiccional propia</td></tr>
+    <tr><td>Legitimación ante TC</td><td>No</td><td>Sí: recurso de inconstitucionalidad y recurso de amparo (art. 162 CE)</td></tr>
+    <tr><td>Equivalente en Illes Balears</td><td>Sindicatura de Comptes (art. 82 EA)</td><td>Síndic de Greuges (art. 51 EA)</td></tr>
+  </tbody>
+</table>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<h2>5. Tabla resumen para el examen</h2>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Materia</th><th>Dato clave</th></tr></thead>
+  <tbody>
+    <tr><td>TC: art. constitucional</td><td>Art. 136 CE; LO 2/1982 (LOTCu) + Ley 7/1988 (LFTCu)</td></tr>
+    <tr><td>TC: composición</td><td>12 Consejeros: 6 propuestos por Congreso + 6 por Senado, ambos por mayoría de 3/5; mandato 9 años</td></tr>
+    <tr><td>TC: Presidente</td><td>Elegido por los propios Consejeros; nombrado por el Rey; mandato 3 años, renovable</td></tr>
+    <tr><td>TC: dos funciones</td><td>Fiscalizadora (examina cuentas del sector público) + Jurisdiccional (enjuiciamiento contable)</td></tr>
+    <tr><td>TC: función fiscalizadora</td><td>Examina legalidad, eficiencia y economía de la gestión económico-financiera pública; resultado: informes al Parlamento</td></tr>
+    <tr><td>TC: enjuiciamiento contable</td><td>Responsabilidad contable: alcance, malversación o pago indebido; condena al reintegro; compatible con responsabilidad penal</td></tr>
+    <tr><td>TC: recursos contra resoluciones</td><td>Contra resoluciones de las Salas de la Sección de Enjuiciamiento: recurso de casación ante la Sala 3.ª del Tribunal Supremo</td></tr>
+    <tr><td>TC: Sindicatura de Comptes IB</td><td>Art. 82 EA LO 1/2007; órgano fiscalizador externo autonómico; coordinada con el TC estatal</td></tr>
+    <tr><td>DP: art. constitucional</td><td>Art. 54 CE; LO 3/1981 (LODP)</td></tr>
+    <tr><td>DP: definición</td><td>Alto comisionado de las Cortes Generales para la defensa de los derechos del Título I CE; supervisa todas las AAPP</td></tr>
+    <tr><td>DP: elección</td><td>Mayoría de 3/5 de cada cámara (Comisión Mixta); mayoría absoluta en 2.ª vuelta; mandato 5 años, renovable</td></tr>
+    <tr><td>DP: cese</td><td>Por incapacidad, negligencia notoria, condena firme por delito doloso o actuación de mala fe; mayoría de cada cámara</td></tr>
+    <tr><td>DP: resoluciones</td><td>Recomendaciones, sugerencias, recordatorios de deberes legales: NO son vinculantes</td></tr>
+    <tr><td>DP: legitimación TC</td><td>Art. 162 CE: puede interponer recurso de inconstitucionalidad y recurso de amparo</td></tr>
+    <tr><td>DP: MNP</td><td>Mecanismo Nacional de Prevención de la Tortura (OPCAT); atribuido al Defensor por disposición final de la LODP (2009); visita periódica y preventiva de centros de privación de libertad</td></tr>
+    <tr><td>DP: Síndic de Greuges IB</td><td>Art. 51 EA LO 1/2007; regulado por Ley 1/1993; comisionado del Parlament balear</td></tr>
+    <tr><td>DP: procedimiento (queja)</td><td>Gratuita, sin asistencia letrada, por escrito, en plazo de 1 año desde conocimiento de los hechos</td></tr>
+    <tr><td>DP: causas inadmisión</td><td>Anonimato, mala fe, asunto sub iudice, actos de particulares, materia ajena a derechos Título I CE</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="nav-bottom">
+  <a href="tema15.html" class="nav-btn">← Tema 15</a>
+  <a href="../index.html" class="nav-btn">Inici</a>
+  <a href="tema17.html" class="nav-btn next">Tema 17 →</a>
+</div>
+
+</div>
+</div>
+
+<footer>Servei de Salut de les Illes Balears · Material de preparació no oficial · 2025–2026</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('nav'))document.getElementById('mobile-menu').classList.remove('open');
+});
+</script>
+</body>
+</html>
